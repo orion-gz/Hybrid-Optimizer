@@ -1,0 +1,85 @@
+nohup: ignoring input
+Using Device: cuda
+Detected GPU: Tesla V100-PCIE-32GB
+Using 2 GPUs
+
+===== Training Strategy: AdamW_then_SAM =====
+Epoch 001/50 | LR: 0.000000 | Time: 62.35s | Train Loss: 2.3274 | Train Acc: 8.75% | Val Loss: 2.3192 | Val Acc: 8.62% | Gap: 0.13%
+----> Best Val Acc Updated: 8.62% at epoch 1
+Epoch 002/50 | LR: 0.000010 | Time: 63.03s | Train Loss: 1.8171 | Train Acc: 32.20% | Val Loss: 1.9290 | Val Acc: 32.81% | Gap: -0.61%
+----> Best Val Acc Updated: 32.81% at epoch 2
+Epoch 003/50 | LR: 0.000020 | Time: 61.19s | Train Loss: 1.4753 | Train Acc: 46.21% | Val Loss: 1.5219 | Val Acc: 48.46% | Gap: -2.25%
+----> Best Val Acc Updated: 48.46% at epoch 3
+Epoch 004/50 | LR: 0.000030 | Time: 61.89s | Train Loss: 1.2615 | Train Acc: 54.80% | Val Loss: 1.2699 | Val Acc: 56.20% | Gap: -1.40%
+----> Best Val Acc Updated: 56.20% at epoch 4
+Epoch 005/50 | LR: 0.000040 | Time: 62.73s | Train Loss: 1.1148 | Train Acc: 60.36% | Val Loss: 1.3660 | Val Acc: 57.89% | Gap: 2.47%
+----> Best Val Acc Updated: 57.89% at epoch 5
+Epoch 006/50 | LR: 0.000050 | Time: 61.54s | Train Loss: 0.9987 | Train Acc: 64.91% | Val Loss: 1.0892 | Val Acc: 65.29% | Gap: -0.38%
+----> Best Val Acc Updated: 65.29% at epoch 6
+Epoch 007/50 | LR: 0.000060 | Time: 61.27s | Train Loss: 0.9024 | Train Acc: 68.42% | Val Loss: 1.2303 | Val Acc: 62.13% | Gap: 6.29%
+Epoch 008/50 | LR: 0.000070 | Time: 62.43s | Train Loss: 0.8108 | Train Acc: 71.66% | Val Loss: 0.8881 | Val Acc: 71.30% | Gap: 0.36%
+----> Best Val Acc Updated: 71.30% at epoch 8
+Epoch 009/50 | LR: 0.000080 | Time: 62.07s | Train Loss: 0.7434 | Train Acc: 74.25% | Val Loss: 1.0784 | Val Acc: 68.60% | Gap: 5.65%
+/home/prml/StudentsWork/JungWoo/.venv/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:198: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch 010/50 | LR: 0.000090 | Time: 62.27s | Train Loss: 0.6905 | Train Acc: 76.17% | Val Loss: 1.0498 | Val Acc: 71.75% | Gap: 4.42%
+----> Best Val Acc Updated: 71.75% at epoch 10
+Epoch 011/50 | LR: 0.000100 | Time: 61.96s | Train Loss: 0.6471 | Train Acc: 77.73% | Val Loss: 0.7371 | Val Acc: 77.00% | Gap: 0.73%
+----> Best Val Acc Updated: 77.00% at epoch 11
+Epoch 012/50 | LR: 0.000100 | Time: 62.79s | Train Loss: 0.5911 | Train Acc: 79.35% | Val Loss: 0.8766 | Val Acc: 74.18% | Gap: 5.17%
+Epoch 013/50 | LR: 0.000100 | Time: 62.79s | Train Loss: 0.5612 | Train Acc: 80.70% | Val Loss: 0.7711 | Val Acc: 78.00% | Gap: 2.70%
+----> Best Val Acc Updated: 78.00% at epoch 13
+Epoch 014/50 | LR: 0.000100 | Time: 62.37s | Train Loss: 0.5265 | Train Acc: 81.80% | Val Loss: 0.9992 | Val Acc: 74.43% | Gap: 7.37%
+Epoch 015/50 | LR: 0.000100 | Time: 62.56s | Train Loss: 0.4930 | Train Acc: 83.13% | Val Loss: 0.6840 | Val Acc: 79.60% | Gap: 3.53%
+----> Best Val Acc Updated: 79.60% at epoch 15
+Epoch 016/50 | LR: 0.000100 | Time: 62.16s | Train Loss: 0.4739 | Train Acc: 83.71% | Val Loss: 0.6805 | Val Acc: 80.78% | Gap: 2.93%
+----> Best Val Acc Updated: 80.78% at epoch 16
+Epoch 017/50 | LR: 0.000100 | Time: 61.58s | Train Loss: 0.4461 | Train Acc: 84.69% | Val Loss: 0.6692 | Val Acc: 80.96% | Gap: 3.73%
+----> Best Val Acc Updated: 80.96% at epoch 17
+Epoch 018/50 | LR: 0.000100 | Time: 61.66s | Train Loss: 0.4235 | Train Acc: 85.31% | Val Loss: 0.6878 | Val Acc: 80.47% | Gap: 4.84%
+Epoch 019/50 | LR: 0.000100 | Time: 61.92s | Train Loss: 0.3995 | Train Acc: 86.25% | Val Loss: 0.6059 | Val Acc: 82.08% | Gap: 4.17%
+----> Best Val Acc Updated: 82.08% at epoch 19
+Epoch 020/50 | LR: 0.000100 | Time: 62.61s | Train Loss: 0.3884 | Train Acc: 86.61% | Val Loss: 0.6411 | Val Acc: 82.07% | Gap: 4.55%
+Epoch 021/50 | LR: 0.000100 | Time: 61.18s | Train Loss: 0.3674 | Train Acc: 87.43% | Val Loss: 0.6152 | Val Acc: 82.47% | Gap: 4.96%
+----> Best Val Acc Updated: 82.47% at epoch 21
+Epoch 022/50 | LR: 0.000100 | Time: 60.90s | Train Loss: 0.3469 | Train Acc: 87.94% | Val Loss: 0.7459 | Val Acc: 80.99% | Gap: 6.95%
+Epoch 023/50 | LR: 0.000100 | Time: 61.31s | Train Loss: 0.3352 | Train Acc: 88.34% | Val Loss: 0.5587 | Val Acc: 84.22% | Gap: 4.12%
+----> Best Val Acc Updated: 84.22% at epoch 23
+Epoch 024/50 | LR: 0.000100 | Time: 62.60s | Train Loss: 0.3198 | Train Acc: 88.86% | Val Loss: 0.8124 | Val Acc: 80.07% | Gap: 8.79%
+Epoch 025/50 | LR: 0.000100 | Time: 61.54s | Train Loss: 0.3081 | Train Acc: 89.19% | Val Loss: 0.5945 | Val Acc: 83.77% | Gap: 5.42%
+Epoch 026/50 | LR: 0.000100 | Time: 60.89s | Train Loss: 0.3018 | Train Acc: 89.47% | Val Loss: 0.6421 | Val Acc: 82.41% | Gap: 7.06%
+Epoch 027/50 | LR: 0.000100 | Time: 61.07s | Train Loss: 0.2832 | Train Acc: 90.21% | Val Loss: 0.6977 | Val Acc: 82.74% | Gap: 7.47%
+Epoch 028/50 | LR: 0.000100 | Time: 61.09s | Train Loss: 0.2749 | Train Acc: 90.38% | Val Loss: 0.8853 | Val Acc: 78.15% | Gap: 12.23%
+Epoch 029/50 | LR: 0.000100 | Time: 62.75s | Train Loss: 0.2679 | Train Acc: 90.52% | Val Loss: 0.6342 | Val Acc: 83.75% | Gap: 6.77%
+Epoch 030/50 | LR: 0.000100 | Time: 61.88s | Train Loss: 0.2501 | Train Acc: 91.19% | Val Loss: 0.5373 | Val Acc: 85.55% | Gap: 5.64%
+----> Best Val Acc Updated: 85.55% at epoch 30
+/home/prml/StudentsWork/JungWoo/.venv/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:182: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch 031/50 | LR: 0.000100 | Time: 61.78s | Train Loss: 0.2495 | Train Acc: 91.31% | Val Loss: 0.7072 | Val Acc: 83.62% | Gap: 7.69%
+
+----- Fixed Epoch Switch Triggered at Epoch 31! Switching to SAM -----
+Epoch 032/50 | LR: 0.020000 | Time: 110.79s | Train Loss: 0.3077 | Train Acc: 89.35% | Val Loss: 0.5748 | Val Acc: 84.91% | Gap: 4.44%
+Epoch 033/50 | LR: 0.040000 | Time: 110.84s | Train Loss: 0.3768 | Train Acc: 86.94% | Val Loss: 0.7839 | Val Acc: 80.34% | Gap: 6.59%
+Epoch 034/50 | LR: 0.060000 | Time: 111.13s | Train Loss: 0.4341 | Train Acc: 84.98% | Val Loss: 0.8290 | Val Acc: 78.64% | Gap: 6.34%
+Epoch 035/50 | LR: 0.080000 | Time: 110.87s | Train Loss: 0.4337 | Train Acc: 85.03% | Val Loss: 1.0419 | Val Acc: 75.46% | Gap: 9.57%
+Epoch 036/50 | LR: 0.100000 | Time: 111.79s | Train Loss: 0.4347 | Train Acc: 84.95% | Val Loss: 0.6768 | Val Acc: 81.11% | Gap: 3.84%
+Epoch 037/50 | LR: 0.100000 | Time: 110.84s | Train Loss: 0.3859 | Train Acc: 86.68% | Val Loss: 0.5404 | Val Acc: 84.02% | Gap: 2.66%
+Epoch 038/50 | LR: 0.100000 | Time: 110.84s | Train Loss: 0.3319 | Train Acc: 88.45% | Val Loss: 0.7354 | Val Acc: 80.05% | Gap: 8.41%
+Epoch 039/50 | LR: 0.100000 | Time: 111.01s | Train Loss: 0.3069 | Train Acc: 89.33% | Val Loss: 0.6097 | Val Acc: 84.43% | Gap: 4.89%
+Epoch 040/50 | LR: 0.100000 | Time: 110.89s | Train Loss: 0.2850 | Train Acc: 90.08% | Val Loss: 0.5798 | Val Acc: 83.71% | Gap: 6.37%
+Epoch 041/50 | LR: 0.100000 | Time: 110.67s | Train Loss: 0.2605 | Train Acc: 90.97% | Val Loss: 0.5218 | Val Acc: 84.78% | Gap: 6.19%
+Epoch 042/50 | LR: 0.100000 | Time: 111.31s | Train Loss: 0.2499 | Train Acc: 91.22% | Val Loss: 0.5407 | Val Acc: 84.98% | Gap: 6.24%
+Epoch 043/50 | LR: 0.100000 | Time: 111.24s | Train Loss: 0.2244 | Train Acc: 92.20% | Val Loss: 0.4778 | Val Acc: 86.39% | Gap: 5.81%
+----> Best Val Acc Updated: 86.39% at epoch 43
+Epoch 044/50 | LR: 0.100000 | Time: 110.98s | Train Loss: 0.2172 | Train Acc: 92.42% | Val Loss: 0.6308 | Val Acc: 84.01% | Gap: 8.41%
+Epoch 045/50 | LR: 0.020000 | Time: 110.82s | Train Loss: 0.1382 | Train Acc: 95.38% | Val Loss: 0.3782 | Val Acc: 90.02% | Gap: 5.36%
+----> Best Val Acc Updated: 90.02% at epoch 45
+Epoch 046/50 | LR: 0.020000 | Time: 110.91s | Train Loss: 0.1140 | Train Acc: 96.17% | Val Loss: 0.4352 | Val Acc: 88.43% | Gap: 7.74%
+Epoch 047/50 | LR: 0.020000 | Time: 111.01s | Train Loss: 0.1066 | Train Acc: 96.39% | Val Loss: 0.3898 | Val Acc: 89.38% | Gap: 7.01%
+Epoch 048/50 | LR: 0.020000 | Time: 111.04s | Train Loss: 0.1005 | Train Acc: 96.55% | Val Loss: 0.4438 | Val Acc: 88.65% | Gap: 7.89%
+Epoch 049/50 | LR: 0.020000 | Time: 110.72s | Train Loss: 0.0930 | Train Acc: 96.92% | Val Loss: 0.4463 | Val Acc: 88.77% | Gap: 8.15%
+Epoch 050/50 | LR: 0.004000 | Time: 111.00s | Train Loss: 0.0796 | Train Acc: 97.48% | Val Loss: 0.4156 | Val Acc: 89.24% | Gap: 8.25%
+
+===== Final Evaluation for AdamW_then_SAM =====
+Final Test Accuracy: 91.66%
+

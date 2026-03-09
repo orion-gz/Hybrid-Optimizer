@@ -1,0 +1,968 @@
+nohup: ignoring input
+/home/prml/StudentsWork/JungWoo/Optimizer/.venv/lib/python3.11/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+==========================
+seed                  : 42
+device                : cuda
+num_workers           : 16
+dataset               : CIFAR100
+num_classes           : 100
+data_path             : ./data/
+image_size            : 32
+use_randaugment       : False
+use_autoaugment       : True
+use_mixup             : True
+use_cutmix            : True
+mixup_alpha           : 0.8
+cutmix_alpha          : 1.0
+aug_prob              : 0.5
+model_name            : WRN_28_10
+dropout_rate          : 0.3
+use_amp               : True
+epochs                : 200
+batch_size            : 256
+warmup_epochs         : 10
+initial_lr            : 0.0001
+weight_decay          : 0.0005
+sam_warmup_epochs     : 10
+sam_lr                : 0.1
+esam_lr               : 0.01
+rho                   : 0.2
+beta_ema              : 0.9
+history_window        : 20
+plateau_patience      : 15
+plateau_min_delta     : 0.01
+gap_threshold         : 0.02
+grad_norm_threshold   : 0.1
+oscillation_threshold : 5
+min_switch_epoch      : 50
+==========================
+
+===== Training Strategy: SAM_Only =====
+AMP Enabled: True
+Epoch 001/200 | LR: 0.100000 | Time: 112.14s | Train Loss: 4.4590 | Train Acc: 1.99% | Val Loss: 4.3203 | Val Acc: 5.17% | Gap: -3.18%
+----> Best Val Acc Updated: 5.17% at epoch 1
+Epoch 002/200 | LR: 0.099994 | Time: 70.96s | Train Loss: 4.3205 | Train Acc: 3.44% | Val Loss: 4.3109 | Val Acc: 5.42% | Gap: -1.98%
+----> Best Val Acc Updated: 5.42% at epoch 2
+Epoch 003/200 | LR: 0.099975 | Time: 71.11s | Train Loss: 4.2378 | Train Acc: 4.06% | Val Loss: 4.1484 | Val Acc: 8.15% | Gap: -4.09%
+----> Best Val Acc Updated: 8.15% at epoch 3
+Epoch 004/200 | LR: 0.099944 | Time: 71.63s | Train Loss: 4.1923 | Train Acc: 4.79% | Val Loss: 4.1256 | Val Acc: 8.70% | Gap: -3.91%
+----> Best Val Acc Updated: 8.70% at epoch 4
+Epoch 005/200 | LR: 0.099901 | Time: 71.25s | Train Loss: 4.1006 | Train Acc: 6.32% | Val Loss: 3.9298 | Val Acc: 12.01% | Gap: -5.69%
+----> Best Val Acc Updated: 12.01% at epoch 5
+Epoch 006/200 | LR: 0.099846 | Time: 70.97s | Train Loss: 3.9747 | Train Acc: 8.40% | Val Loss: 3.8995 | Val Acc: 12.58% | Gap: -4.18%
+----> Best Val Acc Updated: 12.58% at epoch 6
+Epoch 007/200 | LR: 0.099778 | Time: 71.44s | Train Loss: 3.9065 | Train Acc: 8.35% | Val Loss: 3.7221 | Val Acc: 17.40% | Gap: -9.05%
+----> Best Val Acc Updated: 17.40% at epoch 7
+Epoch 008/200 | LR: 0.099698 | Time: 71.07s | Train Loss: 3.7831 | Train Acc: 10.51% | Val Loss: 3.5749 | Val Acc: 21.30% | Gap: -10.79%
+----> Best Val Acc Updated: 21.30% at epoch 8
+Epoch 009/200 | LR: 0.099606 | Time: 71.57s | Train Loss: 3.7303 | Train Acc: 10.51% | Val Loss: 3.5994 | Val Acc: 20.00% | Gap: -9.49%
+Epoch 010/200 | LR: 0.099501 | Time: 71.38s | Train Loss: 3.5608 | Train Acc: 14.64% | Val Loss: 3.5053 | Val Acc: 22.24% | Gap: -7.60%
+----> Best Val Acc Updated: 22.24% at epoch 10
+Epoch 011/200 | LR: 0.099384 | Time: 71.24s | Train Loss: 3.4682 | Train Acc: 15.34% | Val Loss: 3.6166 | Val Acc: 21.24% | Gap: -5.90%
+Epoch 012/200 | LR: 0.099255 | Time: 71.16s | Train Loss: 3.3820 | Train Acc: 16.82% | Val Loss: 3.3716 | Val Acc: 26.24% | Gap: -9.42%
+----> Best Val Acc Updated: 26.24% at epoch 12
+Epoch 013/200 | LR: 0.099114 | Time: 71.40s | Train Loss: 3.3462 | Train Acc: 17.93% | Val Loss: 3.6266 | Val Acc: 22.24% | Gap: -4.31%
+Epoch 014/200 | LR: 0.098961 | Time: 72.06s | Train Loss: 3.3061 | Train Acc: 18.83% | Val Loss: 3.2013 | Val Acc: 30.61% | Gap: -11.78%
+----> Best Val Acc Updated: 30.61% at epoch 14
+Epoch 015/200 | LR: 0.098796 | Time: 71.13s | Train Loss: 3.2718 | Train Acc: 17.51% | Val Loss: 3.2123 | Val Acc: 29.65% | Gap: -12.14%
+Epoch 016/200 | LR: 0.098619 | Time: 71.67s | Train Loss: 3.1658 | Train Acc: 20.39% | Val Loss: 3.2062 | Val Acc: 30.12% | Gap: -9.73%
+Epoch 017/200 | LR: 0.098429 | Time: 71.08s | Train Loss: 3.1361 | Train Acc: 21.67% | Val Loss: 3.1140 | Val Acc: 31.90% | Gap: -10.23%
+----> Best Val Acc Updated: 31.90% at epoch 17
+Epoch 018/200 | LR: 0.098228 | Time: 71.18s | Train Loss: 3.1111 | Train Acc: 20.36% | Val Loss: 3.0301 | Val Acc: 34.95% | Gap: -14.59%
+----> Best Val Acc Updated: 34.95% at epoch 18
+Epoch 019/200 | LR: 0.098015 | Time: 71.65s | Train Loss: 2.9711 | Train Acc: 25.77% | Val Loss: 3.1054 | Val Acc: 34.36% | Gap: -8.59%
+Epoch 020/200 | LR: 0.097790 | Time: 71.45s | Train Loss: 3.0019 | Train Acc: 22.09% | Val Loss: 3.0194 | Val Acc: 35.84% | Gap: -13.76%
+----> Best Val Acc Updated: 35.84% at epoch 20
+Epoch 021/200 | LR: 0.097553 | Time: 71.95s | Train Loss: 2.8359 | Train Acc: 27.56% | Val Loss: 2.8547 | Val Acc: 39.83% | Gap: -12.27%
+----> Best Val Acc Updated: 39.83% at epoch 21
+Epoch 022/200 | LR: 0.097304 | Time: 71.74s | Train Loss: 2.9365 | Train Acc: 22.28% | Val Loss: 2.9857 | Val Acc: 37.82% | Gap: -15.54%
+Epoch 023/200 | LR: 0.097044 | Time: 71.83s | Train Loss: 2.8122 | Train Acc: 28.41% | Val Loss: 2.8807 | Val Acc: 40.33% | Gap: -11.92%
+----> Best Val Acc Updated: 40.33% at epoch 23
+Epoch 024/200 | LR: 0.096772 | Time: 71.59s | Train Loss: 2.7387 | Train Acc: 28.96% | Val Loss: 2.6601 | Val Acc: 44.85% | Gap: -15.89%
+----> Best Val Acc Updated: 44.85% at epoch 24
+Epoch 025/200 | LR: 0.096489 | Time: 71.72s | Train Loss: 2.7766 | Train Acc: 28.45% | Val Loss: 2.7199 | Val Acc: 44.92% | Gap: -16.47%
+----> Best Val Acc Updated: 44.92% at epoch 25
+Epoch 026/200 | LR: 0.096194 | Time: 72.03s | Train Loss: 2.8101 | Train Acc: 25.41% | Val Loss: 2.6943 | Val Acc: 44.94% | Gap: -19.52%
+----> Best Val Acc Updated: 44.94% at epoch 26
+Epoch 027/200 | LR: 0.095888 | Time: 71.81s | Train Loss: 2.7188 | Train Acc: 29.49% | Val Loss: 2.7014 | Val Acc: 44.75% | Gap: -15.26%
+Epoch 028/200 | LR: 0.095570 | Time: 71.20s | Train Loss: 2.7440 | Train Acc: 26.57% | Val Loss: 2.7513 | Val Acc: 44.44% | Gap: -17.87%
+Epoch 029/200 | LR: 0.095241 | Time: 71.84s | Train Loss: 2.6789 | Train Acc: 28.20% | Val Loss: 2.5201 | Val Acc: 49.13% | Gap: -20.93%
+----> Best Val Acc Updated: 49.13% at epoch 29
+Epoch 030/200 | LR: 0.094901 | Time: 71.67s | Train Loss: 2.6443 | Train Acc: 29.05% | Val Loss: 2.6563 | Val Acc: 47.56% | Gap: -18.51%
+Epoch 031/200 | LR: 0.094550 | Time: 71.97s | Train Loss: 2.5659 | Train Acc: 31.68% | Val Loss: 2.6897 | Val Acc: 47.11% | Gap: -15.43%
+Epoch 032/200 | LR: 0.094188 | Time: 71.42s | Train Loss: 2.5432 | Train Acc: 32.56% | Val Loss: 2.4125 | Val Acc: 51.56% | Gap: -19.00%
+----> Best Val Acc Updated: 51.56% at epoch 32
+Epoch 033/200 | LR: 0.093815 | Time: 71.45s | Train Loss: 2.5330 | Train Acc: 31.59% | Val Loss: 2.5529 | Val Acc: 49.18% | Gap: -17.59%
+Epoch 034/200 | LR: 0.093432 | Time: 71.22s | Train Loss: 2.5368 | Train Acc: 32.63% | Val Loss: 2.5144 | Val Acc: 50.02% | Gap: -17.39%
+Epoch 035/200 | LR: 0.093037 | Time: 71.88s | Train Loss: 2.4774 | Train Acc: 32.85% | Val Loss: 2.3930 | Val Acc: 53.82% | Gap: -20.97%
+----> Best Val Acc Updated: 53.82% at epoch 35
+Epoch 036/200 | LR: 0.092632 | Time: 71.93s | Train Loss: 2.4479 | Train Acc: 33.79% | Val Loss: 2.4827 | Val Acc: 53.33% | Gap: -19.54%
+Epoch 037/200 | LR: 0.092216 | Time: 71.33s | Train Loss: 2.4520 | Train Acc: 33.73% | Val Loss: 2.5576 | Val Acc: 50.60% | Gap: -16.87%
+Epoch 038/200 | LR: 0.091790 | Time: 71.20s | Train Loss: 2.5035 | Train Acc: 30.53% | Val Loss: 2.3120 | Val Acc: 56.88% | Gap: -26.35%
+----> Best Val Acc Updated: 56.88% at epoch 38
+Epoch 039/200 | LR: 0.091354 | Time: 71.79s | Train Loss: 2.4147 | Train Acc: 33.23% | Val Loss: 2.3969 | Val Acc: 55.34% | Gap: -22.11%
+Epoch 040/200 | LR: 0.090908 | Time: 72.05s | Train Loss: 2.4479 | Train Acc: 31.35% | Val Loss: 2.4757 | Val Acc: 54.03% | Gap: -22.68%
+Epoch 041/200 | LR: 0.090451 | Time: 71.27s | Train Loss: 2.4058 | Train Acc: 35.58% | Val Loss: 2.4243 | Val Acc: 56.16% | Gap: -20.58%
+Epoch 042/200 | LR: 0.089984 | Time: 72.01s | Train Loss: 2.2847 | Train Acc: 37.84% | Val Loss: 2.4581 | Val Acc: 54.90% | Gap: -17.05%
+Epoch 043/200 | LR: 0.089508 | Time: 71.38s | Train Loss: 2.3024 | Train Acc: 35.41% | Val Loss: 2.3969 | Val Acc: 55.84% | Gap: -20.43%
+Epoch 044/200 | LR: 0.089022 | Time: 71.54s | Train Loss: 2.3899 | Train Acc: 33.77% | Val Loss: 2.3229 | Val Acc: 56.17% | Gap: -22.40%
+Epoch 045/200 | LR: 0.088526 | Time: 71.83s | Train Loss: 2.3106 | Train Acc: 37.83% | Val Loss: 2.3357 | Val Acc: 57.63% | Gap: -19.80%
+----> Best Val Acc Updated: 57.63% at epoch 45
+Epoch 046/200 | LR: 0.088020 | Time: 71.32s | Train Loss: 2.3433 | Train Acc: 32.17% | Val Loss: 2.2687 | Val Acc: 59.03% | Gap: -26.86%
+----> Best Val Acc Updated: 59.03% at epoch 46
+Epoch 047/200 | LR: 0.087506 | Time: 71.94s | Train Loss: 2.3229 | Train Acc: 34.20% | Val Loss: 2.2417 | Val Acc: 59.64% | Gap: -25.44%
+----> Best Val Acc Updated: 59.64% at epoch 47
+Epoch 048/200 | LR: 0.086982 | Time: 71.46s | Train Loss: 2.3354 | Train Acc: 33.25% | Val Loss: 2.3372 | Val Acc: 56.90% | Gap: -23.65%
+Epoch 049/200 | LR: 0.086449 | Time: 71.96s | Train Loss: 2.2089 | Train Acc: 38.72% | Val Loss: 2.3647 | Val Acc: 57.96% | Gap: -19.24%
+Epoch 050/200 | LR: 0.085906 | Time: 71.64s | Train Loss: 2.2771 | Train Acc: 36.08% | Val Loss: 2.3054 | Val Acc: 58.36% | Gap: -22.28%
+Epoch 051/200 | LR: 0.085355 | Time: 71.50s | Train Loss: 2.1759 | Train Acc: 37.87% | Val Loss: 2.3763 | Val Acc: 58.62% | Gap: -20.75%
+Epoch 052/200 | LR: 0.084796 | Time: 71.20s | Train Loss: 2.1583 | Train Acc: 40.89% | Val Loss: 2.2463 | Val Acc: 60.54% | Gap: -19.65%
+----> Best Val Acc Updated: 60.54% at epoch 52
+Epoch 053/200 | LR: 0.084228 | Time: 70.72s | Train Loss: 2.0883 | Train Acc: 45.40% | Val Loss: 2.3350 | Val Acc: 59.80% | Gap: -14.40%
+Epoch 054/200 | LR: 0.083651 | Time: 71.51s | Train Loss: 2.1101 | Train Acc: 42.01% | Val Loss: 2.1362 | Val Acc: 61.25% | Gap: -19.24%
+----> Best Val Acc Updated: 61.25% at epoch 54
+Epoch 055/200 | LR: 0.083066 | Time: 70.78s | Train Loss: 2.1891 | Train Acc: 31.39% | Val Loss: 2.1973 | Val Acc: 62.71% | Gap: -31.32%
+----> Best Val Acc Updated: 62.71% at epoch 55
+Epoch 056/200 | LR: 0.082473 | Time: 71.07s | Train Loss: 2.1132 | Train Acc: 40.62% | Val Loss: 2.2074 | Val Acc: 60.36% | Gap: -19.74%
+Epoch 057/200 | LR: 0.081871 | Time: 71.34s | Train Loss: 2.1033 | Train Acc: 42.11% | Val Loss: 2.2006 | Val Acc: 61.44% | Gap: -19.33%
+Epoch 058/200 | LR: 0.081262 | Time: 71.34s | Train Loss: 2.1255 | Train Acc: 39.33% | Val Loss: 2.1270 | Val Acc: 62.43% | Gap: -23.10%
+Epoch 059/200 | LR: 0.080646 | Time: 71.03s | Train Loss: 2.1712 | Train Acc: 37.71% | Val Loss: 2.1909 | Val Acc: 63.27% | Gap: -25.56%
+----> Best Val Acc Updated: 63.27% at epoch 59
+Epoch 060/200 | LR: 0.080021 | Time: 71.48s | Train Loss: 2.1071 | Train Acc: 40.04% | Val Loss: 2.1564 | Val Acc: 63.00% | Gap: -22.96%
+Epoch 061/200 | LR: 0.079389 | Time: 71.20s | Train Loss: 2.1579 | Train Acc: 37.05% | Val Loss: 2.2367 | Val Acc: 61.67% | Gap: -24.62%
+Epoch 062/200 | LR: 0.078750 | Time: 71.18s | Train Loss: 2.1152 | Train Acc: 36.84% | Val Loss: 2.0837 | Val Acc: 63.39% | Gap: -26.55%
+----> Best Val Acc Updated: 63.39% at epoch 62
+Epoch 063/200 | LR: 0.078104 | Time: 71.28s | Train Loss: 2.0753 | Train Acc: 38.01% | Val Loss: 2.1599 | Val Acc: 64.27% | Gap: -26.26%
+----> Best Val Acc Updated: 64.27% at epoch 63
+Epoch 064/200 | LR: 0.077451 | Time: 71.28s | Train Loss: 2.0479 | Train Acc: 41.90% | Val Loss: 2.0497 | Val Acc: 64.42% | Gap: -22.52%
+----> Best Val Acc Updated: 64.42% at epoch 64
+Epoch 065/200 | LR: 0.076792 | Time: 70.78s | Train Loss: 2.0524 | Train Acc: 37.87% | Val Loss: 2.1192 | Val Acc: 63.01% | Gap: -25.14%
+Epoch 066/200 | LR: 0.076125 | Time: 71.27s | Train Loss: 1.9963 | Train Acc: 41.51% | Val Loss: 2.1268 | Val Acc: 62.99% | Gap: -21.48%
+Epoch 067/200 | LR: 0.075452 | Time: 71.78s | Train Loss: 1.9579 | Train Acc: 41.43% | Val Loss: 2.0914 | Val Acc: 63.78% | Gap: -22.35%
+Epoch 068/200 | LR: 0.074773 | Time: 71.24s | Train Loss: 2.0748 | Train Acc: 37.67% | Val Loss: 2.1465 | Val Acc: 61.03% | Gap: -23.36%
+Epoch 069/200 | LR: 0.074088 | Time: 71.19s | Train Loss: 1.9651 | Train Acc: 44.83% | Val Loss: 2.0353 | Val Acc: 65.22% | Gap: -20.39%
+----> Best Val Acc Updated: 65.22% at epoch 69
+Epoch 070/200 | LR: 0.073397 | Time: 70.82s | Train Loss: 1.9932 | Train Acc: 40.40% | Val Loss: 2.1010 | Val Acc: 64.94% | Gap: -24.54%
+Epoch 071/200 | LR: 0.072700 | Time: 71.35s | Train Loss: 2.0895 | Train Acc: 38.19% | Val Loss: 2.0187 | Val Acc: 65.45% | Gap: -27.26%
+----> Best Val Acc Updated: 65.45% at epoch 71
+Epoch 072/200 | LR: 0.071997 | Time: 70.79s | Train Loss: 1.9737 | Train Acc: 42.02% | Val Loss: 1.9739 | Val Acc: 66.72% | Gap: -24.70%
+----> Best Val Acc Updated: 66.72% at epoch 72
+Epoch 073/200 | LR: 0.071289 | Time: 70.52s | Train Loss: 2.0321 | Train Acc: 39.13% | Val Loss: 2.0213 | Val Acc: 65.75% | Gap: -26.62%
+Epoch 074/200 | LR: 0.070576 | Time: 71.25s | Train Loss: 1.9514 | Train Acc: 40.77% | Val Loss: 1.9694 | Val Acc: 66.09% | Gap: -25.32%
+Epoch 075/200 | LR: 0.069858 | Time: 70.94s | Train Loss: 2.0472 | Train Acc: 38.44% | Val Loss: 2.0058 | Val Acc: 66.75% | Gap: -28.31%
+----> Best Val Acc Updated: 66.75% at epoch 75
+Epoch 076/200 | LR: 0.069134 | Time: 70.53s | Train Loss: 1.9214 | Train Acc: 43.38% | Val Loss: 1.9828 | Val Acc: 64.96% | Gap: -21.57%
+Epoch 077/200 | LR: 0.068407 | Time: 71.84s | Train Loss: 1.8576 | Train Acc: 51.36% | Val Loss: 2.0050 | Val Acc: 66.43% | Gap: -15.07%
+Epoch 078/200 | LR: 0.067674 | Time: 70.99s | Train Loss: 1.8321 | Train Acc: 48.63% | Val Loss: 2.0348 | Val Acc: 66.29% | Gap: -17.66%
+Epoch 079/200 | LR: 0.066937 | Time: 71.66s | Train Loss: 1.8478 | Train Acc: 48.20% | Val Loss: 2.0488 | Val Acc: 64.60% | Gap: -16.40%
+Epoch 080/200 | LR: 0.066196 | Time: 70.83s | Train Loss: 2.0026 | Train Acc: 40.66% | Val Loss: 1.9564 | Val Acc: 66.73% | Gap: -26.08%
+Epoch 081/200 | LR: 0.065451 | Time: 71.15s | Train Loss: 1.8480 | Train Acc: 46.31% | Val Loss: 2.0009 | Val Acc: 65.75% | Gap: -19.44%
+Epoch 082/200 | LR: 0.064702 | Time: 71.07s | Train Loss: 1.9358 | Train Acc: 38.72% | Val Loss: 1.9445 | Val Acc: 66.97% | Gap: -28.25%
+----> Best Val Acc Updated: 66.97% at epoch 82
+Epoch 083/200 | LR: 0.063950 | Time: 71.16s | Train Loss: 1.8888 | Train Acc: 44.00% | Val Loss: 1.9660 | Val Acc: 67.53% | Gap: -23.53%
+----> Best Val Acc Updated: 67.53% at epoch 83
+Epoch 084/200 | LR: 0.063194 | Time: 70.69s | Train Loss: 1.8183 | Train Acc: 49.06% | Val Loss: 1.9377 | Val Acc: 67.58% | Gap: -18.52%
+----> Best Val Acc Updated: 67.58% at epoch 84
+Epoch 085/200 | LR: 0.062435 | Time: 71.24s | Train Loss: 1.9209 | Train Acc: 40.08% | Val Loss: 1.9284 | Val Acc: 67.47% | Gap: -27.39%
+Epoch 086/200 | LR: 0.061673 | Time: 70.61s | Train Loss: 1.8430 | Train Acc: 45.44% | Val Loss: 1.9657 | Val Acc: 66.37% | Gap: -20.93%
+Epoch 087/200 | LR: 0.060908 | Time: 71.38s | Train Loss: 1.8893 | Train Acc: 40.50% | Val Loss: 1.9880 | Val Acc: 66.16% | Gap: -25.66%
+Epoch 088/200 | LR: 0.060140 | Time: 71.00s | Train Loss: 1.9573 | Train Acc: 36.52% | Val Loss: 1.9680 | Val Acc: 66.32% | Gap: -29.80%
+Epoch 089/200 | LR: 0.059369 | Time: 70.87s | Train Loss: 1.8895 | Train Acc: 45.76% | Val Loss: 1.9069 | Val Acc: 67.64% | Gap: -21.88%
+----> Best Val Acc Updated: 67.64% at epoch 89
+Epoch 090/200 | LR: 0.058597 | Time: 71.06s | Train Loss: 1.7861 | Train Acc: 46.96% | Val Loss: 1.8757 | Val Acc: 68.08% | Gap: -21.12%
+----> Best Val Acc Updated: 68.08% at epoch 90
+Epoch 091/200 | LR: 0.057822 | Time: 70.96s | Train Loss: 1.7803 | Train Acc: 46.39% | Val Loss: 1.9967 | Val Acc: 65.83% | Gap: -19.44%
+Epoch 092/200 | LR: 0.057045 | Time: 71.27s | Train Loss: 1.7897 | Train Acc: 43.56% | Val Loss: 1.8630 | Val Acc: 68.31% | Gap: -24.75%
+----> Best Val Acc Updated: 68.31% at epoch 92
+Epoch 093/200 | LR: 0.056267 | Time: 71.07s | Train Loss: 1.7960 | Train Acc: 47.31% | Val Loss: 1.9756 | Val Acc: 65.50% | Gap: -18.19%
+Epoch 094/200 | LR: 0.055487 | Time: 71.14s | Train Loss: 1.8031 | Train Acc: 44.02% | Val Loss: 1.9092 | Val Acc: 67.90% | Gap: -23.88%
+Epoch 095/200 | LR: 0.054706 | Time: 71.08s | Train Loss: 1.8389 | Train Acc: 42.83% | Val Loss: 1.8892 | Val Acc: 67.93% | Gap: -25.10%
+Epoch 096/200 | LR: 0.053923 | Time: 71.14s | Train Loss: 1.6643 | Train Acc: 59.78% | Val Loss: 1.8987 | Val Acc: 68.30% | Gap: -8.52%
+Epoch 097/200 | LR: 0.053140 | Time: 70.90s | Train Loss: 1.7666 | Train Acc: 46.54% | Val Loss: 1.8880 | Val Acc: 67.75% | Gap: -21.21%
+Epoch 098/200 | LR: 0.052356 | Time: 71.64s | Train Loss: 1.6747 | Train Acc: 51.27% | Val Loss: 1.8745 | Val Acc: 68.42% | Gap: -17.15%
+----> Best Val Acc Updated: 68.42% at epoch 98
+Epoch 099/200 | LR: 0.051571 | Time: 71.56s | Train Loss: 1.8299 | Train Acc: 44.60% | Val Loss: 1.8793 | Val Acc: 68.34% | Gap: -23.74%
+Epoch 100/200 | LR: 0.050786 | Time: 71.31s | Train Loss: 1.7333 | Train Acc: 46.83% | Val Loss: 1.8186 | Val Acc: 69.81% | Gap: -22.98%
+----> Best Val Acc Updated: 69.81% at epoch 100
+Epoch 101/200 | LR: 0.050001 | Time: 71.29s | Train Loss: 1.8113 | Train Acc: 44.48% | Val Loss: 1.8631 | Val Acc: 68.53% | Gap: -24.05%
+Epoch 102/200 | LR: 0.049215 | Time: 71.09s | Train Loss: 1.7986 | Train Acc: 42.96% | Val Loss: 1.8928 | Val Acc: 68.32% | Gap: -25.36%
+Epoch 103/200 | LR: 0.048430 | Time: 70.69s | Train Loss: 1.7076 | Train Acc: 50.98% | Val Loss: 1.9189 | Val Acc: 68.13% | Gap: -17.15%
+Epoch 104/200 | LR: 0.047645 | Time: 71.64s | Train Loss: 1.7288 | Train Acc: 47.28% | Val Loss: 1.8692 | Val Acc: 68.90% | Gap: -21.62%
+Epoch 105/200 | LR: 0.046861 | Time: 71.04s | Train Loss: 1.7836 | Train Acc: 45.44% | Val Loss: 1.8463 | Val Acc: 69.03% | Gap: -23.59%
+Epoch 106/200 | LR: 0.046078 | Time: 71.36s | Train Loss: 1.6946 | Train Acc: 49.23% | Val Loss: 1.8340 | Val Acc: 68.99% | Gap: -19.76%
+Epoch 107/200 | LR: 0.045295 | Time: 70.87s | Train Loss: 1.6912 | Train Acc: 50.28% | Val Loss: 1.8757 | Val Acc: 68.13% | Gap: -17.85%
+Epoch 108/200 | LR: 0.044514 | Time: 71.53s | Train Loss: 1.7063 | Train Acc: 46.24% | Val Loss: 1.8470 | Val Acc: 69.21% | Gap: -22.97%
+Epoch 109/200 | LR: 0.043734 | Time: 71.19s | Train Loss: 1.7017 | Train Acc: 46.23% | Val Loss: 1.8423 | Val Acc: 69.60% | Gap: -23.37%
+Epoch 110/200 | LR: 0.042956 | Time: 70.97s | Train Loss: 1.8144 | Train Acc: 45.09% | Val Loss: 1.8362 | Val Acc: 68.81% | Gap: -23.72%
+Epoch 111/200 | LR: 0.042179 | Time: 70.68s | Train Loss: 1.7168 | Train Acc: 44.19% | Val Loss: 1.8480 | Val Acc: 69.05% | Gap: -24.86%
+Epoch 112/200 | LR: 0.041404 | Time: 70.96s | Train Loss: 1.7249 | Train Acc: 49.56% | Val Loss: 1.8354 | Val Acc: 69.22% | Gap: -19.66%
+Epoch 113/200 | LR: 0.040632 | Time: 70.90s | Train Loss: 1.6737 | Train Acc: 47.13% | Val Loss: 1.7995 | Val Acc: 69.16% | Gap: -22.02%
+Epoch 114/200 | LR: 0.039861 | Time: 71.01s | Train Loss: 1.6625 | Train Acc: 48.78% | Val Loss: 1.8247 | Val Acc: 69.18% | Gap: -20.40%
+Epoch 115/200 | LR: 0.039093 | Time: 70.60s | Train Loss: 1.7103 | Train Acc: 46.08% | Val Loss: 1.8148 | Val Acc: 69.23% | Gap: -23.15%
+Epoch 116/200 | LR: 0.038328 | Time: 71.50s | Train Loss: 1.6079 | Train Acc: 51.59% | Val Loss: 1.8205 | Val Acc: 69.35% | Gap: -17.76%
+Epoch 117/200 | LR: 0.037566 | Time: 70.65s | Train Loss: 1.7166 | Train Acc: 47.34% | Val Loss: 1.7980 | Val Acc: 69.93% | Gap: -22.60%
+----> Best Val Acc Updated: 69.93% at epoch 117
+Epoch 118/200 | LR: 0.036807 | Time: 71.10s | Train Loss: 1.6268 | Train Acc: 50.59% | Val Loss: 1.8118 | Val Acc: 69.58% | Gap: -18.99%
+Epoch 119/200 | LR: 0.036051 | Time: 71.20s | Train Loss: 1.7334 | Train Acc: 44.28% | Val Loss: 1.7848 | Val Acc: 70.33% | Gap: -26.05%
+----> Best Val Acc Updated: 70.33% at epoch 119
+Epoch 120/200 | LR: 0.035299 | Time: 70.88s | Train Loss: 1.7028 | Train Acc: 43.84% | Val Loss: 1.7861 | Val Acc: 70.56% | Gap: -26.72%
+----> Best Val Acc Updated: 70.56% at epoch 120
+Epoch 121/200 | LR: 0.034550 | Time: 71.50s | Train Loss: 1.5394 | Train Acc: 56.04% | Val Loss: 1.7916 | Val Acc: 70.40% | Gap: -14.36%
+Epoch 122/200 | LR: 0.033805 | Time: 71.44s | Train Loss: 1.6574 | Train Acc: 49.89% | Val Loss: 1.8047 | Val Acc: 70.13% | Gap: -20.24%
+Epoch 123/200 | LR: 0.033064 | Time: 71.28s | Train Loss: 1.7553 | Train Acc: 43.44% | Val Loss: 1.8118 | Val Acc: 69.82% | Gap: -26.38%
+Epoch 124/200 | LR: 0.032327 | Time: 70.64s | Train Loss: 1.6749 | Train Acc: 47.01% | Val Loss: 1.7731 | Val Acc: 71.11% | Gap: -24.10%
+----> Best Val Acc Updated: 71.11% at epoch 124
+Epoch 125/200 | LR: 0.031594 | Time: 71.28s | Train Loss: 1.6768 | Train Acc: 44.02% | Val Loss: 1.7630 | Val Acc: 70.52% | Gap: -26.49%
+Epoch 126/200 | LR: 0.030867 | Time: 71.10s | Train Loss: 1.6307 | Train Acc: 50.69% | Val Loss: 1.7603 | Val Acc: 71.22% | Gap: -20.53%
+----> Best Val Acc Updated: 71.22% at epoch 126
+Epoch 127/200 | LR: 0.030143 | Time: 71.27s | Train Loss: 1.5630 | Train Acc: 46.65% | Val Loss: 1.7947 | Val Acc: 69.70% | Gap: -23.05%
+Epoch 128/200 | LR: 0.029425 | Time: 70.70s | Train Loss: 1.6863 | Train Acc: 43.33% | Val Loss: 1.7778 | Val Acc: 70.76% | Gap: -27.44%
+Epoch 129/200 | LR: 0.028712 | Time: 71.13s | Train Loss: 1.7040 | Train Acc: 46.16% | Val Loss: 1.8002 | Val Acc: 69.81% | Gap: -23.65%
+Epoch 130/200 | LR: 0.028004 | Time: 71.21s | Train Loss: 1.6423 | Train Acc: 45.94% | Val Loss: 1.7626 | Val Acc: 71.27% | Gap: -25.33%
+----> Best Val Acc Updated: 71.27% at epoch 130
+Epoch 131/200 | LR: 0.027301 | Time: 70.87s | Train Loss: 1.7699 | Train Acc: 40.70% | Val Loss: 1.7735 | Val Acc: 70.47% | Gap: -29.77%
+Epoch 132/200 | LR: 0.026604 | Time: 71.74s | Train Loss: 1.6196 | Train Acc: 50.91% | Val Loss: 1.7552 | Val Acc: 70.83% | Gap: -19.92%
+Epoch 133/200 | LR: 0.025913 | Time: 71.21s | Train Loss: 1.6279 | Train Acc: 49.19% | Val Loss: 1.7695 | Val Acc: 70.84% | Gap: -21.65%
+Epoch 134/200 | LR: 0.025228 | Time: 70.79s | Train Loss: 1.5798 | Train Acc: 52.12% | Val Loss: 1.7653 | Val Acc: 70.83% | Gap: -18.71%
+Epoch 135/200 | LR: 0.024549 | Time: 71.56s | Train Loss: 1.6968 | Train Acc: 46.71% | Val Loss: 1.7759 | Val Acc: 70.84% | Gap: -24.13%
+Epoch 136/200 | LR: 0.023876 | Time: 71.38s | Train Loss: 1.7072 | Train Acc: 40.07% | Val Loss: 1.7745 | Val Acc: 70.78% | Gap: -30.71%
+Epoch 137/200 | LR: 0.023209 | Time: 71.35s | Train Loss: 1.7172 | Train Acc: 43.70% | Val Loss: 1.7594 | Val Acc: 70.57% | Gap: -26.86%
+Epoch 138/200 | LR: 0.022550 | Time: 71.30s | Train Loss: 1.5572 | Train Acc: 54.70% | Val Loss: 1.7469 | Val Acc: 71.40% | Gap: -16.71%
+----> Best Val Acc Updated: 71.40% at epoch 138
+Epoch 139/200 | LR: 0.021897 | Time: 71.05s | Train Loss: 1.6794 | Train Acc: 43.21% | Val Loss: 1.7581 | Val Acc: 70.99% | Gap: -27.78%
+Epoch 140/200 | LR: 0.021251 | Time: 70.85s | Train Loss: 1.5467 | Train Acc: 53.66% | Val Loss: 1.7341 | Val Acc: 71.76% | Gap: -18.10%
+----> Best Val Acc Updated: 71.76% at epoch 140
+Epoch 141/200 | LR: 0.020612 | Time: 70.87s | Train Loss: 1.5790 | Train Acc: 51.09% | Val Loss: 1.7639 | Val Acc: 71.18% | Gap: -20.09%
+Epoch 142/200 | LR: 0.019980 | Time: 71.43s | Train Loss: 1.6510 | Train Acc: 41.60% | Val Loss: 1.7324 | Val Acc: 72.00% | Gap: -30.40%
+----> Best Val Acc Updated: 72.00% at epoch 142
+Epoch 143/200 | LR: 0.019355 | Time: 70.95s | Train Loss: 1.7186 | Train Acc: 38.94% | Val Loss: 1.7388 | Val Acc: 71.56% | Gap: -32.62%
+Epoch 144/200 | LR: 0.018739 | Time: 70.79s | Train Loss: 1.5176 | Train Acc: 51.98% | Val Loss: 1.7374 | Val Acc: 71.62% | Gap: -19.64%
+Epoch 145/200 | LR: 0.018130 | Time: 71.31s | Train Loss: 1.7020 | Train Acc: 43.20% | Val Loss: 1.7633 | Val Acc: 70.71% | Gap: -27.51%
+Epoch 146/200 | LR: 0.017528 | Time: 71.19s | Train Loss: 1.5696 | Train Acc: 52.70% | Val Loss: 1.7651 | Val Acc: 70.93% | Gap: -18.23%
+Epoch 147/200 | LR: 0.016935 | Time: 71.32s | Train Loss: 1.7625 | Train Acc: 37.42% | Val Loss: 1.7304 | Val Acc: 71.73% | Gap: -34.31%
+Epoch 148/200 | LR: 0.016350 | Time: 71.44s | Train Loss: 1.6945 | Train Acc: 39.09% | Val Loss: 1.7543 | Val Acc: 71.78% | Gap: -32.69%
+Epoch 149/200 | LR: 0.015773 | Time: 71.16s | Train Loss: 1.5473 | Train Acc: 51.14% | Val Loss: 1.7197 | Val Acc: 72.43% | Gap: -21.29%
+----> Best Val Acc Updated: 72.43% at epoch 149
+Epoch 150/200 | LR: 0.015205 | Time: 71.51s | Train Loss: 1.5432 | Train Acc: 49.60% | Val Loss: 1.7353 | Val Acc: 72.07% | Gap: -22.47%
+Epoch 151/200 | LR: 0.014646 | Time: 71.69s | Train Loss: 1.6282 | Train Acc: 49.64% | Val Loss: 1.7539 | Val Acc: 71.62% | Gap: -21.98%
+Epoch 152/200 | LR: 0.014095 | Time: 71.03s | Train Loss: 1.6166 | Train Acc: 47.28% | Val Loss: 1.7494 | Val Acc: 71.82% | Gap: -24.54%
+Epoch 153/200 | LR: 0.013552 | Time: 71.23s | Train Loss: 1.6429 | Train Acc: 42.65% | Val Loss: 1.7279 | Val Acc: 71.80% | Gap: -29.15%
+Epoch 154/200 | LR: 0.013019 | Time: 71.04s | Train Loss: 1.6624 | Train Acc: 44.32% | Val Loss: 1.7181 | Val Acc: 72.19% | Gap: -27.87%
+Epoch 155/200 | LR: 0.012495 | Time: 70.92s | Train Loss: 1.6980 | Train Acc: 39.01% | Val Loss: 1.7540 | Val Acc: 71.66% | Gap: -32.65%
+Epoch 156/200 | LR: 0.011981 | Time: 71.59s | Train Loss: 1.6003 | Train Acc: 46.01% | Val Loss: 1.7511 | Val Acc: 71.37% | Gap: -25.37%
+Epoch 157/200 | LR: 0.011475 | Time: 70.69s | Train Loss: 1.5783 | Train Acc: 49.22% | Val Loss: 1.7242 | Val Acc: 72.59% | Gap: -23.38%
+----> Best Val Acc Updated: 72.59% at epoch 157
+Epoch 158/200 | LR: 0.010979 | Time: 70.62s | Train Loss: 1.6216 | Train Acc: 48.49% | Val Loss: 1.7454 | Val Acc: 72.10% | Gap: -23.61%
+Epoch 159/200 | LR: 0.010493 | Time: 71.29s | Train Loss: 1.6614 | Train Acc: 45.55% | Val Loss: 1.7499 | Val Acc: 71.49% | Gap: -25.94%
+Epoch 160/200 | LR: 0.010017 | Time: 71.13s | Train Loss: 1.6529 | Train Acc: 44.22% | Val Loss: 1.7379 | Val Acc: 71.44% | Gap: -27.22%
+Epoch 161/200 | LR: 0.009550 | Time: 71.02s | Train Loss: 1.6170 | Train Acc: 45.44% | Val Loss: 1.7190 | Val Acc: 72.07% | Gap: -26.63%
+Epoch 162/200 | LR: 0.009093 | Time: 70.85s | Train Loss: 1.4690 | Train Acc: 54.25% | Val Loss: 1.7369 | Val Acc: 71.85% | Gap: -17.60%
+Epoch 163/200 | LR: 0.008647 | Time: 71.15s | Train Loss: 1.5945 | Train Acc: 44.97% | Val Loss: 1.7217 | Val Acc: 71.94% | Gap: -26.97%
+Epoch 164/200 | LR: 0.008211 | Time: 70.77s | Train Loss: 1.4904 | Train Acc: 54.07% | Val Loss: 1.7308 | Val Acc: 71.68% | Gap: -17.61%
+Epoch 165/200 | LR: 0.007785 | Time: 71.39s | Train Loss: 1.5432 | Train Acc: 52.71% | Val Loss: 1.7301 | Val Acc: 72.02% | Gap: -19.31%
+Epoch 166/200 | LR: 0.007369 | Time: 71.31s | Train Loss: 1.6619 | Train Acc: 42.92% | Val Loss: 1.7521 | Val Acc: 71.35% | Gap: -28.43%
+Epoch 167/200 | LR: 0.006964 | Time: 71.03s | Train Loss: 1.6071 | Train Acc: 45.49% | Val Loss: 1.7270 | Val Acc: 71.69% | Gap: -26.20%
+Epoch 168/200 | LR: 0.006569 | Time: 71.38s | Train Loss: 1.5850 | Train Acc: 49.69% | Val Loss: 1.7184 | Val Acc: 72.34% | Gap: -22.65%
+Epoch 169/200 | LR: 0.006186 | Time: 70.74s | Train Loss: 1.5426 | Train Acc: 48.78% | Val Loss: 1.7256 | Val Acc: 71.91% | Gap: -23.12%
+Epoch 170/200 | LR: 0.005813 | Time: 70.81s | Train Loss: 1.5957 | Train Acc: 45.61% | Val Loss: 1.7424 | Val Acc: 71.74% | Gap: -26.13%
+Epoch 171/200 | LR: 0.005451 | Time: 71.31s | Train Loss: 1.5704 | Train Acc: 53.87% | Val Loss: 1.7229 | Val Acc: 71.70% | Gap: -17.83%
+Epoch 172/200 | LR: 0.005100 | Time: 71.38s | Train Loss: 1.6747 | Train Acc: 38.69% | Val Loss: 1.7358 | Val Acc: 72.00% | Gap: -33.31%
+Epoch 173/200 | LR: 0.004760 | Time: 71.56s | Train Loss: 1.5856 | Train Acc: 46.78% | Val Loss: 1.7393 | Val Acc: 72.03% | Gap: -25.25%
+Epoch 174/200 | LR: 0.004431 | Time: 71.19s | Train Loss: 1.5805 | Train Acc: 46.81% | Val Loss: 1.7422 | Val Acc: 71.57% | Gap: -24.75%
+Epoch 175/200 | LR: 0.004113 | Time: 71.51s | Train Loss: 1.6291 | Train Acc: 44.96% | Val Loss: 1.7233 | Val Acc: 72.03% | Gap: -27.07%
+Epoch 176/200 | LR: 0.003807 | Time: 70.76s | Train Loss: 1.5861 | Train Acc: 43.20% | Val Loss: 1.7389 | Val Acc: 71.72% | Gap: -28.52%
+Epoch 177/200 | LR: 0.003512 | Time: 71.66s | Train Loss: 1.4336 | Train Acc: 59.74% | Val Loss: 1.7238 | Val Acc: 72.17% | Gap: -12.43%
+Epoch 178/200 | LR: 0.003229 | Time: 71.59s | Train Loss: 1.5383 | Train Acc: 49.34% | Val Loss: 1.7326 | Val Acc: 71.91% | Gap: -22.57%
+Epoch 179/200 | LR: 0.002957 | Time: 71.59s | Train Loss: 1.6202 | Train Acc: 43.09% | Val Loss: 1.7344 | Val Acc: 71.96% | Gap: -28.87%
+Epoch 180/200 | LR: 0.002697 | Time: 71.33s | Train Loss: 1.6337 | Train Acc: 44.85% | Val Loss: 1.7209 | Val Acc: 72.19% | Gap: -27.34%
+Epoch 181/200 | LR: 0.002448 | Time: 71.55s | Train Loss: 1.5552 | Train Acc: 47.47% | Val Loss: 1.7160 | Val Acc: 72.12% | Gap: -24.65%
+Epoch 182/200 | LR: 0.002211 | Time: 71.57s | Train Loss: 1.6117 | Train Acc: 46.27% | Val Loss: 1.7349 | Val Acc: 71.51% | Gap: -25.24%
+Epoch 183/200 | LR: 0.001986 | Time: 71.76s | Train Loss: 1.5891 | Train Acc: 47.51% | Val Loss: 1.7336 | Val Acc: 72.26% | Gap: -24.75%
+Epoch 184/200 | LR: 0.001773 | Time: 70.75s | Train Loss: 1.6760 | Train Acc: 46.33% | Val Loss: 1.7095 | Val Acc: 72.65% | Gap: -26.33%
+----> Best Val Acc Updated: 72.65% at epoch 184
+Epoch 185/200 | LR: 0.001572 | Time: 70.56s | Train Loss: 1.5915 | Train Acc: 45.08% | Val Loss: 1.7123 | Val Acc: 72.69% | Gap: -27.61%
+----> Best Val Acc Updated: 72.69% at epoch 185
+Epoch 186/200 | LR: 0.001382 | Time: 70.70s | Train Loss: 1.5823 | Train Acc: 46.77% | Val Loss: 1.7126 | Val Acc: 72.41% | Gap: -25.64%
+Epoch 187/200 | LR: 0.001205 | Time: 71.49s | Train Loss: 1.4422 | Train Acc: 55.91% | Val Loss: 1.7165 | Val Acc: 72.66% | Gap: -16.75%
+Epoch 188/200 | LR: 0.001040 | Time: 70.85s | Train Loss: 1.5403 | Train Acc: 46.15% | Val Loss: 1.7137 | Val Acc: 72.37% | Gap: -26.22%
+Epoch 189/200 | LR: 0.000887 | Time: 70.59s | Train Loss: 1.5823 | Train Acc: 48.91% | Val Loss: 1.7151 | Val Acc: 72.27% | Gap: -23.36%
+Epoch 190/200 | LR: 0.000746 | Time: 70.65s | Train Loss: 1.5358 | Train Acc: 49.86% | Val Loss: 1.7189 | Val Acc: 72.22% | Gap: -22.36%
+Epoch 191/200 | LR: 0.000617 | Time: 71.40s | Train Loss: 1.4789 | Train Acc: 51.16% | Val Loss: 1.7341 | Val Acc: 71.69% | Gap: -20.53%
+Epoch 192/200 | LR: 0.000500 | Time: 70.69s | Train Loss: 1.5016 | Train Acc: 48.10% | Val Loss: 1.7201 | Val Acc: 72.30% | Gap: -24.20%
+Epoch 193/200 | LR: 0.000395 | Time: 71.08s | Train Loss: 1.6748 | Train Acc: 41.20% | Val Loss: 1.7263 | Val Acc: 72.27% | Gap: -31.07%
+Epoch 194/200 | LR: 0.000303 | Time: 70.91s | Train Loss: 1.6066 | Train Acc: 46.67% | Val Loss: 1.7495 | Val Acc: 71.67% | Gap: -25.00%
+Epoch 195/200 | LR: 0.000223 | Time: 71.56s | Train Loss: 1.5474 | Train Acc: 47.22% | Val Loss: 1.7312 | Val Acc: 72.07% | Gap: -24.85%
+Epoch 196/200 | LR: 0.000155 | Time: 70.79s | Train Loss: 1.6111 | Train Acc: 46.25% | Val Loss: 1.7335 | Val Acc: 72.01% | Gap: -25.76%
+Epoch 197/200 | LR: 0.000100 | Time: 70.65s | Train Loss: 1.4957 | Train Acc: 52.90% | Val Loss: 1.7301 | Val Acc: 71.95% | Gap: -19.05%
+Epoch 198/200 | LR: 0.000057 | Time: 70.67s | Train Loss: 1.5902 | Train Acc: 48.05% | Val Loss: 1.7353 | Val Acc: 71.66% | Gap: -23.60%
+Epoch 199/200 | LR: 0.000026 | Time: 70.58s | Train Loss: 1.5850 | Train Acc: 47.37% | Val Loss: 1.6988 | Val Acc: 72.75% | Gap: -25.38%
+----> Best Val Acc Updated: 72.75% at epoch 199
+Epoch 200/200 | LR: 0.000007 | Time: 71.32s | Train Loss: 1.7027 | Train Acc: 36.90% | Val Loss: 1.7216 | Val Acc: 72.25% | Gap: -35.35%
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/WRN_28_10_SAM_Only_best.pth
+
+===== Final Test Accuracy for SAM_Only =====
+Final Test Accuracy: 78.48%
+Total Training Time: 14286.90 sec
+
+
+
+===== Training Strategy: AdamW_then_SAM =====
+AMP Enabled: True
+Epoch 001/200 | LR: 0.000000 | Time: 37.58s | Train Loss: 4.6351 | Train Acc: 0.49% | Val Loss: 4.6183 | Val Acc: 0.85% | Gap: -0.36%
+----> Best Val Acc Updated: 0.85% at epoch 1
+[Switcher] Warming up... (Epoch 1)
+Epoch 002/200 | LR: 0.000010 | Time: 37.49s | Train Loss: 4.5149 | Train Acc: 1.52% | Val Loss: 4.5001 | Val Acc: 3.36% | Gap: -1.84%
+----> Best Val Acc Updated: 3.36% at epoch 2
+[Switcher] Warming up... (Epoch 2)
+Epoch 003/200 | LR: 0.000020 | Time: 37.56s | Train Loss: 4.3575 | Train Acc: 3.24% | Val Loss: 4.4262 | Val Acc: 5.30% | Gap: -2.06%
+----> Best Val Acc Updated: 5.30% at epoch 3
+[Switcher] Warming up... (Epoch 3)
+Epoch 004/200 | LR: 0.000030 | Time: 37.45s | Train Loss: 4.2508 | Train Acc: 4.55% | Val Loss: 4.3625 | Val Acc: 6.40% | Gap: -1.85%
+----> Best Val Acc Updated: 6.40% at epoch 4
+[Switcher] Warming up... (Epoch 4)
+Epoch 005/200 | LR: 0.000040 | Time: 37.48s | Train Loss: 4.1377 | Train Acc: 6.10% | Val Loss: 4.1661 | Val Acc: 9.85% | Gap: -3.75%
+----> Best Val Acc Updated: 9.85% at epoch 5
+[Switcher] Warming up... (Epoch 5)
+Epoch 006/200 | LR: 0.000050 | Time: 37.74s | Train Loss: 4.0203 | Train Acc: 7.86% | Val Loss: 4.0848 | Val Acc: 12.82% | Gap: -4.96%
+----> Best Val Acc Updated: 12.82% at epoch 6
+[Switcher] Warming up... (Epoch 6)
+Epoch 007/200 | LR: 0.000060 | Time: 37.54s | Train Loss: 3.9173 | Train Acc: 8.13% | Val Loss: 4.0550 | Val Acc: 14.07% | Gap: -5.94%
+----> Best Val Acc Updated: 14.07% at epoch 7
+[Switcher] Warming up... (Epoch 7)
+Epoch 008/200 | LR: 0.000070 | Time: 37.48s | Train Loss: 3.7385 | Train Acc: 12.45% | Val Loss: 3.7369 | Val Acc: 20.56% | Gap: -8.11%
+----> Best Val Acc Updated: 20.56% at epoch 8
+[Switcher] Warming up... (Epoch 8)
+Epoch 009/200 | LR: 0.000080 | Time: 37.52s | Train Loss: 3.6577 | Train Acc: 11.70% | Val Loss: 3.7016 | Val Acc: 22.40% | Gap: -10.70%
+----> Best Val Acc Updated: 22.40% at epoch 9
+[Switcher] Warming up... (Epoch 9)
+Epoch 010/200 | LR: 0.000090 | Time: 37.50s | Train Loss: 3.5249 | Train Acc: 15.21% | Val Loss: 3.7403 | Val Acc: 23.96% | Gap: -8.75%
+----> Best Val Acc Updated: 23.96% at epoch 10
+[Switcher] Warming up... (Epoch 10)
+Epoch 011/200 | LR: 0.000100 | Time: 37.69s | Train Loss: 3.4480 | Train Acc: 17.09% | Val Loss: 4.0933 | Val Acc: 21.61% | Gap: -4.52%
+[Switcher] Warming up... (Epoch 11)
+Epoch 012/200 | LR: 0.000100 | Time: 37.58s | Train Loss: 3.3697 | Train Acc: 17.90% | Val Loss: 3.6477 | Val Acc: 26.41% | Gap: -8.51%
+----> Best Val Acc Updated: 26.41% at epoch 12
+[Switcher] Warming up... (Epoch 12)
+Epoch 013/200 | LR: 0.000100 | Time: 37.39s | Train Loss: 3.3047 | Train Acc: 17.08% | Val Loss: 3.4168 | Val Acc: 31.43% | Gap: -14.35%
+----> Best Val Acc Updated: 31.43% at epoch 13
+[Switcher] Warming up... (Epoch 13)
+Epoch 014/200 | LR: 0.000100 | Time: 37.54s | Train Loss: 3.2492 | Train Acc: 18.20% | Val Loss: 3.4268 | Val Acc: 31.90% | Gap: -13.70%
+----> Best Val Acc Updated: 31.90% at epoch 14
+[Switcher] Warming up... (Epoch 14)
+Epoch 015/200 | LR: 0.000100 | Time: 37.45s | Train Loss: 3.0568 | Train Acc: 23.22% | Val Loss: 3.3140 | Val Acc: 33.92% | Gap: -10.70%
+----> Best Val Acc Updated: 33.92% at epoch 15
+[Switcher] Warming up... (Epoch 15)
+Epoch 016/200 | LR: 0.000100 | Time: 37.56s | Train Loss: 3.0862 | Train Acc: 20.54% | Val Loss: 3.2574 | Val Acc: 37.00% | Gap: -16.46%
+----> Best Val Acc Updated: 37.00% at epoch 16
+[Switcher] Warming up... (Epoch 16)
+Epoch 017/200 | LR: 0.000100 | Time: 37.74s | Train Loss: 3.0269 | Train Acc: 19.39% | Val Loss: 3.5570 | Val Acc: 33.63% | Gap: -14.24%
+[Switcher] Warming up... (Epoch 17)
+Epoch 018/200 | LR: 0.000100 | Time: 37.53s | Train Loss: 2.9692 | Train Acc: 22.52% | Val Loss: 3.3811 | Val Acc: 38.68% | Gap: -16.16%
+----> Best Val Acc Updated: 38.68% at epoch 18
+[Switcher] Warming up... (Epoch 18)
+Epoch 019/200 | LR: 0.000100 | Time: 37.67s | Train Loss: 2.9779 | Train Acc: 20.93% | Val Loss: 3.0328 | Val Acc: 41.77% | Gap: -20.84%
+----> Best Val Acc Updated: 41.77% at epoch 19
+[Switcher] Warming up... (Epoch 19)
+Epoch 020/200 | LR: 0.000099 | Time: 37.62s | Train Loss: 2.8921 | Train Acc: 23.21% | Val Loss: 3.3953 | Val Acc: 39.01% | Gap: -15.79%
+[Switcher] Warming up... (Epoch 20)
+Epoch 021/200 | LR: 0.000099 | Time: 37.60s | Train Loss: 2.7639 | Train Acc: 26.34% | Val Loss: 3.1847 | Val Acc: 43.37% | Gap: -17.03%
+----> Best Val Acc Updated: 43.37% at epoch 21
+[Switcher] Warming up... (Epoch 21)
+Epoch 022/200 | LR: 0.000099 | Time: 37.69s | Train Loss: 2.7484 | Train Acc: 28.39% | Val Loss: 2.9293 | Val Acc: 44.92% | Gap: -16.53%
+----> Best Val Acc Updated: 44.92% at epoch 22
+[Switcher] Warming up... (Epoch 22)
+Epoch 023/200 | LR: 0.000099 | Time: 37.47s | Train Loss: 2.7216 | Train Acc: 27.95% | Val Loss: 3.1336 | Val Acc: 42.83% | Gap: -14.88%
+[Switcher] Warming up... (Epoch 23)
+Epoch 024/200 | LR: 0.000099 | Time: 37.61s | Train Loss: 2.6810 | Train Acc: 29.57% | Val Loss: 2.9696 | Val Acc: 45.93% | Gap: -16.36%
+----> Best Val Acc Updated: 45.93% at epoch 24
+[Switcher] Warming up... (Epoch 24)
+Epoch 025/200 | LR: 0.000099 | Time: 37.67s | Train Loss: 2.5987 | Train Acc: 32.49% | Val Loss: 3.1695 | Val Acc: 45.50% | Gap: -13.01%
+[Switcher] Warming up... (Epoch 25)
+Epoch 026/200 | LR: 0.000098 | Time: 37.89s | Train Loss: 2.6204 | Train Acc: 28.65% | Val Loss: 2.8684 | Val Acc: 46.65% | Gap: -18.00%
+----> Best Val Acc Updated: 46.65% at epoch 26
+[Switcher] Warming up... (Epoch 26)
+Epoch 027/200 | LR: 0.000098 | Time: 37.42s | Train Loss: 2.5978 | Train Acc: 27.63% | Val Loss: 3.0973 | Val Acc: 50.33% | Gap: -22.70%
+----> Best Val Acc Updated: 50.33% at epoch 27
+[Switcher] Warming up... (Epoch 27)
+Epoch 028/200 | LR: 0.000098 | Time: 37.70s | Train Loss: 2.5825 | Train Acc: 31.12% | Val Loss: 3.1586 | Val Acc: 47.06% | Gap: -15.94%
+[Switcher] Warming up... (Epoch 28)
+Epoch 029/200 | LR: 0.000098 | Time: 38.08s | Train Loss: 2.5877 | Train Acc: 31.29% | Val Loss: 2.9067 | Val Acc: 50.32% | Gap: -19.03%
+[Switcher] Warming up... (Epoch 29)
+Epoch 030/200 | LR: 0.000098 | Time: 37.55s | Train Loss: 2.5607 | Train Acc: 31.81% | Val Loss: 2.8893 | Val Acc: 51.27% | Gap: -19.46%
+----> Best Val Acc Updated: 51.27% at epoch 30
+[Switcher] Warming up... (Epoch 30)
+Epoch 031/200 | LR: 0.000097 | Time: 37.81s | Train Loss: 2.4699 | Train Acc: 32.25% | Val Loss: 2.8130 | Val Acc: 50.75% | Gap: -18.50%
+[Switcher] Warming up... (Epoch 31)
+Epoch 032/200 | LR: 0.000097 | Time: 37.66s | Train Loss: 2.3824 | Train Acc: 38.25% | Val Loss: 2.7228 | Val Acc: 52.49% | Gap: -14.24%
+----> Best Val Acc Updated: 52.49% at epoch 32
+[Switcher] Warming up... (Epoch 32)
+Epoch 033/200 | LR: 0.000097 | Time: 37.48s | Train Loss: 2.5215 | Train Acc: 32.29% | Val Loss: 3.0667 | Val Acc: 50.73% | Gap: -18.44%
+[Switcher] Warming up... (Epoch 33)
+Epoch 034/200 | LR: 0.000096 | Time: 37.44s | Train Loss: 2.4350 | Train Acc: 34.98% | Val Loss: 2.6989 | Val Acc: 54.89% | Gap: -19.91%
+----> Best Val Acc Updated: 54.89% at epoch 34
+[Switcher] Warming up... (Epoch 34)
+Epoch 035/200 | LR: 0.000096 | Time: 37.65s | Train Loss: 2.4831 | Train Acc: 29.54% | Val Loss: 2.9572 | Val Acc: 50.42% | Gap: -20.89%
+[Switcher] Warming up... (Epoch 35)
+Epoch 036/200 | LR: 0.000096 | Time: 37.63s | Train Loss: 2.3522 | Train Acc: 36.69% | Val Loss: 3.0463 | Val Acc: 50.87% | Gap: -14.18%
+[Switcher] Warming up... (Epoch 36)
+Epoch 037/200 | LR: 0.000095 | Time: 37.47s | Train Loss: 2.4457 | Train Acc: 30.60% | Val Loss: 2.9308 | Val Acc: 51.21% | Gap: -20.61%
+[Switcher] Warming up... (Epoch 37)
+Epoch 038/200 | LR: 0.000095 | Time: 37.76s | Train Loss: 2.5028 | Train Acc: 28.41% | Val Loss: 2.7243 | Val Acc: 55.20% | Gap: -26.79%
+----> Best Val Acc Updated: 55.20% at epoch 38
+[Switcher] Warming up... (Epoch 38)
+Epoch 039/200 | LR: 0.000095 | Time: 37.83s | Train Loss: 2.4286 | Train Acc: 33.37% | Val Loss: 2.7776 | Val Acc: 53.67% | Gap: -20.30%
+[Switcher] Warming up... (Epoch 39)
+Epoch 040/200 | LR: 0.000094 | Time: 37.51s | Train Loss: 2.4235 | Train Acc: 29.40% | Val Loss: 2.7646 | Val Acc: 54.22% | Gap: -24.82%
+[Switcher] Warming up... (Epoch 40)
+Epoch 041/200 | LR: 0.000094 | Time: 37.81s | Train Loss: 2.3796 | Train Acc: 32.47% | Val Loss: 2.7282 | Val Acc: 56.43% | Gap: -23.96%
+----> Best Val Acc Updated: 56.43% at epoch 41
+[Switcher] Warming up... (Epoch 41)
+Epoch 042/200 | LR: 0.000094 | Time: 37.70s | Train Loss: 2.2970 | Train Acc: 37.25% | Val Loss: 2.8215 | Val Acc: 53.99% | Gap: -16.74%
+[Switcher] Warming up... (Epoch 42)
+Epoch 043/200 | LR: 0.000093 | Time: 37.56s | Train Loss: 2.3069 | Train Acc: 36.68% | Val Loss: 2.6132 | Val Acc: 57.48% | Gap: -20.80%
+----> Best Val Acc Updated: 57.48% at epoch 43
+[Switcher] Warming up... (Epoch 43)
+Epoch 044/200 | LR: 0.000093 | Time: 37.46s | Train Loss: 2.2524 | Train Acc: 40.61% | Val Loss: 2.8780 | Val Acc: 56.14% | Gap: -15.53%
+[Switcher] Warming up... (Epoch 44)
+Epoch 045/200 | LR: 0.000092 | Time: 37.85s | Train Loss: 2.2415 | Train Acc: 37.89% | Val Loss: 2.6826 | Val Acc: 56.89% | Gap: -19.00%
+[Switcher] Warming up... (Epoch 45)
+Epoch 046/200 | LR: 0.000092 | Time: 37.66s | Train Loss: 2.2363 | Train Acc: 38.60% | Val Loss: 2.5820 | Val Acc: 57.50% | Gap: -18.90%
+----> Best Val Acc Updated: 57.50% at epoch 46
+[Switcher] Warming up... (Epoch 46)
+Epoch 047/200 | LR: 0.000091 | Time: 37.60s | Train Loss: 2.2833 | Train Acc: 38.41% | Val Loss: 2.6757 | Val Acc: 58.72% | Gap: -20.31%
+----> Best Val Acc Updated: 58.72% at epoch 47
+[Switcher] Warming up... (Epoch 47)
+Epoch 048/200 | LR: 0.000091 | Time: 37.76s | Train Loss: 2.2225 | Train Acc: 37.75% | Val Loss: 2.6048 | Val Acc: 59.71% | Gap: -21.96%
+----> Best Val Acc Updated: 59.71% at epoch 48
+[Switcher] Warming up... (Epoch 48)
+Epoch 049/200 | LR: 0.000091 | Time: 37.63s | Train Loss: 2.1643 | Train Acc: 38.88% | Val Loss: 2.7486 | Val Acc: 55.78% | Gap: -16.90%
+[Switcher] Warming up... (Epoch 49)
+Epoch 050/200 | LR: 0.000090 | Time: 37.62s | Train Loss: 2.2076 | Train Acc: 36.20% | Val Loss: 2.7467 | Val Acc: 56.16% | Gap: -19.96%
+[Switcher] Warming up... (Epoch 50)
+Epoch 051/200 | LR: 0.000090 | Time: 37.69s | Train Loss: 2.2384 | Train Acc: 37.62% | Val Loss: 2.7572 | Val Acc: 55.06% | Gap: -17.45%
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.034 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 052/200 | LR: 0.000089 | Time: 37.72s | Train Loss: 2.2465 | Train Acc: 33.85% | Val Loss: 2.4581 | Val Acc: 58.42% | Gap: -24.57%
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.041 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 053/200 | LR: 0.000089 | Time: 37.66s | Train Loss: 2.2126 | Train Acc: 38.80% | Val Loss: 2.4331 | Val Acc: 59.82% | Gap: -21.02%
+----> Best Val Acc Updated: 59.82% at epoch 53
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.039 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 054/200 | LR: 0.000088 | Time: 37.62s | Train Loss: 2.0973 | Train Acc: 41.31% | Val Loss: 2.6080 | Val Acc: 60.27% | Gap: -18.96%
+----> Best Val Acc Updated: 60.27% at epoch 54
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.034 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 055/200 | LR: 0.000087 | Time: 37.67s | Train Loss: 2.0765 | Train Acc: 42.41% | Val Loss: 2.4827 | Val Acc: 60.80% | Gap: -18.39%
+----> Best Val Acc Updated: 60.80% at epoch 55
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.028 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 056/200 | LR: 0.000087 | Time: 37.39s | Train Loss: 2.1256 | Train Acc: 38.34% | Val Loss: 2.3557 | Val Acc: 61.02% | Gap: -22.68%
+----> Best Val Acc Updated: 61.02% at epoch 56
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.034 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 057/200 | LR: 0.000086 | Time: 37.66s | Train Loss: 2.1734 | Train Acc: 37.43% | Val Loss: 2.4110 | Val Acc: 60.53% | Gap: -23.10%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.033 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 058/200 | LR: 0.000086 | Time: 37.71s | Train Loss: 2.1208 | Train Acc: 38.86% | Val Loss: 2.3459 | Val Acc: 62.68% | Gap: -23.82%
+----> Best Val Acc Updated: 62.68% at epoch 58
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 059/200 | LR: 0.000085 | Time: 37.59s | Train Loss: 2.1100 | Train Acc: 35.60% | Val Loss: 2.3079 | Val Acc: 61.76% | Gap: -26.16%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.030 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 060/200 | LR: 0.000085 | Time: 37.49s | Train Loss: 2.0956 | Train Acc: 37.29% | Val Loss: 2.2020 | Val Acc: 62.12% | Gap: -24.83%
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 061/200 | LR: 0.000084 | Time: 37.75s | Train Loss: 2.0029 | Train Acc: 43.03% | Val Loss: 2.2997 | Val Acc: 61.55% | Gap: -18.52%
+[Switcher] Status | Plateau: False (3/15) | Gap Increase: False (-0.019 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 062/200 | LR: 0.000083 | Time: 37.72s | Train Loss: 2.0941 | Train Acc: 41.73% | Val Loss: 2.3325 | Val Acc: 62.04% | Gap: -20.31%
+[Switcher] Status | Plateau: False (4/15) | Gap Increase: False (-0.021 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 063/200 | LR: 0.000083 | Time: 37.53s | Train Loss: 2.0743 | Train Acc: 35.59% | Val Loss: 2.2442 | Val Acc: 62.26% | Gap: -26.67%
+[Switcher] Status | Plateau: False (5/15) | Gap Increase: False (-0.024 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 064/200 | LR: 0.000082 | Time: 37.59s | Train Loss: 2.0205 | Train Acc: 40.09% | Val Loss: 2.3185 | Val Acc: 61.85% | Gap: -21.76%
+[Switcher] Status | Plateau: False (6/15) | Gap Increase: False (-0.028 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 065/200 | LR: 0.000082 | Time: 37.53s | Train Loss: 2.0773 | Train Acc: 40.52% | Val Loss: 2.2384 | Val Acc: 62.82% | Gap: -22.30%
+----> Best Val Acc Updated: 62.82% at epoch 65
+[Switcher] Status | Plateau: False (7/15) | Gap Increase: False (-0.029 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 066/200 | LR: 0.000081 | Time: 37.78s | Train Loss: 2.0702 | Train Acc: 42.67% | Val Loss: 2.2638 | Val Acc: 62.84% | Gap: -20.17%
+----> Best Val Acc Updated: 62.84% at epoch 66
+[Switcher] Status | Plateau: False (8/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 067/200 | LR: 0.000080 | Time: 37.67s | Train Loss: 2.0080 | Train Acc: 43.10% | Val Loss: 2.2004 | Val Acc: 63.85% | Gap: -20.75%
+----> Best Val Acc Updated: 63.85% at epoch 67
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.025 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 068/200 | LR: 0.000080 | Time: 37.69s | Train Loss: 2.0261 | Train Acc: 36.46% | Val Loss: 2.1847 | Val Acc: 63.43% | Gap: -26.97%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 069/200 | LR: 0.000079 | Time: 37.60s | Train Loss: 1.9722 | Train Acc: 42.91% | Val Loss: 2.3268 | Val Acc: 63.87% | Gap: -20.96%
+----> Best Val Acc Updated: 63.87% at epoch 69
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.029 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: False (0/5)
+Epoch 070/200 | LR: 0.000078 | Time: 37.46s | Train Loss: 2.1364 | Train Acc: 34.14% | Val Loss: 2.2109 | Val Acc: 64.74% | Gap: -30.60%
+----> Best Val Acc Updated: 64.74% at epoch 70
+[Switcher] Status | Plateau: False (3/15) | Gap Increase: False (-0.036 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 071/200 | LR: 0.000078 | Time: 37.66s | Train Loss: 1.9278 | Train Acc: 45.59% | Val Loss: 2.1919 | Val Acc: 63.64% | Gap: -18.05%
+[Switcher] Status | Plateau: False (4/15) | Gap Increase: False (-0.033 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 072/200 | LR: 0.000077 | Time: 37.60s | Train Loss: 1.9433 | Train Acc: 41.50% | Val Loss: 2.2063 | Val Acc: 63.01% | Gap: -21.51%
+[Switcher] Status | Plateau: False (5/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 073/200 | LR: 0.000076 | Time: 37.56s | Train Loss: 2.0161 | Train Acc: 39.60% | Val Loss: 2.1251 | Val Acc: 63.58% | Gap: -23.98%
+[Switcher] Status | Plateau: False (6/15) | Gap Increase: False (-0.027 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 074/200 | LR: 0.000075 | Time: 37.67s | Train Loss: 1.9113 | Train Acc: 46.43% | Val Loss: 2.2568 | Val Acc: 64.27% | Gap: -17.84%
+[Switcher] Status | Plateau: False (7/15) | Gap Increase: False (-0.023 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 075/200 | LR: 0.000075 | Time: 37.61s | Train Loss: 2.0193 | Train Acc: 41.29% | Val Loss: 2.1808 | Val Acc: 64.05% | Gap: -22.76%
+[Switcher] Status | Plateau: False (8/15) | Gap Increase: False (-0.025 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 076/200 | LR: 0.000074 | Time: 37.45s | Train Loss: 2.0073 | Train Acc: 40.83% | Val Loss: 2.0669 | Val Acc: 64.17% | Gap: -23.34%
+[Switcher] Status | Plateau: False (9/15) | Gap Increase: False (-0.024 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 077/200 | LR: 0.000073 | Time: 37.68s | Train Loss: 1.8841 | Train Acc: 46.07% | Val Loss: 2.1569 | Val Acc: 63.33% | Gap: -17.26%
+[Switcher] Status | Plateau: False (10/15) | Gap Increase: False (-0.015 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 078/200 | LR: 0.000073 | Time: 37.83s | Train Loss: 1.9466 | Train Acc: 42.73% | Val Loss: 2.0288 | Val Acc: 65.24% | Gap: -22.51%
+----> Best Val Acc Updated: 65.24% at epoch 78
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.013 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 079/200 | LR: 0.000072 | Time: 37.63s | Train Loss: 1.9476 | Train Acc: 42.89% | Val Loss: 2.0841 | Val Acc: 64.57% | Gap: -21.68%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.007 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 080/200 | LR: 0.000071 | Time: 37.80s | Train Loss: 1.9279 | Train Acc: 39.79% | Val Loss: 1.9791 | Val Acc: 66.07% | Gap: -26.28%
+----> Best Val Acc Updated: 66.07% at epoch 80
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.008 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 081/200 | LR: 0.000070 | Time: 37.62s | Train Loss: 1.8763 | Train Acc: 44.80% | Val Loss: 2.0900 | Val Acc: 63.95% | Gap: -19.15%
+[Switcher] Status | Plateau: False (3/15) | Gap Increase: False (-0.007 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 082/200 | LR: 0.000070 | Time: 37.63s | Train Loss: 1.8500 | Train Acc: 46.97% | Val Loss: 2.0546 | Val Acc: 65.52% | Gap: -18.55%
+[Switcher] Status | Plateau: False (4/15) | Gap Increase: False (-0.005 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 083/200 | LR: 0.000069 | Time: 37.65s | Train Loss: 1.9416 | Train Acc: 42.24% | Val Loss: 2.0012 | Val Acc: 66.29% | Gap: -24.05%
+----> Best Val Acc Updated: 66.29% at epoch 83
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.002 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 084/200 | LR: 0.000068 | Time: 37.73s | Train Loss: 1.9236 | Train Acc: 42.47% | Val Loss: 1.9903 | Val Acc: 66.00% | Gap: -23.53%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.003 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 085/200 | LR: 0.000067 | Time: 37.80s | Train Loss: 1.8729 | Train Acc: 43.66% | Val Loss: 2.0318 | Val Acc: 65.19% | Gap: -21.52%
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.002 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 086/200 | LR: 0.000067 | Time: 37.76s | Train Loss: 1.9254 | Train Acc: 41.65% | Val Loss: 1.9607 | Val Acc: 66.99% | Gap: -25.34%
+----> Best Val Acc Updated: 66.99% at epoch 86
+[Switcher] Status | Plateau: False (3/15) | Gap Increase: False (-0.007 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 087/200 | LR: 0.000066 | Time: 37.87s | Train Loss: 1.9612 | Train Acc: 38.14% | Val Loss: 1.9612 | Val Acc: 66.71% | Gap: -28.57%
+[Switcher] Status | Plateau: False (4/15) | Gap Increase: False (-0.014 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 088/200 | LR: 0.000065 | Time: 37.81s | Train Loss: 1.9209 | Train Acc: 41.01% | Val Loss: 2.0612 | Val Acc: 65.91% | Gap: -24.90%
+[Switcher] Status | Plateau: False (5/15) | Gap Increase: False (-0.011 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 089/200 | LR: 0.000064 | Time: 37.67s | Train Loss: 1.8169 | Train Acc: 41.16% | Val Loss: 1.9647 | Val Acc: 66.67% | Gap: -25.51%
+[Switcher] Status | Plateau: False (6/15) | Gap Increase: False (-0.014 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 090/200 | LR: 0.000063 | Time: 37.86s | Train Loss: 1.8410 | Train Acc: 42.99% | Val Loss: 1.9526 | Val Acc: 67.65% | Gap: -24.66%
+----> Best Val Acc Updated: 67.65% at epoch 90
+[Switcher] Status | Plateau: False (0/15) | Gap Increase: False (-0.007 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 091/200 | LR: 0.000063 | Time: 37.62s | Train Loss: 1.9768 | Train Acc: 40.67% | Val Loss: 1.9699 | Val Acc: 65.74% | Gap: -25.07%
+[Switcher] Status | Plateau: False (1/15) | Gap Increase: False (-0.013 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 092/200 | LR: 0.000062 | Time: 37.92s | Train Loss: 1.7163 | Train Acc: 50.38% | Val Loss: 2.0018 | Val Acc: 65.81% | Gap: -15.44%
+[Switcher] Status | Plateau: False (2/15) | Gap Increase: False (-0.006 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 093/200 | LR: 0.000061 | Time: 37.64s | Train Loss: 1.8306 | Train Acc: 43.65% | Val Loss: 2.0328 | Val Acc: 64.58% | Gap: -20.93%
+[Switcher] Status | Plateau: False (3/15) | Gap Increase: False (-0.002 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 094/200 | LR: 0.000060 | Time: 37.66s | Train Loss: 1.9280 | Train Acc: 40.64% | Val Loss: 1.9342 | Val Acc: 66.34% | Gap: -25.70%
+[Switcher] Status | Plateau: False (4/15) | Gap Increase: False (-0.010 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 095/200 | LR: 0.000059 | Time: 37.59s | Train Loss: 1.8507 | Train Acc: 45.09% | Val Loss: 1.9593 | Val Acc: 66.80% | Gap: -21.71%
+[Switcher] Status | Plateau: False (5/15) | Gap Increase: False (-0.008 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 096/200 | LR: 0.000059 | Time: 37.60s | Train Loss: 1.8141 | Train Acc: 45.38% | Val Loss: 2.0137 | Val Acc: 66.08% | Gap: -20.70%
+[Switcher] Status | Plateau: False (6/15) | Gap Increase: False (-0.004 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 097/200 | LR: 0.000058 | Time: 37.61s | Train Loss: 1.7681 | Train Acc: 45.19% | Val Loss: 1.9191 | Val Acc: 67.25% | Gap: -22.06%
+[Switcher] Status | Plateau: False (7/15) | Gap Increase: False (-0.009 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 098/200 | LR: 0.000057 | Time: 37.53s | Train Loss: 1.7931 | Train Acc: 46.62% | Val Loss: 1.9569 | Val Acc: 65.86% | Gap: -19.24%
+[Switcher] Status | Plateau: False (8/15) | Gap Increase: False (-0.005 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 099/200 | LR: 0.000056 | Time: 37.75s | Train Loss: 1.8772 | Train Acc: 40.89% | Val Loss: 1.9154 | Val Acc: 66.97% | Gap: -26.08%
+[Switcher] Status | Plateau: False (9/15) | Gap Increase: False (-0.009 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 100/200 | LR: 0.000055 | Time: 37.52s | Train Loss: 1.8016 | Train Acc: 43.45% | Val Loss: 1.9484 | Val Acc: 66.53% | Gap: -23.08%
+[Switcher] Status | Plateau: False (10/15) | Gap Increase: False (-0.004 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 101/200 | LR: 0.000055 | Time: 37.55s | Train Loss: 1.7996 | Train Acc: 45.12% | Val Loss: 1.9371 | Val Acc: 67.69% | Gap: -22.57%
+----> Best Val Acc Updated: 67.69% at epoch 101
+[Switcher] Status | Plateau: False (11/15) | Gap Increase: False (-0.007 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 102/200 | LR: 0.000054 | Time: 37.61s | Train Loss: 1.8378 | Train Acc: 42.05% | Val Loss: 1.9225 | Val Acc: 67.79% | Gap: -25.75%
+----> Best Val Acc Updated: 67.79% at epoch 102
+[Switcher] Status | Plateau: False (12/15) | Gap Increase: False (-0.014 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 103/200 | LR: 0.000053 | Time: 37.72s | Train Loss: 1.8222 | Train Acc: 42.17% | Val Loss: 1.8671 | Val Acc: 67.89% | Gap: -25.72%
+----> Best Val Acc Updated: 67.89% at epoch 103
+[Switcher] Status | Plateau: False (13/15) | Gap Increase: False (-0.014 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 104/200 | LR: 0.000052 | Time: 37.66s | Train Loss: 1.7877 | Train Acc: 48.57% | Val Loss: 1.8912 | Val Acc: 67.62% | Gap: -19.05%
+[Switcher] Status | Plateau: False (14/15) | Gap Increase: False (-0.008 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+Epoch 105/200 | LR: 0.000051 | Time: 37.90s | Train Loss: 1.7500 | Train Acc: 44.70% | Val Loss: 1.9193 | Val Acc: 67.07% | Gap: -22.37%
+[Switcher] Status | Plateau: True (15/15) | Gap Increase: False (-0.008 > 0.02) | Grad Norm Increase: False (nan > 0.1) | Oscillate: True (19/5)
+
+----- Dynamic Switch Triggered at Epoch 105! Switching to SAM -----
+/home/prml/StudentsWork/JungWoo/Optimizer/.venv/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch 106/200 | LR: 0.010000 | Time: 70.65s | Train Loss: 1.8990 | Train Acc: 47.12% | Val Loss: 1.9268 | Val Acc: 66.68% | Gap: -19.57%
+Epoch 107/200 | LR: 0.020000 | Time: 70.66s | Train Loss: 1.8727 | Train Acc: 40.84% | Val Loss: 2.0602 | Val Acc: 64.69% | Gap: -23.85%
+Epoch 108/200 | LR: 0.030000 | Time: 71.37s | Train Loss: 1.9624 | Train Acc: 42.42% | Val Loss: 2.2580 | Val Acc: 58.18% | Gap: -15.76%
+Epoch 109/200 | LR: 0.040000 | Time: 71.68s | Train Loss: 2.0931 | Train Acc: 41.54% | Val Loss: 2.1146 | Val Acc: 60.53% | Gap: -18.99%
+Epoch 110/200 | LR: 0.050000 | Time: 70.87s | Train Loss: 2.0727 | Train Acc: 40.35% | Val Loss: 2.4924 | Val Acc: 50.65% | Gap: -10.30%
+Epoch 111/200 | LR: 0.060000 | Time: 70.92s | Train Loss: 2.2734 | Train Acc: 33.61% | Val Loss: 2.2007 | Val Acc: 57.63% | Gap: -24.02%
+Epoch 112/200 | LR: 0.070000 | Time: 71.22s | Train Loss: 2.2328 | Train Acc: 36.52% | Val Loss: 2.4349 | Val Acc: 55.78% | Gap: -19.26%
+Epoch 113/200 | LR: 0.080000 | Time: 71.61s | Train Loss: 2.2457 | Train Acc: 35.74% | Val Loss: 2.4468 | Val Acc: 51.85% | Gap: -16.11%
+Epoch 114/200 | LR: 0.090000 | Time: 71.40s | Train Loss: 2.3127 | Train Acc: 36.23% | Val Loss: 2.3746 | Val Acc: 55.44% | Gap: -19.20%
+Epoch 115/200 | LR: 0.100000 | Time: 71.11s | Train Loss: 2.2228 | Train Acc: 40.74% | Val Loss: 2.4735 | Val Acc: 52.66% | Gap: -11.91%
+Epoch 116/200 | LR: 0.099967 | Time: 71.23s | Train Loss: 2.1665 | Train Acc: 41.19% | Val Loss: 2.4027 | Val Acc: 55.37% | Gap: -14.18%
+Epoch 117/200 | LR: 0.099867 | Time: 70.86s | Train Loss: 2.1675 | Train Acc: 39.72% | Val Loss: 2.3169 | Val Acc: 58.22% | Gap: -18.50%
+Epoch 118/200 | LR: 0.099700 | Time: 71.35s | Train Loss: 2.0245 | Train Acc: 44.02% | Val Loss: 2.3054 | Val Acc: 56.56% | Gap: -12.54%
+Epoch 119/200 | LR: 0.099467 | Time: 71.18s | Train Loss: 2.0626 | Train Acc: 40.15% | Val Loss: 2.2138 | Val Acc: 58.38% | Gap: -18.23%
+Epoch 120/200 | LR: 0.099168 | Time: 71.26s | Train Loss: 2.1461 | Train Acc: 36.94% | Val Loss: 2.1539 | Val Acc: 61.18% | Gap: -24.24%
+Epoch 121/200 | LR: 0.098804 | Time: 71.14s | Train Loss: 2.0294 | Train Acc: 40.27% | Val Loss: 2.1158 | Val Acc: 61.43% | Gap: -21.16%
+Epoch 122/200 | LR: 0.098374 | Time: 71.15s | Train Loss: 2.0973 | Train Acc: 37.87% | Val Loss: 2.0775 | Val Acc: 62.62% | Gap: -24.75%
+Epoch 123/200 | LR: 0.097880 | Time: 71.29s | Train Loss: 2.0111 | Train Acc: 39.61% | Val Loss: 2.2414 | Val Acc: 60.23% | Gap: -20.62%
+Epoch 124/200 | LR: 0.097322 | Time: 71.35s | Train Loss: 1.9020 | Train Acc: 46.66% | Val Loss: 2.1431 | Val Acc: 60.95% | Gap: -14.29%
+Epoch 125/200 | LR: 0.096701 | Time: 71.07s | Train Loss: 1.9051 | Train Acc: 45.74% | Val Loss: 1.9539 | Val Acc: 65.78% | Gap: -20.04%
+Epoch 126/200 | LR: 0.096017 | Time: 70.88s | Train Loss: 1.9630 | Train Acc: 40.60% | Val Loss: 2.1658 | Val Acc: 61.51% | Gap: -20.91%
+Epoch 127/200 | LR: 0.095272 | Time: 71.29s | Train Loss: 1.9961 | Train Acc: 41.09% | Val Loss: 2.0495 | Val Acc: 63.19% | Gap: -22.10%
+Epoch 128/200 | LR: 0.094467 | Time: 71.19s | Train Loss: 1.8743 | Train Acc: 47.35% | Val Loss: 2.0177 | Val Acc: 63.61% | Gap: -16.26%
+Epoch 129/200 | LR: 0.093602 | Time: 71.68s | Train Loss: 1.9387 | Train Acc: 40.19% | Val Loss: 1.9396 | Val Acc: 65.10% | Gap: -24.91%
+Epoch 130/200 | LR: 0.092680 | Time: 70.80s | Train Loss: 1.9144 | Train Acc: 43.88% | Val Loss: 1.9147 | Val Acc: 65.89% | Gap: -22.01%
+Epoch 131/200 | LR: 0.091700 | Time: 71.05s | Train Loss: 1.8818 | Train Acc: 43.69% | Val Loss: 1.9740 | Val Acc: 65.01% | Gap: -21.32%
+Epoch 132/200 | LR: 0.090664 | Time: 70.86s | Train Loss: 1.8675 | Train Acc: 40.75% | Val Loss: 1.9280 | Val Acc: 66.30% | Gap: -25.55%
+Epoch 133/200 | LR: 0.089575 | Time: 71.13s | Train Loss: 1.8372 | Train Acc: 47.45% | Val Loss: 1.8777 | Val Acc: 67.96% | Gap: -20.51%
+----> Best Val Acc Updated: 67.96% at epoch 133
+Epoch 134/200 | LR: 0.088432 | Time: 71.37s | Train Loss: 1.8940 | Train Acc: 40.73% | Val Loss: 1.9956 | Val Acc: 64.88% | Gap: -24.15%
+Epoch 135/200 | LR: 0.087239 | Time: 70.65s | Train Loss: 1.7368 | Train Acc: 48.85% | Val Loss: 1.8952 | Val Acc: 66.86% | Gap: -18.01%
+Epoch 136/200 | LR: 0.085995 | Time: 71.03s | Train Loss: 1.6886 | Train Acc: 53.30% | Val Loss: 1.9274 | Val Acc: 66.23% | Gap: -12.94%
+Epoch 137/200 | LR: 0.084704 | Time: 71.33s | Train Loss: 1.8101 | Train Acc: 43.13% | Val Loss: 1.9172 | Val Acc: 66.17% | Gap: -23.04%
+Epoch 138/200 | LR: 0.083366 | Time: 71.31s | Train Loss: 1.7716 | Train Acc: 46.63% | Val Loss: 1.9474 | Val Acc: 64.87% | Gap: -18.24%
+Epoch 139/200 | LR: 0.081984 | Time: 70.81s | Train Loss: 1.8049 | Train Acc: 42.25% | Val Loss: 1.8464 | Val Acc: 67.90% | Gap: -25.65%
+Epoch 140/200 | LR: 0.080559 | Time: 70.85s | Train Loss: 1.8428 | Train Acc: 42.98% | Val Loss: 1.8202 | Val Acc: 68.55% | Gap: -25.57%
+----> Best Val Acc Updated: 68.55% at epoch 140
+Epoch 141/200 | LR: 0.079093 | Time: 70.92s | Train Loss: 1.7813 | Train Acc: 43.51% | Val Loss: 1.8586 | Val Acc: 67.35% | Gap: -23.84%
+Epoch 142/200 | LR: 0.077588 | Time: 71.55s | Train Loss: 1.7194 | Train Acc: 47.11% | Val Loss: 1.8704 | Val Acc: 66.87% | Gap: -19.76%
+Epoch 143/200 | LR: 0.076047 | Time: 71.10s | Train Loss: 1.6620 | Train Acc: 53.20% | Val Loss: 1.8362 | Val Acc: 68.24% | Gap: -15.04%
+Epoch 144/200 | LR: 0.074471 | Time: 71.61s | Train Loss: 1.8150 | Train Acc: 41.59% | Val Loss: 1.8118 | Val Acc: 68.81% | Gap: -27.22%
+----> Best Val Acc Updated: 68.81% at epoch 144
+Epoch 145/200 | LR: 0.072862 | Time: 71.40s | Train Loss: 1.6616 | Train Acc: 49.48% | Val Loss: 1.7830 | Val Acc: 69.80% | Gap: -20.31%
+----> Best Val Acc Updated: 69.80% at epoch 145
+Epoch 146/200 | LR: 0.071223 | Time: 71.66s | Train Loss: 1.7748 | Train Acc: 45.34% | Val Loss: 1.8160 | Val Acc: 69.21% | Gap: -23.87%
+Epoch 147/200 | LR: 0.069555 | Time: 71.22s | Train Loss: 1.7128 | Train Acc: 47.56% | Val Loss: 1.8089 | Val Acc: 68.76% | Gap: -21.20%
+Epoch 148/200 | LR: 0.067862 | Time: 71.13s | Train Loss: 1.7211 | Train Acc: 46.38% | Val Loss: 1.7651 | Val Acc: 70.28% | Gap: -23.90%
+----> Best Val Acc Updated: 70.28% at epoch 148
+Epoch 149/200 | LR: 0.066144 | Time: 70.80s | Train Loss: 1.6102 | Train Acc: 51.05% | Val Loss: 1.7620 | Val Acc: 71.00% | Gap: -19.95%
+----> Best Val Acc Updated: 71.00% at epoch 149
+Epoch 150/200 | LR: 0.064405 | Time: 70.70s | Train Loss: 1.7230 | Train Acc: 42.29% | Val Loss: 1.7711 | Val Acc: 70.06% | Gap: -27.77%
+Epoch 151/200 | LR: 0.062647 | Time: 71.43s | Train Loss: 1.6840 | Train Acc: 43.45% | Val Loss: 1.7522 | Val Acc: 70.75% | Gap: -27.30%
+Epoch 152/200 | LR: 0.060872 | Time: 70.94s | Train Loss: 1.7025 | Train Acc: 47.87% | Val Loss: 1.7699 | Val Acc: 70.64% | Gap: -22.77%
+Epoch 153/200 | LR: 0.059082 | Time: 70.61s | Train Loss: 1.7842 | Train Acc: 39.99% | Val Loss: 1.7856 | Val Acc: 70.33% | Gap: -30.34%
+Epoch 154/200 | LR: 0.057280 | Time: 71.05s | Train Loss: 1.6166 | Train Acc: 49.79% | Val Loss: 1.7613 | Val Acc: 70.29% | Gap: -20.50%
+Epoch 155/200 | LR: 0.055469 | Time: 71.20s | Train Loss: 1.7251 | Train Acc: 44.51% | Val Loss: 1.7288 | Val Acc: 71.77% | Gap: -27.26%
+----> Best Val Acc Updated: 71.77% at epoch 155
+Epoch 156/200 | LR: 0.053650 | Time: 70.80s | Train Loss: 1.6925 | Train Acc: 43.78% | Val Loss: 1.7850 | Val Acc: 71.12% | Gap: -27.34%
+Epoch 157/200 | LR: 0.051826 | Time: 71.07s | Train Loss: 1.6815 | Train Acc: 46.26% | Val Loss: 1.8270 | Val Acc: 70.80% | Gap: -24.54%
+Epoch 158/200 | LR: 0.050000 | Time: 70.84s | Train Loss: 1.6064 | Train Acc: 49.53% | Val Loss: 1.7727 | Val Acc: 70.95% | Gap: -21.42%
+Epoch 159/200 | LR: 0.048174 | Time: 71.16s | Train Loss: 1.6177 | Train Acc: 48.20% | Val Loss: 1.8180 | Val Acc: 70.61% | Gap: -22.41%
+Epoch 160/200 | LR: 0.046350 | Time: 71.17s | Train Loss: 1.6719 | Train Acc: 46.62% | Val Loss: 1.7139 | Val Acc: 72.57% | Gap: -25.95%
+----> Best Val Acc Updated: 72.57% at epoch 160
+Epoch 161/200 | LR: 0.044531 | Time: 70.68s | Train Loss: 1.5940 | Train Acc: 49.67% | Val Loss: 1.7779 | Val Acc: 71.47% | Gap: -21.80%
+Epoch 162/200 | LR: 0.042720 | Time: 71.14s | Train Loss: 1.4920 | Train Acc: 53.92% | Val Loss: 1.7729 | Val Acc: 71.39% | Gap: -17.47%
+Epoch 163/200 | LR: 0.040918 | Time: 71.36s | Train Loss: 1.6584 | Train Acc: 42.35% | Val Loss: 1.7941 | Val Acc: 72.02% | Gap: -29.66%
+Epoch 164/200 | LR: 0.039128 | Time: 71.63s | Train Loss: 1.7448 | Train Acc: 40.62% | Val Loss: 1.8116 | Val Acc: 71.15% | Gap: -30.53%
+Epoch 165/200 | LR: 0.037353 | Time: 71.53s | Train Loss: 1.5770 | Train Acc: 47.90% | Val Loss: 1.7482 | Val Acc: 72.79% | Gap: -24.89%
+----> Best Val Acc Updated: 72.79% at epoch 165
+Epoch 166/200 | LR: 0.035595 | Time: 70.69s | Train Loss: 1.5974 | Train Acc: 48.90% | Val Loss: 1.7051 | Val Acc: 72.86% | Gap: -23.96%
+----> Best Val Acc Updated: 72.86% at epoch 166
+Epoch 167/200 | LR: 0.033856 | Time: 70.67s | Train Loss: 1.5574 | Train Acc: 49.22% | Val Loss: 1.7482 | Val Acc: 73.05% | Gap: -23.83%
+----> Best Val Acc Updated: 73.05% at epoch 167
+Epoch 168/200 | LR: 0.032138 | Time: 70.60s | Train Loss: 1.6580 | Train Acc: 44.48% | Val Loss: 1.7585 | Val Acc: 71.96% | Gap: -27.47%
+Epoch 169/200 | LR: 0.030445 | Time: 70.86s | Train Loss: 1.6418 | Train Acc: 45.55% | Val Loss: 1.7775 | Val Acc: 72.32% | Gap: -26.77%
+Epoch 170/200 | LR: 0.028777 | Time: 71.18s | Train Loss: 1.5975 | Train Acc: 42.04% | Val Loss: 1.7290 | Val Acc: 72.97% | Gap: -30.93%
+Epoch 171/200 | LR: 0.027138 | Time: 71.00s | Train Loss: 1.5830 | Train Acc: 47.70% | Val Loss: 1.7052 | Val Acc: 73.18% | Gap: -25.48%
+----> Best Val Acc Updated: 73.18% at epoch 171
+Epoch 172/200 | LR: 0.025529 | Time: 70.77s | Train Loss: 1.4747 | Train Acc: 55.09% | Val Loss: 1.7359 | Val Acc: 73.47% | Gap: -18.38%
+----> Best Val Acc Updated: 73.47% at epoch 172
+Epoch 173/200 | LR: 0.023953 | Time: 70.76s | Train Loss: 1.4789 | Train Acc: 50.55% | Val Loss: 1.7631 | Val Acc: 73.76% | Gap: -23.21%
+----> Best Val Acc Updated: 73.76% at epoch 173
+Epoch 174/200 | LR: 0.022412 | Time: 70.93s | Train Loss: 1.4877 | Train Acc: 52.00% | Val Loss: 1.7109 | Val Acc: 73.41% | Gap: -21.41%
+Epoch 175/200 | LR: 0.020907 | Time: 71.08s | Train Loss: 1.5420 | Train Acc: 51.35% | Val Loss: 1.8077 | Val Acc: 72.50% | Gap: -21.15%
+Epoch 176/200 | LR: 0.019441 | Time: 70.87s | Train Loss: 1.6332 | Train Acc: 44.78% | Val Loss: 1.8041 | Val Acc: 72.97% | Gap: -28.19%
+Epoch 177/200 | LR: 0.018016 | Time: 71.01s | Train Loss: 1.5593 | Train Acc: 49.10% | Val Loss: 1.7317 | Val Acc: 73.40% | Gap: -24.30%
+Epoch 178/200 | LR: 0.016634 | Time: 70.84s | Train Loss: 1.5636 | Train Acc: 51.49% | Val Loss: 1.7728 | Val Acc: 72.97% | Gap: -21.48%
+Epoch 179/200 | LR: 0.015296 | Time: 71.38s | Train Loss: 1.4888 | Train Acc: 50.53% | Val Loss: 1.7175 | Val Acc: 73.88% | Gap: -23.35%
+----> Best Val Acc Updated: 73.88% at epoch 179
+Epoch 180/200 | LR: 0.014005 | Time: 70.92s | Train Loss: 1.4329 | Train Acc: 56.49% | Val Loss: 1.7033 | Val Acc: 74.10% | Gap: -17.61%
+----> Best Val Acc Updated: 74.10% at epoch 180
+Epoch 181/200 | LR: 0.012761 | Time: 70.47s | Train Loss: 1.5859 | Train Acc: 44.42% | Val Loss: 1.7152 | Val Acc: 74.03% | Gap: -29.61%
+Epoch 182/200 | LR: 0.011568 | Time: 70.95s | Train Loss: 1.5252 | Train Acc: 52.83% | Val Loss: 1.7730 | Val Acc: 73.53% | Gap: -20.70%
+Epoch 183/200 | LR: 0.010425 | Time: 71.54s | Train Loss: 1.5524 | Train Acc: 46.10% | Val Loss: 1.7878 | Val Acc: 73.57% | Gap: -27.46%
+Epoch 184/200 | LR: 0.009336 | Time: 70.86s | Train Loss: 1.5208 | Train Acc: 51.63% | Val Loss: 1.7277 | Val Acc: 73.82% | Gap: -22.18%
+Epoch 185/200 | LR: 0.008300 | Time: 71.22s | Train Loss: 1.6191 | Train Acc: 41.87% | Val Loss: 1.7781 | Val Acc: 73.64% | Gap: -31.77%
+Epoch 186/200 | LR: 0.007320 | Time: 70.99s | Train Loss: 1.5292 | Train Acc: 50.40% | Val Loss: 1.7901 | Val Acc: 73.43% | Gap: -23.03%
+Epoch 187/200 | LR: 0.006398 | Time: 71.36s | Train Loss: 1.5305 | Train Acc: 52.90% | Val Loss: 1.7531 | Val Acc: 74.38% | Gap: -21.48%
+----> Best Val Acc Updated: 74.38% at epoch 187
+Epoch 188/200 | LR: 0.005533 | Time: 71.10s | Train Loss: 1.5931 | Train Acc: 43.26% | Val Loss: 1.7242 | Val Acc: 73.88% | Gap: -30.62%
+Epoch 189/200 | LR: 0.004728 | Time: 70.82s | Train Loss: 1.5186 | Train Acc: 50.52% | Val Loss: 1.7599 | Val Acc: 73.38% | Gap: -22.86%
+Epoch 190/200 | LR: 0.003983 | Time: 71.19s | Train Loss: 1.4786 | Train Acc: 48.59% | Val Loss: 1.7661 | Val Acc: 73.32% | Gap: -24.73%
+Epoch 191/200 | LR: 0.003299 | Time: 71.41s | Train Loss: 1.6002 | Train Acc: 46.80% | Val Loss: 1.8019 | Val Acc: 73.78% | Gap: -26.98%
+Epoch 192/200 | LR: 0.002678 | Time: 71.33s | Train Loss: 1.4220 | Train Acc: 52.43% | Val Loss: 1.7153 | Val Acc: 73.62% | Gap: -21.19%
+Epoch 193/200 | LR: 0.002120 | Time: 71.07s | Train Loss: 1.5876 | Train Acc: 45.10% | Val Loss: 1.7501 | Val Acc: 73.75% | Gap: -28.65%
+Epoch 194/200 | LR: 0.001626 | Time: 70.97s | Train Loss: 1.5595 | Train Acc: 43.20% | Val Loss: 1.7353 | Val Acc: 73.85% | Gap: -30.64%
+Epoch 195/200 | LR: 0.001196 | Time: 71.75s | Train Loss: 1.5869 | Train Acc: 46.87% | Val Loss: 1.7922 | Val Acc: 73.18% | Gap: -26.31%
+Epoch 196/200 | LR: 0.000832 | Time: 71.78s | Train Loss: 1.4975 | Train Acc: 52.85% | Val Loss: 1.7355 | Val Acc: 73.56% | Gap: -20.71%
+Epoch 197/200 | LR: 0.000533 | Time: 70.85s | Train Loss: 1.5974 | Train Acc: 45.68% | Val Loss: 1.8170 | Val Acc: 73.61% | Gap: -27.93%
+Epoch 198/200 | LR: 0.000300 | Time: 70.90s | Train Loss: 1.5237 | Train Acc: 48.05% | Val Loss: 1.7905 | Val Acc: 74.02% | Gap: -25.97%
+Epoch 199/200 | LR: 0.000133 | Time: 70.93s | Train Loss: 1.5460 | Train Acc: 44.56% | Val Loss: 1.7019 | Val Acc: 73.63% | Gap: -29.07%
+Epoch 200/200 | LR: 0.000033 | Time: 70.62s | Train Loss: 1.5238 | Train Acc: 53.59% | Val Loss: 1.7425 | Val Acc: 73.58% | Gap: -19.99%
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/WRN_28_10_AdamW_then_SAM_best.pth
+
+===== Final Test Accuracy for AdamW_then_SAM =====
+Final Test Accuracy: 79.31%
+Total Training Time: 10705.91 sec
+
+
+
+===== Training Strategy: AdamW_Only =====
+AMP Enabled: True
+Epoch 001/200 | LR: 0.000000 | Time: 37.59s | Train Loss: 4.6375 | Train Acc: 0.69% | Val Loss: 4.6203 | Val Acc: 1.04% | Gap: -0.35%
+----> Best Val Acc Updated: 1.04% at epoch 1
+Epoch 002/200 | LR: 0.000010 | Time: 37.58s | Train Loss: 4.5324 | Train Acc: 1.36% | Val Loss: 4.4596 | Val Acc: 3.25% | Gap: -1.89%
+----> Best Val Acc Updated: 3.25% at epoch 2
+Epoch 003/200 | LR: 0.000020 | Time: 37.53s | Train Loss: 4.3798 | Train Acc: 3.01% | Val Loss: 4.5268 | Val Acc: 4.89% | Gap: -1.88%
+----> Best Val Acc Updated: 4.89% at epoch 3
+Epoch 004/200 | LR: 0.000030 | Time: 37.51s | Train Loss: 4.2536 | Train Acc: 4.70% | Val Loss: 4.5157 | Val Acc: 5.54% | Gap: -0.84%
+----> Best Val Acc Updated: 5.54% at epoch 4
+Epoch 005/200 | LR: 0.000040 | Time: 37.69s | Train Loss: 4.1578 | Train Acc: 5.31% | Val Loss: 4.2785 | Val Acc: 8.81% | Gap: -3.50%
+----> Best Val Acc Updated: 8.81% at epoch 5
+Epoch 006/200 | LR: 0.000050 | Time: 37.63s | Train Loss: 4.0392 | Train Acc: 7.69% | Val Loss: 4.1232 | Val Acc: 12.33% | Gap: -4.64%
+----> Best Val Acc Updated: 12.33% at epoch 6
+Epoch 007/200 | LR: 0.000060 | Time: 37.78s | Train Loss: 3.9157 | Train Acc: 8.48% | Val Loss: 4.0915 | Val Acc: 15.18% | Gap: -6.70%
+----> Best Val Acc Updated: 15.18% at epoch 7
+Epoch 008/200 | LR: 0.000070 | Time: 37.82s | Train Loss: 3.8028 | Train Acc: 10.43% | Val Loss: 4.0537 | Val Acc: 17.16% | Gap: -6.73%
+----> Best Val Acc Updated: 17.16% at epoch 8
+Epoch 009/200 | LR: 0.000080 | Time: 37.73s | Train Loss: 3.6723 | Train Acc: 12.00% | Val Loss: 3.6005 | Val Acc: 22.91% | Gap: -10.91%
+----> Best Val Acc Updated: 22.91% at epoch 9
+Epoch 010/200 | LR: 0.000090 | Time: 37.60s | Train Loss: 3.5479 | Train Acc: 14.09% | Val Loss: 3.9531 | Val Acc: 21.09% | Gap: -7.00%
+Epoch 011/200 | LR: 0.000100 | Time: 37.78s | Train Loss: 3.4890 | Train Acc: 15.05% | Val Loss: 4.0217 | Val Acc: 23.12% | Gap: -8.07%
+----> Best Val Acc Updated: 23.12% at epoch 11
+Epoch 012/200 | LR: 0.000100 | Time: 37.89s | Train Loss: 3.3776 | Train Acc: 17.09% | Val Loss: 3.8325 | Val Acc: 26.00% | Gap: -8.91%
+----> Best Val Acc Updated: 26.00% at epoch 12
+Epoch 013/200 | LR: 0.000100 | Time: 37.71s | Train Loss: 3.2209 | Train Acc: 18.90% | Val Loss: 3.8129 | Val Acc: 26.95% | Gap: -8.05%
+----> Best Val Acc Updated: 26.95% at epoch 13
+Epoch 014/200 | LR: 0.000100 | Time: 37.77s | Train Loss: 3.1457 | Train Acc: 22.23% | Val Loss: 3.9535 | Val Acc: 27.73% | Gap: -5.50%
+----> Best Val Acc Updated: 27.73% at epoch 14
+Epoch 015/200 | LR: 0.000100 | Time: 37.60s | Train Loss: 3.2260 | Train Acc: 18.24% | Val Loss: 3.1288 | Val Acc: 36.52% | Gap: -18.28%
+----> Best Val Acc Updated: 36.52% at epoch 15
+Epoch 016/200 | LR: 0.000100 | Time: 37.59s | Train Loss: 3.0553 | Train Acc: 22.38% | Val Loss: 3.4618 | Val Acc: 36.19% | Gap: -13.81%
+Epoch 017/200 | LR: 0.000100 | Time: 37.77s | Train Loss: 3.0408 | Train Acc: 21.44% | Val Loss: 3.4737 | Val Acc: 36.52% | Gap: -15.08%
+----> Best Val Acc Updated: 36.52% at epoch 17
+Epoch 018/200 | LR: 0.000100 | Time: 37.68s | Train Loss: 2.9893 | Train Acc: 22.94% | Val Loss: 3.2698 | Val Acc: 40.00% | Gap: -17.06%
+----> Best Val Acc Updated: 40.00% at epoch 18
+Epoch 019/200 | LR: 0.000100 | Time: 37.60s | Train Loss: 2.8676 | Train Acc: 26.07% | Val Loss: 3.2013 | Val Acc: 41.02% | Gap: -14.95%
+----> Best Val Acc Updated: 41.02% at epoch 19
+Epoch 020/200 | LR: 0.000099 | Time: 37.69s | Train Loss: 2.8493 | Train Acc: 25.89% | Val Loss: 3.3866 | Val Acc: 41.99% | Gap: -16.10%
+----> Best Val Acc Updated: 41.99% at epoch 20
+Epoch 021/200 | LR: 0.000099 | Time: 37.73s | Train Loss: 2.7652 | Train Acc: 28.02% | Val Loss: 3.2041 | Val Acc: 43.09% | Gap: -15.07%
+----> Best Val Acc Updated: 43.09% at epoch 21
+Epoch 022/200 | LR: 0.000099 | Time: 37.81s | Train Loss: 2.7575 | Train Acc: 28.34% | Val Loss: 3.2455 | Val Acc: 44.48% | Gap: -16.14%
+----> Best Val Acc Updated: 44.48% at epoch 22
+Epoch 023/200 | LR: 0.000099 | Time: 37.86s | Train Loss: 2.7188 | Train Acc: 29.34% | Val Loss: 3.3215 | Val Acc: 43.69% | Gap: -14.35%
+Epoch 024/200 | LR: 0.000099 | Time: 37.59s | Train Loss: 2.6737 | Train Acc: 28.92% | Val Loss: 3.1589 | Val Acc: 48.26% | Gap: -19.34%
+----> Best Val Acc Updated: 48.26% at epoch 24
+Epoch 025/200 | LR: 0.000099 | Time: 37.84s | Train Loss: 2.6254 | Train Acc: 29.55% | Val Loss: 3.2886 | Val Acc: 44.11% | Gap: -14.55%
+Epoch 026/200 | LR: 0.000098 | Time: 37.76s | Train Loss: 2.5764 | Train Acc: 32.31% | Val Loss: 3.0224 | Val Acc: 48.33% | Gap: -16.02%
+----> Best Val Acc Updated: 48.33% at epoch 26
+Epoch 027/200 | LR: 0.000098 | Time: 37.60s | Train Loss: 2.6413 | Train Acc: 28.04% | Val Loss: 2.7894 | Val Acc: 51.72% | Gap: -23.68%
+----> Best Val Acc Updated: 51.72% at epoch 27
+Epoch 028/200 | LR: 0.000098 | Time: 37.63s | Train Loss: 2.5880 | Train Acc: 29.93% | Val Loss: 3.2114 | Val Acc: 47.12% | Gap: -17.19%
+Epoch 029/200 | LR: 0.000098 | Time: 37.69s | Train Loss: 2.5740 | Train Acc: 30.23% | Val Loss: 3.1456 | Val Acc: 48.11% | Gap: -17.88%
+Epoch 030/200 | LR: 0.000098 | Time: 37.62s | Train Loss: 2.5176 | Train Acc: 30.42% | Val Loss: 3.3628 | Val Acc: 45.71% | Gap: -15.29%
+Epoch 031/200 | LR: 0.000097 | Time: 37.81s | Train Loss: 2.4762 | Train Acc: 33.18% | Val Loss: 3.0235 | Val Acc: 48.73% | Gap: -15.55%
+Epoch 032/200 | LR: 0.000097 | Time: 37.80s | Train Loss: 2.4684 | Train Acc: 34.16% | Val Loss: 3.0850 | Val Acc: 49.70% | Gap: -15.54%
+Epoch 033/200 | LR: 0.000097 | Time: 37.63s | Train Loss: 2.3916 | Train Acc: 38.25% | Val Loss: 3.0202 | Val Acc: 52.76% | Gap: -14.51%
+----> Best Val Acc Updated: 52.76% at epoch 33
+Epoch 034/200 | LR: 0.000096 | Time: 37.60s | Train Loss: 2.4170 | Train Acc: 34.50% | Val Loss: 3.1289 | Val Acc: 48.37% | Gap: -13.87%
+Epoch 035/200 | LR: 0.000096 | Time: 37.77s | Train Loss: 2.4443 | Train Acc: 32.62% | Val Loss: 3.0910 | Val Acc: 49.20% | Gap: -16.59%
+Epoch 036/200 | LR: 0.000096 | Time: 37.64s | Train Loss: 2.4331 | Train Acc: 30.12% | Val Loss: 2.7648 | Val Acc: 55.82% | Gap: -25.70%
+----> Best Val Acc Updated: 55.82% at epoch 36
+Epoch 037/200 | LR: 0.000095 | Time: 37.63s | Train Loss: 2.4332 | Train Acc: 30.76% | Val Loss: 3.1506 | Val Acc: 50.63% | Gap: -19.87%
+Epoch 038/200 | LR: 0.000095 | Time: 37.73s | Train Loss: 2.3669 | Train Acc: 33.30% | Val Loss: 2.7212 | Val Acc: 53.68% | Gap: -20.38%
+Epoch 039/200 | LR: 0.000095 | Time: 37.66s | Train Loss: 2.3418 | Train Acc: 37.76% | Val Loss: 2.8504 | Val Acc: 54.08% | Gap: -16.32%
+Epoch 040/200 | LR: 0.000094 | Time: 37.74s | Train Loss: 2.4568 | Train Acc: 29.98% | Val Loss: 2.8287 | Val Acc: 53.17% | Gap: -23.19%
+Epoch 041/200 | LR: 0.000094 | Time: 37.63s | Train Loss: 2.2394 | Train Acc: 41.34% | Val Loss: 2.8728 | Val Acc: 54.02% | Gap: -12.68%
+Epoch 042/200 | LR: 0.000094 | Time: 37.75s | Train Loss: 2.3002 | Train Acc: 36.51% | Val Loss: 2.7716 | Val Acc: 55.15% | Gap: -18.64%
+Epoch 043/200 | LR: 0.000093 | Time: 37.83s | Train Loss: 2.2712 | Train Acc: 38.30% | Val Loss: 2.7168 | Val Acc: 57.42% | Gap: -19.12%
+----> Best Val Acc Updated: 57.42% at epoch 43
+Epoch 044/200 | LR: 0.000093 | Time: 37.62s | Train Loss: 2.3113 | Train Acc: 38.37% | Val Loss: 2.7280 | Val Acc: 57.41% | Gap: -19.04%
+Epoch 045/200 | LR: 0.000092 | Time: 37.43s | Train Loss: 2.3118 | Train Acc: 32.62% | Val Loss: 2.5363 | Val Acc: 58.43% | Gap: -25.81%
+----> Best Val Acc Updated: 58.43% at epoch 45
+Epoch 046/200 | LR: 0.000092 | Time: 37.68s | Train Loss: 2.2529 | Train Acc: 36.62% | Val Loss: 2.7866 | Val Acc: 57.28% | Gap: -20.66%
+Epoch 047/200 | LR: 0.000091 | Time: 37.57s | Train Loss: 2.2133 | Train Acc: 37.65% | Val Loss: 2.6007 | Val Acc: 59.93% | Gap: -22.28%
+----> Best Val Acc Updated: 59.93% at epoch 47
+Epoch 048/200 | LR: 0.000091 | Time: 37.70s | Train Loss: 2.1010 | Train Acc: 42.17% | Val Loss: 2.4604 | Val Acc: 60.10% | Gap: -17.93%
+----> Best Val Acc Updated: 60.10% at epoch 48
+Epoch 049/200 | LR: 0.000091 | Time: 37.98s | Train Loss: 2.2914 | Train Acc: 33.84% | Val Loss: 2.6885 | Val Acc: 56.89% | Gap: -23.05%
+Epoch 050/200 | LR: 0.000090 | Time: 37.60s | Train Loss: 2.1571 | Train Acc: 38.49% | Val Loss: 2.6353 | Val Acc: 56.43% | Gap: -17.94%
+Epoch 051/200 | LR: 0.000090 | Time: 37.63s | Train Loss: 2.1529 | Train Acc: 37.62% | Val Loss: 2.4181 | Val Acc: 61.36% | Gap: -23.73%
+----> Best Val Acc Updated: 61.36% at epoch 51
+Epoch 052/200 | LR: 0.000089 | Time: 37.65s | Train Loss: 2.1508 | Train Acc: 38.48% | Val Loss: 2.4476 | Val Acc: 59.90% | Gap: -21.42%
+Epoch 053/200 | LR: 0.000089 | Time: 37.61s | Train Loss: 2.1415 | Train Acc: 37.16% | Val Loss: 2.5592 | Val Acc: 57.83% | Gap: -20.67%
+Epoch 054/200 | LR: 0.000088 | Time: 37.72s | Train Loss: 2.0516 | Train Acc: 42.42% | Val Loss: 2.7508 | Val Acc: 56.23% | Gap: -13.81%
+Epoch 055/200 | LR: 0.000087 | Time: 37.70s | Train Loss: 2.1454 | Train Acc: 39.00% | Val Loss: 2.4685 | Val Acc: 60.45% | Gap: -21.45%
+Epoch 056/200 | LR: 0.000087 | Time: 37.87s | Train Loss: 2.1570 | Train Acc: 39.14% | Val Loss: 2.6985 | Val Acc: 61.11% | Gap: -21.97%
+Epoch 057/200 | LR: 0.000086 | Time: 37.76s | Train Loss: 2.0334 | Train Acc: 41.88% | Val Loss: 2.5910 | Val Acc: 59.25% | Gap: -17.37%
+Epoch 058/200 | LR: 0.000086 | Time: 37.44s | Train Loss: 2.1302 | Train Acc: 37.77% | Val Loss: 2.7966 | Val Acc: 56.50% | Gap: -18.73%
+Epoch 059/200 | LR: 0.000085 | Time: 37.51s | Train Loss: 2.0184 | Train Acc: 40.66% | Val Loss: 2.5518 | Val Acc: 59.04% | Gap: -18.38%
+Epoch 060/200 | LR: 0.000085 | Time: 37.65s | Train Loss: 2.1172 | Train Acc: 40.82% | Val Loss: 2.3508 | Val Acc: 60.92% | Gap: -20.10%
+Epoch 061/200 | LR: 0.000084 | Time: 37.56s | Train Loss: 1.9737 | Train Acc: 45.35% | Val Loss: 2.4447 | Val Acc: 61.46% | Gap: -16.11%
+----> Best Val Acc Updated: 61.46% at epoch 61
+Epoch 062/200 | LR: 0.000083 | Time: 38.19s | Train Loss: 2.1149 | Train Acc: 38.27% | Val Loss: 2.3774 | Val Acc: 61.25% | Gap: -22.98%
+Epoch 063/200 | LR: 0.000083 | Time: 37.67s | Train Loss: 2.0273 | Train Acc: 42.80% | Val Loss: 2.4658 | Val Acc: 62.25% | Gap: -19.45%
+----> Best Val Acc Updated: 62.25% at epoch 63
+Epoch 064/200 | LR: 0.000082 | Time: 37.63s | Train Loss: 2.1386 | Train Acc: 33.18% | Val Loss: 2.2351 | Val Acc: 61.86% | Gap: -28.68%
+Epoch 065/200 | LR: 0.000082 | Time: 37.55s | Train Loss: 2.1391 | Train Acc: 37.36% | Val Loss: 2.2660 | Val Acc: 61.98% | Gap: -24.62%
+Epoch 066/200 | LR: 0.000081 | Time: 37.66s | Train Loss: 1.9524 | Train Acc: 44.14% | Val Loss: 2.2692 | Val Acc: 62.02% | Gap: -17.88%
+Epoch 067/200 | LR: 0.000080 | Time: 37.65s | Train Loss: 1.9275 | Train Acc: 47.83% | Val Loss: 2.3007 | Val Acc: 63.21% | Gap: -15.38%
+----> Best Val Acc Updated: 63.21% at epoch 67
+Epoch 068/200 | LR: 0.000080 | Time: 37.72s | Train Loss: 2.0044 | Train Acc: 42.02% | Val Loss: 2.1659 | Val Acc: 63.20% | Gap: -21.18%
+Epoch 069/200 | LR: 0.000079 | Time: 37.66s | Train Loss: 1.9786 | Train Acc: 45.74% | Val Loss: 2.2800 | Val Acc: 62.01% | Gap: -16.27%
+Epoch 070/200 | LR: 0.000078 | Time: 37.52s | Train Loss: 1.8796 | Train Acc: 47.05% | Val Loss: 2.2380 | Val Acc: 62.12% | Gap: -15.07%
+Epoch 071/200 | LR: 0.000078 | Time: 37.93s | Train Loss: 1.9233 | Train Acc: 44.50% | Val Loss: 2.2463 | Val Acc: 64.03% | Gap: -19.53%
+----> Best Val Acc Updated: 64.03% at epoch 71
+Epoch 072/200 | LR: 0.000077 | Time: 37.83s | Train Loss: 1.9905 | Train Acc: 41.01% | Val Loss: 2.2405 | Val Acc: 62.59% | Gap: -21.58%
+Epoch 073/200 | LR: 0.000076 | Time: 37.91s | Train Loss: 2.0763 | Train Acc: 33.48% | Val Loss: 2.2267 | Val Acc: 62.15% | Gap: -28.67%
+Epoch 074/200 | LR: 0.000075 | Time: 37.86s | Train Loss: 1.9017 | Train Acc: 46.48% | Val Loss: 2.1462 | Val Acc: 63.75% | Gap: -17.27%
+Epoch 075/200 | LR: 0.000075 | Time: 37.73s | Train Loss: 1.9310 | Train Acc: 43.48% | Val Loss: 2.0384 | Val Acc: 66.28% | Gap: -22.80%
+----> Best Val Acc Updated: 66.28% at epoch 75
+Epoch 076/200 | LR: 0.000074 | Time: 37.83s | Train Loss: 1.8408 | Train Acc: 46.97% | Val Loss: 2.2966 | Val Acc: 61.58% | Gap: -14.61%
+Epoch 077/200 | LR: 0.000073 | Time: 37.87s | Train Loss: 1.9575 | Train Acc: 41.73% | Val Loss: 2.1509 | Val Acc: 64.33% | Gap: -22.60%
+Epoch 078/200 | LR: 0.000073 | Time: 37.54s | Train Loss: 1.8934 | Train Acc: 43.92% | Val Loss: 2.0549 | Val Acc: 65.74% | Gap: -21.82%
+Epoch 079/200 | LR: 0.000072 | Time: 37.79s | Train Loss: 1.9189 | Train Acc: 42.99% | Val Loss: 2.0492 | Val Acc: 64.72% | Gap: -21.73%
+Epoch 080/200 | LR: 0.000071 | Time: 37.70s | Train Loss: 1.9256 | Train Acc: 41.40% | Val Loss: 2.1229 | Val Acc: 64.06% | Gap: -22.66%
+Epoch 081/200 | LR: 0.000070 | Time: 37.77s | Train Loss: 1.9072 | Train Acc: 46.27% | Val Loss: 2.0733 | Val Acc: 65.19% | Gap: -18.92%
+Epoch 082/200 | LR: 0.000070 | Time: 37.45s | Train Loss: 1.8386 | Train Acc: 48.26% | Val Loss: 2.0125 | Val Acc: 65.52% | Gap: -17.26%
+Epoch 083/200 | LR: 0.000069 | Time: 37.66s | Train Loss: 1.9046 | Train Acc: 44.60% | Val Loss: 2.1743 | Val Acc: 62.73% | Gap: -18.12%
+Epoch 084/200 | LR: 0.000068 | Time: 37.74s | Train Loss: 1.8208 | Train Acc: 44.94% | Val Loss: 2.1417 | Val Acc: 64.40% | Gap: -19.46%
+Epoch 085/200 | LR: 0.000067 | Time: 37.53s | Train Loss: 1.8890 | Train Acc: 41.43% | Val Loss: 2.0543 | Val Acc: 65.00% | Gap: -23.57%
+Epoch 086/200 | LR: 0.000067 | Time: 37.71s | Train Loss: 1.8040 | Train Acc: 45.54% | Val Loss: 2.1000 | Val Acc: 65.39% | Gap: -19.85%
+Epoch 087/200 | LR: 0.000066 | Time: 37.56s | Train Loss: 1.9781 | Train Acc: 38.57% | Val Loss: 2.0227 | Val Acc: 65.60% | Gap: -27.03%
+Epoch 088/200 | LR: 0.000065 | Time: 37.67s | Train Loss: 1.9391 | Train Acc: 41.35% | Val Loss: 1.9960 | Val Acc: 65.80% | Gap: -24.45%
+Epoch 089/200 | LR: 0.000064 | Time: 37.63s | Train Loss: 1.7060 | Train Acc: 50.05% | Val Loss: 2.0474 | Val Acc: 65.64% | Gap: -15.59%
+Epoch 090/200 | LR: 0.000063 | Time: 37.77s | Train Loss: 1.8706 | Train Acc: 44.18% | Val Loss: 1.9504 | Val Acc: 66.55% | Gap: -22.37%
+----> Best Val Acc Updated: 66.55% at epoch 90
+Epoch 091/200 | LR: 0.000063 | Time: 37.65s | Train Loss: 1.8928 | Train Acc: 41.94% | Val Loss: 2.0085 | Val Acc: 66.25% | Gap: -24.31%
+Epoch 092/200 | LR: 0.000062 | Time: 37.76s | Train Loss: 1.8061 | Train Acc: 47.16% | Val Loss: 1.9554 | Val Acc: 66.19% | Gap: -19.03%
+Epoch 093/200 | LR: 0.000061 | Time: 37.56s | Train Loss: 1.7711 | Train Acc: 49.65% | Val Loss: 2.0006 | Val Acc: 65.75% | Gap: -16.10%
+Epoch 094/200 | LR: 0.000060 | Time: 37.58s | Train Loss: 1.8859 | Train Acc: 41.78% | Val Loss: 1.9775 | Val Acc: 65.83% | Gap: -24.05%
+Epoch 095/200 | LR: 0.000059 | Time: 37.72s | Train Loss: 1.9105 | Train Acc: 40.45% | Val Loss: 1.9721 | Val Acc: 66.39% | Gap: -25.94%
+Epoch 096/200 | LR: 0.000059 | Time: 37.67s | Train Loss: 1.7378 | Train Acc: 48.02% | Val Loss: 2.0128 | Val Acc: 65.43% | Gap: -17.41%
+Epoch 097/200 | LR: 0.000058 | Time: 37.80s | Train Loss: 1.8301 | Train Acc: 42.67% | Val Loss: 1.9514 | Val Acc: 66.91% | Gap: -24.24%
+----> Best Val Acc Updated: 66.91% at epoch 97
+Epoch 098/200 | LR: 0.000057 | Time: 37.63s | Train Loss: 1.7051 | Train Acc: 50.55% | Val Loss: 1.9912 | Val Acc: 66.81% | Gap: -16.26%
+Epoch 099/200 | LR: 0.000056 | Time: 37.53s | Train Loss: 1.8079 | Train Acc: 42.83% | Val Loss: 1.9008 | Val Acc: 67.76% | Gap: -24.93%
+----> Best Val Acc Updated: 67.76% at epoch 99
+Epoch 100/200 | LR: 0.000055 | Time: 37.70s | Train Loss: 1.7779 | Train Acc: 46.81% | Val Loss: 1.9429 | Val Acc: 67.09% | Gap: -20.28%
+Epoch 101/200 | LR: 0.000055 | Time: 37.69s | Train Loss: 1.7968 | Train Acc: 46.70% | Val Loss: 1.9543 | Val Acc: 65.70% | Gap: -19.00%
+Epoch 102/200 | LR: 0.000054 | Time: 37.73s | Train Loss: 1.7542 | Train Acc: 49.04% | Val Loss: 1.8679 | Val Acc: 68.92% | Gap: -19.88%
+----> Best Val Acc Updated: 68.92% at epoch 102
+Epoch 103/200 | LR: 0.000053 | Time: 37.88s | Train Loss: 1.8344 | Train Acc: 43.95% | Val Loss: 1.9223 | Val Acc: 67.28% | Gap: -23.33%
+Epoch 104/200 | LR: 0.000052 | Time: 37.77s | Train Loss: 1.8158 | Train Acc: 42.56% | Val Loss: 1.9560 | Val Acc: 66.86% | Gap: -24.30%
+Epoch 105/200 | LR: 0.000051 | Time: 37.78s | Train Loss: 1.6742 | Train Acc: 50.69% | Val Loss: 1.8886 | Val Acc: 67.87% | Gap: -17.18%
+Epoch 106/200 | LR: 0.000051 | Time: 37.53s | Train Loss: 1.7678 | Train Acc: 43.19% | Val Loss: 1.8785 | Val Acc: 68.41% | Gap: -25.22%
+Epoch 107/200 | LR: 0.000050 | Time: 37.65s | Train Loss: 1.8893 | Train Acc: 39.60% | Val Loss: 1.8927 | Val Acc: 67.55% | Gap: -27.95%
+Epoch 108/200 | LR: 0.000049 | Time: 37.80s | Train Loss: 1.7066 | Train Acc: 48.45% | Val Loss: 1.8471 | Val Acc: 69.32% | Gap: -20.86%
+----> Best Val Acc Updated: 69.32% at epoch 108
+Epoch 109/200 | LR: 0.000048 | Time: 37.64s | Train Loss: 1.7089 | Train Acc: 49.75% | Val Loss: 1.8827 | Val Acc: 67.91% | Gap: -18.16%
+Epoch 110/200 | LR: 0.000047 | Time: 37.29s | Train Loss: 1.7014 | Train Acc: 47.48% | Val Loss: 1.9258 | Val Acc: 67.05% | Gap: -19.56%
+Epoch 111/200 | LR: 0.000046 | Time: 37.72s | Train Loss: 1.8598 | Train Acc: 38.69% | Val Loss: 1.9051 | Val Acc: 68.20% | Gap: -29.51%
+Epoch 112/200 | LR: 0.000046 | Time: 37.65s | Train Loss: 1.7337 | Train Acc: 48.95% | Val Loss: 1.8688 | Val Acc: 68.68% | Gap: -19.73%
+Epoch 113/200 | LR: 0.000045 | Time: 37.71s | Train Loss: 1.6749 | Train Acc: 46.49% | Val Loss: 1.8867 | Val Acc: 67.89% | Gap: -21.40%
+Epoch 114/200 | LR: 0.000044 | Time: 37.54s | Train Loss: 1.7432 | Train Acc: 45.38% | Val Loss: 1.8760 | Val Acc: 68.61% | Gap: -23.23%
+Epoch 115/200 | LR: 0.000043 | Time: 37.85s | Train Loss: 1.7544 | Train Acc: 47.95% | Val Loss: 1.8834 | Val Acc: 68.32% | Gap: -20.37%
+Epoch 116/200 | LR: 0.000042 | Time: 37.51s | Train Loss: 1.6094 | Train Acc: 52.51% | Val Loss: 1.9255 | Val Acc: 67.75% | Gap: -15.24%
+Epoch 117/200 | LR: 0.000042 | Time: 37.75s | Train Loss: 1.6324 | Train Acc: 48.10% | Val Loss: 1.8687 | Val Acc: 68.75% | Gap: -20.65%
+Epoch 118/200 | LR: 0.000041 | Time: 37.65s | Train Loss: 1.6736 | Train Acc: 53.66% | Val Loss: 1.8150 | Val Acc: 69.82% | Gap: -16.15%
+----> Best Val Acc Updated: 69.82% at epoch 118
+Epoch 119/200 | LR: 0.000040 | Time: 37.76s | Train Loss: 1.7196 | Train Acc: 48.64% | Val Loss: 1.8025 | Val Acc: 70.33% | Gap: -21.69%
+----> Best Val Acc Updated: 70.33% at epoch 119
+Epoch 120/200 | LR: 0.000039 | Time: 37.67s | Train Loss: 1.6548 | Train Acc: 47.39% | Val Loss: 1.8649 | Val Acc: 68.82% | Gap: -21.43%
+Epoch 121/200 | LR: 0.000038 | Time: 37.64s | Train Loss: 1.6608 | Train Acc: 49.19% | Val Loss: 1.8546 | Val Acc: 69.50% | Gap: -20.31%
+Epoch 122/200 | LR: 0.000038 | Time: 37.65s | Train Loss: 1.7583 | Train Acc: 46.98% | Val Loss: 1.8137 | Val Acc: 70.06% | Gap: -23.08%
+Epoch 123/200 | LR: 0.000037 | Time: 37.67s | Train Loss: 1.7327 | Train Acc: 46.42% | Val Loss: 1.8309 | Val Acc: 70.04% | Gap: -23.62%
+Epoch 124/200 | LR: 0.000036 | Time: 37.61s | Train Loss: 1.6748 | Train Acc: 49.11% | Val Loss: 1.9030 | Val Acc: 68.26% | Gap: -19.15%
+Epoch 125/200 | LR: 0.000035 | Time: 37.53s | Train Loss: 1.6091 | Train Acc: 54.21% | Val Loss: 1.8946 | Val Acc: 68.74% | Gap: -14.53%
+Epoch 126/200 | LR: 0.000034 | Time: 37.57s | Train Loss: 1.6324 | Train Acc: 50.70% | Val Loss: 1.8608 | Val Acc: 69.23% | Gap: -18.53%
+Epoch 127/200 | LR: 0.000034 | Time: 37.56s | Train Loss: 1.6043 | Train Acc: 49.88% | Val Loss: 1.8769 | Val Acc: 69.96% | Gap: -20.08%
+Epoch 128/200 | LR: 0.000033 | Time: 37.65s | Train Loss: 1.6783 | Train Acc: 47.23% | Val Loss: 1.8733 | Val Acc: 69.48% | Gap: -22.25%
+Epoch 129/200 | LR: 0.000032 | Time: 37.47s | Train Loss: 1.6641 | Train Acc: 50.25% | Val Loss: 1.8777 | Val Acc: 69.32% | Gap: -19.07%
+Epoch 130/200 | LR: 0.000031 | Time: 37.49s | Train Loss: 1.7136 | Train Acc: 47.15% | Val Loss: 1.9376 | Val Acc: 69.74% | Gap: -22.59%
+Epoch 131/200 | LR: 0.000031 | Time: 37.58s | Train Loss: 1.8273 | Train Acc: 39.65% | Val Loss: 1.8936 | Val Acc: 69.40% | Gap: -29.76%
+Epoch 132/200 | LR: 0.000030 | Time: 37.45s | Train Loss: 1.7044 | Train Acc: 44.38% | Val Loss: 1.8417 | Val Acc: 70.53% | Gap: -26.15%
+----> Best Val Acc Updated: 70.53% at epoch 132
+Epoch 133/200 | LR: 0.000029 | Time: 37.84s | Train Loss: 1.6081 | Train Acc: 51.98% | Val Loss: 1.8404 | Val Acc: 69.93% | Gap: -17.95%
+Epoch 134/200 | LR: 0.000028 | Time: 37.98s | Train Loss: 1.6642 | Train Acc: 49.77% | Val Loss: 1.8652 | Val Acc: 69.66% | Gap: -19.88%
+Epoch 135/200 | LR: 0.000028 | Time: 37.75s | Train Loss: 1.8293 | Train Acc: 41.35% | Val Loss: 1.8958 | Val Acc: 70.31% | Gap: -28.96%
+Epoch 136/200 | LR: 0.000027 | Time: 37.49s | Train Loss: 1.7312 | Train Acc: 43.33% | Val Loss: 1.8819 | Val Acc: 70.06% | Gap: -26.73%
+Epoch 137/200 | LR: 0.000026 | Time: 37.55s | Train Loss: 1.7803 | Train Acc: 40.21% | Val Loss: 1.9322 | Val Acc: 68.95% | Gap: -28.74%
+Epoch 138/200 | LR: 0.000026 | Time: 37.57s | Train Loss: 1.6677 | Train Acc: 48.09% | Val Loss: 1.9066 | Val Acc: 69.55% | Gap: -21.46%
+Epoch 139/200 | LR: 0.000025 | Time: 37.51s | Train Loss: 1.6752 | Train Acc: 45.26% | Val Loss: 1.8578 | Val Acc: 70.45% | Gap: -25.19%
+Epoch 140/200 | LR: 0.000024 | Time: 37.38s | Train Loss: 1.6207 | Train Acc: 50.52% | Val Loss: 1.8680 | Val Acc: 70.20% | Gap: -19.68%
+Epoch 141/200 | LR: 0.000023 | Time: 37.59s | Train Loss: 1.7287 | Train Acc: 42.90% | Val Loss: 1.8649 | Val Acc: 70.77% | Gap: -27.87%
+----> Best Val Acc Updated: 70.77% at epoch 141
+Epoch 142/200 | LR: 0.000023 | Time: 37.62s | Train Loss: 1.6906 | Train Acc: 46.70% | Val Loss: 1.8501 | Val Acc: 70.60% | Gap: -23.90%
+Epoch 143/200 | LR: 0.000022 | Time: 37.70s | Train Loss: 1.5939 | Train Acc: 48.86% | Val Loss: 1.9102 | Val Acc: 70.38% | Gap: -21.52%
+Epoch 144/200 | LR: 0.000021 | Time: 37.69s | Train Loss: 1.6660 | Train Acc: 46.88% | Val Loss: 1.8750 | Val Acc: 70.23% | Gap: -23.35%
+Epoch 145/200 | LR: 0.000021 | Time: 37.68s | Train Loss: 1.6727 | Train Acc: 44.88% | Val Loss: 1.8553 | Val Acc: 70.20% | Gap: -25.32%
+Epoch 146/200 | LR: 0.000020 | Time: 37.68s | Train Loss: 1.5617 | Train Acc: 52.83% | Val Loss: 1.8692 | Val Acc: 70.29% | Gap: -17.46%
+Epoch 147/200 | LR: 0.000019 | Time: 37.78s | Train Loss: 1.6043 | Train Acc: 45.89% | Val Loss: 1.9163 | Val Acc: 70.73% | Gap: -24.84%
+Epoch 148/200 | LR: 0.000019 | Time: 37.51s | Train Loss: 1.6815 | Train Acc: 44.15% | Val Loss: 1.8778 | Val Acc: 70.76% | Gap: -26.61%
+Epoch 149/200 | LR: 0.000018 | Time: 37.72s | Train Loss: 1.6328 | Train Acc: 47.92% | Val Loss: 1.8333 | Val Acc: 71.04% | Gap: -23.12%
+----> Best Val Acc Updated: 71.04% at epoch 149
+Epoch 150/200 | LR: 0.000018 | Time: 37.74s | Train Loss: 1.6415 | Train Acc: 44.04% | Val Loss: 1.9159 | Val Acc: 70.22% | Gap: -26.18%
+Epoch 151/200 | LR: 0.000017 | Time: 37.66s | Train Loss: 1.6718 | Train Acc: 44.35% | Val Loss: 1.8574 | Val Acc: 70.72% | Gap: -26.37%
+Epoch 152/200 | LR: 0.000016 | Time: 37.58s | Train Loss: 1.5108 | Train Acc: 51.44% | Val Loss: 1.8502 | Val Acc: 70.96% | Gap: -19.52%
+Epoch 153/200 | LR: 0.000016 | Time: 37.72s | Train Loss: 1.6973 | Train Acc: 45.42% | Val Loss: 1.8842 | Val Acc: 71.15% | Gap: -25.73%
+----> Best Val Acc Updated: 71.15% at epoch 153
+Epoch 154/200 | LR: 0.000015 | Time: 37.79s | Train Loss: 1.7147 | Train Acc: 43.56% | Val Loss: 1.8443 | Val Acc: 71.45% | Gap: -27.89%
+----> Best Val Acc Updated: 71.45% at epoch 154
+Epoch 155/200 | LR: 0.000015 | Time: 37.80s | Train Loss: 1.7432 | Train Acc: 43.86% | Val Loss: 1.9219 | Val Acc: 70.88% | Gap: -27.02%
+Epoch 156/200 | LR: 0.000014 | Time: 37.62s | Train Loss: 1.5781 | Train Acc: 49.93% | Val Loss: 1.8757 | Val Acc: 71.09% | Gap: -21.16%
+Epoch 157/200 | LR: 0.000014 | Time: 37.78s | Train Loss: 1.6973 | Train Acc: 40.78% | Val Loss: 1.8320 | Val Acc: 71.53% | Gap: -30.75%
+----> Best Val Acc Updated: 71.53% at epoch 157
+Epoch 158/200 | LR: 0.000013 | Time: 37.54s | Train Loss: 1.5511 | Train Acc: 52.13% | Val Loss: 1.8940 | Val Acc: 71.20% | Gap: -19.07%
+Epoch 159/200 | LR: 0.000012 | Time: 37.45s | Train Loss: 1.6055 | Train Acc: 50.55% | Val Loss: 1.8750 | Val Acc: 70.58% | Gap: -20.03%
+Epoch 160/200 | LR: 0.000012 | Time: 37.50s | Train Loss: 1.5945 | Train Acc: 48.77% | Val Loss: 1.8468 | Val Acc: 71.34% | Gap: -22.57%
+Epoch 161/200 | LR: 0.000011 | Time: 37.49s | Train Loss: 1.6635 | Train Acc: 45.13% | Val Loss: 1.8733 | Val Acc: 70.73% | Gap: -25.60%
+Epoch 162/200 | LR: 0.000011 | Time: 37.78s | Train Loss: 1.5585 | Train Acc: 53.57% | Val Loss: 1.8759 | Val Acc: 70.94% | Gap: -17.37%
+Epoch 163/200 | LR: 0.000010 | Time: 37.47s | Train Loss: 1.7118 | Train Acc: 39.63% | Val Loss: 1.8693 | Val Acc: 71.43% | Gap: -31.80%
+Epoch 164/200 | LR: 0.000010 | Time: 37.55s | Train Loss: 1.6870 | Train Acc: 43.29% | Val Loss: 1.8926 | Val Acc: 71.55% | Gap: -28.26%
+----> Best Val Acc Updated: 71.55% at epoch 164
+Epoch 165/200 | LR: 0.000010 | Time: 37.66s | Train Loss: 1.5765 | Train Acc: 44.52% | Val Loss: 1.8687 | Val Acc: 70.69% | Gap: -26.16%
+Epoch 166/200 | LR: 0.000009 | Time: 37.70s | Train Loss: 1.6286 | Train Acc: 45.62% | Val Loss: 1.8937 | Val Acc: 71.54% | Gap: -25.92%
+Epoch 167/200 | LR: 0.000009 | Time: 37.69s | Train Loss: 1.5447 | Train Acc: 52.30% | Val Loss: 1.8672 | Val Acc: 71.96% | Gap: -19.65%
+----> Best Val Acc Updated: 71.96% at epoch 167
+Epoch 168/200 | LR: 0.000008 | Time: 37.56s | Train Loss: 1.6832 | Train Acc: 45.92% | Val Loss: 1.8461 | Val Acc: 72.19% | Gap: -26.27%
+----> Best Val Acc Updated: 72.19% at epoch 168
+Epoch 169/200 | LR: 0.000008 | Time: 37.37s | Train Loss: 1.5971 | Train Acc: 46.84% | Val Loss: 1.8941 | Val Acc: 71.01% | Gap: -24.18%
+Epoch 170/200 | LR: 0.000007 | Time: 37.56s | Train Loss: 1.6633 | Train Acc: 43.69% | Val Loss: 1.9128 | Val Acc: 71.59% | Gap: -27.90%
+Epoch 171/200 | LR: 0.000007 | Time: 37.44s | Train Loss: 1.5983 | Train Acc: 46.93% | Val Loss: 1.8628 | Val Acc: 71.87% | Gap: -24.94%
+Epoch 172/200 | LR: 0.000007 | Time: 37.68s | Train Loss: 1.7055 | Train Acc: 40.25% | Val Loss: 1.8990 | Val Acc: 71.20% | Gap: -30.95%
+Epoch 173/200 | LR: 0.000006 | Time: 37.78s | Train Loss: 1.6411 | Train Acc: 42.70% | Val Loss: 1.8559 | Val Acc: 71.59% | Gap: -28.89%
+Epoch 174/200 | LR: 0.000006 | Time: 37.68s | Train Loss: 1.6287 | Train Acc: 45.92% | Val Loss: 1.8841 | Val Acc: 71.94% | Gap: -26.02%
+Epoch 175/200 | LR: 0.000006 | Time: 37.81s | Train Loss: 1.5613 | Train Acc: 50.04% | Val Loss: 1.8994 | Val Acc: 71.61% | Gap: -21.57%
+Epoch 176/200 | LR: 0.000005 | Time: 37.71s | Train Loss: 1.6497 | Train Acc: 45.15% | Val Loss: 1.9099 | Val Acc: 71.44% | Gap: -26.29%
+Epoch 177/200 | LR: 0.000005 | Time: 37.66s | Train Loss: 1.5038 | Train Acc: 54.48% | Val Loss: 1.8866 | Val Acc: 71.88% | Gap: -17.39%
+Epoch 178/200 | LR: 0.000005 | Time: 37.69s | Train Loss: 1.5825 | Train Acc: 46.49% | Val Loss: 1.8761 | Val Acc: 71.92% | Gap: -25.43%
+Epoch 179/200 | LR: 0.000004 | Time: 37.77s | Train Loss: 1.6406 | Train Acc: 44.70% | Val Loss: 1.8363 | Val Acc: 72.12% | Gap: -27.42%
+Epoch 180/200 | LR: 0.000004 | Time: 37.63s | Train Loss: 1.5980 | Train Acc: 51.55% | Val Loss: 1.8685 | Val Acc: 72.03% | Gap: -20.48%
+Epoch 181/200 | LR: 0.000004 | Time: 37.79s | Train Loss: 1.5425 | Train Acc: 49.55% | Val Loss: 1.8742 | Val Acc: 71.56% | Gap: -22.01%
+Epoch 182/200 | LR: 0.000003 | Time: 37.65s | Train Loss: 1.5899 | Train Acc: 49.46% | Val Loss: 1.8905 | Val Acc: 71.72% | Gap: -22.26%
+Epoch 183/200 | LR: 0.000003 | Time: 37.54s | Train Loss: 1.6746 | Train Acc: 44.76% | Val Loss: 1.8662 | Val Acc: 71.97% | Gap: -27.21%
+Epoch 184/200 | LR: 0.000003 | Time: 37.64s | Train Loss: 1.5878 | Train Acc: 44.57% | Val Loss: 1.9027 | Val Acc: 71.50% | Gap: -26.93%
+Epoch 185/200 | LR: 0.000003 | Time: 37.54s | Train Loss: 1.5639 | Train Acc: 46.98% | Val Loss: 1.8663 | Val Acc: 72.34% | Gap: -25.36%
+----> Best Val Acc Updated: 72.34% at epoch 185
+Epoch 186/200 | LR: 0.000003 | Time: 37.57s | Train Loss: 1.6182 | Train Acc: 47.56% | Val Loss: 1.9184 | Val Acc: 71.97% | Gap: -24.41%
+Epoch 187/200 | LR: 0.000002 | Time: 37.77s | Train Loss: 1.6787 | Train Acc: 42.76% | Val Loss: 1.9017 | Val Acc: 71.78% | Gap: -29.02%
+Epoch 188/200 | LR: 0.000002 | Time: 37.63s | Train Loss: 1.5291 | Train Acc: 50.78% | Val Loss: 1.9285 | Val Acc: 71.29% | Gap: -20.51%
+Epoch 189/200 | LR: 0.000002 | Time: 37.53s | Train Loss: 1.6230 | Train Acc: 44.68% | Val Loss: 1.8960 | Val Acc: 71.69% | Gap: -27.01%
+Epoch 190/200 | LR: 0.000002 | Time: 37.55s | Train Loss: 1.5486 | Train Acc: 51.32% | Val Loss: 1.8562 | Val Acc: 71.77% | Gap: -20.45%
+Epoch 191/200 | LR: 0.000002 | Time: 37.70s | Train Loss: 1.5594 | Train Acc: 45.36% | Val Loss: 1.8771 | Val Acc: 71.75% | Gap: -26.39%
+Epoch 192/200 | LR: 0.000002 | Time: 37.58s | Train Loss: 1.6612 | Train Acc: 44.80% | Val Loss: 1.8870 | Val Acc: 72.11% | Gap: -27.31%
+Epoch 193/200 | LR: 0.000001 | Time: 37.61s | Train Loss: 1.5391 | Train Acc: 48.41% | Val Loss: 1.8505 | Val Acc: 72.51% | Gap: -24.10%
+----> Best Val Acc Updated: 72.51% at epoch 193
+Epoch 194/200 | LR: 0.000001 | Time: 37.66s | Train Loss: 1.4793 | Train Acc: 56.30% | Val Loss: 1.8889 | Val Acc: 71.43% | Gap: -15.14%
+Epoch 195/200 | LR: 0.000001 | Time: 37.80s | Train Loss: 1.5187 | Train Acc: 52.15% | Val Loss: 1.8387 | Val Acc: 72.49% | Gap: -20.34%
+Epoch 196/200 | LR: 0.000001 | Time: 37.80s | Train Loss: 1.4760 | Train Acc: 52.74% | Val Loss: 1.8699 | Val Acc: 72.38% | Gap: -19.64%
+Epoch 197/200 | LR: 0.000001 | Time: 37.80s | Train Loss: 1.5113 | Train Acc: 50.62% | Val Loss: 1.8542 | Val Acc: 72.08% | Gap: -21.46%
+Epoch 198/200 | LR: 0.000001 | Time: 37.46s | Train Loss: 1.6427 | Train Acc: 45.35% | Val Loss: 1.8920 | Val Acc: 71.73% | Gap: -26.38%
+Epoch 199/200 | LR: 0.000001 | Time: 37.63s | Train Loss: 1.5931 | Train Acc: 48.33% | Val Loss: 1.8907 | Val Acc: 71.91% | Gap: -23.58%
+Epoch 200/200 | LR: 0.000001 | Time: 37.53s | Train Loss: 1.6599 | Train Acc: 45.14% | Val Loss: 1.9149 | Val Acc: 71.96% | Gap: -26.82%
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/WRN_28_10_AdamW_Only_best.pth
+
+===== Final Test Accuracy for AdamW_Only =====
+Final Test Accuracy: 78.42%
+Total Training Time: 7533.06 sec
+
+
+
+====== All Final Results =====
+
+===== SAM_Only =====
+Final Test Accuracy: 78.48%
+Total Training Time: 14286.90 sec
+===== AdamW_then_SAM =====
+Final Test Accuracy: 79.31%
+Total Training Time: 10705.91 sec
+===== AdamW_Only =====
+Final Test Accuracy: 78.42%
+Total Training Time: 7533.06 sec
