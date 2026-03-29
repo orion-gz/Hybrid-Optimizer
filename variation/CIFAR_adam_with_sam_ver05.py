@@ -17,9 +17,9 @@ import timm
 
 from common.model import WRN_28_10
 from common.optimizer import SAM, ESAM
-from common.switcher import DynamicSwitcher
+from common.switcher import DynamicSwitcher_ver05
 from common.train_flow import train_one_epoch, evaluate
-from common.config import get_config, print_config
+from common.config import get_config_ver05, print_config
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -62,17 +62,15 @@ def get_data_loaders(config):
         train_transforms_list.append(transforms.Resize((224, 224), antialias=True))
         train_transforms_list.append(transforms.RandomCrop(224, padding=32))
         train_transforms_list.append(transforms.RandomHorizontalFlip())
-        #train_transforms_list.remove(transforms.RandomCrop(32, padding=4))
         test_transforms_list.append(transforms.Resize((224, 224), antialias=True))
     else:
         train_transforms_list.append(transforms.RandomCrop(32, padding=4))
         train_transforms_list.append(transforms.RandomHorizontalFlip())
         
-    
     if config.get('use_autoaugment', False):
         if dataset_name == 'SVHN':
             train_transforms_list.append(AutoAugment(policy=AutoAugmentPolicy.SVHN))
-        elif dataset_name == 'CIFAR10' or dataset_name == 'CIFAR100': # CIFAR10, CIFAR100
+        elif dataset_name == 'CIFAR10' or dataset_name == 'CIFAR100':
             train_transforms_list.append(AutoAugment(policy=AutoAugmentPolicy.CIFAR10))
             
     if config.get('use_randaugment', False):
@@ -140,9 +138,43 @@ def get_model(config):
     
     return model.to(config['device'])
 
-def run_experiment(config, target_epoch):
-    STOP_EPOCH = target_epoch if target_epoch > 0 else config['epochs']
-        
+def switch_to_sam(model, optimizer, config, epoch):
+    """
+    AdamW → SAM(AdamW base) 전환 (ver05: switch_rho 분리 버전).
+
+    ver04 대비 변경:
+        - config['rho'] → config['switch_rho'] 사용
+        - 이미 수렴한 가중치에 rho=0.2는 과도 → switch_rho=0.05로 안정적 전환
+    """
+    current_lr = optimizer.param_groups[0]['lr']
+    restart_lr = config['initial_lr'] * config['lr_restart_factor']
+    switch_rho = config['switch_rho']
+
+    print(f"    └─ AdamW current LR : {current_lr:.6f}")
+    print(f"    └─ SAM restart LR   : {restart_lr:.6f}"
+          f"  (initial_lr={config['initial_lr']} x factor={config['lr_restart_factor']})")
+    print(f"    └─ SAM switch_rho: {switch_rho}, base_optimizer: AdamW")
+
+    new_optimizer = SAM(
+        model.parameters(),
+        optim.AdamW,
+        rho=switch_rho,            # [ver05] rho → switch_rho
+        lr=restart_lr,
+        weight_decay=config['weight_decay']
+    )
+
+    adamw_state = optimizer.state_dict()['state']
+    param_list  = list(model.parameters())
+    for i, param in enumerate(param_list):
+        if i in adamw_state:
+            new_optimizer.base_optimizer.state[param] = {
+                k: v.clone() if isinstance(v, torch.Tensor) else v
+                for k, v in adamw_state[i].items()
+            }
+
+    return new_optimizer, restart_lr
+
+def run_experiment(config):
     strategy_name = config['strategy_name']
     device = config['device']
     print(f"\n===== Training Strategy: {strategy_name} =====")
@@ -152,39 +184,65 @@ def run_experiment(config, target_epoch):
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
     
     if strategy_name == "SAM_Only":
-        optimizer = SAM(model.parameters(), 
-            optim.AdamW, 
-            rho=config.get('sam_only_rho', config['rho']), 
-            lr=config['initial_lr'], 
-            weight_decay=config['weight_decay'])
-        scheduler = CosineAnnealingLR(optimizer.base_optimizer, T_max=config['epochs'], eta_min=1e-6)
-    else: # AdamW_Only, AdamW_then_SAM
-        optimizer = optim.AdamW(model.parameters(), lr=config['initial_lr'], weight_decay=config['weight_decay'])
+        optimizer = SAM(
+            model.parameters(),
+            optim.AdamW,
+            rho=config['sam_only_rho'],
+            lr=config['initial_lr'],
+            weight_decay=config['weight_decay']
+        )
+        scheduler = CosineAnnealingLR(
+            optimizer.base_optimizer,
+            T_max=config['epochs'],
+            eta_min=1e-6
+        )
+    else:  # AdamW_Only, AdamW_then_*
+        optimizer = optim.AdamW(
+            model.parameters(),
+            lr=config['initial_lr'],
+            weight_decay=config['weight_decay']
+        )
         warmup_scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-        main_scheduler = CosineAnnealingLR(optimizer, T_max=config['epochs'] - config['warmup_epochs'], eta_min=1e-6)
-        scheduler = SequentialLR(optimizer, schedulers=[warmup_scheduler, main_scheduler], milestones=[config['warmup_epochs']])
+        main_scheduler = CosineAnnealingLR(
+            optimizer,
+            T_max=config['epochs'] - config['warmup_epochs'],
+            eta_min=1e-6
+        )
+        scheduler = SequentialLR(
+            optimizer,
+            schedulers=[warmup_scheduler, main_scheduler],
+            milestones=[config['warmup_epochs']]
+        )
 
-    switcher = DynamicSwitcher(
-        beta_ema=config['beta_ema'],
-        history_window=config['history_window'],
-        plateau_patience=config['plateau_patience'],
-        plateau_min_delta=config['plateau_min_delta'],
-        gap_increase_threshold=config['gap_threshold'],
-        grad_norm_increase_threshold=config['grad_norm_threshold'],
+    switcher = DynamicSwitcher_ver05(
         min_switch_epoch=config['min_switch_epoch'],
-        oscillation_threshold=config['oscillation_threshold']
+        check_every=config['check_every'],
+        probe_ratio=config['probe_ratio'],
+        sim_steps=config['sim_steps'],
+        gain_threshold=config['gain_threshold'],
+        switch_rho=config['switch_rho'],       # [ver05] rho → switch_rho
+        weight_decay=config['weight_decay'],
+        initial_lr=config['initial_lr'],
+        lr_restart_factor=config['lr_restart_factor'],
     )
     
-    history = {'train_loss': [], 'train_acc': [], 'val_loss': [], 'val_acc': [], 'generalization_gap': [], 'test_acc': 0, 'total_training_time': 0}
+    history = {
+        'train_loss': [], 'train_acc': [],
+        'val_loss': [], 'val_acc': [],
+        'generalization_gap': [],
+        'switch_epoch': None,           # 전환 시점 기록
+        'test_acc': 0,
+        'total_training_time': 0
+    }
     best_val_acc = 0.0
     best_model_state = deepcopy(model.state_dict())
     total_training_time = 0
     switched = False
     
-    use_amp = config['use_amp'] 
+    use_amp = config['use_amp']
     print(f"AMP Enabled: {use_amp}")
     
-    for epoch in range(STOP_EPOCH):
+    for epoch in range(config['epochs']):
         start_time = time.time()
         
         train_loss, train_acc, avg_grad_norm = train_one_epoch(
@@ -200,12 +258,21 @@ def run_experiment(config, target_epoch):
         end_time = time.time() - start_time
         total_training_time += end_time
         
-        current_lr = optimizer.base_optimizer.param_groups[0]['lr'] if hasattr(optimizer, 'base_optimizer') else optimizer.param_groups[0]['lr']
+        # 전환 여부를 로그에 표시
+        phase = "[SAM]" if switched else "[AdamW]"
+        print(
+            f"Epoch {epoch+1:03d}/{config['epochs']} {phase} | "
+            f"LR: {optimizer.param_groups[0]['lr']:.6f} | "
+            f"Time: {end_time:.2f}s | "
+            f"Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.2f}% | "
+            f"Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.2f}% | "
+            f"Gap: {generalization_gap:.2f}%"
+        )
         
-        print(f"Epoch {epoch+1:03d}/{STOP_EPOCH} (Original Target: {config['epochs']}) | LR: {current_lr:.6f} | Time: {end_time:.2f}s | Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.2f}% | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.2f}% | Gap: {generalization_gap:.2f}%")
-        
-        history['train_loss'].append(train_loss); history['train_acc'].append(train_acc)
-        history['val_loss'].append(val_loss); history['val_acc'].append(val_acc)
+        history['train_loss'].append(train_loss)
+        history['train_acc'].append(train_acc)
+        history['val_loss'].append(val_loss)
+        history['val_acc'].append(val_acc)
         history['generalization_gap'].append(generalization_gap)
         
         if val_acc >= best_val_acc:
@@ -213,35 +280,56 @@ def run_experiment(config, target_epoch):
             best_model_state = deepcopy(model.state_dict())
             print(f"----> Best Val Acc Updated: {best_val_acc:.2f}% at epoch {epoch+1}")
 
+        # ── 전환 로직 ──────────────────────────────────────────────────
         if "then" in strategy_name and not switched:
-            if switcher.step(epoch=epoch, train_acc=train_acc/100.0, val_acc=val_acc/100.0, grad_norm=avg_grad_norm):
-                print(f"\n----- Dynamic Switch Triggered at Epoch {epoch+1}! Switching to SAM -----")
-                if strategy_name == "AdamW_then_SAM":
-                    optimizer = SAM(model.parameters(), optim.SGD, rho=config['rho'], lr=config['sam_lr'], momentum=0.9)
-                elif strategy_name == "AdamW_then_ASAM":
-                    optimizer = SAM(model.parameters(), optim.SGD, rho=config['rho'], adaptive=True, lr=config['sam_lr'], momentum=0.9)
+            if switcher.step(
+                epoch=epoch,
+                model=model,
+                optimizer=optimizer,
+                val_loader=val_loader,
+                criterion=criterion,
+                device=device,
+            ):
+                print(f"\n----- Dynamic Switch Triggered at Epoch {epoch+1}! -----")
+                history['switch_epoch'] = epoch + 1
+
+                if strategy_name in ("AdamW_then_SAM", "AdamW_then_ASAM"):
+                    adaptive = (strategy_name == "AdamW_then_ASAM")
+                    new_optimizer, current_lr = switch_to_sam(model, optimizer, config, epoch)
+                    # ASAM이면 adaptive 플래그 추가 설정
+                    if adaptive:
+                        for group in new_optimizer.param_groups:
+                            group['adaptive'] = True
+                    optimizer = new_optimizer
+
                 elif strategy_name == "AdamW_then_ESAM":
-                    optimizer = ESAM(model.parameters(), optim.SGD, rho=config['rho'], lr=config['esam_lr'], momentum=0.9, beta=0.5)
-                
+                    current_lr = optimizer.param_groups[0]['lr']
+                    print(f"    └─ Inheriting LR from AdamW: {current_lr:.6f}")
+                    optimizer = ESAM(
+                        model.parameters(),
+                        optim.AdamW,
+                        rho=config['switch_rho'],
+                        lr=current_lr,
+                        weight_decay=config['weight_decay'],
+                        beta=0.5
+                    )
+
                 switched = True
-                
-                remaining_epochs = config['epochs'] - epoch
-                warmup_scheduler_sam = LinearLR(optimizer.base_optimizer, start_factor=1e-10, end_factor=1.0, total_iters=config['sam_warmup_epochs'])
-                main_scheduler_sam = CosineAnnealingLR(optimizer.base_optimizer, T_max=remaining_epochs - config['sam_warmup_epochs'])
-                scheduler = SequentialLR(optimizer.base_optimizer, schedulers=[warmup_scheduler_sam, main_scheduler_sam], milestones=[config['sam_warmup_epochs']])
-        
-        if (epoch + 1) % 10 == 0 or (epoch + 1) == STOP_EPOCH:
-            traj_dir = f"/home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/{config['model_name']}/trajectory"
-            os.makedirs(traj_dir, exist_ok=True)
-            
-            traj_filename = f"{config['model_name']}_{strategy_name}_epoch_{epoch+1}.pth"
-            traj_path = os.path.join(traj_dir, traj_filename)
-            
-            torch.save(model.state_dict(), traj_path)
-            print(f"----> Trajectory checkpoint saved: {traj_path}")
-            
+                remaining_epochs = config['epochs'] - (epoch + 1)
+
+                # warmup 없이 현재 LR에서 cosine decay 재개
+                # T_max을 남은 epoch으로 설정하고 eta_min까지 자연스럽게 감소
+                scheduler = CosineAnnealingLR(
+                    optimizer.base_optimizer,
+                    T_max=max(remaining_epochs, 1),
+                    eta_min=1e-6
+                )
+                print(f"    └─ Cosine scheduler restarted: T_max={remaining_epochs} epochs")
+                print(f"----- Switch Complete -----\n")
+        # ───────────────────────────────────────────────────────────────
+
         scheduler.step()
-        
+
     model.load_state_dict(best_model_state)
     _, test_acc = evaluate(model, test_loader, criterion, device)
     history['test_acc'] = test_acc
@@ -252,22 +340,28 @@ def run_experiment(config, target_epoch):
     model_name = config['model_name']
     save_filename = f"{model_name}_{strategy_name}_best.pth"
     save_path = os.path.join(save_dir, save_filename)
-    torch.save(best_model_state, save_path)    
+    torch.save(best_model_state, save_path)
     print(f"----> Model saved to: {save_path}")
     
     print(f"\n===== Final Test Accuracy for {strategy_name} =====")
     print(f"Final Test Accuracy: {test_acc:.2f}%")
+    if history['switch_epoch']:
+        print(f"Switch Epoch: {history['switch_epoch']}")
     print(f"Total Training Time: {total_training_time:.2f} sec\n\n")
     
     return history
 
 def plot_results(results):
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(24, 6))
+    fig, axes = plt.subplots(1, 3, figsize=(24, 6))
+    ax1, ax2, ax3 = axes
 
     ax1.set_title("Loss Curves")
     for name, history in results.items():
-        ax1.plot(history['train_loss'], '--', label=f'{name} Train') 
-        ax1.plot(history['val_loss'], '-', label=f'{name} Validation') 
+        ax1.plot(history['train_loss'], '--', label=f'{name} Train')
+        ax1.plot(history['val_loss'], '-', label=f'{name} Val')
+        # 전환 시점 수직선 표시
+        if history.get('switch_epoch'):
+            ax1.axvline(x=history['switch_epoch'], linestyle=':', alpha=0.7, label=f'{name} Switch')
     ax1.set_xlabel("Epochs")
     ax1.set_ylabel("Loss")
     ax1.legend()
@@ -275,8 +369,10 @@ def plot_results(results):
 
     ax2.set_title("Accuracy Curves")
     for name, history in results.items():
-        ax2.plot(history['train_acc'], '--', label=f'{name} Train') 
-        ax2.plot(history['val_acc'], '-', label=f'{name} Validation') 
+        ax2.plot(history['train_acc'], '--', label=f'{name} Train')
+        ax2.plot(history['val_acc'], '-', label=f'{name} Val')
+        if history.get('switch_epoch'):
+            ax2.axvline(x=history['switch_epoch'], linestyle=':', alpha=0.7, label=f'{name} Switch')
     ax2.set_xlabel("Epochs")
     ax2.set_ylabel("Accuracy (%)")
     ax2.legend()
@@ -284,49 +380,44 @@ def plot_results(results):
 
     ax3.set_title("Generalization Gap Curves")
     for name, history in results.items():
-        ax3.plot(history['generalization_gap'], '-', label=f'{name}') 
+        ax3.plot(history['generalization_gap'], '-', label=f'{name}')
+        if history.get('switch_epoch'):
+            ax3.axvline(x=history['switch_epoch'], linestyle=':', alpha=0.7, label=f'{name} Switch')
     ax3.set_xlabel("Epochs")
     ax3.set_ylabel("Generalization Gap (%)")
     ax3.legend()
     ax3.grid(True)
 
-    plt.tight_layout() 
-    plt.savefig('optimization_results.png') 
+    plt.tight_layout()
+    plt.savefig('optimization_results.png')
     plt.show()
 
 def print_results(results):
     print("\n====== All Final Results =====\n")
     for name, history in results.items():
         print(f"===== {name} =====")
-        print(f"Final Test Accuracy: {history['test_acc']:.2f}%")
-        print(f"Total Training Time: {history['total_training_time']:.2f} sec")
+        print(f"Final Test Accuracy : {history['test_acc']:.2f}%")
+        if history.get('switch_epoch'):
+            print(f"Switch Epoch       : {history['switch_epoch']}")
+        print(f"Total Training Time : {history['total_training_time']:.2f} sec")
         
 def main():
-    base_config = get_config()
+    base_config = get_config_ver05()
     print_config(base_config)
     
-    # stratgies with best epochs(for visualization)
-    strategies = {
-        "AdamW_Only": 0,
-        "AdamW_then_SAM": 0,
-        "SAM_Only": 0, 
-        #"AdamW_then_ASAM": 150,
-        #"AdamW_then_ESAM": 0
-    }
-    
+    strategies_to_run = ["AdamW_then_SAM"]
     all_results = {}
     
-    for name, target_epoch in strategies.items():
+    for name in strategies_to_run:
         config = base_config.copy()
         config['strategy_name'] = name
-        
-        history = run_experiment(config, target_epoch)
+        history = run_experiment(config)
         all_results[name] = history
         
     plot_results(all_results)
     print_results(all_results)
 
 if __name__ == '__main__':
-    set_seed(get_config()['seed'])
-    torch.backends.cudnn.benchmark = True 
+    set_seed(get_config_ver05()['seed'])
+    torch.backends.cudnn.benchmark = True
     main()

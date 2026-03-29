@@ -1,0 +1,1278 @@
+nohup: ignoring input
+/home/prml/StudentsWork/JungWoo/Optimizer/.venv/lib/python3.11/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+==========================
+seed                  : 42
+device                : cuda
+num_workers           : 16
+dataset               : CIFAR100
+num_classes           : 100
+data_path             : ./data/
+image_size            : 224
+use_randaugment       : False
+use_autoaugment       : True
+use_mixup             : True
+use_cutmix            : True
+mixup_alpha           : 0.8
+cutmix_alpha          : 1.0
+aug_prob              : 0.5
+model_name            : vit_small_patch8_224
+dropout_rate          : 0.0
+use_amp               : False
+epochs                : 300
+batch_size            : 512
+warmup_epochs         : 10
+initial_lr            : 0.0001
+weight_decay          : 0.0005
+sam_warmup_epochs     : 10
+sam_only_lr           : 0.001
+sam_only_rho          : 0.2
+sam_lr                : 0.1
+esam_lr               : 0.01
+rho                   : 0.2
+beta_ema              : 0.9
+history_window        : 20
+plateau_patience      : 10
+plateau_min_delta     : 0.01
+gap_threshold         : 0.02
+grad_norm_threshold   : 0.1
+oscillation_threshold : 5
+min_switch_epoch      : 30.0
+==========================
+
+===== Training Strategy: AdamW_Only =====
+AMP Enabled: False
+Epoch 001/300 (Original Target: 300) | LR: 0.000000 | Time: 14.29s | Train Loss: 5.6572 | Train Acc: 0.56% | Val Loss: 5.6719 | Val Acc: 0.96% | Gap: -0.40%
+----> Best Val Acc Updated: 0.96% at epoch 1
+Epoch 002/300 (Original Target: 300) | LR: 0.000010 | Time: 13.74s | Train Loss: 4.7488 | Train Acc: 1.00% | Val Loss: 4.4794 | Val Acc: 4.09% | Gap: -3.08%
+----> Best Val Acc Updated: 4.09% at epoch 2
+Epoch 003/300 (Original Target: 300) | LR: 0.000020 | Time: 14.00s | Train Loss: 4.2175 | Train Acc: 5.89% | Val Loss: 3.4409 | Val Acc: 24.17% | Gap: -18.28%
+----> Best Val Acc Updated: 24.17% at epoch 3
+Epoch 004/300 (Original Target: 300) | LR: 0.000030 | Time: 13.75s | Train Loss: 3.3521 | Train Acc: 19.18% | Val Loss: 2.5697 | Val Acc: 45.63% | Gap: -26.45%
+----> Best Val Acc Updated: 45.63% at epoch 4
+Epoch 005/300 (Original Target: 300) | LR: 0.000040 | Time: 14.02s | Train Loss: 2.9262 | Train Acc: 27.35% | Val Loss: 2.2644 | Val Acc: 53.97% | Gap: -26.62%
+----> Best Val Acc Updated: 53.97% at epoch 5
+Epoch 006/300 (Original Target: 300) | LR: 0.000050 | Time: 13.81s | Train Loss: 2.6534 | Train Acc: 29.39% | Val Loss: 2.0768 | Val Acc: 59.88% | Gap: -30.49%
+----> Best Val Acc Updated: 59.88% at epoch 6
+Epoch 007/300 (Original Target: 300) | LR: 0.000060 | Time: 13.80s | Train Loss: 2.7491 | Train Acc: 30.41% | Val Loss: 2.0005 | Val Acc: 62.02% | Gap: -31.61%
+----> Best Val Acc Updated: 62.02% at epoch 7
+Epoch 008/300 (Original Target: 300) | LR: 0.000070 | Time: 13.96s | Train Loss: 2.5121 | Train Acc: 34.12% | Val Loss: 1.9526 | Val Acc: 64.11% | Gap: -29.99%
+----> Best Val Acc Updated: 64.11% at epoch 8
+Epoch 009/300 (Original Target: 300) | LR: 0.000080 | Time: 13.96s | Train Loss: 2.4694 | Train Acc: 33.33% | Val Loss: 1.9410 | Val Acc: 64.15% | Gap: -30.83%
+----> Best Val Acc Updated: 64.15% at epoch 9
+Epoch 010/300 (Original Target: 300) | LR: 0.000090 | Time: 13.87s | Train Loss: 2.4049 | Train Acc: 38.27% | Val Loss: 1.8603 | Val Acc: 66.12% | Gap: -27.85%
+----> Best Val Acc Updated: 66.12% at epoch 10
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_10.pth
+Epoch 011/300 (Original Target: 300) | LR: 0.000100 | Time: 13.89s | Train Loss: 2.2738 | Train Acc: 42.80% | Val Loss: 1.8487 | Val Acc: 66.26% | Gap: -23.47%
+----> Best Val Acc Updated: 66.26% at epoch 11
+Epoch 012/300 (Original Target: 300) | LR: 0.000100 | Time: 13.84s | Train Loss: 2.2379 | Train Acc: 41.81% | Val Loss: 1.8218 | Val Acc: 67.80% | Gap: -25.99%
+----> Best Val Acc Updated: 67.80% at epoch 12
+Epoch 013/300 (Original Target: 300) | LR: 0.000100 | Time: 13.98s | Train Loss: 2.2204 | Train Acc: 36.75% | Val Loss: 1.8116 | Val Acc: 67.75% | Gap: -31.00%
+Epoch 014/300 (Original Target: 300) | LR: 0.000100 | Time: 14.23s | Train Loss: 2.3830 | Train Acc: 36.14% | Val Loss: 1.7915 | Val Acc: 68.88% | Gap: -32.74%
+----> Best Val Acc Updated: 68.88% at epoch 14
+Epoch 015/300 (Original Target: 300) | LR: 0.000100 | Time: 14.02s | Train Loss: 2.2961 | Train Acc: 36.13% | Val Loss: 1.7725 | Val Acc: 68.71% | Gap: -32.58%
+Epoch 016/300 (Original Target: 300) | LR: 0.000100 | Time: 13.81s | Train Loss: 2.1896 | Train Acc: 40.73% | Val Loss: 1.8289 | Val Acc: 67.55% | Gap: -26.82%
+Epoch 017/300 (Original Target: 300) | LR: 0.000100 | Time: 13.83s | Train Loss: 2.2491 | Train Acc: 36.02% | Val Loss: 1.7508 | Val Acc: 69.57% | Gap: -33.55%
+----> Best Val Acc Updated: 69.57% at epoch 17
+Epoch 018/300 (Original Target: 300) | LR: 0.000100 | Time: 13.94s | Train Loss: 2.2226 | Train Acc: 36.31% | Val Loss: 1.7462 | Val Acc: 69.52% | Gap: -33.21%
+Epoch 019/300 (Original Target: 300) | LR: 0.000100 | Time: 13.76s | Train Loss: 2.0507 | Train Acc: 44.10% | Val Loss: 1.7462 | Val Acc: 69.47% | Gap: -25.37%
+Epoch 020/300 (Original Target: 300) | LR: 0.000100 | Time: 13.97s | Train Loss: 1.9934 | Train Acc: 45.55% | Val Loss: 1.7493 | Val Acc: 70.17% | Gap: -24.62%
+----> Best Val Acc Updated: 70.17% at epoch 20
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_20.pth
+Epoch 021/300 (Original Target: 300) | LR: 0.000100 | Time: 13.93s | Train Loss: 2.0898 | Train Acc: 37.64% | Val Loss: 1.7488 | Val Acc: 69.29% | Gap: -31.65%
+Epoch 022/300 (Original Target: 300) | LR: 0.000100 | Time: 13.76s | Train Loss: 1.8735 | Train Acc: 49.35% | Val Loss: 1.7241 | Val Acc: 70.81% | Gap: -21.46%
+----> Best Val Acc Updated: 70.81% at epoch 22
+Epoch 023/300 (Original Target: 300) | LR: 0.000100 | Time: 13.89s | Train Loss: 2.0038 | Train Acc: 41.27% | Val Loss: 1.7189 | Val Acc: 70.58% | Gap: -29.30%
+Epoch 024/300 (Original Target: 300) | LR: 0.000100 | Time: 13.99s | Train Loss: 1.9430 | Train Acc: 43.84% | Val Loss: 1.7199 | Val Acc: 70.57% | Gap: -26.73%
+Epoch 025/300 (Original Target: 300) | LR: 0.000099 | Time: 13.80s | Train Loss: 2.0289 | Train Acc: 45.22% | Val Loss: 1.7154 | Val Acc: 70.67% | Gap: -25.45%
+Epoch 026/300 (Original Target: 300) | LR: 0.000099 | Time: 13.85s | Train Loss: 1.9683 | Train Acc: 45.45% | Val Loss: 1.7109 | Val Acc: 70.75% | Gap: -25.30%
+Epoch 027/300 (Original Target: 300) | LR: 0.000099 | Time: 14.13s | Train Loss: 1.9815 | Train Acc: 44.74% | Val Loss: 1.7183 | Val Acc: 70.43% | Gap: -25.69%
+Epoch 028/300 (Original Target: 300) | LR: 0.000099 | Time: 14.16s | Train Loss: 2.0540 | Train Acc: 42.61% | Val Loss: 1.7169 | Val Acc: 70.63% | Gap: -28.02%
+Epoch 029/300 (Original Target: 300) | LR: 0.000099 | Time: 14.02s | Train Loss: 2.0464 | Train Acc: 32.83% | Val Loss: 1.7071 | Val Acc: 71.26% | Gap: -38.43%
+----> Best Val Acc Updated: 71.26% at epoch 29
+Epoch 030/300 (Original Target: 300) | LR: 0.000099 | Time: 13.93s | Train Loss: 2.0021 | Train Acc: 44.28% | Val Loss: 1.7258 | Val Acc: 70.06% | Gap: -25.78%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_30.pth
+Epoch 031/300 (Original Target: 300) | LR: 0.000099 | Time: 13.85s | Train Loss: 2.0270 | Train Acc: 38.73% | Val Loss: 1.6932 | Val Acc: 71.36% | Gap: -32.63%
+----> Best Val Acc Updated: 71.36% at epoch 31
+Epoch 032/300 (Original Target: 300) | LR: 0.000099 | Time: 13.89s | Train Loss: 1.8473 | Train Acc: 46.61% | Val Loss: 1.6817 | Val Acc: 71.92% | Gap: -25.31%
+----> Best Val Acc Updated: 71.92% at epoch 32
+Epoch 033/300 (Original Target: 300) | LR: 0.000099 | Time: 13.79s | Train Loss: 2.1553 | Train Acc: 36.96% | Val Loss: 1.6980 | Val Acc: 71.46% | Gap: -34.50%
+Epoch 034/300 (Original Target: 300) | LR: 0.000098 | Time: 13.95s | Train Loss: 1.7120 | Train Acc: 53.66% | Val Loss: 1.7098 | Val Acc: 70.87% | Gap: -17.22%
+Epoch 035/300 (Original Target: 300) | LR: 0.000098 | Time: 13.87s | Train Loss: 2.0070 | Train Acc: 39.56% | Val Loss: 1.6960 | Val Acc: 71.50% | Gap: -31.94%
+Epoch 036/300 (Original Target: 300) | LR: 0.000098 | Time: 14.07s | Train Loss: 1.9561 | Train Acc: 39.47% | Val Loss: 1.6974 | Val Acc: 71.29% | Gap: -31.82%
+Epoch 037/300 (Original Target: 300) | LR: 0.000098 | Time: 13.94s | Train Loss: 1.8564 | Train Acc: 46.16% | Val Loss: 1.6990 | Val Acc: 71.36% | Gap: -25.20%
+Epoch 038/300 (Original Target: 300) | LR: 0.000098 | Time: 14.11s | Train Loss: 1.8061 | Train Acc: 48.95% | Val Loss: 1.6834 | Val Acc: 72.22% | Gap: -23.27%
+----> Best Val Acc Updated: 72.22% at epoch 38
+Epoch 039/300 (Original Target: 300) | LR: 0.000098 | Time: 13.95s | Train Loss: 2.0252 | Train Acc: 36.45% | Val Loss: 1.6805 | Val Acc: 71.84% | Gap: -35.40%
+Epoch 040/300 (Original Target: 300) | LR: 0.000098 | Time: 13.72s | Train Loss: 1.7910 | Train Acc: 45.72% | Val Loss: 1.6966 | Val Acc: 71.88% | Gap: -26.16%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_40.pth
+Epoch 041/300 (Original Target: 300) | LR: 0.000097 | Time: 13.84s | Train Loss: 1.7871 | Train Acc: 48.99% | Val Loss: 1.7009 | Val Acc: 71.59% | Gap: -22.60%
+Epoch 042/300 (Original Target: 300) | LR: 0.000097 | Time: 14.08s | Train Loss: 1.7092 | Train Acc: 49.21% | Val Loss: 1.6850 | Val Acc: 72.13% | Gap: -22.92%
+Epoch 043/300 (Original Target: 300) | LR: 0.000097 | Time: 13.84s | Train Loss: 1.8714 | Train Acc: 39.81% | Val Loss: 1.7090 | Val Acc: 71.38% | Gap: -31.57%
+Epoch 044/300 (Original Target: 300) | LR: 0.000097 | Time: 13.99s | Train Loss: 1.8874 | Train Acc: 40.28% | Val Loss: 1.6994 | Val Acc: 71.79% | Gap: -31.51%
+Epoch 045/300 (Original Target: 300) | LR: 0.000097 | Time: 13.87s | Train Loss: 1.8615 | Train Acc: 43.65% | Val Loss: 1.7052 | Val Acc: 71.17% | Gap: -27.52%
+Epoch 046/300 (Original Target: 300) | LR: 0.000096 | Time: 14.01s | Train Loss: 1.7211 | Train Acc: 54.23% | Val Loss: 1.6999 | Val Acc: 72.24% | Gap: -18.01%
+----> Best Val Acc Updated: 72.24% at epoch 46
+Epoch 047/300 (Original Target: 300) | LR: 0.000096 | Time: 13.94s | Train Loss: 1.7055 | Train Acc: 49.45% | Val Loss: 1.7073 | Val Acc: 71.96% | Gap: -22.51%
+Epoch 048/300 (Original Target: 300) | LR: 0.000096 | Time: 13.81s | Train Loss: 1.6527 | Train Acc: 53.06% | Val Loss: 1.6879 | Val Acc: 71.70% | Gap: -18.64%
+Epoch 049/300 (Original Target: 300) | LR: 0.000096 | Time: 13.89s | Train Loss: 1.8114 | Train Acc: 45.23% | Val Loss: 1.7051 | Val Acc: 71.85% | Gap: -26.62%
+Epoch 050/300 (Original Target: 300) | LR: 0.000096 | Time: 13.83s | Train Loss: 1.8020 | Train Acc: 44.99% | Val Loss: 1.6902 | Val Acc: 72.08% | Gap: -27.09%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_50.pth
+Epoch 051/300 (Original Target: 300) | LR: 0.000095 | Time: 14.00s | Train Loss: 1.8369 | Train Acc: 44.19% | Val Loss: 1.7001 | Val Acc: 71.17% | Gap: -26.98%
+Epoch 052/300 (Original Target: 300) | LR: 0.000095 | Time: 13.99s | Train Loss: 1.9339 | Train Acc: 42.04% | Val Loss: 1.7114 | Val Acc: 71.84% | Gap: -29.80%
+Epoch 053/300 (Original Target: 300) | LR: 0.000095 | Time: 14.11s | Train Loss: 1.7227 | Train Acc: 51.00% | Val Loss: 1.6963 | Val Acc: 71.70% | Gap: -20.70%
+Epoch 054/300 (Original Target: 300) | LR: 0.000095 | Time: 13.87s | Train Loss: 1.8264 | Train Acc: 42.01% | Val Loss: 1.7003 | Val Acc: 71.52% | Gap: -29.51%
+Epoch 055/300 (Original Target: 300) | LR: 0.000094 | Time: 14.03s | Train Loss: 1.8602 | Train Acc: 43.18% | Val Loss: 1.7167 | Val Acc: 71.91% | Gap: -28.73%
+Epoch 056/300 (Original Target: 300) | LR: 0.000094 | Time: 13.78s | Train Loss: 1.9114 | Train Acc: 36.17% | Val Loss: 1.7135 | Val Acc: 71.85% | Gap: -35.68%
+Epoch 057/300 (Original Target: 300) | LR: 0.000094 | Time: 13.91s | Train Loss: 1.8717 | Train Acc: 40.01% | Val Loss: 1.7021 | Val Acc: 71.71% | Gap: -31.70%
+Epoch 058/300 (Original Target: 300) | LR: 0.000094 | Time: 13.80s | Train Loss: 1.7564 | Train Acc: 43.42% | Val Loss: 1.6839 | Val Acc: 72.10% | Gap: -28.68%
+Epoch 059/300 (Original Target: 300) | LR: 0.000093 | Time: 14.09s | Train Loss: 1.8063 | Train Acc: 49.44% | Val Loss: 1.6860 | Val Acc: 72.50% | Gap: -23.06%
+----> Best Val Acc Updated: 72.50% at epoch 59
+Epoch 060/300 (Original Target: 300) | LR: 0.000093 | Time: 13.86s | Train Loss: 1.7334 | Train Acc: 42.22% | Val Loss: 1.7194 | Val Acc: 71.59% | Gap: -29.37%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_60.pth
+Epoch 061/300 (Original Target: 300) | LR: 0.000093 | Time: 13.94s | Train Loss: 1.7028 | Train Acc: 49.59% | Val Loss: 1.7077 | Val Acc: 72.02% | Gap: -22.43%
+Epoch 062/300 (Original Target: 300) | LR: 0.000093 | Time: 13.93s | Train Loss: 1.7149 | Train Acc: 46.05% | Val Loss: 1.7039 | Val Acc: 71.87% | Gap: -25.82%
+Epoch 063/300 (Original Target: 300) | LR: 0.000092 | Time: 13.97s | Train Loss: 1.7056 | Train Acc: 45.07% | Val Loss: 1.6967 | Val Acc: 72.17% | Gap: -27.10%
+Epoch 064/300 (Original Target: 300) | LR: 0.000092 | Time: 13.95s | Train Loss: 1.6747 | Train Acc: 53.28% | Val Loss: 1.7043 | Val Acc: 71.79% | Gap: -18.51%
+Epoch 065/300 (Original Target: 300) | LR: 0.000092 | Time: 13.75s | Train Loss: 1.7367 | Train Acc: 42.69% | Val Loss: 1.7025 | Val Acc: 72.38% | Gap: -29.69%
+Epoch 066/300 (Original Target: 300) | LR: 0.000091 | Time: 13.95s | Train Loss: 1.7073 | Train Acc: 50.74% | Val Loss: 1.7279 | Val Acc: 71.98% | Gap: -21.24%
+Epoch 067/300 (Original Target: 300) | LR: 0.000091 | Time: 13.98s | Train Loss: 1.8032 | Train Acc: 41.44% | Val Loss: 1.6961 | Val Acc: 72.33% | Gap: -30.89%
+Epoch 068/300 (Original Target: 300) | LR: 0.000091 | Time: 13.73s | Train Loss: 1.7229 | Train Acc: 46.37% | Val Loss: 1.7042 | Val Acc: 71.99% | Gap: -25.62%
+Epoch 069/300 (Original Target: 300) | LR: 0.000091 | Time: 13.87s | Train Loss: 1.6061 | Train Acc: 49.87% | Val Loss: 1.7191 | Val Acc: 72.02% | Gap: -22.15%
+Epoch 070/300 (Original Target: 300) | LR: 0.000090 | Time: 13.92s | Train Loss: 1.6454 | Train Acc: 50.02% | Val Loss: 1.7206 | Val Acc: 71.72% | Gap: -21.70%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_70.pth
+Epoch 071/300 (Original Target: 300) | LR: 0.000090 | Time: 13.91s | Train Loss: 1.7661 | Train Acc: 45.40% | Val Loss: 1.7052 | Val Acc: 72.26% | Gap: -26.87%
+Epoch 072/300 (Original Target: 300) | LR: 0.000090 | Time: 14.15s | Train Loss: 1.7358 | Train Acc: 44.38% | Val Loss: 1.6988 | Val Acc: 72.15% | Gap: -27.77%
+Epoch 073/300 (Original Target: 300) | LR: 0.000089 | Time: 13.88s | Train Loss: 1.5946 | Train Acc: 51.50% | Val Loss: 1.7012 | Val Acc: 72.59% | Gap: -21.09%
+----> Best Val Acc Updated: 72.59% at epoch 73
+Epoch 074/300 (Original Target: 300) | LR: 0.000089 | Time: 13.97s | Train Loss: 1.8028 | Train Acc: 43.02% | Val Loss: 1.6856 | Val Acc: 72.55% | Gap: -29.53%
+Epoch 075/300 (Original Target: 300) | LR: 0.000089 | Time: 14.12s | Train Loss: 1.7810 | Train Acc: 39.10% | Val Loss: 1.6970 | Val Acc: 72.45% | Gap: -33.35%
+Epoch 076/300 (Original Target: 300) | LR: 0.000088 | Time: 13.82s | Train Loss: 1.7002 | Train Acc: 45.27% | Val Loss: 1.7037 | Val Acc: 72.06% | Gap: -26.80%
+Epoch 077/300 (Original Target: 300) | LR: 0.000088 | Time: 13.99s | Train Loss: 1.6722 | Train Acc: 50.01% | Val Loss: 1.7211 | Val Acc: 71.49% | Gap: -21.48%
+Epoch 078/300 (Original Target: 300) | LR: 0.000088 | Time: 13.97s | Train Loss: 1.6858 | Train Acc: 41.95% | Val Loss: 1.7093 | Val Acc: 72.01% | Gap: -30.06%
+Epoch 079/300 (Original Target: 300) | LR: 0.000087 | Time: 14.09s | Train Loss: 1.7801 | Train Acc: 39.52% | Val Loss: 1.6805 | Val Acc: 72.43% | Gap: -32.91%
+Epoch 080/300 (Original Target: 300) | LR: 0.000087 | Time: 14.15s | Train Loss: 1.6704 | Train Acc: 49.22% | Val Loss: 1.6772 | Val Acc: 72.94% | Gap: -23.72%
+----> Best Val Acc Updated: 72.94% at epoch 80
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_80.pth
+Epoch 081/300 (Original Target: 300) | LR: 0.000086 | Time: 13.70s | Train Loss: 1.7849 | Train Acc: 40.91% | Val Loss: 1.6808 | Val Acc: 73.40% | Gap: -32.49%
+----> Best Val Acc Updated: 73.40% at epoch 81
+Epoch 082/300 (Original Target: 300) | LR: 0.000086 | Time: 13.96s | Train Loss: 1.5194 | Train Acc: 60.18% | Val Loss: 1.6917 | Val Acc: 72.81% | Gap: -12.63%
+Epoch 083/300 (Original Target: 300) | LR: 0.000086 | Time: 13.90s | Train Loss: 1.6464 | Train Acc: 45.61% | Val Loss: 1.7012 | Val Acc: 72.06% | Gap: -26.45%
+Epoch 084/300 (Original Target: 300) | LR: 0.000085 | Time: 14.02s | Train Loss: 1.5025 | Train Acc: 51.76% | Val Loss: 1.7079 | Val Acc: 72.52% | Gap: -20.76%
+Epoch 085/300 (Original Target: 300) | LR: 0.000085 | Time: 13.80s | Train Loss: 1.7043 | Train Acc: 40.95% | Val Loss: 1.6914 | Val Acc: 72.54% | Gap: -31.59%
+Epoch 086/300 (Original Target: 300) | LR: 0.000085 | Time: 13.91s | Train Loss: 1.6667 | Train Acc: 48.10% | Val Loss: 1.7171 | Val Acc: 72.15% | Gap: -24.05%
+Epoch 087/300 (Original Target: 300) | LR: 0.000084 | Time: 14.00s | Train Loss: 1.7121 | Train Acc: 42.16% | Val Loss: 1.7150 | Val Acc: 72.27% | Gap: -30.11%
+Epoch 088/300 (Original Target: 300) | LR: 0.000084 | Time: 13.89s | Train Loss: 1.6565 | Train Acc: 49.22% | Val Loss: 1.7079 | Val Acc: 72.24% | Gap: -23.02%
+Epoch 089/300 (Original Target: 300) | LR: 0.000083 | Time: 13.88s | Train Loss: 1.6748 | Train Acc: 48.19% | Val Loss: 1.7092 | Val Acc: 72.50% | Gap: -24.31%
+Epoch 090/300 (Original Target: 300) | LR: 0.000083 | Time: 13.96s | Train Loss: 1.5928 | Train Acc: 51.83% | Val Loss: 1.7148 | Val Acc: 72.14% | Gap: -20.31%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_90.pth
+Epoch 091/300 (Original Target: 300) | LR: 0.000083 | Time: 13.99s | Train Loss: 1.7923 | Train Acc: 32.75% | Val Loss: 1.7183 | Val Acc: 72.58% | Gap: -39.83%
+Epoch 092/300 (Original Target: 300) | LR: 0.000082 | Time: 13.97s | Train Loss: 1.6136 | Train Acc: 45.76% | Val Loss: 1.7132 | Val Acc: 72.21% | Gap: -26.45%
+Epoch 093/300 (Original Target: 300) | LR: 0.000082 | Time: 14.03s | Train Loss: 1.7853 | Train Acc: 41.16% | Val Loss: 1.6909 | Val Acc: 72.85% | Gap: -31.69%
+Epoch 094/300 (Original Target: 300) | LR: 0.000081 | Time: 14.00s | Train Loss: 1.7217 | Train Acc: 44.56% | Val Loss: 1.7043 | Val Acc: 72.75% | Gap: -28.19%
+Epoch 095/300 (Original Target: 300) | LR: 0.000081 | Time: 14.10s | Train Loss: 1.6191 | Train Acc: 46.06% | Val Loss: 1.6982 | Val Acc: 72.67% | Gap: -26.61%
+Epoch 096/300 (Original Target: 300) | LR: 0.000080 | Time: 14.13s | Train Loss: 1.6503 | Train Acc: 45.88% | Val Loss: 1.7173 | Val Acc: 71.82% | Gap: -25.94%
+Epoch 097/300 (Original Target: 300) | LR: 0.000080 | Time: 13.94s | Train Loss: 1.6559 | Train Acc: 44.92% | Val Loss: 1.6933 | Val Acc: 72.89% | Gap: -27.97%
+Epoch 098/300 (Original Target: 300) | LR: 0.000080 | Time: 14.09s | Train Loss: 1.6306 | Train Acc: 44.95% | Val Loss: 1.6882 | Val Acc: 73.16% | Gap: -28.21%
+Epoch 099/300 (Original Target: 300) | LR: 0.000079 | Time: 14.04s | Train Loss: 1.6945 | Train Acc: 46.35% | Val Loss: 1.7091 | Val Acc: 72.54% | Gap: -26.19%
+Epoch 100/300 (Original Target: 300) | LR: 0.000079 | Time: 14.04s | Train Loss: 1.6465 | Train Acc: 47.17% | Val Loss: 1.7056 | Val Acc: 73.04% | Gap: -25.87%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_100.pth
+Epoch 101/300 (Original Target: 300) | LR: 0.000078 | Time: 13.92s | Train Loss: 1.5293 | Train Acc: 50.90% | Val Loss: 1.7214 | Val Acc: 72.07% | Gap: -21.17%
+Epoch 102/300 (Original Target: 300) | LR: 0.000078 | Time: 13.94s | Train Loss: 1.5080 | Train Acc: 46.04% | Val Loss: 1.6899 | Val Acc: 73.02% | Gap: -26.98%
+Epoch 103/300 (Original Target: 300) | LR: 0.000077 | Time: 13.86s | Train Loss: 1.5361 | Train Acc: 53.48% | Val Loss: 1.7143 | Val Acc: 72.45% | Gap: -18.98%
+Epoch 104/300 (Original Target: 300) | LR: 0.000077 | Time: 13.92s | Train Loss: 1.5047 | Train Acc: 55.83% | Val Loss: 1.7043 | Val Acc: 72.56% | Gap: -16.73%
+Epoch 105/300 (Original Target: 300) | LR: 0.000076 | Time: 13.97s | Train Loss: 1.4418 | Train Acc: 58.49% | Val Loss: 1.7114 | Val Acc: 72.39% | Gap: -13.90%
+Epoch 106/300 (Original Target: 300) | LR: 0.000076 | Time: 14.11s | Train Loss: 1.7068 | Train Acc: 42.58% | Val Loss: 1.7086 | Val Acc: 72.10% | Gap: -29.52%
+Epoch 107/300 (Original Target: 300) | LR: 0.000076 | Time: 13.98s | Train Loss: 1.3959 | Train Acc: 58.34% | Val Loss: 1.7078 | Val Acc: 72.98% | Gap: -14.64%
+Epoch 108/300 (Original Target: 300) | LR: 0.000075 | Time: 13.98s | Train Loss: 1.6574 | Train Acc: 37.92% | Val Loss: 1.7137 | Val Acc: 72.40% | Gap: -34.48%
+Epoch 109/300 (Original Target: 300) | LR: 0.000075 | Time: 14.06s | Train Loss: 1.5716 | Train Acc: 42.67% | Val Loss: 1.7204 | Val Acc: 72.76% | Gap: -30.09%
+Epoch 110/300 (Original Target: 300) | LR: 0.000074 | Time: 13.96s | Train Loss: 1.4881 | Train Acc: 53.59% | Val Loss: 1.7133 | Val Acc: 72.62% | Gap: -19.04%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_110.pth
+Epoch 111/300 (Original Target: 300) | LR: 0.000074 | Time: 13.89s | Train Loss: 1.5718 | Train Acc: 48.97% | Val Loss: 1.6965 | Val Acc: 73.12% | Gap: -24.15%
+Epoch 112/300 (Original Target: 300) | LR: 0.000073 | Time: 13.96s | Train Loss: 1.6188 | Train Acc: 46.26% | Val Loss: 1.7349 | Val Acc: 72.64% | Gap: -26.38%
+Epoch 113/300 (Original Target: 300) | LR: 0.000073 | Time: 14.02s | Train Loss: 1.5710 | Train Acc: 48.88% | Val Loss: 1.7122 | Val Acc: 72.52% | Gap: -23.64%
+Epoch 114/300 (Original Target: 300) | LR: 0.000072 | Time: 13.95s | Train Loss: 1.4767 | Train Acc: 52.51% | Val Loss: 1.6957 | Val Acc: 72.92% | Gap: -20.41%
+Epoch 115/300 (Original Target: 300) | LR: 0.000072 | Time: 14.05s | Train Loss: 1.5790 | Train Acc: 48.77% | Val Loss: 1.6940 | Val Acc: 73.14% | Gap: -24.37%
+Epoch 116/300 (Original Target: 300) | LR: 0.000071 | Time: 13.96s | Train Loss: 1.5787 | Train Acc: 42.68% | Val Loss: 1.6980 | Val Acc: 72.52% | Gap: -29.84%
+Epoch 117/300 (Original Target: 300) | LR: 0.000071 | Time: 13.96s | Train Loss: 1.6789 | Train Acc: 45.11% | Val Loss: 1.7068 | Val Acc: 72.33% | Gap: -27.22%
+Epoch 118/300 (Original Target: 300) | LR: 0.000070 | Time: 13.83s | Train Loss: 1.6049 | Train Acc: 53.66% | Val Loss: 1.7049 | Val Acc: 72.86% | Gap: -19.20%
+Epoch 119/300 (Original Target: 300) | LR: 0.000070 | Time: 14.04s | Train Loss: 1.5782 | Train Acc: 46.37% | Val Loss: 1.7060 | Val Acc: 72.90% | Gap: -26.53%
+Epoch 120/300 (Original Target: 300) | LR: 0.000069 | Time: 13.97s | Train Loss: 1.6758 | Train Acc: 41.56% | Val Loss: 1.6915 | Val Acc: 73.29% | Gap: -31.73%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_120.pth
+Epoch 121/300 (Original Target: 300) | LR: 0.000069 | Time: 14.10s | Train Loss: 1.5392 | Train Acc: 47.78% | Val Loss: 1.6983 | Val Acc: 73.32% | Gap: -25.54%
+Epoch 122/300 (Original Target: 300) | LR: 0.000068 | Time: 13.95s | Train Loss: 1.6852 | Train Acc: 37.95% | Val Loss: 1.6874 | Val Acc: 73.65% | Gap: -35.70%
+----> Best Val Acc Updated: 73.65% at epoch 122
+Epoch 123/300 (Original Target: 300) | LR: 0.000068 | Time: 13.99s | Train Loss: 1.5115 | Train Acc: 49.13% | Val Loss: 1.7143 | Val Acc: 72.86% | Gap: -23.73%
+Epoch 124/300 (Original Target: 300) | LR: 0.000067 | Time: 13.93s | Train Loss: 1.6618 | Train Acc: 39.20% | Val Loss: 1.7241 | Val Acc: 73.01% | Gap: -33.81%
+Epoch 125/300 (Original Target: 300) | LR: 0.000067 | Time: 14.07s | Train Loss: 1.5689 | Train Acc: 46.57% | Val Loss: 1.6935 | Val Acc: 73.30% | Gap: -26.73%
+Epoch 126/300 (Original Target: 300) | LR: 0.000066 | Time: 13.95s | Train Loss: 1.4356 | Train Acc: 50.45% | Val Loss: 1.6930 | Val Acc: 73.44% | Gap: -22.99%
+Epoch 127/300 (Original Target: 300) | LR: 0.000066 | Time: 13.95s | Train Loss: 1.5536 | Train Acc: 51.51% | Val Loss: 1.7126 | Val Acc: 72.86% | Gap: -21.35%
+Epoch 128/300 (Original Target: 300) | LR: 0.000065 | Time: 13.87s | Train Loss: 1.6173 | Train Acc: 41.67% | Val Loss: 1.6737 | Val Acc: 73.44% | Gap: -31.77%
+Epoch 129/300 (Original Target: 300) | LR: 0.000065 | Time: 13.95s | Train Loss: 1.4938 | Train Acc: 45.44% | Val Loss: 1.7101 | Val Acc: 72.77% | Gap: -27.33%
+Epoch 130/300 (Original Target: 300) | LR: 0.000064 | Time: 13.87s | Train Loss: 1.4723 | Train Acc: 47.86% | Val Loss: 1.6870 | Val Acc: 73.37% | Gap: -25.51%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_130.pth
+Epoch 131/300 (Original Target: 300) | LR: 0.000064 | Time: 13.85s | Train Loss: 1.4746 | Train Acc: 51.70% | Val Loss: 1.6965 | Val Acc: 73.60% | Gap: -21.89%
+Epoch 132/300 (Original Target: 300) | LR: 0.000063 | Time: 13.84s | Train Loss: 1.3933 | Train Acc: 54.15% | Val Loss: 1.7059 | Val Acc: 73.24% | Gap: -19.09%
+Epoch 133/300 (Original Target: 300) | LR: 0.000063 | Time: 14.04s | Train Loss: 1.6082 | Train Acc: 38.10% | Val Loss: 1.7038 | Val Acc: 72.89% | Gap: -34.79%
+Epoch 134/300 (Original Target: 300) | LR: 0.000062 | Time: 13.80s | Train Loss: 1.5324 | Train Acc: 44.17% | Val Loss: 1.6994 | Val Acc: 73.17% | Gap: -29.00%
+Epoch 135/300 (Original Target: 300) | LR: 0.000062 | Time: 13.83s | Train Loss: 1.6196 | Train Acc: 45.43% | Val Loss: 1.7140 | Val Acc: 72.94% | Gap: -27.51%
+Epoch 136/300 (Original Target: 300) | LR: 0.000061 | Time: 13.99s | Train Loss: 1.4973 | Train Acc: 49.34% | Val Loss: 1.7092 | Val Acc: 73.32% | Gap: -23.98%
+Epoch 137/300 (Original Target: 300) | LR: 0.000061 | Time: 13.95s | Train Loss: 1.4847 | Train Acc: 54.08% | Val Loss: 1.7222 | Val Acc: 72.86% | Gap: -18.78%
+Epoch 138/300 (Original Target: 300) | LR: 0.000060 | Time: 13.94s | Train Loss: 1.5227 | Train Acc: 46.69% | Val Loss: 1.7062 | Val Acc: 73.17% | Gap: -26.48%
+Epoch 139/300 (Original Target: 300) | LR: 0.000060 | Time: 14.00s | Train Loss: 1.5619 | Train Acc: 44.38% | Val Loss: 1.7134 | Val Acc: 73.27% | Gap: -28.89%
+Epoch 140/300 (Original Target: 300) | LR: 0.000059 | Time: 14.04s | Train Loss: 1.5562 | Train Acc: 46.79% | Val Loss: 1.6929 | Val Acc: 73.20% | Gap: -26.41%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_140.pth
+Epoch 141/300 (Original Target: 300) | LR: 0.000059 | Time: 13.94s | Train Loss: 1.6032 | Train Acc: 45.50% | Val Loss: 1.6937 | Val Acc: 73.57% | Gap: -28.07%
+Epoch 142/300 (Original Target: 300) | LR: 0.000058 | Time: 14.02s | Train Loss: 1.5804 | Train Acc: 40.80% | Val Loss: 1.6935 | Val Acc: 73.88% | Gap: -33.08%
+----> Best Val Acc Updated: 73.88% at epoch 142
+Epoch 143/300 (Original Target: 300) | LR: 0.000057 | Time: 13.84s | Train Loss: 1.5061 | Train Acc: 50.42% | Val Loss: 1.6775 | Val Acc: 73.69% | Gap: -23.27%
+Epoch 144/300 (Original Target: 300) | LR: 0.000057 | Time: 14.12s | Train Loss: 1.6572 | Train Acc: 38.21% | Val Loss: 1.6785 | Val Acc: 73.87% | Gap: -35.66%
+Epoch 145/300 (Original Target: 300) | LR: 0.000056 | Time: 13.86s | Train Loss: 1.4486 | Train Acc: 54.22% | Val Loss: 1.7124 | Val Acc: 73.32% | Gap: -19.10%
+Epoch 146/300 (Original Target: 300) | LR: 0.000056 | Time: 14.07s | Train Loss: 1.5283 | Train Acc: 44.27% | Val Loss: 1.6935 | Val Acc: 73.53% | Gap: -29.26%
+Epoch 147/300 (Original Target: 300) | LR: 0.000055 | Time: 13.88s | Train Loss: 1.4852 | Train Acc: 46.99% | Val Loss: 1.7084 | Val Acc: 73.19% | Gap: -26.20%
+Epoch 148/300 (Original Target: 300) | LR: 0.000055 | Time: 13.94s | Train Loss: 1.5774 | Train Acc: 43.12% | Val Loss: 1.6830 | Val Acc: 73.99% | Gap: -30.86%
+----> Best Val Acc Updated: 73.99% at epoch 148
+Epoch 149/300 (Original Target: 300) | LR: 0.000054 | Time: 13.80s | Train Loss: 1.5940 | Train Acc: 45.72% | Val Loss: 1.7112 | Val Acc: 73.18% | Gap: -27.46%
+Epoch 150/300 (Original Target: 300) | LR: 0.000054 | Time: 13.86s | Train Loss: 1.5513 | Train Acc: 44.44% | Val Loss: 1.6811 | Val Acc: 73.93% | Gap: -29.49%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_150.pth
+Epoch 151/300 (Original Target: 300) | LR: 0.000053 | Time: 13.99s | Train Loss: 1.3849 | Train Acc: 54.33% | Val Loss: 1.7014 | Val Acc: 73.78% | Gap: -19.45%
+Epoch 152/300 (Original Target: 300) | LR: 0.000053 | Time: 13.92s | Train Loss: 1.4964 | Train Acc: 55.64% | Val Loss: 1.7016 | Val Acc: 73.17% | Gap: -17.53%
+Epoch 153/300 (Original Target: 300) | LR: 0.000052 | Time: 13.89s | Train Loss: 1.3916 | Train Acc: 57.08% | Val Loss: 1.7083 | Val Acc: 73.04% | Gap: -15.96%
+Epoch 154/300 (Original Target: 300) | LR: 0.000052 | Time: 13.97s | Train Loss: 1.3487 | Train Acc: 57.21% | Val Loss: 1.7073 | Val Acc: 73.41% | Gap: -16.20%
+Epoch 155/300 (Original Target: 300) | LR: 0.000051 | Time: 13.98s | Train Loss: 1.4491 | Train Acc: 50.91% | Val Loss: 1.6906 | Val Acc: 73.82% | Gap: -22.90%
+Epoch 156/300 (Original Target: 300) | LR: 0.000051 | Time: 13.91s | Train Loss: 1.4230 | Train Acc: 55.72% | Val Loss: 1.7056 | Val Acc: 73.61% | Gap: -17.89%
+Epoch 157/300 (Original Target: 300) | LR: 0.000050 | Time: 13.90s | Train Loss: 1.4065 | Train Acc: 51.96% | Val Loss: 1.7240 | Val Acc: 73.23% | Gap: -21.27%
+Epoch 158/300 (Original Target: 300) | LR: 0.000049 | Time: 13.85s | Train Loss: 1.5059 | Train Acc: 48.19% | Val Loss: 1.6873 | Val Acc: 73.98% | Gap: -25.79%
+Epoch 159/300 (Original Target: 300) | LR: 0.000049 | Time: 14.26s | Train Loss: 1.6197 | Train Acc: 43.57% | Val Loss: 1.6783 | Val Acc: 74.33% | Gap: -30.76%
+----> Best Val Acc Updated: 74.33% at epoch 159
+Epoch 160/300 (Original Target: 300) | LR: 0.000048 | Time: 14.02s | Train Loss: 1.3875 | Train Acc: 54.49% | Val Loss: 1.6915 | Val Acc: 73.97% | Gap: -19.48%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_160.pth
+Epoch 161/300 (Original Target: 300) | LR: 0.000048 | Time: 13.82s | Train Loss: 1.4984 | Train Acc: 47.21% | Val Loss: 1.6733 | Val Acc: 74.41% | Gap: -27.20%
+----> Best Val Acc Updated: 74.41% at epoch 161
+Epoch 162/300 (Original Target: 300) | LR: 0.000047 | Time: 14.10s | Train Loss: 1.4650 | Train Acc: 48.29% | Val Loss: 1.6810 | Val Acc: 73.71% | Gap: -25.42%
+Epoch 163/300 (Original Target: 300) | LR: 0.000047 | Time: 14.19s | Train Loss: 1.5798 | Train Acc: 37.09% | Val Loss: 1.6591 | Val Acc: 73.99% | Gap: -36.90%
+Epoch 164/300 (Original Target: 300) | LR: 0.000046 | Time: 14.18s | Train Loss: 1.5007 | Train Acc: 50.80% | Val Loss: 1.7001 | Val Acc: 73.52% | Gap: -22.72%
+Epoch 165/300 (Original Target: 300) | LR: 0.000046 | Time: 13.99s | Train Loss: 1.4483 | Train Acc: 46.05% | Val Loss: 1.6789 | Val Acc: 74.05% | Gap: -28.00%
+Epoch 166/300 (Original Target: 300) | LR: 0.000045 | Time: 13.77s | Train Loss: 1.5149 | Train Acc: 48.35% | Val Loss: 1.7055 | Val Acc: 73.11% | Gap: -24.76%
+Epoch 167/300 (Original Target: 300) | LR: 0.000045 | Time: 14.09s | Train Loss: 1.2537 | Train Acc: 63.37% | Val Loss: 1.7087 | Val Acc: 73.59% | Gap: -10.22%
+Epoch 168/300 (Original Target: 300) | LR: 0.000044 | Time: 14.26s | Train Loss: 1.5438 | Train Acc: 42.13% | Val Loss: 1.6789 | Val Acc: 73.95% | Gap: -31.82%
+Epoch 169/300 (Original Target: 300) | LR: 0.000044 | Time: 13.89s | Train Loss: 1.4915 | Train Acc: 45.86% | Val Loss: 1.6857 | Val Acc: 74.07% | Gap: -28.21%
+Epoch 170/300 (Original Target: 300) | LR: 0.000043 | Time: 13.69s | Train Loss: 1.4468 | Train Acc: 47.21% | Val Loss: 1.6865 | Val Acc: 74.03% | Gap: -26.82%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_170.pth
+Epoch 171/300 (Original Target: 300) | LR: 0.000042 | Time: 13.94s | Train Loss: 1.4304 | Train Acc: 53.43% | Val Loss: 1.6821 | Val Acc: 73.92% | Gap: -20.49%
+Epoch 172/300 (Original Target: 300) | LR: 0.000042 | Time: 13.81s | Train Loss: 1.5091 | Train Acc: 42.38% | Val Loss: 1.6821 | Val Acc: 74.05% | Gap: -31.66%
+Epoch 173/300 (Original Target: 300) | LR: 0.000041 | Time: 13.80s | Train Loss: 1.4813 | Train Acc: 43.69% | Val Loss: 1.6804 | Val Acc: 74.24% | Gap: -30.55%
+Epoch 174/300 (Original Target: 300) | LR: 0.000041 | Time: 13.95s | Train Loss: 1.5846 | Train Acc: 41.15% | Val Loss: 1.6863 | Val Acc: 74.03% | Gap: -32.88%
+Epoch 175/300 (Original Target: 300) | LR: 0.000040 | Time: 13.83s | Train Loss: 1.5156 | Train Acc: 38.65% | Val Loss: 1.6752 | Val Acc: 74.42% | Gap: -35.77%
+----> Best Val Acc Updated: 74.42% at epoch 175
+Epoch 176/300 (Original Target: 300) | LR: 0.000040 | Time: 14.00s | Train Loss: 1.4864 | Train Acc: 49.78% | Val Loss: 1.6900 | Val Acc: 73.38% | Gap: -23.60%
+Epoch 177/300 (Original Target: 300) | LR: 0.000039 | Time: 13.92s | Train Loss: 1.4930 | Train Acc: 47.18% | Val Loss: 1.6846 | Val Acc: 74.20% | Gap: -27.02%
+Epoch 178/300 (Original Target: 300) | LR: 0.000039 | Time: 13.90s | Train Loss: 1.3964 | Train Acc: 54.81% | Val Loss: 1.6679 | Val Acc: 74.28% | Gap: -19.47%
+Epoch 179/300 (Original Target: 300) | LR: 0.000038 | Time: 13.96s | Train Loss: 1.3751 | Train Acc: 52.28% | Val Loss: 1.6818 | Val Acc: 74.68% | Gap: -22.40%
+----> Best Val Acc Updated: 74.68% at epoch 179
+Epoch 180/300 (Original Target: 300) | LR: 0.000038 | Time: 13.80s | Train Loss: 1.4506 | Train Acc: 47.17% | Val Loss: 1.6618 | Val Acc: 74.52% | Gap: -27.35%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_180.pth
+Epoch 181/300 (Original Target: 300) | LR: 0.000037 | Time: 13.92s | Train Loss: 1.3851 | Train Acc: 50.92% | Val Loss: 1.6856 | Val Acc: 74.18% | Gap: -23.26%
+Epoch 182/300 (Original Target: 300) | LR: 0.000037 | Time: 14.01s | Train Loss: 1.4021 | Train Acc: 43.43% | Val Loss: 1.6599 | Val Acc: 74.76% | Gap: -31.33%
+----> Best Val Acc Updated: 74.76% at epoch 182
+Epoch 183/300 (Original Target: 300) | LR: 0.000036 | Time: 13.78s | Train Loss: 1.3778 | Train Acc: 54.97% | Val Loss: 1.6745 | Val Acc: 74.37% | Gap: -19.40%
+Epoch 184/300 (Original Target: 300) | LR: 0.000036 | Time: 14.06s | Train Loss: 1.4160 | Train Acc: 50.99% | Val Loss: 1.6881 | Val Acc: 74.69% | Gap: -23.70%
+Epoch 185/300 (Original Target: 300) | LR: 0.000035 | Time: 14.10s | Train Loss: 1.4181 | Train Acc: 52.23% | Val Loss: 1.6759 | Val Acc: 74.53% | Gap: -22.30%
+Epoch 186/300 (Original Target: 300) | LR: 0.000035 | Time: 14.10s | Train Loss: 1.5147 | Train Acc: 43.69% | Val Loss: 1.6635 | Val Acc: 74.72% | Gap: -31.03%
+Epoch 187/300 (Original Target: 300) | LR: 0.000034 | Time: 14.02s | Train Loss: 1.4112 | Train Acc: 47.34% | Val Loss: 1.6753 | Val Acc: 74.46% | Gap: -27.12%
+Epoch 188/300 (Original Target: 300) | LR: 0.000034 | Time: 14.02s | Train Loss: 1.4682 | Train Acc: 46.19% | Val Loss: 1.6783 | Val Acc: 74.48% | Gap: -28.30%
+Epoch 189/300 (Original Target: 300) | LR: 0.000033 | Time: 13.94s | Train Loss: 1.4152 | Train Acc: 48.63% | Val Loss: 1.6927 | Val Acc: 74.04% | Gap: -25.41%
+Epoch 190/300 (Original Target: 300) | LR: 0.000033 | Time: 13.94s | Train Loss: 1.2692 | Train Acc: 67.34% | Val Loss: 1.6922 | Val Acc: 74.19% | Gap: -6.84%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_190.pth
+Epoch 191/300 (Original Target: 300) | LR: 0.000032 | Time: 13.83s | Train Loss: 1.4126 | Train Acc: 56.06% | Val Loss: 1.6574 | Val Acc: 74.89% | Gap: -18.83%
+----> Best Val Acc Updated: 74.89% at epoch 191
+Epoch 192/300 (Original Target: 300) | LR: 0.000032 | Time: 13.96s | Train Loss: 1.4961 | Train Acc: 44.82% | Val Loss: 1.6663 | Val Acc: 75.07% | Gap: -30.25%
+----> Best Val Acc Updated: 75.07% at epoch 192
+Epoch 193/300 (Original Target: 300) | LR: 0.000031 | Time: 13.90s | Train Loss: 1.2913 | Train Acc: 56.15% | Val Loss: 1.6794 | Val Acc: 74.44% | Gap: -18.29%
+Epoch 194/300 (Original Target: 300) | LR: 0.000031 | Time: 13.82s | Train Loss: 1.3295 | Train Acc: 53.56% | Val Loss: 1.6732 | Val Acc: 74.69% | Gap: -21.13%
+Epoch 195/300 (Original Target: 300) | LR: 0.000030 | Time: 14.07s | Train Loss: 1.2714 | Train Acc: 59.94% | Val Loss: 1.6886 | Val Acc: 74.68% | Gap: -14.75%
+Epoch 196/300 (Original Target: 300) | LR: 0.000030 | Time: 14.10s | Train Loss: 1.5397 | Train Acc: 43.75% | Val Loss: 1.6845 | Val Acc: 74.40% | Gap: -30.65%
+Epoch 197/300 (Original Target: 300) | LR: 0.000029 | Time: 13.97s | Train Loss: 1.4432 | Train Acc: 47.49% | Val Loss: 1.6675 | Val Acc: 74.23% | Gap: -26.74%
+Epoch 198/300 (Original Target: 300) | LR: 0.000029 | Time: 14.13s | Train Loss: 1.3495 | Train Acc: 50.06% | Val Loss: 1.6862 | Val Acc: 74.72% | Gap: -24.66%
+Epoch 199/300 (Original Target: 300) | LR: 0.000028 | Time: 14.03s | Train Loss: 1.3397 | Train Acc: 53.70% | Val Loss: 1.6680 | Val Acc: 75.02% | Gap: -21.31%
+Epoch 200/300 (Original Target: 300) | LR: 0.000028 | Time: 13.92s | Train Loss: 1.4997 | Train Acc: 47.45% | Val Loss: 1.6764 | Val Acc: 74.63% | Gap: -27.18%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_200.pth
+Epoch 201/300 (Original Target: 300) | LR: 0.000027 | Time: 13.97s | Train Loss: 1.4631 | Train Acc: 43.72% | Val Loss: 1.6762 | Val Acc: 74.91% | Gap: -31.19%
+Epoch 202/300 (Original Target: 300) | LR: 0.000027 | Time: 14.00s | Train Loss: 1.5036 | Train Acc: 38.77% | Val Loss: 1.6730 | Val Acc: 74.67% | Gap: -35.91%
+Epoch 203/300 (Original Target: 300) | LR: 0.000026 | Time: 14.01s | Train Loss: 1.4352 | Train Acc: 47.60% | Val Loss: 1.6471 | Val Acc: 75.00% | Gap: -27.40%
+Epoch 204/300 (Original Target: 300) | LR: 0.000026 | Time: 13.85s | Train Loss: 1.3488 | Train Acc: 58.77% | Val Loss: 1.6672 | Val Acc: 75.05% | Gap: -16.28%
+Epoch 205/300 (Original Target: 300) | LR: 0.000025 | Time: 13.99s | Train Loss: 1.3452 | Train Acc: 54.91% | Val Loss: 1.6755 | Val Acc: 74.65% | Gap: -19.75%
+Epoch 206/300 (Original Target: 300) | LR: 0.000025 | Time: 13.91s | Train Loss: 1.3923 | Train Acc: 52.50% | Val Loss: 1.6789 | Val Acc: 74.63% | Gap: -22.13%
+Epoch 207/300 (Original Target: 300) | LR: 0.000025 | Time: 13.94s | Train Loss: 1.4270 | Train Acc: 42.48% | Val Loss: 1.6718 | Val Acc: 75.30% | Gap: -32.82%
+----> Best Val Acc Updated: 75.30% at epoch 207
+Epoch 208/300 (Original Target: 300) | LR: 0.000024 | Time: 13.80s | Train Loss: 1.4777 | Train Acc: 48.59% | Val Loss: 1.6674 | Val Acc: 74.36% | Gap: -25.77%
+Epoch 209/300 (Original Target: 300) | LR: 0.000024 | Time: 14.02s | Train Loss: 1.3466 | Train Acc: 51.45% | Val Loss: 1.6649 | Val Acc: 74.99% | Gap: -23.54%
+Epoch 210/300 (Original Target: 300) | LR: 0.000023 | Time: 13.86s | Train Loss: 1.3311 | Train Acc: 53.79% | Val Loss: 1.6657 | Val Acc: 74.77% | Gap: -20.98%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_210.pth
+Epoch 211/300 (Original Target: 300) | LR: 0.000023 | Time: 13.91s | Train Loss: 1.3930 | Train Acc: 51.35% | Val Loss: 1.6514 | Val Acc: 75.80% | Gap: -24.45%
+----> Best Val Acc Updated: 75.80% at epoch 211
+Epoch 212/300 (Original Target: 300) | LR: 0.000022 | Time: 13.91s | Train Loss: 1.3038 | Train Acc: 56.22% | Val Loss: 1.6635 | Val Acc: 75.07% | Gap: -18.85%
+Epoch 213/300 (Original Target: 300) | LR: 0.000022 | Time: 13.98s | Train Loss: 1.4045 | Train Acc: 48.93% | Val Loss: 1.6475 | Val Acc: 75.32% | Gap: -26.39%
+Epoch 214/300 (Original Target: 300) | LR: 0.000021 | Time: 14.09s | Train Loss: 1.3488 | Train Acc: 51.26% | Val Loss: 1.6639 | Val Acc: 75.06% | Gap: -23.80%
+Epoch 215/300 (Original Target: 300) | LR: 0.000021 | Time: 14.08s | Train Loss: 1.4079 | Train Acc: 44.96% | Val Loss: 1.6547 | Val Acc: 75.26% | Gap: -30.30%
+Epoch 216/300 (Original Target: 300) | LR: 0.000021 | Time: 14.02s | Train Loss: 1.2975 | Train Acc: 56.39% | Val Loss: 1.6702 | Val Acc: 74.84% | Gap: -18.45%
+Epoch 217/300 (Original Target: 300) | LR: 0.000020 | Time: 13.93s | Train Loss: 1.3930 | Train Acc: 46.52% | Val Loss: 1.6632 | Val Acc: 75.16% | Gap: -28.64%
+Epoch 218/300 (Original Target: 300) | LR: 0.000020 | Time: 14.06s | Train Loss: 1.4559 | Train Acc: 50.11% | Val Loss: 1.6581 | Val Acc: 75.19% | Gap: -25.08%
+Epoch 219/300 (Original Target: 300) | LR: 0.000019 | Time: 13.95s | Train Loss: 1.5387 | Train Acc: 41.28% | Val Loss: 1.6601 | Val Acc: 74.76% | Gap: -33.48%
+Epoch 220/300 (Original Target: 300) | LR: 0.000019 | Time: 13.94s | Train Loss: 1.3324 | Train Acc: 46.47% | Val Loss: 1.6739 | Val Acc: 74.76% | Gap: -28.30%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_220.pth
+Epoch 221/300 (Original Target: 300) | LR: 0.000018 | Time: 13.90s | Train Loss: 1.4047 | Train Acc: 47.77% | Val Loss: 1.6888 | Val Acc: 74.36% | Gap: -26.59%
+Epoch 222/300 (Original Target: 300) | LR: 0.000018 | Time: 13.99s | Train Loss: 1.4365 | Train Acc: 51.51% | Val Loss: 1.6619 | Val Acc: 74.47% | Gap: -22.96%
+Epoch 223/300 (Original Target: 300) | LR: 0.000018 | Time: 13.86s | Train Loss: 1.4196 | Train Acc: 50.21% | Val Loss: 1.6546 | Val Acc: 75.31% | Gap: -25.10%
+Epoch 224/300 (Original Target: 300) | LR: 0.000017 | Time: 14.10s | Train Loss: 1.2646 | Train Acc: 56.52% | Val Loss: 1.6621 | Val Acc: 75.14% | Gap: -18.62%
+Epoch 225/300 (Original Target: 300) | LR: 0.000017 | Time: 13.95s | Train Loss: 1.3491 | Train Acc: 44.02% | Val Loss: 1.6600 | Val Acc: 75.35% | Gap: -31.33%
+Epoch 226/300 (Original Target: 300) | LR: 0.000016 | Time: 13.98s | Train Loss: 1.3964 | Train Acc: 48.82% | Val Loss: 1.6522 | Val Acc: 75.19% | Gap: -26.37%
+Epoch 227/300 (Original Target: 300) | LR: 0.000016 | Time: 13.87s | Train Loss: 1.3474 | Train Acc: 51.34% | Val Loss: 1.6793 | Val Acc: 74.84% | Gap: -23.50%
+Epoch 228/300 (Original Target: 300) | LR: 0.000016 | Time: 13.91s | Train Loss: 1.3444 | Train Acc: 51.40% | Val Loss: 1.6613 | Val Acc: 75.24% | Gap: -23.84%
+Epoch 229/300 (Original Target: 300) | LR: 0.000015 | Time: 13.95s | Train Loss: 1.4237 | Train Acc: 45.09% | Val Loss: 1.6517 | Val Acc: 75.15% | Gap: -30.06%
+Epoch 230/300 (Original Target: 300) | LR: 0.000015 | Time: 14.13s | Train Loss: 1.1918 | Train Acc: 60.27% | Val Loss: 1.6666 | Val Acc: 75.11% | Gap: -14.84%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_230.pth
+Epoch 231/300 (Original Target: 300) | LR: 0.000015 | Time: 13.97s | Train Loss: 1.4472 | Train Acc: 47.74% | Val Loss: 1.6473 | Val Acc: 75.69% | Gap: -27.95%
+Epoch 232/300 (Original Target: 300) | LR: 0.000014 | Time: 14.35s | Train Loss: 1.3555 | Train Acc: 52.66% | Val Loss: 1.6552 | Val Acc: 75.68% | Gap: -23.02%
+Epoch 233/300 (Original Target: 300) | LR: 0.000014 | Time: 14.31s | Train Loss: 1.3278 | Train Acc: 50.26% | Val Loss: 1.6483 | Val Acc: 75.49% | Gap: -25.23%
+Epoch 234/300 (Original Target: 300) | LR: 0.000013 | Time: 13.99s | Train Loss: 1.2656 | Train Acc: 56.41% | Val Loss: 1.6555 | Val Acc: 75.38% | Gap: -18.96%
+Epoch 235/300 (Original Target: 300) | LR: 0.000013 | Time: 14.08s | Train Loss: 1.4306 | Train Acc: 45.21% | Val Loss: 1.6753 | Val Acc: 74.70% | Gap: -29.49%
+Epoch 236/300 (Original Target: 300) | LR: 0.000013 | Time: 14.10s | Train Loss: 1.3307 | Train Acc: 52.62% | Val Loss: 1.6559 | Val Acc: 75.15% | Gap: -22.53%
+Epoch 237/300 (Original Target: 300) | LR: 0.000012 | Time: 13.81s | Train Loss: 1.4740 | Train Acc: 42.84% | Val Loss: 1.6577 | Val Acc: 74.84% | Gap: -32.00%
+Epoch 238/300 (Original Target: 300) | LR: 0.000012 | Time: 14.01s | Train Loss: 1.4933 | Train Acc: 36.39% | Val Loss: 1.6590 | Val Acc: 75.05% | Gap: -38.66%
+Epoch 239/300 (Original Target: 300) | LR: 0.000012 | Time: 14.10s | Train Loss: 1.2119 | Train Acc: 64.14% | Val Loss: 1.6682 | Val Acc: 75.31% | Gap: -11.17%
+Epoch 240/300 (Original Target: 300) | LR: 0.000011 | Time: 13.96s | Train Loss: 1.2222 | Train Acc: 58.97% | Val Loss: 1.6520 | Val Acc: 75.85% | Gap: -16.88%
+----> Best Val Acc Updated: 75.85% at epoch 240
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_240.pth
+Epoch 241/300 (Original Target: 300) | LR: 0.000011 | Time: 13.85s | Train Loss: 1.3805 | Train Acc: 47.60% | Val Loss: 1.6621 | Val Acc: 75.25% | Gap: -27.65%
+Epoch 242/300 (Original Target: 300) | LR: 0.000011 | Time: 13.96s | Train Loss: 1.2515 | Train Acc: 60.20% | Val Loss: 1.6642 | Val Acc: 75.02% | Gap: -14.82%
+Epoch 243/300 (Original Target: 300) | LR: 0.000010 | Time: 13.91s | Train Loss: 1.5249 | Train Acc: 41.34% | Val Loss: 1.6528 | Val Acc: 75.08% | Gap: -33.74%
+Epoch 244/300 (Original Target: 300) | LR: 0.000010 | Time: 14.02s | Train Loss: 1.4706 | Train Acc: 45.31% | Val Loss: 1.6483 | Val Acc: 75.75% | Gap: -30.44%
+Epoch 245/300 (Original Target: 300) | LR: 0.000010 | Time: 13.95s | Train Loss: 1.3830 | Train Acc: 46.52% | Val Loss: 1.6528 | Val Acc: 75.15% | Gap: -28.63%
+Epoch 246/300 (Original Target: 300) | LR: 0.000010 | Time: 13.80s | Train Loss: 1.3715 | Train Acc: 51.61% | Val Loss: 1.6789 | Val Acc: 74.74% | Gap: -23.13%
+Epoch 247/300 (Original Target: 300) | LR: 0.000009 | Time: 14.01s | Train Loss: 1.3157 | Train Acc: 47.64% | Val Loss: 1.6473 | Val Acc: 75.92% | Gap: -28.28%
+----> Best Val Acc Updated: 75.92% at epoch 247
+Epoch 248/300 (Original Target: 300) | LR: 0.000009 | Time: 13.84s | Train Loss: 1.3683 | Train Acc: 47.68% | Val Loss: 1.6387 | Val Acc: 75.97% | Gap: -28.29%
+----> Best Val Acc Updated: 75.97% at epoch 248
+Epoch 249/300 (Original Target: 300) | LR: 0.000009 | Time: 13.87s | Train Loss: 1.3587 | Train Acc: 50.37% | Val Loss: 1.6451 | Val Acc: 75.50% | Gap: -25.13%
+Epoch 250/300 (Original Target: 300) | LR: 0.000008 | Time: 13.91s | Train Loss: 1.3791 | Train Acc: 50.30% | Val Loss: 1.6484 | Val Acc: 75.66% | Gap: -25.35%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_250.pth
+Epoch 251/300 (Original Target: 300) | LR: 0.000008 | Time: 14.12s | Train Loss: 1.2691 | Train Acc: 59.12% | Val Loss: 1.6300 | Val Acc: 75.95% | Gap: -16.83%
+Epoch 252/300 (Original Target: 300) | LR: 0.000008 | Time: 14.03s | Train Loss: 1.2905 | Train Acc: 45.24% | Val Loss: 1.6684 | Val Acc: 74.98% | Gap: -29.74%
+Epoch 253/300 (Original Target: 300) | LR: 0.000008 | Time: 14.05s | Train Loss: 1.3518 | Train Acc: 42.83% | Val Loss: 1.6520 | Val Acc: 75.36% | Gap: -32.53%
+Epoch 254/300 (Original Target: 300) | LR: 0.000007 | Time: 13.87s | Train Loss: 1.4137 | Train Acc: 42.85% | Val Loss: 1.6471 | Val Acc: 75.69% | Gap: -32.84%
+Epoch 255/300 (Original Target: 300) | LR: 0.000007 | Time: 13.98s | Train Loss: 1.4316 | Train Acc: 48.94% | Val Loss: 1.6465 | Val Acc: 75.56% | Gap: -26.62%
+Epoch 256/300 (Original Target: 300) | LR: 0.000007 | Time: 14.07s | Train Loss: 1.3665 | Train Acc: 47.77% | Val Loss: 1.6626 | Val Acc: 74.99% | Gap: -27.22%
+Epoch 257/300 (Original Target: 300) | LR: 0.000007 | Time: 14.14s | Train Loss: 1.3318 | Train Acc: 49.15% | Val Loss: 1.6379 | Val Acc: 76.18% | Gap: -27.03%
+----> Best Val Acc Updated: 76.18% at epoch 257
+Epoch 258/300 (Original Target: 300) | LR: 0.000006 | Time: 14.00s | Train Loss: 1.3424 | Train Acc: 52.74% | Val Loss: 1.6596 | Val Acc: 75.19% | Gap: -22.45%
+Epoch 259/300 (Original Target: 300) | LR: 0.000006 | Time: 13.96s | Train Loss: 1.5367 | Train Acc: 36.41% | Val Loss: 1.6283 | Val Acc: 76.10% | Gap: -39.69%
+Epoch 260/300 (Original Target: 300) | LR: 0.000006 | Time: 13.82s | Train Loss: 1.4607 | Train Acc: 41.41% | Val Loss: 1.6324 | Val Acc: 76.04% | Gap: -34.63%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_260.pth
+Epoch 261/300 (Original Target: 300) | LR: 0.000006 | Time: 13.68s | Train Loss: 1.3503 | Train Acc: 47.73% | Val Loss: 1.6545 | Val Acc: 75.61% | Gap: -27.88%
+Epoch 262/300 (Original Target: 300) | LR: 0.000005 | Time: 13.82s | Train Loss: 1.2882 | Train Acc: 56.62% | Val Loss: 1.6514 | Val Acc: 75.26% | Gap: -18.64%
+Epoch 263/300 (Original Target: 300) | LR: 0.000005 | Time: 13.96s | Train Loss: 1.3280 | Train Acc: 57.74% | Val Loss: 1.6595 | Val Acc: 75.29% | Gap: -17.55%
+Epoch 264/300 (Original Target: 300) | LR: 0.000005 | Time: 13.91s | Train Loss: 1.3716 | Train Acc: 45.35% | Val Loss: 1.6415 | Val Acc: 75.73% | Gap: -30.38%
+Epoch 265/300 (Original Target: 300) | LR: 0.000005 | Time: 13.90s | Train Loss: 1.3019 | Train Acc: 51.64% | Val Loss: 1.6371 | Val Acc: 75.65% | Gap: -24.01%
+Epoch 266/300 (Original Target: 300) | LR: 0.000005 | Time: 14.08s | Train Loss: 1.2827 | Train Acc: 57.75% | Val Loss: 1.6466 | Val Acc: 75.74% | Gap: -17.99%
+Epoch 267/300 (Original Target: 300) | LR: 0.000004 | Time: 13.95s | Train Loss: 1.4513 | Train Acc: 44.12% | Val Loss: 1.6607 | Val Acc: 75.58% | Gap: -31.46%
+Epoch 268/300 (Original Target: 300) | LR: 0.000004 | Time: 14.20s | Train Loss: 1.3891 | Train Acc: 47.76% | Val Loss: 1.6297 | Val Acc: 76.11% | Gap: -28.35%
+Epoch 269/300 (Original Target: 300) | LR: 0.000004 | Time: 13.98s | Train Loss: 1.3624 | Train Acc: 48.98% | Val Loss: 1.6483 | Val Acc: 75.46% | Gap: -26.48%
+Epoch 270/300 (Original Target: 300) | LR: 0.000004 | Time: 14.10s | Train Loss: 1.4812 | Train Acc: 40.19% | Val Loss: 1.6548 | Val Acc: 75.32% | Gap: -35.13%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_270.pth
+Epoch 271/300 (Original Target: 300) | LR: 0.000004 | Time: 13.96s | Train Loss: 1.4113 | Train Acc: 37.69% | Val Loss: 1.6532 | Val Acc: 75.03% | Gap: -37.34%
+Epoch 272/300 (Original Target: 300) | LR: 0.000003 | Time: 13.90s | Train Loss: 1.4112 | Train Acc: 48.97% | Val Loss: 1.6541 | Val Acc: 75.36% | Gap: -26.39%
+Epoch 273/300 (Original Target: 300) | LR: 0.000003 | Time: 13.93s | Train Loss: 1.3588 | Train Acc: 50.19% | Val Loss: 1.6639 | Val Acc: 75.14% | Gap: -24.95%
+Epoch 274/300 (Original Target: 300) | LR: 0.000003 | Time: 13.93s | Train Loss: 1.2555 | Train Acc: 60.20% | Val Loss: 1.6497 | Val Acc: 75.60% | Gap: -15.40%
+Epoch 275/300 (Original Target: 300) | LR: 0.000003 | Time: 14.02s | Train Loss: 1.3836 | Train Acc: 46.53% | Val Loss: 1.6374 | Val Acc: 75.80% | Gap: -29.27%
+Epoch 276/300 (Original Target: 300) | LR: 0.000003 | Time: 13.74s | Train Loss: 1.3694 | Train Acc: 47.77% | Val Loss: 1.6281 | Val Acc: 75.52% | Gap: -27.75%
+Epoch 277/300 (Original Target: 300) | LR: 0.000003 | Time: 13.83s | Train Loss: 1.3451 | Train Acc: 47.88% | Val Loss: 1.6663 | Val Acc: 74.76% | Gap: -26.88%
+Epoch 278/300 (Original Target: 300) | LR: 0.000003 | Time: 14.04s | Train Loss: 1.2673 | Train Acc: 61.73% | Val Loss: 1.6402 | Val Acc: 75.85% | Gap: -14.12%
+Epoch 279/300 (Original Target: 300) | LR: 0.000002 | Time: 13.90s | Train Loss: 1.3078 | Train Acc: 49.17% | Val Loss: 1.6582 | Val Acc: 75.38% | Gap: -26.20%
+Epoch 280/300 (Original Target: 300) | LR: 0.000002 | Time: 13.96s | Train Loss: 1.3413 | Train Acc: 51.62% | Val Loss: 1.6468 | Val Acc: 75.10% | Gap: -23.48%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_280.pth
+Epoch 281/300 (Original Target: 300) | LR: 0.000002 | Time: 13.93s | Train Loss: 1.3055 | Train Acc: 52.75% | Val Loss: 1.6590 | Val Acc: 75.48% | Gap: -22.73%
+Epoch 282/300 (Original Target: 300) | LR: 0.000002 | Time: 13.93s | Train Loss: 1.4166 | Train Acc: 39.16% | Val Loss: 1.6516 | Val Acc: 74.93% | Gap: -35.78%
+Epoch 283/300 (Original Target: 300) | LR: 0.000002 | Time: 14.01s | Train Loss: 1.4593 | Train Acc: 37.80% | Val Loss: 1.6606 | Val Acc: 74.77% | Gap: -36.97%
+Epoch 284/300 (Original Target: 300) | LR: 0.000002 | Time: 14.08s | Train Loss: 1.4869 | Train Acc: 37.80% | Val Loss: 1.6441 | Val Acc: 75.50% | Gap: -37.70%
+Epoch 285/300 (Original Target: 300) | LR: 0.000002 | Time: 13.84s | Train Loss: 1.2213 | Train Acc: 56.40% | Val Loss: 1.6416 | Val Acc: 75.60% | Gap: -19.20%
+Epoch 286/300 (Original Target: 300) | LR: 0.000002 | Time: 14.12s | Train Loss: 1.3347 | Train Acc: 49.01% | Val Loss: 1.6471 | Val Acc: 75.94% | Gap: -26.93%
+Epoch 287/300 (Original Target: 300) | LR: 0.000002 | Time: 14.13s | Train Loss: 1.3547 | Train Acc: 47.75% | Val Loss: 1.6365 | Val Acc: 75.52% | Gap: -27.77%
+Epoch 288/300 (Original Target: 300) | LR: 0.000001 | Time: 13.84s | Train Loss: 1.4417 | Train Acc: 45.20% | Val Loss: 1.6577 | Val Acc: 75.01% | Gap: -29.81%
+Epoch 289/300 (Original Target: 300) | LR: 0.000001 | Time: 14.05s | Train Loss: 1.3728 | Train Acc: 47.72% | Val Loss: 1.6314 | Val Acc: 76.07% | Gap: -28.35%
+Epoch 290/300 (Original Target: 300) | LR: 0.000001 | Time: 13.80s | Train Loss: 1.2733 | Train Acc: 57.99% | Val Loss: 1.6417 | Val Acc: 75.48% | Gap: -17.49%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_290.pth
+Epoch 291/300 (Original Target: 300) | LR: 0.000001 | Time: 13.99s | Train Loss: 1.4987 | Train Acc: 38.95% | Val Loss: 1.6499 | Val Acc: 75.79% | Gap: -36.84%
+Epoch 292/300 (Original Target: 300) | LR: 0.000001 | Time: 13.85s | Train Loss: 1.4645 | Train Acc: 39.16% | Val Loss: 1.6355 | Val Acc: 76.13% | Gap: -36.97%
+Epoch 293/300 (Original Target: 300) | LR: 0.000001 | Time: 13.97s | Train Loss: 1.4677 | Train Acc: 40.20% | Val Loss: 1.6363 | Val Acc: 76.18% | Gap: -35.98%
+----> Best Val Acc Updated: 76.18% at epoch 293
+Epoch 294/300 (Original Target: 300) | LR: 0.000001 | Time: 13.90s | Train Loss: 1.3234 | Train Acc: 46.44% | Val Loss: 1.6442 | Val Acc: 75.77% | Gap: -29.33%
+Epoch 295/300 (Original Target: 300) | LR: 0.000001 | Time: 14.12s | Train Loss: 1.3508 | Train Acc: 49.08% | Val Loss: 1.6409 | Val Acc: 75.53% | Gap: -26.45%
+Epoch 296/300 (Original Target: 300) | LR: 0.000001 | Time: 14.06s | Train Loss: 1.2972 | Train Acc: 52.69% | Val Loss: 1.6404 | Val Acc: 75.44% | Gap: -22.75%
+Epoch 297/300 (Original Target: 300) | LR: 0.000001 | Time: 13.79s | Train Loss: 1.3524 | Train Acc: 47.92% | Val Loss: 1.6601 | Val Acc: 75.51% | Gap: -27.59%
+Epoch 298/300 (Original Target: 300) | LR: 0.000001 | Time: 13.94s | Train Loss: 1.2725 | Train Acc: 54.12% | Val Loss: 1.6536 | Val Acc: 75.97% | Gap: -21.85%
+Epoch 299/300 (Original Target: 300) | LR: 0.000001 | Time: 14.11s | Train Loss: 1.3476 | Train Acc: 50.28% | Val Loss: 1.6393 | Val Acc: 75.75% | Gap: -25.47%
+Epoch 300/300 (Original Target: 300) | LR: 0.000001 | Time: 13.88s | Train Loss: 1.3759 | Train Acc: 51.65% | Val Loss: 1.6473 | Val Acc: 75.73% | Gap: -24.09%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_Only_epoch_300.pth
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224_AdamW_Only_best.pth
+
+===== Final Test Accuracy for AdamW_Only =====
+Final Test Accuracy: 80.77%
+Total Training Time: 4186.61 sec
+
+
+
+===== Training Strategy: AdamW_then_SAM =====
+AMP Enabled: False
+Epoch 001/300 (Original Target: 300) | LR: 0.000000 | Time: 13.95s | Train Loss: 5.6475 | Train Acc: 0.43% | Val Loss: 5.6466 | Val Acc: 0.94% | Gap: -0.51%
+----> Best Val Acc Updated: 0.94% at epoch 1
+[Switcher] Warming up... (Epoch 1)
+Epoch 002/300 (Original Target: 300) | LR: 0.000010 | Time: 14.04s | Train Loss: 4.7696 | Train Acc: 0.94% | Val Loss: 4.4722 | Val Acc: 3.94% | Gap: -3.00%
+----> Best Val Acc Updated: 3.94% at epoch 2
+[Switcher] Warming up... (Epoch 2)
+Epoch 003/300 (Original Target: 300) | LR: 0.000020 | Time: 13.96s | Train Loss: 4.2263 | Train Acc: 4.97% | Val Loss: 3.5113 | Val Acc: 22.85% | Gap: -17.88%
+----> Best Val Acc Updated: 22.85% at epoch 3
+[Switcher] Warming up... (Epoch 3)
+Epoch 004/300 (Original Target: 300) | LR: 0.000030 | Time: 14.06s | Train Loss: 3.4991 | Train Acc: 14.88% | Val Loss: 2.7761 | Val Acc: 40.12% | Gap: -25.24%
+----> Best Val Acc Updated: 40.12% at epoch 4
+[Switcher] Warming up... (Epoch 4)
+Epoch 005/300 (Original Target: 300) | LR: 0.000040 | Time: 13.96s | Train Loss: 3.2206 | Train Acc: 19.55% | Val Loss: 2.4375 | Val Acc: 49.31% | Gap: -29.76%
+----> Best Val Acc Updated: 49.31% at epoch 5
+[Switcher] Warming up... (Epoch 5)
+Epoch 006/300 (Original Target: 300) | LR: 0.000050 | Time: 13.93s | Train Loss: 2.8555 | Train Acc: 26.21% | Val Loss: 2.2388 | Val Acc: 54.64% | Gap: -28.43%
+----> Best Val Acc Updated: 54.64% at epoch 6
+[Switcher] Warming up... (Epoch 6)
+Epoch 007/300 (Original Target: 300) | LR: 0.000060 | Time: 13.95s | Train Loss: 2.8295 | Train Acc: 23.97% | Val Loss: 2.1379 | Val Acc: 58.79% | Gap: -34.82%
+----> Best Val Acc Updated: 58.79% at epoch 7
+[Switcher] Warming up... (Epoch 7)
+Epoch 008/300 (Original Target: 300) | LR: 0.000070 | Time: 14.08s | Train Loss: 2.7227 | Train Acc: 26.68% | Val Loss: 2.0736 | Val Acc: 59.88% | Gap: -33.20%
+----> Best Val Acc Updated: 59.88% at epoch 8
+[Switcher] Warming up... (Epoch 8)
+Epoch 009/300 (Original Target: 300) | LR: 0.000080 | Time: 13.88s | Train Loss: 2.6417 | Train Acc: 28.45% | Val Loss: 1.9659 | Val Acc: 62.90% | Gap: -34.45%
+----> Best Val Acc Updated: 62.90% at epoch 9
+[Switcher] Warming up... (Epoch 9)
+Epoch 010/300 (Original Target: 300) | LR: 0.000090 | Time: 14.08s | Train Loss: 2.4236 | Train Acc: 34.50% | Val Loss: 1.9433 | Val Acc: 63.64% | Gap: -29.14%
+----> Best Val Acc Updated: 63.64% at epoch 10
+[Switcher] Warming up... (Epoch 10)
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_10.pth
+Epoch 011/300 (Original Target: 300) | LR: 0.000100 | Time: 13.96s | Train Loss: 2.4869 | Train Acc: 35.18% | Val Loss: 1.9128 | Val Acc: 64.85% | Gap: -29.67%
+----> Best Val Acc Updated: 64.85% at epoch 11
+[Switcher] Warming up... (Epoch 11)
+Epoch 012/300 (Original Target: 300) | LR: 0.000100 | Time: 13.93s | Train Loss: 2.3357 | Train Acc: 37.20% | Val Loss: 1.8709 | Val Acc: 66.06% | Gap: -28.86%
+----> Best Val Acc Updated: 66.06% at epoch 12
+[Switcher] Warming up... (Epoch 12)
+Epoch 013/300 (Original Target: 300) | LR: 0.000100 | Time: 14.11s | Train Loss: 2.3964 | Train Acc: 36.42% | Val Loss: 1.8396 | Val Acc: 67.21% | Gap: -30.79%
+----> Best Val Acc Updated: 67.21% at epoch 13
+[Switcher] Warming up... (Epoch 13)
+Epoch 014/300 (Original Target: 300) | LR: 0.000100 | Time: 13.91s | Train Loss: 2.3110 | Train Acc: 39.14% | Val Loss: 1.8290 | Val Acc: 67.30% | Gap: -28.16%
+----> Best Val Acc Updated: 67.30% at epoch 14
+[Switcher] Warming up... (Epoch 14)
+Epoch 015/300 (Original Target: 300) | LR: 0.000100 | Time: 14.25s | Train Loss: 2.3488 | Train Acc: 37.34% | Val Loss: 1.8118 | Val Acc: 67.88% | Gap: -30.54%
+----> Best Val Acc Updated: 67.88% at epoch 15
+[Switcher] Warming up... (Epoch 15)
+Epoch 016/300 (Original Target: 300) | LR: 0.000100 | Time: 14.09s | Train Loss: 2.3411 | Train Acc: 35.23% | Val Loss: 1.7975 | Val Acc: 68.37% | Gap: -33.15%
+----> Best Val Acc Updated: 68.37% at epoch 16
+[Switcher] Warming up... (Epoch 16)
+Epoch 017/300 (Original Target: 300) | LR: 0.000100 | Time: 13.92s | Train Loss: 2.3326 | Train Acc: 34.54% | Val Loss: 1.7787 | Val Acc: 68.59% | Gap: -34.05%
+----> Best Val Acc Updated: 68.59% at epoch 17
+[Switcher] Warming up... (Epoch 17)
+Epoch 018/300 (Original Target: 300) | LR: 0.000100 | Time: 14.03s | Train Loss: 2.2109 | Train Acc: 37.23% | Val Loss: 1.7693 | Val Acc: 69.43% | Gap: -32.20%
+----> Best Val Acc Updated: 69.43% at epoch 18
+[Switcher] Warming up... (Epoch 18)
+Epoch 019/300 (Original Target: 300) | LR: 0.000100 | Time: 14.24s | Train Loss: 2.2364 | Train Acc: 38.53% | Val Loss: 1.7838 | Val Acc: 68.29% | Gap: -29.76%
+[Switcher] Warming up... (Epoch 19)
+Epoch 020/300 (Original Target: 300) | LR: 0.000100 | Time: 13.90s | Train Loss: 2.1420 | Train Acc: 36.72% | Val Loss: 1.7653 | Val Acc: 69.43% | Gap: -32.71%
+----> Best Val Acc Updated: 69.43% at epoch 20
+[Switcher] Warming up... (Epoch 20)
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_20.pth
+Epoch 021/300 (Original Target: 300) | LR: 0.000100 | Time: 14.03s | Train Loss: 2.0281 | Train Acc: 44.19% | Val Loss: 1.7521 | Val Acc: 69.49% | Gap: -25.30%
+----> Best Val Acc Updated: 69.49% at epoch 21
+[Switcher] Warming up... (Epoch 21)
+Epoch 022/300 (Original Target: 300) | LR: 0.000100 | Time: 13.83s | Train Loss: 1.8925 | Train Acc: 50.09% | Val Loss: 1.7490 | Val Acc: 69.91% | Gap: -19.82%
+----> Best Val Acc Updated: 69.91% at epoch 22
+[Switcher] Warming up... (Epoch 22)
+Epoch 023/300 (Original Target: 300) | LR: 0.000100 | Time: 14.11s | Train Loss: 2.0670 | Train Acc: 39.24% | Val Loss: 1.7070 | Val Acc: 70.79% | Gap: -31.55%
+----> Best Val Acc Updated: 70.79% at epoch 23
+[Switcher] Warming up... (Epoch 23)
+Epoch 024/300 (Original Target: 300) | LR: 0.000100 | Time: 13.93s | Train Loss: 2.1224 | Train Acc: 35.96% | Val Loss: 1.7427 | Val Acc: 69.94% | Gap: -33.98%
+[Switcher] Warming up... (Epoch 24)
+Epoch 025/300 (Original Target: 300) | LR: 0.000099 | Time: 13.95s | Train Loss: 1.9807 | Train Acc: 44.92% | Val Loss: 1.7253 | Val Acc: 70.53% | Gap: -25.61%
+[Switcher] Warming up... (Epoch 25)
+Epoch 026/300 (Original Target: 300) | LR: 0.000099 | Time: 14.14s | Train Loss: 1.9255 | Train Acc: 47.26% | Val Loss: 1.7308 | Val Acc: 70.01% | Gap: -22.75%
+[Switcher] Warming up... (Epoch 26)
+Epoch 027/300 (Original Target: 300) | LR: 0.000099 | Time: 14.00s | Train Loss: 2.0080 | Train Acc: 41.87% | Val Loss: 1.7524 | Val Acc: 69.15% | Gap: -27.28%
+[Switcher] Warming up... (Epoch 27)
+Epoch 028/300 (Original Target: 300) | LR: 0.000099 | Time: 13.87s | Train Loss: 1.8829 | Train Acc: 50.89% | Val Loss: 1.7214 | Val Acc: 71.02% | Gap: -20.13%
+----> Best Val Acc Updated: 71.02% at epoch 28
+[Switcher] Warming up... (Epoch 28)
+Epoch 029/300 (Original Target: 300) | LR: 0.000099 | Time: 14.03s | Train Loss: 2.0976 | Train Acc: 35.96% | Val Loss: 1.7198 | Val Acc: 70.46% | Gap: -34.50%
+[Switcher] Warming up... (Epoch 29)
+Epoch 030/300 (Original Target: 300) | LR: 0.000099 | Time: 14.00s | Train Loss: 2.0714 | Train Acc: 40.71% | Val Loss: 1.7231 | Val Acc: 70.75% | Gap: -30.04%
+[Switcher] Warming up... (Epoch 30)
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_30.pth
+Epoch 031/300 (Original Target: 300) | LR: 0.000099 | Time: 13.86s | Train Loss: 2.0377 | Train Acc: 40.78% | Val Loss: 1.7176 | Val Acc: 71.17% | Gap: -30.39%
+----> Best Val Acc Updated: 71.17% at epoch 31
+[Switcher] Status | Plateau: False (0/10) | Gap Increase: False (-0.088 > 0.02) | Grad Norm Increase: False (-0.338 > 0.1) | Oscillate: False (0/5)
+Epoch 032/300 (Original Target: 300) | LR: 0.000099 | Time: 14.01s | Train Loss: 1.9441 | Train Acc: 43.22% | Val Loss: 1.7227 | Val Acc: 71.43% | Gap: -28.22%
+----> Best Val Acc Updated: 71.43% at epoch 32
+[Switcher] Status | Plateau: False (1/10) | Gap Increase: False (-0.079 > 0.02) | Grad Norm Increase: False (-0.326 > 0.1) | Oscillate: False (0/5)
+Epoch 033/300 (Original Target: 300) | LR: 0.000099 | Time: 13.91s | Train Loss: 1.9093 | Train Acc: 46.63% | Val Loss: 1.7227 | Val Acc: 71.14% | Gap: -24.51%
+[Switcher] Status | Plateau: False (2/10) | Gap Increase: False (-0.065 > 0.02) | Grad Norm Increase: False (-0.312 > 0.1) | Oscillate: False (0/5)
+Epoch 034/300 (Original Target: 300) | LR: 0.000098 | Time: 14.15s | Train Loss: 1.9505 | Train Acc: 43.59% | Val Loss: 1.7066 | Val Acc: 71.47% | Gap: -27.88%
+----> Best Val Acc Updated: 71.47% at epoch 34
+[Switcher] Status | Plateau: False (3/10) | Gap Increase: False (-0.058 > 0.02) | Grad Norm Increase: False (-0.302 > 0.1) | Oscillate: False (0/5)
+Epoch 035/300 (Original Target: 300) | LR: 0.000098 | Time: 13.84s | Train Loss: 1.9931 | Train Acc: 36.96% | Val Loss: 1.7088 | Val Acc: 71.50% | Gap: -34.54%
+----> Best Val Acc Updated: 71.50% at epoch 35
+[Switcher] Status | Plateau: False (4/10) | Gap Increase: False (-0.056 > 0.02) | Grad Norm Increase: False (-0.290 > 0.1) | Oscillate: False (0/5)
+Epoch 036/300 (Original Target: 300) | LR: 0.000098 | Time: 14.19s | Train Loss: 1.8123 | Train Acc: 50.67% | Val Loss: 1.6785 | Val Acc: 71.65% | Gap: -20.98%
+----> Best Val Acc Updated: 71.65% at epoch 36
+[Switcher] Status | Plateau: False (5/10) | Gap Increase: False (-0.038 > 0.02) | Grad Norm Increase: False (-0.279 > 0.1) | Oscillate: False (0/5)
+Epoch 037/300 (Original Target: 300) | LR: 0.000098 | Time: 14.16s | Train Loss: 1.8635 | Train Acc: 48.24% | Val Loss: 1.7047 | Val Acc: 71.56% | Gap: -23.32%
+[Switcher] Status | Plateau: False (6/10) | Gap Increase: False (-0.024 > 0.02) | Grad Norm Increase: False (-0.267 > 0.1) | Oscillate: False (0/5)
+Epoch 038/300 (Original Target: 300) | LR: 0.000098 | Time: 13.90s | Train Loss: 1.9247 | Train Acc: 38.38% | Val Loss: 1.7345 | Val Acc: 70.43% | Gap: -32.05%
+[Switcher] Status | Plateau: False (7/10) | Gap Increase: False (-0.021 > 0.02) | Grad Norm Increase: False (-0.257 > 0.1) | Oscillate: False (0/5)
+Epoch 039/300 (Original Target: 300) | LR: 0.000098 | Time: 14.15s | Train Loss: 1.8170 | Train Acc: 51.95% | Val Loss: 1.7014 | Val Acc: 71.51% | Gap: -19.57%
+[Switcher] Status | Plateau: False (8/10) | Gap Increase: False (-0.009 > 0.02) | Grad Norm Increase: False (-0.246 > 0.1) | Oscillate: False (0/5)
+Epoch 040/300 (Original Target: 300) | LR: 0.000098 | Time: 14.05s | Train Loss: 1.9258 | Train Acc: 45.42% | Val Loss: 1.7151 | Val Acc: 71.26% | Gap: -25.84%
+[Switcher] Status | Plateau: False (9/10) | Gap Increase: False (-0.001 > 0.02) | Grad Norm Increase: False (-0.234 > 0.1) | Oscillate: False (0/5)
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_40.pth
+Epoch 041/300 (Original Target: 300) | LR: 0.000097 | Time: 14.07s | Train Loss: 1.9790 | Train Acc: 37.58% | Val Loss: 1.7114 | Val Acc: 71.20% | Gap: -33.62%
+[Switcher] Status | Plateau: True (10/10) | Gap Increase: False (-0.009 > 0.02) | Grad Norm Increase: False (-0.225 > 0.1) | Oscillate: False (0/5)
+Epoch 042/300 (Original Target: 300) | LR: 0.000097 | Time: 13.93s | Train Loss: 1.9906 | Train Acc: 36.56% | Val Loss: 1.6876 | Val Acc: 71.82% | Gap: -35.26%
+----> Best Val Acc Updated: 71.82% at epoch 42
+[Switcher] Status | Plateau: True (11/10) | Gap Increase: False (-0.024 > 0.02) | Grad Norm Increase: False (-0.218 > 0.1) | Oscillate: False (0/5)
+Epoch 043/300 (Original Target: 300) | LR: 0.000097 | Time: 13.96s | Train Loss: 1.7588 | Train Acc: 49.22% | Val Loss: 1.7065 | Val Acc: 71.94% | Gap: -22.72%
+----> Best Val Acc Updated: 71.94% at epoch 43
+[Switcher] Status | Plateau: True (12/10) | Gap Increase: False (-0.013 > 0.02) | Grad Norm Increase: False (-0.211 > 0.1) | Oscillate: False (0/5)
+Epoch 044/300 (Original Target: 300) | LR: 0.000097 | Time: 14.15s | Train Loss: 1.9361 | Train Acc: 36.75% | Val Loss: 1.6864 | Val Acc: 71.95% | Gap: -35.20%
+----> Best Val Acc Updated: 71.95% at epoch 44
+[Switcher] Status | Plateau: True (13/10) | Gap Increase: False (-0.013 > 0.02) | Grad Norm Increase: False (-0.204 > 0.1) | Oscillate: False (0/5)
+Epoch 045/300 (Original Target: 300) | LR: 0.000097 | Time: 13.98s | Train Loss: 1.7629 | Train Acc: 48.38% | Val Loss: 1.7205 | Val Acc: 71.10% | Gap: -22.72%
+[Switcher] Status | Plateau: True (14/10) | Gap Increase: False (-0.008 > 0.02) | Grad Norm Increase: False (-0.198 > 0.1) | Oscillate: False (0/5)
+Epoch 046/300 (Original Target: 300) | LR: 0.000096 | Time: 14.13s | Train Loss: 1.8856 | Train Acc: 41.53% | Val Loss: 1.7012 | Val Acc: 71.66% | Gap: -30.12%
+[Switcher] Status | Plateau: True (15/10) | Gap Increase: False (-0.015 > 0.02) | Grad Norm Increase: False (-0.191 > 0.1) | Oscillate: False (0/5)
+
+----- Dynamic Switch Triggered at Epoch 46! Switching to SAM -----
+/home/prml/StudentsWork/JungWoo/Optimizer/.venv/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch 047/300 (Original Target: 300) | LR: 0.010000 | Time: 24.29s | Train Loss: 20.1189 | Train Acc: 1.92% | Val Loss: 8.7033 | Val Acc: 0.96% | Gap: 0.96%
+Epoch 048/300 (Original Target: 300) | LR: 0.020000 | Time: 24.41s | Train Loss: 10.0324 | Train Acc: 0.46% | Val Loss: 9.3265 | Val Acc: 1.00% | Gap: -0.54%
+Epoch 049/300 (Original Target: 300) | LR: 0.030000 | Time: 24.67s | Train Loss: 8.9634 | Train Acc: 0.40% | Val Loss: 7.7577 | Val Acc: 0.81% | Gap: -0.41%
+Epoch 050/300 (Original Target: 300) | LR: 0.040000 | Time: 24.36s | Train Loss: 6.7772 | Train Acc: 0.56% | Val Loss: 5.2480 | Val Acc: 0.99% | Gap: -0.43%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_50.pth
+Epoch 051/300 (Original Target: 300) | LR: 0.050000 | Time: 24.74s | Train Loss: 37.6360 | Train Acc: 0.56% | Val Loss: 88.2856 | Val Acc: 0.84% | Gap: -0.28%
+Epoch 052/300 (Original Target: 300) | LR: 0.060000 | Time: 24.45s | Train Loss: 240.1179 | Train Acc: 0.71% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.45%
+Epoch 053/300 (Original Target: 300) | LR: 0.070000 | Time: 24.62s | Train Loss: 333.4121 | Train Acc: 0.56% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.61%
+Epoch 054/300 (Original Target: 300) | LR: 0.080000 | Time: 24.56s | Train Loss: 423.6831 | Train Acc: 0.38% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.79%
+Epoch 055/300 (Original Target: 300) | LR: 0.090000 | Time: 24.45s | Train Loss: 614.8285 | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 056/300 (Original Target: 300) | LR: 0.100000 | Time: 24.59s | Train Loss: 903.5121 | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 057/300 (Original Target: 300) | LR: 0.099996 | Time: 24.42s | Train Loss: 1473.3672 | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 058/300 (Original Target: 300) | LR: 0.099984 | Time: 24.86s | Train Loss: 2164.8270 | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 059/300 (Original Target: 300) | LR: 0.099963 | Time: 24.56s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 060/300 (Original Target: 300) | LR: 0.099934 | Time: 24.44s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_60.pth
+Epoch 061/300 (Original Target: 300) | LR: 0.099897 | Time: 24.52s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 062/300 (Original Target: 300) | LR: 0.099852 | Time: 24.42s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 063/300 (Original Target: 300) | LR: 0.099799 | Time: 24.17s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 064/300 (Original Target: 300) | LR: 0.099737 | Time: 24.60s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 065/300 (Original Target: 300) | LR: 0.099667 | Time: 24.59s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 066/300 (Original Target: 300) | LR: 0.099590 | Time: 24.41s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 067/300 (Original Target: 300) | LR: 0.099503 | Time: 24.74s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 068/300 (Original Target: 300) | LR: 0.099409 | Time: 24.28s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 069/300 (Original Target: 300) | LR: 0.099307 | Time: 24.67s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 070/300 (Original Target: 300) | LR: 0.099196 | Time: 24.15s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_70.pth
+Epoch 071/300 (Original Target: 300) | LR: 0.099078 | Time: 24.62s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.58%
+Epoch 072/300 (Original Target: 300) | LR: 0.098951 | Time: 24.65s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 073/300 (Original Target: 300) | LR: 0.098817 | Time: 24.58s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 074/300 (Original Target: 300) | LR: 0.098674 | Time: 24.66s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 075/300 (Original Target: 300) | LR: 0.098523 | Time: 24.42s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 076/300 (Original Target: 300) | LR: 0.098365 | Time: 24.46s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 077/300 (Original Target: 300) | LR: 0.098198 | Time: 24.33s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 078/300 (Original Target: 300) | LR: 0.098024 | Time: 24.74s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 079/300 (Original Target: 300) | LR: 0.097841 | Time: 24.54s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 080/300 (Original Target: 300) | LR: 0.097651 | Time: 24.79s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_80.pth
+Epoch 081/300 (Original Target: 300) | LR: 0.097453 | Time: 24.54s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 082/300 (Original Target: 300) | LR: 0.097247 | Time: 24.20s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 083/300 (Original Target: 300) | LR: 0.097033 | Time: 24.70s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 084/300 (Original Target: 300) | LR: 0.096812 | Time: 24.54s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 085/300 (Original Target: 300) | LR: 0.096583 | Time: 24.25s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 086/300 (Original Target: 300) | LR: 0.096346 | Time: 24.57s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 087/300 (Original Target: 300) | LR: 0.096101 | Time: 24.18s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 088/300 (Original Target: 300) | LR: 0.095849 | Time: 24.56s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 089/300 (Original Target: 300) | LR: 0.095590 | Time: 24.28s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 090/300 (Original Target: 300) | LR: 0.095323 | Time: 24.28s | Train Loss: nan | Train Acc: 0.56% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.61%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_90.pth
+Epoch 091/300 (Original Target: 300) | LR: 0.095048 | Time: 24.34s | Train Loss: nan | Train Acc: 0.59% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.58%
+Epoch 092/300 (Original Target: 300) | LR: 0.094767 | Time: 24.73s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 093/300 (Original Target: 300) | LR: 0.094477 | Time: 24.66s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 094/300 (Original Target: 300) | LR: 0.094181 | Time: 24.73s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 095/300 (Original Target: 300) | LR: 0.093877 | Time: 24.68s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 096/300 (Original Target: 300) | LR: 0.093566 | Time: 24.46s | Train Loss: nan | Train Acc: 0.37% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.80%
+Epoch 097/300 (Original Target: 300) | LR: 0.093248 | Time: 24.44s | Train Loss: nan | Train Acc: 0.35% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.81%
+Epoch 098/300 (Original Target: 300) | LR: 0.092922 | Time: 24.37s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 099/300 (Original Target: 300) | LR: 0.092590 | Time: 24.42s | Train Loss: nan | Train Acc: 0.56% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.61%
+Epoch 100/300 (Original Target: 300) | LR: 0.092251 | Time: 24.43s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_100.pth
+Epoch 101/300 (Original Target: 300) | LR: 0.091904 | Time: 24.57s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 102/300 (Original Target: 300) | LR: 0.091551 | Time: 24.38s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 103/300 (Original Target: 300) | LR: 0.091191 | Time: 24.33s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 104/300 (Original Target: 300) | LR: 0.090824 | Time: 24.76s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 105/300 (Original Target: 300) | LR: 0.090451 | Time: 24.19s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 106/300 (Original Target: 300) | LR: 0.090071 | Time: 24.84s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 107/300 (Original Target: 300) | LR: 0.089684 | Time: 24.52s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 108/300 (Original Target: 300) | LR: 0.089291 | Time: 24.60s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 109/300 (Original Target: 300) | LR: 0.088891 | Time: 24.48s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 110/300 (Original Target: 300) | LR: 0.088485 | Time: 24.22s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_110.pth
+Epoch 111/300 (Original Target: 300) | LR: 0.088072 | Time: 24.50s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 112/300 (Original Target: 300) | LR: 0.087654 | Time: 24.56s | Train Loss: nan | Train Acc: 0.63% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.54%
+Epoch 113/300 (Original Target: 300) | LR: 0.087229 | Time: 24.27s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 114/300 (Original Target: 300) | LR: 0.086798 | Time: 24.82s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 115/300 (Original Target: 300) | LR: 0.086361 | Time: 24.45s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 116/300 (Original Target: 300) | LR: 0.085917 | Time: 24.37s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 117/300 (Original Target: 300) | LR: 0.085468 | Time: 24.76s | Train Loss: nan | Train Acc: 0.57% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.60%
+Epoch 118/300 (Original Target: 300) | LR: 0.085014 | Time: 24.64s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 119/300 (Original Target: 300) | LR: 0.084553 | Time: 24.59s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 120/300 (Original Target: 300) | LR: 0.084087 | Time: 24.32s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_120.pth
+Epoch 121/300 (Original Target: 300) | LR: 0.083615 | Time: 24.79s | Train Loss: nan | Train Acc: 0.57% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.60%
+Epoch 122/300 (Original Target: 300) | LR: 0.083138 | Time: 24.31s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 123/300 (Original Target: 300) | LR: 0.082655 | Time: 24.40s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 124/300 (Original Target: 300) | LR: 0.082167 | Time: 24.72s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 125/300 (Original Target: 300) | LR: 0.081673 | Time: 24.71s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 126/300 (Original Target: 300) | LR: 0.081174 | Time: 24.57s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 127/300 (Original Target: 300) | LR: 0.080671 | Time: 24.33s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 128/300 (Original Target: 300) | LR: 0.080162 | Time: 24.68s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 129/300 (Original Target: 300) | LR: 0.079648 | Time: 24.36s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 130/300 (Original Target: 300) | LR: 0.079129 | Time: 24.29s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_130.pth
+Epoch 131/300 (Original Target: 300) | LR: 0.078606 | Time: 24.83s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 132/300 (Original Target: 300) | LR: 0.078078 | Time: 24.22s | Train Loss: nan | Train Acc: 0.36% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.81%
+Epoch 133/300 (Original Target: 300) | LR: 0.077545 | Time: 24.72s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 134/300 (Original Target: 300) | LR: 0.077008 | Time: 24.43s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 135/300 (Original Target: 300) | LR: 0.076466 | Time: 24.58s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 136/300 (Original Target: 300) | LR: 0.075920 | Time: 24.29s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 137/300 (Original Target: 300) | LR: 0.075369 | Time: 24.42s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 138/300 (Original Target: 300) | LR: 0.074815 | Time: 24.59s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 139/300 (Original Target: 300) | LR: 0.074256 | Time: 24.42s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 140/300 (Original Target: 300) | LR: 0.073693 | Time: 25.02s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_140.pth
+Epoch 141/300 (Original Target: 300) | LR: 0.073127 | Time: 24.44s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 142/300 (Original Target: 300) | LR: 0.072557 | Time: 24.34s | Train Loss: nan | Train Acc: 0.57% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 143/300 (Original Target: 300) | LR: 0.071983 | Time: 24.61s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 144/300 (Original Target: 300) | LR: 0.071405 | Time: 24.53s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 145/300 (Original Target: 300) | LR: 0.070824 | Time: 24.49s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 146/300 (Original Target: 300) | LR: 0.070239 | Time: 24.73s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 147/300 (Original Target: 300) | LR: 0.069651 | Time: 24.50s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 148/300 (Original Target: 300) | LR: 0.069060 | Time: 24.52s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 149/300 (Original Target: 300) | LR: 0.068466 | Time: 24.64s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 150/300 (Original Target: 300) | LR: 0.067869 | Time: 24.44s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_150.pth
+Epoch 151/300 (Original Target: 300) | LR: 0.067268 | Time: 24.58s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 152/300 (Original Target: 300) | LR: 0.066665 | Time: 25.21s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 153/300 (Original Target: 300) | LR: 0.066059 | Time: 24.89s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 154/300 (Original Target: 300) | LR: 0.065451 | Time: 24.66s | Train Loss: nan | Train Acc: 0.59% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.57%
+Epoch 155/300 (Original Target: 300) | LR: 0.064840 | Time: 24.26s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 156/300 (Original Target: 300) | LR: 0.064226 | Time: 24.46s | Train Loss: nan | Train Acc: 0.38% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.79%
+Epoch 157/300 (Original Target: 300) | LR: 0.063611 | Time: 24.84s | Train Loss: nan | Train Acc: 0.55% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.62%
+Epoch 158/300 (Original Target: 300) | LR: 0.062993 | Time: 24.70s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 159/300 (Original Target: 300) | LR: 0.062372 | Time: 24.81s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 160/300 (Original Target: 300) | LR: 0.061750 | Time: 24.64s | Train Loss: nan | Train Acc: 0.55% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.62%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_160.pth
+Epoch 161/300 (Original Target: 300) | LR: 0.061126 | Time: 24.37s | Train Loss: nan | Train Acc: 0.64% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.53%
+Epoch 162/300 (Original Target: 300) | LR: 0.060500 | Time: 24.65s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 163/300 (Original Target: 300) | LR: 0.059872 | Time: 24.78s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 164/300 (Original Target: 300) | LR: 0.059243 | Time: 24.25s | Train Loss: nan | Train Acc: 0.55% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.62%
+Epoch 165/300 (Original Target: 300) | LR: 0.058612 | Time: 24.62s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 166/300 (Original Target: 300) | LR: 0.057980 | Time: 24.38s | Train Loss: nan | Train Acc: 0.35% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.82%
+Epoch 167/300 (Original Target: 300) | LR: 0.057346 | Time: 24.61s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 168/300 (Original Target: 300) | LR: 0.056712 | Time: 24.26s | Train Loss: nan | Train Acc: 0.56% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.61%
+Epoch 169/300 (Original Target: 300) | LR: 0.056076 | Time: 24.55s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 170/300 (Original Target: 300) | LR: 0.055439 | Time: 24.54s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_170.pth
+Epoch 171/300 (Original Target: 300) | LR: 0.054801 | Time: 24.52s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 172/300 (Original Target: 300) | LR: 0.054163 | Time: 24.41s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 173/300 (Original Target: 300) | LR: 0.053523 | Time: 24.17s | Train Loss: nan | Train Acc: 0.39% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.78%
+Epoch 174/300 (Original Target: 300) | LR: 0.052884 | Time: 24.88s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 175/300 (Original Target: 300) | LR: 0.052243 | Time: 24.83s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 176/300 (Original Target: 300) | LR: 0.051603 | Time: 24.61s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 177/300 (Original Target: 300) | LR: 0.050962 | Time: 24.70s | Train Loss: nan | Train Acc: 0.35% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.82%
+Epoch 178/300 (Original Target: 300) | LR: 0.050321 | Time: 24.51s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 179/300 (Original Target: 300) | LR: 0.049679 | Time: 24.68s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 180/300 (Original Target: 300) | LR: 0.049038 | Time: 24.24s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_180.pth
+Epoch 181/300 (Original Target: 300) | LR: 0.048397 | Time: 24.86s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 182/300 (Original Target: 300) | LR: 0.047757 | Time: 24.30s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 183/300 (Original Target: 300) | LR: 0.047116 | Time: 24.56s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 184/300 (Original Target: 300) | LR: 0.046477 | Time: 24.50s | Train Loss: nan | Train Acc: 0.59% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.58%
+Epoch 185/300 (Original Target: 300) | LR: 0.045837 | Time: 24.65s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 186/300 (Original Target: 300) | LR: 0.045199 | Time: 24.48s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 187/300 (Original Target: 300) | LR: 0.044561 | Time: 24.42s | Train Loss: nan | Train Acc: 0.44% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 188/300 (Original Target: 300) | LR: 0.043924 | Time: 24.46s | Train Loss: nan | Train Acc: 0.60% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.57%
+Epoch 189/300 (Original Target: 300) | LR: 0.043288 | Time: 24.39s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+Epoch 190/300 (Original Target: 300) | LR: 0.042654 | Time: 24.55s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_190.pth
+Epoch 191/300 (Original Target: 300) | LR: 0.042020 | Time: 24.38s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 192/300 (Original Target: 300) | LR: 0.041388 | Time: 24.45s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 193/300 (Original Target: 300) | LR: 0.040757 | Time: 24.31s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 194/300 (Original Target: 300) | LR: 0.040128 | Time: 24.32s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 195/300 (Original Target: 300) | LR: 0.039500 | Time: 24.58s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 196/300 (Original Target: 300) | LR: 0.038874 | Time: 24.31s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 197/300 (Original Target: 300) | LR: 0.038250 | Time: 24.64s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 198/300 (Original Target: 300) | LR: 0.037628 | Time: 24.33s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 199/300 (Original Target: 300) | LR: 0.037007 | Time: 24.64s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 200/300 (Original Target: 300) | LR: 0.036389 | Time: 24.32s | Train Loss: nan | Train Acc: 0.33% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.84%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_200.pth
+Epoch 201/300 (Original Target: 300) | LR: 0.035774 | Time: 24.23s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 202/300 (Original Target: 300) | LR: 0.035160 | Time: 24.57s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 203/300 (Original Target: 300) | LR: 0.034549 | Time: 24.53s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 204/300 (Original Target: 300) | LR: 0.033941 | Time: 24.52s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 205/300 (Original Target: 300) | LR: 0.033335 | Time: 24.42s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 206/300 (Original Target: 300) | LR: 0.032732 | Time: 24.54s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 207/300 (Original Target: 300) | LR: 0.032131 | Time: 24.63s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 208/300 (Original Target: 300) | LR: 0.031534 | Time: 24.63s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 209/300 (Original Target: 300) | LR: 0.030940 | Time: 24.41s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 210/300 (Original Target: 300) | LR: 0.030349 | Time: 24.64s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_210.pth
+Epoch 211/300 (Original Target: 300) | LR: 0.029761 | Time: 24.46s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 212/300 (Original Target: 300) | LR: 0.029176 | Time: 24.28s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 213/300 (Original Target: 300) | LR: 0.028595 | Time: 24.45s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 214/300 (Original Target: 300) | LR: 0.028017 | Time: 24.59s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 215/300 (Original Target: 300) | LR: 0.027443 | Time: 24.48s | Train Loss: nan | Train Acc: 0.38% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.79%
+Epoch 216/300 (Original Target: 300) | LR: 0.026873 | Time: 24.48s | Train Loss: nan | Train Acc: 0.57% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.60%
+Epoch 217/300 (Original Target: 300) | LR: 0.026307 | Time: 24.26s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 218/300 (Original Target: 300) | LR: 0.025744 | Time: 24.88s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 219/300 (Original Target: 300) | LR: 0.025185 | Time: 24.39s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 220/300 (Original Target: 300) | LR: 0.024631 | Time: 24.74s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_220.pth
+Epoch 221/300 (Original Target: 300) | LR: 0.024080 | Time: 24.41s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 222/300 (Original Target: 300) | LR: 0.023534 | Time: 24.39s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 223/300 (Original Target: 300) | LR: 0.022992 | Time: 24.72s | Train Loss: nan | Train Acc: 0.38% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.79%
+Epoch 224/300 (Original Target: 300) | LR: 0.022455 | Time: 24.88s | Train Loss: nan | Train Acc: 0.39% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.78%
+Epoch 225/300 (Original Target: 300) | LR: 0.021922 | Time: 24.49s | Train Loss: nan | Train Acc: 0.55% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.62%
+Epoch 226/300 (Original Target: 300) | LR: 0.021394 | Time: 24.31s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 227/300 (Original Target: 300) | LR: 0.020871 | Time: 24.79s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 228/300 (Original Target: 300) | LR: 0.020352 | Time: 24.64s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 229/300 (Original Target: 300) | LR: 0.019838 | Time: 24.39s | Train Loss: nan | Train Acc: 0.63% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.54%
+Epoch 230/300 (Original Target: 300) | LR: 0.019329 | Time: 24.47s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_230.pth
+Epoch 231/300 (Original Target: 300) | LR: 0.018826 | Time: 24.36s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 232/300 (Original Target: 300) | LR: 0.018327 | Time: 24.39s | Train Loss: nan | Train Acc: 0.37% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.80%
+Epoch 233/300 (Original Target: 300) | LR: 0.017833 | Time: 24.55s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 234/300 (Original Target: 300) | LR: 0.017345 | Time: 24.46s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 235/300 (Original Target: 300) | LR: 0.016862 | Time: 24.45s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 236/300 (Original Target: 300) | LR: 0.016385 | Time: 24.52s | Train Loss: nan | Train Acc: 0.36% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.80%
+Epoch 237/300 (Original Target: 300) | LR: 0.015913 | Time: 24.55s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 238/300 (Original Target: 300) | LR: 0.015447 | Time: 24.67s | Train Loss: nan | Train Acc: 0.58% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.59%
+Epoch 239/300 (Original Target: 300) | LR: 0.014986 | Time: 24.49s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 240/300 (Original Target: 300) | LR: 0.014532 | Time: 24.50s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_240.pth
+Epoch 241/300 (Original Target: 300) | LR: 0.014083 | Time: 24.42s | Train Loss: nan | Train Acc: 0.36% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.81%
+Epoch 242/300 (Original Target: 300) | LR: 0.013639 | Time: 24.32s | Train Loss: nan | Train Acc: 0.56% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.61%
+Epoch 243/300 (Original Target: 300) | LR: 0.013202 | Time: 24.51s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 244/300 (Original Target: 300) | LR: 0.012771 | Time: 24.46s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 245/300 (Original Target: 300) | LR: 0.012346 | Time: 24.73s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 246/300 (Original Target: 300) | LR: 0.011928 | Time: 24.82s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 247/300 (Original Target: 300) | LR: 0.011515 | Time: 24.53s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 248/300 (Original Target: 300) | LR: 0.011109 | Time: 24.41s | Train Loss: nan | Train Acc: 0.39% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.78%
+Epoch 249/300 (Original Target: 300) | LR: 0.010709 | Time: 24.53s | Train Loss: nan | Train Acc: 0.38% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.79%
+Epoch 250/300 (Original Target: 300) | LR: 0.010316 | Time: 24.66s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_250.pth
+Epoch 251/300 (Original Target: 300) | LR: 0.009929 | Time: 24.48s | Train Loss: nan | Train Acc: 0.64% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.53%
+Epoch 252/300 (Original Target: 300) | LR: 0.009549 | Time: 24.48s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 253/300 (Original Target: 300) | LR: 0.009176 | Time: 24.37s | Train Loss: nan | Train Acc: 0.39% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.78%
+Epoch 254/300 (Original Target: 300) | LR: 0.008809 | Time: 24.75s | Train Loss: nan | Train Acc: 0.45% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.72%
+Epoch 255/300 (Original Target: 300) | LR: 0.008449 | Time: 24.70s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 256/300 (Original Target: 300) | LR: 0.008096 | Time: 24.90s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 257/300 (Original Target: 300) | LR: 0.007749 | Time: 24.78s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 258/300 (Original Target: 300) | LR: 0.007410 | Time: 24.49s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 259/300 (Original Target: 300) | LR: 0.007078 | Time: 24.37s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 260/300 (Original Target: 300) | LR: 0.006752 | Time: 24.22s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_260.pth
+Epoch 261/300 (Original Target: 300) | LR: 0.006434 | Time: 24.62s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 262/300 (Original Target: 300) | LR: 0.006123 | Time: 24.41s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 263/300 (Original Target: 300) | LR: 0.005819 | Time: 24.69s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 264/300 (Original Target: 300) | LR: 0.005523 | Time: 24.64s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 265/300 (Original Target: 300) | LR: 0.005233 | Time: 24.47s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 266/300 (Original Target: 300) | LR: 0.004952 | Time: 24.54s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.73%
+Epoch 267/300 (Original Target: 300) | LR: 0.004677 | Time: 24.35s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 268/300 (Original Target: 300) | LR: 0.004410 | Time: 24.95s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 269/300 (Original Target: 300) | LR: 0.004151 | Time: 24.58s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 270/300 (Original Target: 300) | LR: 0.003899 | Time: 24.49s | Train Loss: nan | Train Acc: 0.42% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_270.pth
+Epoch 271/300 (Original Target: 300) | LR: 0.003654 | Time: 24.48s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 272/300 (Original Target: 300) | LR: 0.003417 | Time: 24.31s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 273/300 (Original Target: 300) | LR: 0.003188 | Time: 24.68s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 274/300 (Original Target: 300) | LR: 0.002967 | Time: 24.42s | Train Loss: nan | Train Acc: 0.50% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 275/300 (Original Target: 300) | LR: 0.002753 | Time: 24.73s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 276/300 (Original Target: 300) | LR: 0.002547 | Time: 25.09s | Train Loss: nan | Train Acc: 0.39% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.78%
+Epoch 277/300 (Original Target: 300) | LR: 0.002349 | Time: 24.36s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 278/300 (Original Target: 300) | LR: 0.002159 | Time: 24.22s | Train Loss: nan | Train Acc: 0.37% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.80%
+Epoch 279/300 (Original Target: 300) | LR: 0.001976 | Time: 24.26s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+Epoch 280/300 (Original Target: 300) | LR: 0.001802 | Time: 24.17s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_280.pth
+Epoch 281/300 (Original Target: 300) | LR: 0.001635 | Time: 24.19s | Train Loss: nan | Train Acc: 0.43% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.74%
+Epoch 282/300 (Original Target: 300) | LR: 0.001477 | Time: 24.44s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.67%
+Epoch 283/300 (Original Target: 300) | LR: 0.001326 | Time: 24.39s | Train Loss: nan | Train Acc: 0.54% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.63%
+Epoch 284/300 (Original Target: 300) | LR: 0.001183 | Time: 24.64s | Train Loss: nan | Train Acc: 0.35% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.82%
+Epoch 285/300 (Original Target: 300) | LR: 0.001049 | Time: 24.72s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 286/300 (Original Target: 300) | LR: 0.000922 | Time: 24.13s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 287/300 (Original Target: 300) | LR: 0.000804 | Time: 24.28s | Train Loss: nan | Train Acc: 0.55% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.62%
+Epoch 288/300 (Original Target: 300) | LR: 0.000693 | Time: 24.33s | Train Loss: nan | Train Acc: 0.47% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.70%
+Epoch 289/300 (Original Target: 300) | LR: 0.000591 | Time: 24.16s | Train Loss: nan | Train Acc: 0.52% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.65%
+Epoch 290/300 (Original Target: 300) | LR: 0.000497 | Time: 24.16s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.76%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_290.pth
+Epoch 291/300 (Original Target: 300) | LR: 0.000410 | Time: 24.21s | Train Loss: nan | Train Acc: 0.48% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.69%
+Epoch 292/300 (Original Target: 300) | LR: 0.000333 | Time: 24.41s | Train Loss: nan | Train Acc: 0.57% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.60%
+Epoch 293/300 (Original Target: 300) | LR: 0.000263 | Time: 24.64s | Train Loss: nan | Train Acc: 0.41% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.75%
+Epoch 294/300 (Original Target: 300) | LR: 0.000201 | Time: 24.14s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 295/300 (Original Target: 300) | LR: 0.000148 | Time: 24.54s | Train Loss: nan | Train Acc: 0.35% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.82%
+Epoch 296/300 (Original Target: 300) | LR: 0.000103 | Time: 24.45s | Train Loss: nan | Train Acc: 0.53% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.64%
+Epoch 297/300 (Original Target: 300) | LR: 0.000066 | Time: 24.18s | Train Loss: nan | Train Acc: 0.46% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.71%
+Epoch 298/300 (Original Target: 300) | LR: 0.000037 | Time: 24.50s | Train Loss: nan | Train Acc: 0.51% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.66%
+Epoch 299/300 (Original Target: 300) | LR: 0.000016 | Time: 24.44s | Train Loss: nan | Train Acc: 0.40% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.77%
+Epoch 300/300 (Original Target: 300) | LR: 0.000004 | Time: 24.43s | Train Loss: nan | Train Acc: 0.49% | Val Loss: nan | Val Acc: 1.17% | Gap: -0.68%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_AdamW_then_SAM_epoch_300.pth
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224_AdamW_then_SAM_best.pth
+
+===== Final Test Accuracy for AdamW_then_SAM =====
+Final Test Accuracy: 79.35%
+Total Training Time: 6870.09 sec
+
+
+
+===== Training Strategy: SAM_Only =====
+AMP Enabled: False
+Epoch 001/300 (Original Target: 300) | LR: 0.000100 | Time: 25.00s | Train Loss: 4.8085 | Train Acc: 0.60% | Val Loss: 4.6046 | Val Acc: 1.04% | Gap: -0.44%
+----> Best Val Acc Updated: 1.04% at epoch 1
+Epoch 002/300 (Original Target: 300) | LR: 0.000100 | Time: 24.94s | Train Loss: 4.5998 | Train Acc: 0.62% | Val Loss: 4.5916 | Val Acc: 1.61% | Gap: -0.99%
+----> Best Val Acc Updated: 1.61% at epoch 2
+Epoch 003/300 (Original Target: 300) | LR: 0.000100 | Time: 25.08s | Train Loss: 4.5871 | Train Acc: 1.38% | Val Loss: 4.5700 | Val Acc: 2.33% | Gap: -0.96%
+----> Best Val Acc Updated: 2.33% at epoch 3
+Epoch 004/300 (Original Target: 300) | LR: 0.000100 | Time: 25.01s | Train Loss: 4.5622 | Train Acc: 1.62% | Val Loss: 4.5126 | Val Acc: 4.38% | Gap: -2.76%
+----> Best Val Acc Updated: 4.38% at epoch 4
+Epoch 005/300 (Original Target: 300) | LR: 0.000100 | Time: 24.84s | Train Loss: 4.4899 | Train Acc: 1.80% | Val Loss: 4.4041 | Val Acc: 5.14% | Gap: -3.34%
+----> Best Val Acc Updated: 5.14% at epoch 5
+Epoch 006/300 (Original Target: 300) | LR: 0.000100 | Time: 24.67s | Train Loss: 4.3912 | Train Acc: 2.80% | Val Loss: 4.2524 | Val Acc: 7.59% | Gap: -4.79%
+----> Best Val Acc Updated: 7.59% at epoch 6
+Epoch 007/300 (Original Target: 300) | LR: 0.000100 | Time: 25.08s | Train Loss: 4.2817 | Train Acc: 4.61% | Val Loss: 4.1236 | Val Acc: 10.10% | Gap: -5.49%
+----> Best Val Acc Updated: 10.10% at epoch 7
+Epoch 008/300 (Original Target: 300) | LR: 0.000100 | Time: 24.70s | Train Loss: 4.1922 | Train Acc: 6.34% | Val Loss: 3.9985 | Val Acc: 13.09% | Gap: -6.75%
+----> Best Val Acc Updated: 13.09% at epoch 8
+Epoch 009/300 (Original Target: 300) | LR: 0.000100 | Time: 24.62s | Train Loss: 4.1085 | Train Acc: 5.31% | Val Loss: 3.8654 | Val Acc: 15.23% | Gap: -9.92%
+----> Best Val Acc Updated: 15.23% at epoch 9
+Epoch 010/300 (Original Target: 300) | LR: 0.000100 | Time: 24.81s | Train Loss: 3.9525 | Train Acc: 9.07% | Val Loss: 3.7261 | Val Acc: 18.26% | Gap: -9.19%
+----> Best Val Acc Updated: 18.26% at epoch 10
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_10.pth
+Epoch 011/300 (Original Target: 300) | LR: 0.000100 | Time: 25.09s | Train Loss: 3.8206 | Train Acc: 10.68% | Val Loss: 3.5840 | Val Acc: 21.62% | Gap: -10.95%
+----> Best Val Acc Updated: 21.62% at epoch 11
+Epoch 012/300 (Original Target: 300) | LR: 0.000100 | Time: 24.85s | Train Loss: 3.7720 | Train Acc: 12.28% | Val Loss: 3.4137 | Val Acc: 25.22% | Gap: -12.94%
+----> Best Val Acc Updated: 25.22% at epoch 12
+Epoch 013/300 (Original Target: 300) | LR: 0.000100 | Time: 25.23s | Train Loss: 3.6241 | Train Acc: 14.28% | Val Loss: 3.2511 | Val Acc: 28.79% | Gap: -14.51%
+----> Best Val Acc Updated: 28.79% at epoch 13
+Epoch 014/300 (Original Target: 300) | LR: 0.000100 | Time: 25.17s | Train Loss: 3.5488 | Train Acc: 15.59% | Val Loss: 3.1810 | Val Acc: 32.11% | Gap: -16.52%
+----> Best Val Acc Updated: 32.11% at epoch 14
+Epoch 015/300 (Original Target: 300) | LR: 0.000099 | Time: 24.47s | Train Loss: 3.3683 | Train Acc: 18.07% | Val Loss: 3.0159 | Val Acc: 35.47% | Gap: -17.40%
+----> Best Val Acc Updated: 35.47% at epoch 15
+Epoch 016/300 (Original Target: 300) | LR: 0.000099 | Time: 24.94s | Train Loss: 3.2894 | Train Acc: 19.10% | Val Loss: 2.8922 | Val Acc: 38.56% | Gap: -19.46%
+----> Best Val Acc Updated: 38.56% at epoch 16
+Epoch 017/300 (Original Target: 300) | LR: 0.000099 | Time: 25.06s | Train Loss: 3.2357 | Train Acc: 19.52% | Val Loss: 2.7567 | Val Acc: 41.38% | Gap: -21.86%
+----> Best Val Acc Updated: 41.38% at epoch 17
+Epoch 018/300 (Original Target: 300) | LR: 0.000099 | Time: 25.04s | Train Loss: 3.2362 | Train Acc: 19.12% | Val Loss: 2.7008 | Val Acc: 44.40% | Gap: -25.28%
+----> Best Val Acc Updated: 44.40% at epoch 18
+Epoch 019/300 (Original Target: 300) | LR: 0.000099 | Time: 24.94s | Train Loss: 3.0757 | Train Acc: 22.59% | Val Loss: 2.5820 | Val Acc: 46.52% | Gap: -23.93%
+----> Best Val Acc Updated: 46.52% at epoch 19
+Epoch 020/300 (Original Target: 300) | LR: 0.000099 | Time: 24.69s | Train Loss: 2.9847 | Train Acc: 23.70% | Val Loss: 2.5381 | Val Acc: 48.07% | Gap: -24.37%
+----> Best Val Acc Updated: 48.07% at epoch 20
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_20.pth
+Epoch 021/300 (Original Target: 300) | LR: 0.000099 | Time: 24.70s | Train Loss: 2.9179 | Train Acc: 26.55% | Val Loss: 2.4367 | Val Acc: 50.65% | Gap: -24.10%
+----> Best Val Acc Updated: 50.65% at epoch 21
+Epoch 022/300 (Original Target: 300) | LR: 0.000099 | Time: 24.90s | Train Loss: 2.8075 | Train Acc: 26.84% | Val Loss: 2.3367 | Val Acc: 53.13% | Gap: -26.29%
+----> Best Val Acc Updated: 53.13% at epoch 22
+Epoch 023/300 (Original Target: 300) | LR: 0.000099 | Time: 24.94s | Train Loss: 2.9890 | Train Acc: 22.70% | Val Loss: 2.3021 | Val Acc: 53.75% | Gap: -31.05%
+----> Best Val Acc Updated: 53.75% at epoch 23
+Epoch 024/300 (Original Target: 300) | LR: 0.000099 | Time: 24.93s | Train Loss: 2.7232 | Train Acc: 32.52% | Val Loss: 2.2947 | Val Acc: 54.89% | Gap: -22.37%
+----> Best Val Acc Updated: 54.89% at epoch 24
+Epoch 025/300 (Original Target: 300) | LR: 0.000098 | Time: 25.08s | Train Loss: 2.6269 | Train Acc: 35.43% | Val Loss: 2.2563 | Val Acc: 55.42% | Gap: -19.99%
+----> Best Val Acc Updated: 55.42% at epoch 25
+Epoch 026/300 (Original Target: 300) | LR: 0.000098 | Time: 24.84s | Train Loss: 2.6887 | Train Acc: 31.46% | Val Loss: 2.2216 | Val Acc: 56.67% | Gap: -25.21%
+----> Best Val Acc Updated: 56.67% at epoch 26
+Epoch 027/300 (Original Target: 300) | LR: 0.000098 | Time: 24.91s | Train Loss: 2.6053 | Train Acc: 36.94% | Val Loss: 2.1427 | Val Acc: 58.87% | Gap: -21.93%
+----> Best Val Acc Updated: 58.87% at epoch 27
+Epoch 028/300 (Original Target: 300) | LR: 0.000098 | Time: 24.66s | Train Loss: 2.4986 | Train Acc: 34.45% | Val Loss: 2.1351 | Val Acc: 59.04% | Gap: -24.59%
+----> Best Val Acc Updated: 59.04% at epoch 28
+Epoch 029/300 (Original Target: 300) | LR: 0.000098 | Time: 24.61s | Train Loss: 2.6210 | Train Acc: 29.85% | Val Loss: 2.1102 | Val Acc: 59.89% | Gap: -30.04%
+----> Best Val Acc Updated: 59.89% at epoch 29
+Epoch 030/300 (Original Target: 300) | LR: 0.000098 | Time: 24.94s | Train Loss: 2.4167 | Train Acc: 39.36% | Val Loss: 2.0564 | Val Acc: 60.84% | Gap: -21.48%
+----> Best Val Acc Updated: 60.84% at epoch 30
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_30.pth
+Epoch 031/300 (Original Target: 300) | LR: 0.000098 | Time: 25.06s | Train Loss: 2.3580 | Train Acc: 39.53% | Val Loss: 2.0712 | Val Acc: 61.34% | Gap: -21.81%
+----> Best Val Acc Updated: 61.34% at epoch 31
+Epoch 032/300 (Original Target: 300) | LR: 0.000097 | Time: 24.69s | Train Loss: 2.3264 | Train Acc: 38.88% | Val Loss: 2.0287 | Val Acc: 62.47% | Gap: -23.59%
+----> Best Val Acc Updated: 62.47% at epoch 32
+Epoch 033/300 (Original Target: 300) | LR: 0.000097 | Time: 25.01s | Train Loss: 2.3709 | Train Acc: 38.56% | Val Loss: 1.9939 | Val Acc: 63.24% | Gap: -24.68%
+----> Best Val Acc Updated: 63.24% at epoch 33
+Epoch 034/300 (Original Target: 300) | LR: 0.000097 | Time: 24.58s | Train Loss: 2.3466 | Train Acc: 35.40% | Val Loss: 1.9919 | Val Acc: 63.74% | Gap: -28.34%
+----> Best Val Acc Updated: 63.74% at epoch 34
+Epoch 035/300 (Original Target: 300) | LR: 0.000097 | Time: 24.95s | Train Loss: 2.4433 | Train Acc: 35.15% | Val Loss: 1.9704 | Val Acc: 63.81% | Gap: -28.66%
+----> Best Val Acc Updated: 63.81% at epoch 35
+Epoch 036/300 (Original Target: 300) | LR: 0.000097 | Time: 24.78s | Train Loss: 2.3813 | Train Acc: 34.25% | Val Loss: 1.9558 | Val Acc: 64.46% | Gap: -30.21%
+----> Best Val Acc Updated: 64.46% at epoch 36
+Epoch 037/300 (Original Target: 300) | LR: 0.000097 | Time: 24.72s | Train Loss: 2.2963 | Train Acc: 35.00% | Val Loss: 1.9266 | Val Acc: 65.44% | Gap: -30.44%
+----> Best Val Acc Updated: 65.44% at epoch 37
+Epoch 038/300 (Original Target: 300) | LR: 0.000096 | Time: 24.70s | Train Loss: 2.2729 | Train Acc: 39.53% | Val Loss: 1.9202 | Val Acc: 65.32% | Gap: -25.79%
+Epoch 039/300 (Original Target: 300) | LR: 0.000096 | Time: 25.11s | Train Loss: 2.3975 | Train Acc: 33.56% | Val Loss: 1.9163 | Val Acc: 65.50% | Gap: -31.94%
+----> Best Val Acc Updated: 65.50% at epoch 39
+Epoch 040/300 (Original Target: 300) | LR: 0.000096 | Time: 24.48s | Train Loss: 2.2950 | Train Acc: 36.09% | Val Loss: 1.9141 | Val Acc: 65.76% | Gap: -29.67%
+----> Best Val Acc Updated: 65.76% at epoch 40
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_40.pth
+Epoch 041/300 (Original Target: 300) | LR: 0.000096 | Time: 24.92s | Train Loss: 2.1841 | Train Acc: 38.67% | Val Loss: 1.8866 | Val Acc: 66.11% | Gap: -27.44%
+----> Best Val Acc Updated: 66.11% at epoch 41
+Epoch 042/300 (Original Target: 300) | LR: 0.000096 | Time: 24.43s | Train Loss: 2.1866 | Train Acc: 40.16% | Val Loss: 1.8710 | Val Acc: 66.91% | Gap: -26.75%
+----> Best Val Acc Updated: 66.91% at epoch 42
+Epoch 043/300 (Original Target: 300) | LR: 0.000095 | Time: 24.79s | Train Loss: 2.1491 | Train Acc: 41.21% | Val Loss: 1.8787 | Val Acc: 66.38% | Gap: -25.17%
+Epoch 044/300 (Original Target: 300) | LR: 0.000095 | Time: 25.37s | Train Loss: 1.9682 | Train Acc: 50.13% | Val Loss: 1.8485 | Val Acc: 67.64% | Gap: -17.51%
+----> Best Val Acc Updated: 67.64% at epoch 44
+Epoch 045/300 (Original Target: 300) | LR: 0.000095 | Time: 25.01s | Train Loss: 2.0551 | Train Acc: 45.28% | Val Loss: 1.8486 | Val Acc: 67.24% | Gap: -21.95%
+Epoch 046/300 (Original Target: 300) | LR: 0.000095 | Time: 24.71s | Train Loss: 2.0966 | Train Acc: 41.29% | Val Loss: 1.8477 | Val Acc: 67.30% | Gap: -26.01%
+Epoch 047/300 (Original Target: 300) | LR: 0.000094 | Time: 25.08s | Train Loss: 2.1464 | Train Acc: 39.48% | Val Loss: 1.8426 | Val Acc: 67.39% | Gap: -27.91%
+Epoch 048/300 (Original Target: 300) | LR: 0.000094 | Time: 24.97s | Train Loss: 2.0073 | Train Acc: 45.55% | Val Loss: 1.8326 | Val Acc: 67.04% | Gap: -21.50%
+Epoch 049/300 (Original Target: 300) | LR: 0.000094 | Time: 25.05s | Train Loss: 2.0918 | Train Acc: 40.23% | Val Loss: 1.8223 | Val Acc: 67.35% | Gap: -27.12%
+Epoch 050/300 (Original Target: 300) | LR: 0.000094 | Time: 25.19s | Train Loss: 2.2161 | Train Acc: 39.35% | Val Loss: 1.8156 | Val Acc: 68.02% | Gap: -28.66%
+----> Best Val Acc Updated: 68.02% at epoch 50
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_50.pth
+Epoch 051/300 (Original Target: 300) | LR: 0.000093 | Time: 24.84s | Train Loss: 2.0352 | Train Acc: 43.06% | Val Loss: 1.8282 | Val Acc: 67.26% | Gap: -24.20%
+Epoch 052/300 (Original Target: 300) | LR: 0.000093 | Time: 24.77s | Train Loss: 2.0156 | Train Acc: 45.34% | Val Loss: 1.8309 | Val Acc: 67.65% | Gap: -22.31%
+Epoch 053/300 (Original Target: 300) | LR: 0.000093 | Time: 24.89s | Train Loss: 2.0609 | Train Acc: 40.88% | Val Loss: 1.8175 | Val Acc: 67.87% | Gap: -26.99%
+Epoch 054/300 (Original Target: 300) | LR: 0.000093 | Time: 25.07s | Train Loss: 2.0407 | Train Acc: 41.34% | Val Loss: 1.8124 | Val Acc: 68.14% | Gap: -26.80%
+----> Best Val Acc Updated: 68.14% at epoch 54
+Epoch 055/300 (Original Target: 300) | LR: 0.000092 | Time: 24.72s | Train Loss: 2.0115 | Train Acc: 46.02% | Val Loss: 1.8136 | Val Acc: 68.22% | Gap: -22.20%
+----> Best Val Acc Updated: 68.22% at epoch 55
+Epoch 056/300 (Original Target: 300) | LR: 0.000092 | Time: 24.65s | Train Loss: 2.0245 | Train Acc: 42.89% | Val Loss: 1.8040 | Val Acc: 68.56% | Gap: -25.67%
+----> Best Val Acc Updated: 68.56% at epoch 56
+Epoch 057/300 (Original Target: 300) | LR: 0.000092 | Time: 24.57s | Train Loss: 2.0799 | Train Acc: 41.88% | Val Loss: 1.8144 | Val Acc: 68.44% | Gap: -26.56%
+Epoch 058/300 (Original Target: 300) | LR: 0.000091 | Time: 25.41s | Train Loss: 1.8757 | Train Acc: 43.11% | Val Loss: 1.8035 | Val Acc: 68.25% | Gap: -25.14%
+Epoch 059/300 (Original Target: 300) | LR: 0.000091 | Time: 25.84s | Train Loss: 1.9632 | Train Acc: 42.14% | Val Loss: 1.7980 | Val Acc: 68.45% | Gap: -26.31%
+Epoch 060/300 (Original Target: 300) | LR: 0.000091 | Time: 24.54s | Train Loss: 1.9362 | Train Acc: 42.43% | Val Loss: 1.7943 | Val Acc: 68.45% | Gap: -26.02%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_60.pth
+Epoch 061/300 (Original Target: 300) | LR: 0.000091 | Time: 24.57s | Train Loss: 1.9874 | Train Acc: 42.35% | Val Loss: 1.8199 | Val Acc: 68.26% | Gap: -25.91%
+Epoch 062/300 (Original Target: 300) | LR: 0.000090 | Time: 24.82s | Train Loss: 1.8883 | Train Acc: 52.74% | Val Loss: 1.7967 | Val Acc: 68.67% | Gap: -15.93%
+----> Best Val Acc Updated: 68.67% at epoch 62
+Epoch 063/300 (Original Target: 300) | LR: 0.000090 | Time: 25.02s | Train Loss: 1.9180 | Train Acc: 40.46% | Val Loss: 1.8017 | Val Acc: 69.04% | Gap: -28.58%
+----> Best Val Acc Updated: 69.04% at epoch 63
+Epoch 064/300 (Original Target: 300) | LR: 0.000090 | Time: 25.05s | Train Loss: 1.9089 | Train Acc: 44.01% | Val Loss: 1.7795 | Val Acc: 69.25% | Gap: -25.24%
+----> Best Val Acc Updated: 69.25% at epoch 64
+Epoch 065/300 (Original Target: 300) | LR: 0.000089 | Time: 25.05s | Train Loss: 1.8611 | Train Acc: 47.66% | Val Loss: 1.8050 | Val Acc: 68.45% | Gap: -20.79%
+Epoch 066/300 (Original Target: 300) | LR: 0.000089 | Time: 24.87s | Train Loss: 1.7430 | Train Acc: 52.36% | Val Loss: 1.7833 | Val Acc: 68.80% | Gap: -16.44%
+Epoch 067/300 (Original Target: 300) | LR: 0.000089 | Time: 25.06s | Train Loss: 1.8449 | Train Acc: 48.82% | Val Loss: 1.7750 | Val Acc: 69.35% | Gap: -20.53%
+----> Best Val Acc Updated: 69.35% at epoch 67
+Epoch 068/300 (Original Target: 300) | LR: 0.000088 | Time: 24.84s | Train Loss: 1.7985 | Train Acc: 52.53% | Val Loss: 1.7923 | Val Acc: 68.74% | Gap: -16.21%
+Epoch 069/300 (Original Target: 300) | LR: 0.000088 | Time: 24.74s | Train Loss: 1.8931 | Train Acc: 39.84% | Val Loss: 1.7889 | Val Acc: 68.85% | Gap: -29.01%
+Epoch 070/300 (Original Target: 300) | LR: 0.000088 | Time: 25.12s | Train Loss: 1.7263 | Train Acc: 53.66% | Val Loss: 1.7800 | Val Acc: 69.67% | Gap: -16.01%
+----> Best Val Acc Updated: 69.67% at epoch 70
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_70.pth
+Epoch 071/300 (Original Target: 300) | LR: 0.000087 | Time: 24.81s | Train Loss: 1.8929 | Train Acc: 44.66% | Val Loss: 1.7986 | Val Acc: 68.86% | Gap: -24.20%
+Epoch 072/300 (Original Target: 300) | LR: 0.000087 | Time: 24.79s | Train Loss: 1.7926 | Train Acc: 43.54% | Val Loss: 1.7845 | Val Acc: 69.20% | Gap: -25.66%
+Epoch 073/300 (Original Target: 300) | LR: 0.000087 | Time: 24.97s | Train Loss: 1.8224 | Train Acc: 40.20% | Val Loss: 1.7770 | Val Acc: 69.38% | Gap: -29.18%
+Epoch 074/300 (Original Target: 300) | LR: 0.000086 | Time: 24.94s | Train Loss: 1.7996 | Train Acc: 51.92% | Val Loss: 1.7522 | Val Acc: 69.90% | Gap: -17.98%
+----> Best Val Acc Updated: 69.90% at epoch 74
+Epoch 075/300 (Original Target: 300) | LR: 0.000086 | Time: 25.17s | Train Loss: 1.8598 | Train Acc: 47.27% | Val Loss: 1.7773 | Val Acc: 69.56% | Gap: -22.29%
+Epoch 076/300 (Original Target: 300) | LR: 0.000086 | Time: 24.99s | Train Loss: 1.9062 | Train Acc: 40.38% | Val Loss: 1.7757 | Val Acc: 69.83% | Gap: -29.45%
+Epoch 077/300 (Original Target: 300) | LR: 0.000085 | Time: 24.96s | Train Loss: 1.8917 | Train Acc: 42.75% | Val Loss: 1.7615 | Val Acc: 69.61% | Gap: -26.86%
+Epoch 078/300 (Original Target: 300) | LR: 0.000085 | Time: 24.82s | Train Loss: 1.7693 | Train Acc: 44.02% | Val Loss: 1.7691 | Val Acc: 69.57% | Gap: -25.55%
+Epoch 079/300 (Original Target: 300) | LR: 0.000084 | Time: 25.00s | Train Loss: 1.8571 | Train Acc: 41.73% | Val Loss: 1.7606 | Val Acc: 69.40% | Gap: -27.67%
+Epoch 080/300 (Original Target: 300) | LR: 0.000084 | Time: 24.72s | Train Loss: 1.6547 | Train Acc: 56.08% | Val Loss: 1.7488 | Val Acc: 69.93% | Gap: -13.85%
+----> Best Val Acc Updated: 69.93% at epoch 80
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_80.pth
+Epoch 081/300 (Original Target: 300) | LR: 0.000084 | Time: 25.08s | Train Loss: 1.7427 | Train Acc: 52.36% | Val Loss: 1.7654 | Val Acc: 69.56% | Gap: -17.20%
+Epoch 082/300 (Original Target: 300) | LR: 0.000083 | Time: 24.64s | Train Loss: 1.6495 | Train Acc: 53.62% | Val Loss: 1.7652 | Val Acc: 69.93% | Gap: -16.31%
+----> Best Val Acc Updated: 69.93% at epoch 82
+Epoch 083/300 (Original Target: 300) | LR: 0.000083 | Time: 25.08s | Train Loss: 1.8538 | Train Acc: 42.99% | Val Loss: 1.7535 | Val Acc: 70.05% | Gap: -27.06%
+----> Best Val Acc Updated: 70.05% at epoch 83
+Epoch 084/300 (Original Target: 300) | LR: 0.000082 | Time: 25.11s | Train Loss: 1.9464 | Train Acc: 34.63% | Val Loss: 1.7609 | Val Acc: 69.77% | Gap: -35.13%
+Epoch 085/300 (Original Target: 300) | LR: 0.000082 | Time: 24.95s | Train Loss: 1.5887 | Train Acc: 57.33% | Val Loss: 1.7634 | Val Acc: 69.62% | Gap: -12.29%
+Epoch 086/300 (Original Target: 300) | LR: 0.000082 | Time: 24.81s | Train Loss: 1.7435 | Train Acc: 49.24% | Val Loss: 1.7726 | Val Acc: 69.51% | Gap: -20.27%
+Epoch 087/300 (Original Target: 300) | LR: 0.000081 | Time: 24.64s | Train Loss: 1.7588 | Train Acc: 48.98% | Val Loss: 1.7530 | Val Acc: 69.92% | Gap: -20.94%
+Epoch 088/300 (Original Target: 300) | LR: 0.000081 | Time: 24.55s | Train Loss: 1.7852 | Train Acc: 46.68% | Val Loss: 1.7517 | Val Acc: 70.07% | Gap: -23.39%
+----> Best Val Acc Updated: 70.07% at epoch 88
+Epoch 089/300 (Original Target: 300) | LR: 0.000080 | Time: 24.90s | Train Loss: 1.8205 | Train Acc: 46.91% | Val Loss: 1.7470 | Val Acc: 70.13% | Gap: -23.22%
+----> Best Val Acc Updated: 70.13% at epoch 89
+Epoch 090/300 (Original Target: 300) | LR: 0.000080 | Time: 24.72s | Train Loss: 1.7006 | Train Acc: 49.28% | Val Loss: 1.7589 | Val Acc: 70.13% | Gap: -20.85%
+----> Best Val Acc Updated: 70.13% at epoch 90
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_90.pth
+Epoch 091/300 (Original Target: 300) | LR: 0.000080 | Time: 24.80s | Train Loss: 1.7736 | Train Acc: 40.91% | Val Loss: 1.7457 | Val Acc: 70.46% | Gap: -29.55%
+----> Best Val Acc Updated: 70.46% at epoch 91
+Epoch 092/300 (Original Target: 300) | LR: 0.000079 | Time: 24.60s | Train Loss: 1.6809 | Train Acc: 52.74% | Val Loss: 1.7475 | Val Acc: 70.10% | Gap: -17.35%
+Epoch 093/300 (Original Target: 300) | LR: 0.000079 | Time: 25.32s | Train Loss: 1.6828 | Train Acc: 47.03% | Val Loss: 1.7436 | Val Acc: 70.25% | Gap: -23.22%
+Epoch 094/300 (Original Target: 300) | LR: 0.000078 | Time: 25.08s | Train Loss: 1.6150 | Train Acc: 49.48% | Val Loss: 1.7442 | Val Acc: 70.57% | Gap: -21.09%
+----> Best Val Acc Updated: 70.57% at epoch 94
+Epoch 095/300 (Original Target: 300) | LR: 0.000078 | Time: 24.87s | Train Loss: 1.8574 | Train Acc: 36.35% | Val Loss: 1.7504 | Val Acc: 70.19% | Gap: -33.84%
+Epoch 096/300 (Original Target: 300) | LR: 0.000077 | Time: 24.80s | Train Loss: 1.7074 | Train Acc: 47.10% | Val Loss: 1.7624 | Val Acc: 70.21% | Gap: -23.11%
+Epoch 097/300 (Original Target: 300) | LR: 0.000077 | Time: 24.82s | Train Loss: 1.7128 | Train Acc: 47.08% | Val Loss: 1.7382 | Val Acc: 70.85% | Gap: -23.77%
+----> Best Val Acc Updated: 70.85% at epoch 97
+Epoch 098/300 (Original Target: 300) | LR: 0.000077 | Time: 25.21s | Train Loss: 1.6714 | Train Acc: 47.14% | Val Loss: 1.7596 | Val Acc: 70.10% | Gap: -22.96%
+Epoch 099/300 (Original Target: 300) | LR: 0.000076 | Time: 24.91s | Train Loss: 1.7294 | Train Acc: 47.24% | Val Loss: 1.7431 | Val Acc: 70.06% | Gap: -22.82%
+Epoch 100/300 (Original Target: 300) | LR: 0.000076 | Time: 25.01s | Train Loss: 1.8698 | Train Acc: 36.27% | Val Loss: 1.7374 | Val Acc: 70.81% | Gap: -34.55%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_100.pth
+Epoch 101/300 (Original Target: 300) | LR: 0.000075 | Time: 24.84s | Train Loss: 1.7725 | Train Acc: 43.66% | Val Loss: 1.7438 | Val Acc: 70.45% | Gap: -26.79%
+Epoch 102/300 (Original Target: 300) | LR: 0.000075 | Time: 24.83s | Train Loss: 1.7734 | Train Acc: 45.89% | Val Loss: 1.7486 | Val Acc: 70.35% | Gap: -24.46%
+Epoch 103/300 (Original Target: 300) | LR: 0.000074 | Time: 24.88s | Train Loss: 1.5553 | Train Acc: 54.69% | Val Loss: 1.7451 | Val Acc: 70.02% | Gap: -15.33%
+Epoch 104/300 (Original Target: 300) | LR: 0.000074 | Time: 24.91s | Train Loss: 1.6376 | Train Acc: 52.10% | Val Loss: 1.7541 | Val Acc: 70.27% | Gap: -18.17%
+Epoch 105/300 (Original Target: 300) | LR: 0.000073 | Time: 24.98s | Train Loss: 1.7932 | Train Acc: 39.80% | Val Loss: 1.7442 | Val Acc: 70.79% | Gap: -30.99%
+Epoch 106/300 (Original Target: 300) | LR: 0.000073 | Time: 25.12s | Train Loss: 1.7901 | Train Acc: 46.18% | Val Loss: 1.7399 | Val Acc: 70.15% | Gap: -23.97%
+Epoch 107/300 (Original Target: 300) | LR: 0.000073 | Time: 24.84s | Train Loss: 1.7710 | Train Acc: 38.71% | Val Loss: 1.7397 | Val Acc: 71.07% | Gap: -32.36%
+----> Best Val Acc Updated: 71.07% at epoch 107
+Epoch 108/300 (Original Target: 300) | LR: 0.000072 | Time: 24.80s | Train Loss: 1.7511 | Train Acc: 44.89% | Val Loss: 1.7564 | Val Acc: 70.25% | Gap: -25.36%
+Epoch 109/300 (Original Target: 300) | LR: 0.000072 | Time: 25.05s | Train Loss: 1.5577 | Train Acc: 54.85% | Val Loss: 1.7304 | Val Acc: 70.58% | Gap: -15.73%
+Epoch 110/300 (Original Target: 300) | LR: 0.000071 | Time: 25.00s | Train Loss: 1.7061 | Train Acc: 45.07% | Val Loss: 1.7435 | Val Acc: 70.80% | Gap: -25.73%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_110.pth
+Epoch 111/300 (Original Target: 300) | LR: 0.000071 | Time: 24.85s | Train Loss: 1.6156 | Train Acc: 51.01% | Val Loss: 1.7405 | Val Acc: 70.82% | Gap: -19.81%
+Epoch 112/300 (Original Target: 300) | LR: 0.000070 | Time: 24.96s | Train Loss: 1.7507 | Train Acc: 45.15% | Val Loss: 1.7402 | Val Acc: 71.11% | Gap: -25.96%
+----> Best Val Acc Updated: 71.11% at epoch 112
+Epoch 113/300 (Original Target: 300) | LR: 0.000070 | Time: 24.85s | Train Loss: 1.5975 | Train Acc: 51.08% | Val Loss: 1.7372 | Val Acc: 70.69% | Gap: -19.61%
+Epoch 114/300 (Original Target: 300) | LR: 0.000069 | Time: 24.99s | Train Loss: 1.5619 | Train Acc: 51.04% | Val Loss: 1.7261 | Val Acc: 71.62% | Gap: -20.58%
+----> Best Val Acc Updated: 71.62% at epoch 114
+Epoch 115/300 (Original Target: 300) | LR: 0.000069 | Time: 24.98s | Train Loss: 1.8088 | Train Acc: 41.44% | Val Loss: 1.7348 | Val Acc: 70.88% | Gap: -29.44%
+Epoch 116/300 (Original Target: 300) | LR: 0.000068 | Time: 24.93s | Train Loss: 1.7467 | Train Acc: 46.41% | Val Loss: 1.7242 | Val Acc: 71.30% | Gap: -24.88%
+Epoch 117/300 (Original Target: 300) | LR: 0.000068 | Time: 25.17s | Train Loss: 1.5382 | Train Acc: 51.13% | Val Loss: 1.7206 | Val Acc: 70.90% | Gap: -19.77%
+Epoch 118/300 (Original Target: 300) | LR: 0.000067 | Time: 24.86s | Train Loss: 1.6474 | Train Acc: 48.72% | Val Loss: 1.7285 | Val Acc: 71.25% | Gap: -22.53%
+Epoch 119/300 (Original Target: 300) | LR: 0.000067 | Time: 24.87s | Train Loss: 1.4326 | Train Acc: 57.47% | Val Loss: 1.7368 | Val Acc: 71.20% | Gap: -13.73%
+Epoch 120/300 (Original Target: 300) | LR: 0.000066 | Time: 24.97s | Train Loss: 1.5003 | Train Acc: 51.35% | Val Loss: 1.7425 | Val Acc: 70.36% | Gap: -19.01%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_120.pth
+Epoch 121/300 (Original Target: 300) | LR: 0.000066 | Time: 25.03s | Train Loss: 1.7199 | Train Acc: 40.47% | Val Loss: 1.7248 | Val Acc: 71.14% | Gap: -30.67%
+Epoch 122/300 (Original Target: 300) | LR: 0.000065 | Time: 25.10s | Train Loss: 1.7706 | Train Acc: 42.73% | Val Loss: 1.7336 | Val Acc: 71.27% | Gap: -28.54%
+Epoch 123/300 (Original Target: 300) | LR: 0.000065 | Time: 25.16s | Train Loss: 1.8193 | Train Acc: 39.10% | Val Loss: 1.7367 | Val Acc: 70.74% | Gap: -31.64%
+Epoch 124/300 (Original Target: 300) | LR: 0.000064 | Time: 25.02s | Train Loss: 1.5522 | Train Acc: 52.64% | Val Loss: 1.7319 | Val Acc: 70.87% | Gap: -18.23%
+Epoch 125/300 (Original Target: 300) | LR: 0.000064 | Time: 24.97s | Train Loss: 1.6773 | Train Acc: 46.65% | Val Loss: 1.7299 | Val Acc: 70.40% | Gap: -23.76%
+Epoch 126/300 (Original Target: 300) | LR: 0.000063 | Time: 25.05s | Train Loss: 1.5843 | Train Acc: 44.22% | Val Loss: 1.7213 | Val Acc: 71.35% | Gap: -27.13%
+Epoch 127/300 (Original Target: 300) | LR: 0.000063 | Time: 25.17s | Train Loss: 1.6441 | Train Acc: 48.94% | Val Loss: 1.7088 | Val Acc: 71.38% | Gap: -22.44%
+Epoch 128/300 (Original Target: 300) | LR: 0.000062 | Time: 24.96s | Train Loss: 1.6036 | Train Acc: 50.38% | Val Loss: 1.7186 | Val Acc: 71.25% | Gap: -20.87%
+Epoch 129/300 (Original Target: 300) | LR: 0.000062 | Time: 24.93s | Train Loss: 1.5837 | Train Acc: 49.00% | Val Loss: 1.7155 | Val Acc: 71.48% | Gap: -22.48%
+Epoch 130/300 (Original Target: 300) | LR: 0.000061 | Time: 25.07s | Train Loss: 1.6566 | Train Acc: 42.76% | Val Loss: 1.7252 | Val Acc: 71.31% | Gap: -28.55%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_130.pth
+Epoch 131/300 (Original Target: 300) | LR: 0.000061 | Time: 24.87s | Train Loss: 1.7510 | Train Acc: 43.05% | Val Loss: 1.7224 | Val Acc: 71.48% | Gap: -28.43%
+Epoch 132/300 (Original Target: 300) | LR: 0.000060 | Time: 24.97s | Train Loss: 1.5759 | Train Acc: 47.96% | Val Loss: 1.7180 | Val Acc: 71.36% | Gap: -23.40%
+Epoch 133/300 (Original Target: 300) | LR: 0.000060 | Time: 24.64s | Train Loss: 1.6496 | Train Acc: 47.88% | Val Loss: 1.7201 | Val Acc: 71.27% | Gap: -23.39%
+Epoch 134/300 (Original Target: 300) | LR: 0.000059 | Time: 24.90s | Train Loss: 1.7074 | Train Acc: 41.85% | Val Loss: 1.7250 | Val Acc: 70.99% | Gap: -29.14%
+Epoch 135/300 (Original Target: 300) | LR: 0.000059 | Time: 24.82s | Train Loss: 1.5368 | Train Acc: 45.41% | Val Loss: 1.7288 | Val Acc: 71.10% | Gap: -25.69%
+Epoch 136/300 (Original Target: 300) | LR: 0.000058 | Time: 24.72s | Train Loss: 1.7222 | Train Acc: 38.08% | Val Loss: 1.7128 | Val Acc: 71.84% | Gap: -33.76%
+----> Best Val Acc Updated: 71.84% at epoch 136
+Epoch 137/300 (Original Target: 300) | LR: 0.000058 | Time: 24.89s | Train Loss: 1.6399 | Train Acc: 47.90% | Val Loss: 1.7253 | Val Acc: 70.87% | Gap: -22.97%
+Epoch 138/300 (Original Target: 300) | LR: 0.000057 | Time: 24.87s | Train Loss: 1.4174 | Train Acc: 56.61% | Val Loss: 1.7091 | Val Acc: 71.23% | Gap: -14.62%
+Epoch 139/300 (Original Target: 300) | LR: 0.000057 | Time: 24.88s | Train Loss: 1.4785 | Train Acc: 59.09% | Val Loss: 1.7039 | Val Acc: 71.85% | Gap: -12.76%
+----> Best Val Acc Updated: 71.85% at epoch 139
+Epoch 140/300 (Original Target: 300) | LR: 0.000056 | Time: 25.24s | Train Loss: 1.5127 | Train Acc: 46.80% | Val Loss: 1.7240 | Val Acc: 71.33% | Gap: -24.53%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_140.pth
+Epoch 141/300 (Original Target: 300) | LR: 0.000056 | Time: 24.84s | Train Loss: 1.4913 | Train Acc: 50.52% | Val Loss: 1.7204 | Val Acc: 71.42% | Gap: -20.90%
+Epoch 142/300 (Original Target: 300) | LR: 0.000055 | Time: 24.90s | Train Loss: 1.5342 | Train Acc: 46.88% | Val Loss: 1.7041 | Val Acc: 71.87% | Gap: -24.99%
+----> Best Val Acc Updated: 71.87% at epoch 142
+Epoch 143/300 (Original Target: 300) | LR: 0.000055 | Time: 25.01s | Train Loss: 1.5622 | Train Acc: 52.84% | Val Loss: 1.7156 | Val Acc: 71.50% | Gap: -18.66%
+Epoch 144/300 (Original Target: 300) | LR: 0.000054 | Time: 24.65s | Train Loss: 1.5012 | Train Acc: 52.91% | Val Loss: 1.7026 | Val Acc: 71.58% | Gap: -18.67%
+Epoch 145/300 (Original Target: 300) | LR: 0.000054 | Time: 24.96s | Train Loss: 1.5623 | Train Acc: 50.52% | Val Loss: 1.7080 | Val Acc: 71.63% | Gap: -21.10%
+Epoch 146/300 (Original Target: 300) | LR: 0.000053 | Time: 24.94s | Train Loss: 1.6522 | Train Acc: 44.18% | Val Loss: 1.6932 | Val Acc: 72.02% | Gap: -27.84%
+----> Best Val Acc Updated: 72.02% at epoch 146
+Epoch 147/300 (Original Target: 300) | LR: 0.000053 | Time: 25.09s | Train Loss: 1.7207 | Train Acc: 43.35% | Val Loss: 1.7108 | Val Acc: 71.63% | Gap: -28.28%
+Epoch 148/300 (Original Target: 300) | LR: 0.000052 | Time: 24.77s | Train Loss: 1.5492 | Train Acc: 50.54% | Val Loss: 1.7098 | Val Acc: 71.88% | Gap: -21.34%
+Epoch 149/300 (Original Target: 300) | LR: 0.000052 | Time: 24.93s | Train Loss: 1.6036 | Train Acc: 46.94% | Val Loss: 1.6991 | Val Acc: 71.98% | Gap: -25.04%
+Epoch 150/300 (Original Target: 300) | LR: 0.000051 | Time: 24.79s | Train Loss: 1.4925 | Train Acc: 58.01% | Val Loss: 1.6878 | Val Acc: 72.14% | Gap: -14.13%
+----> Best Val Acc Updated: 72.14% at epoch 150
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_150.pth
+Epoch 151/300 (Original Target: 300) | LR: 0.000051 | Time: 25.05s | Train Loss: 1.6135 | Train Acc: 49.19% | Val Loss: 1.7035 | Val Acc: 71.44% | Gap: -22.25%
+Epoch 152/300 (Original Target: 300) | LR: 0.000050 | Time: 24.87s | Train Loss: 1.5427 | Train Acc: 45.69% | Val Loss: 1.7254 | Val Acc: 71.70% | Gap: -26.01%
+Epoch 153/300 (Original Target: 300) | LR: 0.000049 | Time: 24.50s | Train Loss: 1.5295 | Train Acc: 52.97% | Val Loss: 1.7023 | Val Acc: 71.83% | Gap: -18.86%
+Epoch 154/300 (Original Target: 300) | LR: 0.000049 | Time: 24.72s | Train Loss: 1.3392 | Train Acc: 59.03% | Val Loss: 1.7103 | Val Acc: 71.75% | Gap: -12.72%
+Epoch 155/300 (Original Target: 300) | LR: 0.000048 | Time: 25.15s | Train Loss: 1.4993 | Train Acc: 56.69% | Val Loss: 1.7000 | Val Acc: 72.24% | Gap: -15.55%
+----> Best Val Acc Updated: 72.24% at epoch 155
+Epoch 156/300 (Original Target: 300) | LR: 0.000048 | Time: 24.68s | Train Loss: 1.6285 | Train Acc: 44.42% | Val Loss: 1.7036 | Val Acc: 72.09% | Gap: -27.67%
+Epoch 157/300 (Original Target: 300) | LR: 0.000047 | Time: 25.00s | Train Loss: 1.5541 | Train Acc: 48.06% | Val Loss: 1.7069 | Val Acc: 72.08% | Gap: -24.02%
+Epoch 158/300 (Original Target: 300) | LR: 0.000047 | Time: 24.89s | Train Loss: 1.5413 | Train Acc: 50.60% | Val Loss: 1.7079 | Val Acc: 71.82% | Gap: -21.22%
+Epoch 159/300 (Original Target: 300) | LR: 0.000046 | Time: 25.04s | Train Loss: 1.5168 | Train Acc: 54.29% | Val Loss: 1.7199 | Val Acc: 70.98% | Gap: -16.69%
+Epoch 160/300 (Original Target: 300) | LR: 0.000046 | Time: 24.70s | Train Loss: 1.5834 | Train Acc: 45.57% | Val Loss: 1.7174 | Val Acc: 71.08% | Gap: -25.51%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_160.pth
+Epoch 161/300 (Original Target: 300) | LR: 0.000045 | Time: 24.62s | Train Loss: 1.4833 | Train Acc: 50.62% | Val Loss: 1.7164 | Val Acc: 71.35% | Gap: -20.73%
+Epoch 162/300 (Original Target: 300) | LR: 0.000045 | Time: 24.51s | Train Loss: 1.5968 | Train Acc: 45.65% | Val Loss: 1.7181 | Val Acc: 70.86% | Gap: -25.21%
+Epoch 163/300 (Original Target: 300) | LR: 0.000044 | Time: 25.08s | Train Loss: 1.5374 | Train Acc: 54.44% | Val Loss: 1.6998 | Val Acc: 71.58% | Gap: -17.14%
+Epoch 164/300 (Original Target: 300) | LR: 0.000044 | Time: 24.96s | Train Loss: 1.6985 | Train Acc: 40.84% | Val Loss: 1.7075 | Val Acc: 71.84% | Gap: -31.00%
+Epoch 165/300 (Original Target: 300) | LR: 0.000043 | Time: 25.05s | Train Loss: 1.5545 | Train Acc: 45.89% | Val Loss: 1.6978 | Val Acc: 71.81% | Gap: -25.92%
+Epoch 166/300 (Original Target: 300) | LR: 0.000043 | Time: 24.82s | Train Loss: 1.4200 | Train Acc: 54.26% | Val Loss: 1.7021 | Val Acc: 72.03% | Gap: -17.77%
+Epoch 167/300 (Original Target: 300) | LR: 0.000042 | Time: 24.90s | Train Loss: 1.6150 | Train Acc: 45.76% | Val Loss: 1.6945 | Val Acc: 71.97% | Gap: -26.21%
+Epoch 168/300 (Original Target: 300) | LR: 0.000042 | Time: 24.80s | Train Loss: 1.5937 | Train Acc: 49.38% | Val Loss: 1.7026 | Val Acc: 71.94% | Gap: -22.55%
+Epoch 169/300 (Original Target: 300) | LR: 0.000041 | Time: 24.62s | Train Loss: 1.5251 | Train Acc: 54.48% | Val Loss: 1.7060 | Val Acc: 71.77% | Gap: -17.29%
+Epoch 170/300 (Original Target: 300) | LR: 0.000041 | Time: 25.11s | Train Loss: 1.6579 | Train Acc: 45.79% | Val Loss: 1.6979 | Val Acc: 71.96% | Gap: -26.17%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_170.pth
+Epoch 171/300 (Original Target: 300) | LR: 0.000040 | Time: 25.27s | Train Loss: 1.5734 | Train Acc: 40.75% | Val Loss: 1.6857 | Val Acc: 72.23% | Gap: -31.48%
+Epoch 172/300 (Original Target: 300) | LR: 0.000040 | Time: 24.67s | Train Loss: 1.4517 | Train Acc: 52.14% | Val Loss: 1.7057 | Val Acc: 72.21% | Gap: -20.07%
+Epoch 173/300 (Original Target: 300) | LR: 0.000039 | Time: 24.88s | Train Loss: 1.5885 | Train Acc: 49.71% | Val Loss: 1.6830 | Val Acc: 72.14% | Gap: -22.43%
+Epoch 174/300 (Original Target: 300) | LR: 0.000039 | Time: 24.76s | Train Loss: 1.4283 | Train Acc: 53.16% | Val Loss: 1.6976 | Val Acc: 71.91% | Gap: -18.75%
+Epoch 175/300 (Original Target: 300) | LR: 0.000038 | Time: 24.65s | Train Loss: 1.5246 | Train Acc: 43.45% | Val Loss: 1.6985 | Val Acc: 72.29% | Gap: -28.84%
+----> Best Val Acc Updated: 72.29% at epoch 175
+Epoch 176/300 (Original Target: 300) | LR: 0.000038 | Time: 24.60s | Train Loss: 1.5873 | Train Acc: 48.41% | Val Loss: 1.6925 | Val Acc: 71.69% | Gap: -23.28%
+Epoch 177/300 (Original Target: 300) | LR: 0.000037 | Time: 24.71s | Train Loss: 1.5876 | Train Acc: 46.94% | Val Loss: 1.7008 | Val Acc: 71.92% | Gap: -24.98%
+Epoch 178/300 (Original Target: 300) | LR: 0.000037 | Time: 24.80s | Train Loss: 1.3889 | Train Acc: 57.08% | Val Loss: 1.6943 | Val Acc: 72.01% | Gap: -14.93%
+Epoch 179/300 (Original Target: 300) | LR: 0.000036 | Time: 25.04s | Train Loss: 1.4882 | Train Acc: 45.86% | Val Loss: 1.6910 | Val Acc: 72.41% | Gap: -26.55%
+----> Best Val Acc Updated: 72.41% at epoch 179
+Epoch 180/300 (Original Target: 300) | LR: 0.000036 | Time: 24.79s | Train Loss: 1.4844 | Train Acc: 50.72% | Val Loss: 1.7098 | Val Acc: 71.65% | Gap: -20.94%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_180.pth
+Epoch 181/300 (Original Target: 300) | LR: 0.000035 | Time: 24.60s | Train Loss: 1.6502 | Train Acc: 39.69% | Val Loss: 1.6882 | Val Acc: 72.04% | Gap: -32.36%
+Epoch 182/300 (Original Target: 300) | LR: 0.000035 | Time: 24.97s | Train Loss: 1.5035 | Train Acc: 48.43% | Val Loss: 1.6960 | Val Acc: 72.37% | Gap: -23.94%
+Epoch 183/300 (Original Target: 300) | LR: 0.000034 | Time: 24.73s | Train Loss: 1.6011 | Train Acc: 38.59% | Val Loss: 1.6852 | Val Acc: 72.42% | Gap: -33.84%
+----> Best Val Acc Updated: 72.42% at epoch 183
+Epoch 184/300 (Original Target: 300) | LR: 0.000034 | Time: 24.58s | Train Loss: 1.6218 | Train Acc: 44.70% | Val Loss: 1.6826 | Val Acc: 72.15% | Gap: -27.45%
+Epoch 185/300 (Original Target: 300) | LR: 0.000033 | Time: 25.16s | Train Loss: 1.5348 | Train Acc: 49.59% | Val Loss: 1.6884 | Val Acc: 72.59% | Gap: -23.00%
+----> Best Val Acc Updated: 72.59% at epoch 185
+Epoch 186/300 (Original Target: 300) | LR: 0.000033 | Time: 24.71s | Train Loss: 1.5127 | Train Acc: 52.03% | Val Loss: 1.6872 | Val Acc: 72.33% | Gap: -20.30%
+Epoch 187/300 (Original Target: 300) | LR: 0.000032 | Time: 24.94s | Train Loss: 1.4648 | Train Acc: 53.42% | Val Loss: 1.6876 | Val Acc: 72.46% | Gap: -19.04%
+Epoch 188/300 (Original Target: 300) | LR: 0.000032 | Time: 25.04s | Train Loss: 1.4957 | Train Acc: 50.88% | Val Loss: 1.6979 | Val Acc: 72.04% | Gap: -21.16%
+Epoch 189/300 (Original Target: 300) | LR: 0.000031 | Time: 24.81s | Train Loss: 1.6507 | Train Acc: 40.98% | Val Loss: 1.6795 | Val Acc: 72.12% | Gap: -31.14%
+Epoch 190/300 (Original Target: 300) | LR: 0.000031 | Time: 25.04s | Train Loss: 1.4886 | Train Acc: 52.18% | Val Loss: 1.6839 | Val Acc: 72.34% | Gap: -20.16%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_190.pth
+Epoch 191/300 (Original Target: 300) | LR: 0.000030 | Time: 24.93s | Train Loss: 1.5364 | Train Acc: 43.58% | Val Loss: 1.7030 | Val Acc: 72.50% | Gap: -28.92%
+Epoch 192/300 (Original Target: 300) | LR: 0.000030 | Time: 25.24s | Train Loss: 1.6020 | Train Acc: 37.31% | Val Loss: 1.6779 | Val Acc: 72.41% | Gap: -35.09%
+Epoch 193/300 (Original Target: 300) | LR: 0.000029 | Time: 25.08s | Train Loss: 1.4857 | Train Acc: 50.81% | Val Loss: 1.6904 | Val Acc: 72.25% | Gap: -21.44%
+Epoch 194/300 (Original Target: 300) | LR: 0.000029 | Time: 24.89s | Train Loss: 1.5042 | Train Acc: 53.19% | Val Loss: 1.7065 | Val Acc: 71.37% | Gap: -18.18%
+Epoch 195/300 (Original Target: 300) | LR: 0.000028 | Time: 24.74s | Train Loss: 1.5216 | Train Acc: 53.49% | Val Loss: 1.6796 | Val Acc: 72.47% | Gap: -18.98%
+Epoch 196/300 (Original Target: 300) | LR: 0.000028 | Time: 25.07s | Train Loss: 1.4805 | Train Acc: 52.09% | Val Loss: 1.6975 | Val Acc: 72.50% | Gap: -20.41%
+Epoch 197/300 (Original Target: 300) | LR: 0.000028 | Time: 25.17s | Train Loss: 1.3870 | Train Acc: 57.29% | Val Loss: 1.6822 | Val Acc: 72.58% | Gap: -15.29%
+Epoch 198/300 (Original Target: 300) | LR: 0.000027 | Time: 25.17s | Train Loss: 1.6116 | Train Acc: 41.08% | Val Loss: 1.6846 | Val Acc: 72.04% | Gap: -30.96%
+Epoch 199/300 (Original Target: 300) | LR: 0.000027 | Time: 24.76s | Train Loss: 1.4713 | Train Acc: 53.55% | Val Loss: 1.6942 | Val Acc: 72.03% | Gap: -18.48%
+Epoch 200/300 (Original Target: 300) | LR: 0.000026 | Time: 24.94s | Train Loss: 1.6041 | Train Acc: 45.91% | Val Loss: 1.6775 | Val Acc: 72.87% | Gap: -26.97%
+----> Best Val Acc Updated: 72.87% at epoch 200
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_200.pth
+Epoch 201/300 (Original Target: 300) | LR: 0.000026 | Time: 24.94s | Train Loss: 1.5971 | Train Acc: 42.31% | Val Loss: 1.6986 | Val Acc: 72.26% | Gap: -29.95%
+Epoch 202/300 (Original Target: 300) | LR: 0.000025 | Time: 25.20s | Train Loss: 1.4879 | Train Acc: 48.55% | Val Loss: 1.6900 | Val Acc: 72.15% | Gap: -23.60%
+Epoch 203/300 (Original Target: 300) | LR: 0.000025 | Time: 24.82s | Train Loss: 1.4252 | Train Acc: 52.14% | Val Loss: 1.6970 | Val Acc: 72.17% | Gap: -20.03%
+Epoch 204/300 (Original Target: 300) | LR: 0.000024 | Time: 25.20s | Train Loss: 1.4346 | Train Acc: 52.28% | Val Loss: 1.7076 | Val Acc: 72.13% | Gap: -19.85%
+Epoch 205/300 (Original Target: 300) | LR: 0.000024 | Time: 24.97s | Train Loss: 1.5269 | Train Acc: 40.98% | Val Loss: 1.6911 | Val Acc: 72.36% | Gap: -31.38%
+Epoch 206/300 (Original Target: 300) | LR: 0.000024 | Time: 25.18s | Train Loss: 1.3900 | Train Acc: 57.35% | Val Loss: 1.6766 | Val Acc: 72.99% | Gap: -15.64%
+----> Best Val Acc Updated: 72.99% at epoch 206
+Epoch 207/300 (Original Target: 300) | LR: 0.000023 | Time: 24.88s | Train Loss: 1.5420 | Train Acc: 48.67% | Val Loss: 1.6923 | Val Acc: 72.58% | Gap: -23.91%
+Epoch 208/300 (Original Target: 300) | LR: 0.000023 | Time: 24.69s | Train Loss: 1.5797 | Train Acc: 42.38% | Val Loss: 1.6806 | Val Acc: 73.04% | Gap: -30.66%
+----> Best Val Acc Updated: 73.04% at epoch 208
+Epoch 209/300 (Original Target: 300) | LR: 0.000022 | Time: 24.97s | Train Loss: 1.5213 | Train Acc: 43.55% | Val Loss: 1.6803 | Val Acc: 72.23% | Gap: -28.68%
+Epoch 210/300 (Original Target: 300) | LR: 0.000022 | Time: 25.07s | Train Loss: 1.4500 | Train Acc: 52.19% | Val Loss: 1.6880 | Val Acc: 72.54% | Gap: -20.35%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_210.pth
+Epoch 211/300 (Original Target: 300) | LR: 0.000021 | Time: 24.85s | Train Loss: 1.5321 | Train Acc: 47.19% | Val Loss: 1.6844 | Val Acc: 72.56% | Gap: -25.37%
+Epoch 212/300 (Original Target: 300) | LR: 0.000021 | Time: 25.02s | Train Loss: 1.5184 | Train Acc: 46.11% | Val Loss: 1.6900 | Val Acc: 72.58% | Gap: -26.47%
+Epoch 213/300 (Original Target: 300) | LR: 0.000021 | Time: 24.84s | Train Loss: 1.4228 | Train Acc: 51.08% | Val Loss: 1.6861 | Val Acc: 72.57% | Gap: -21.49%
+Epoch 214/300 (Original Target: 300) | LR: 0.000020 | Time: 24.68s | Train Loss: 1.4177 | Train Acc: 53.43% | Val Loss: 1.6841 | Val Acc: 72.85% | Gap: -19.42%
+Epoch 215/300 (Original Target: 300) | LR: 0.000020 | Time: 24.83s | Train Loss: 1.5371 | Train Acc: 44.87% | Val Loss: 1.6752 | Val Acc: 72.80% | Gap: -27.93%
+Epoch 216/300 (Original Target: 300) | LR: 0.000019 | Time: 24.92s | Train Loss: 1.6080 | Train Acc: 42.42% | Val Loss: 1.6822 | Val Acc: 72.43% | Gap: -30.01%
+Epoch 217/300 (Original Target: 300) | LR: 0.000019 | Time: 24.91s | Train Loss: 1.5422 | Train Acc: 45.94% | Val Loss: 1.6925 | Val Acc: 72.39% | Gap: -26.45%
+Epoch 218/300 (Original Target: 300) | LR: 0.000019 | Time: 24.85s | Train Loss: 1.5957 | Train Acc: 42.38% | Val Loss: 1.6749 | Val Acc: 72.88% | Gap: -30.50%
+Epoch 219/300 (Original Target: 300) | LR: 0.000018 | Time: 24.97s | Train Loss: 1.4922 | Train Acc: 49.72% | Val Loss: 1.6895 | Val Acc: 72.64% | Gap: -22.92%
+Epoch 220/300 (Original Target: 300) | LR: 0.000018 | Time: 25.02s | Train Loss: 1.5101 | Train Acc: 46.13% | Val Loss: 1.6756 | Val Acc: 72.94% | Gap: -26.80%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_220.pth
+Epoch 221/300 (Original Target: 300) | LR: 0.000017 | Time: 24.79s | Train Loss: 1.3691 | Train Acc: 56.12% | Val Loss: 1.6840 | Val Acc: 72.74% | Gap: -16.62%
+Epoch 222/300 (Original Target: 300) | LR: 0.000017 | Time: 24.97s | Train Loss: 1.5768 | Train Acc: 44.67% | Val Loss: 1.6807 | Val Acc: 72.68% | Gap: -28.01%
+Epoch 223/300 (Original Target: 300) | LR: 0.000017 | Time: 24.71s | Train Loss: 1.3739 | Train Acc: 58.35% | Val Loss: 1.6786 | Val Acc: 72.60% | Gap: -14.25%
+Epoch 224/300 (Original Target: 300) | LR: 0.000016 | Time: 24.89s | Train Loss: 1.6905 | Train Acc: 38.47% | Val Loss: 1.6694 | Val Acc: 73.09% | Gap: -34.62%
+----> Best Val Acc Updated: 73.09% at epoch 224
+Epoch 225/300 (Original Target: 300) | LR: 0.000016 | Time: 24.90s | Train Loss: 1.6262 | Train Acc: 43.51% | Val Loss: 1.6651 | Val Acc: 72.77% | Gap: -29.26%
+Epoch 226/300 (Original Target: 300) | LR: 0.000015 | Time: 25.00s | Train Loss: 1.4830 | Train Acc: 47.49% | Val Loss: 1.6825 | Val Acc: 73.33% | Gap: -25.84%
+----> Best Val Acc Updated: 73.33% at epoch 226
+Epoch 227/300 (Original Target: 300) | LR: 0.000015 | Time: 24.89s | Train Loss: 1.4479 | Train Acc: 54.91% | Val Loss: 1.6715 | Val Acc: 72.67% | Gap: -17.76%
+Epoch 228/300 (Original Target: 300) | LR: 0.000015 | Time: 25.00s | Train Loss: 1.5685 | Train Acc: 39.81% | Val Loss: 1.6820 | Val Acc: 73.06% | Gap: -33.25%
+Epoch 229/300 (Original Target: 300) | LR: 0.000014 | Time: 24.90s | Train Loss: 1.6338 | Train Acc: 43.77% | Val Loss: 1.6724 | Val Acc: 72.33% | Gap: -28.56%
+Epoch 230/300 (Original Target: 300) | LR: 0.000014 | Time: 25.17s | Train Loss: 1.4666 | Train Acc: 49.92% | Val Loss: 1.6694 | Val Acc: 73.25% | Gap: -23.33%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_230.pth
+Epoch 231/300 (Original Target: 300) | LR: 0.000014 | Time: 25.08s | Train Loss: 1.6100 | Train Acc: 38.70% | Val Loss: 1.6614 | Val Acc: 73.21% | Gap: -34.50%
+Epoch 232/300 (Original Target: 300) | LR: 0.000013 | Time: 25.08s | Train Loss: 1.4229 | Train Acc: 53.51% | Val Loss: 1.6768 | Val Acc: 72.86% | Gap: -19.35%
+Epoch 233/300 (Original Target: 300) | LR: 0.000013 | Time: 24.81s | Train Loss: 1.6011 | Train Acc: 43.62% | Val Loss: 1.6766 | Val Acc: 72.81% | Gap: -29.20%
+Epoch 234/300 (Original Target: 300) | LR: 0.000013 | Time: 24.77s | Train Loss: 1.4145 | Train Acc: 54.82% | Val Loss: 1.6718 | Val Acc: 72.78% | Gap: -17.96%
+Epoch 235/300 (Original Target: 300) | LR: 0.000012 | Time: 24.44s | Train Loss: 1.5686 | Train Acc: 42.26% | Val Loss: 1.6814 | Val Acc: 72.55% | Gap: -30.29%
+Epoch 236/300 (Original Target: 300) | LR: 0.000012 | Time: 24.56s | Train Loss: 1.4344 | Train Acc: 53.72% | Val Loss: 1.6772 | Val Acc: 72.49% | Gap: -18.77%
+Epoch 237/300 (Original Target: 300) | LR: 0.000012 | Time: 24.86s | Train Loss: 1.4733 | Train Acc: 48.69% | Val Loss: 1.6667 | Val Acc: 73.44% | Gap: -24.75%
+----> Best Val Acc Updated: 73.44% at epoch 237
+Epoch 238/300 (Original Target: 300) | LR: 0.000011 | Time: 24.80s | Train Loss: 1.4628 | Train Acc: 51.22% | Val Loss: 1.6707 | Val Acc: 72.89% | Gap: -21.67%
+Epoch 239/300 (Original Target: 300) | LR: 0.000011 | Time: 24.80s | Train Loss: 1.4380 | Train Acc: 53.66% | Val Loss: 1.6810 | Val Acc: 72.94% | Gap: -19.28%
+Epoch 240/300 (Original Target: 300) | LR: 0.000011 | Time: 24.71s | Train Loss: 1.4803 | Train Acc: 49.77% | Val Loss: 1.6733 | Val Acc: 73.01% | Gap: -23.25%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_240.pth
+Epoch 241/300 (Original Target: 300) | LR: 0.000010 | Time: 24.86s | Train Loss: 1.4986 | Train Acc: 50.01% | Val Loss: 1.6718 | Val Acc: 73.37% | Gap: -23.36%
+Epoch 242/300 (Original Target: 300) | LR: 0.000010 | Time: 24.88s | Train Loss: 1.4488 | Train Acc: 52.31% | Val Loss: 1.6706 | Val Acc: 73.06% | Gap: -20.75%
+Epoch 243/300 (Original Target: 300) | LR: 0.000010 | Time: 24.97s | Train Loss: 1.4252 | Train Acc: 44.96% | Val Loss: 1.6771 | Val Acc: 72.83% | Gap: -27.87%
+Epoch 244/300 (Original Target: 300) | LR: 0.000010 | Time: 24.87s | Train Loss: 1.4328 | Train Acc: 47.30% | Val Loss: 1.6809 | Val Acc: 72.75% | Gap: -25.45%
+Epoch 245/300 (Original Target: 300) | LR: 0.000009 | Time: 24.82s | Train Loss: 1.3442 | Train Acc: 61.06% | Val Loss: 1.6608 | Val Acc: 73.59% | Gap: -12.53%
+----> Best Val Acc Updated: 73.59% at epoch 245
+Epoch 246/300 (Original Target: 300) | LR: 0.000009 | Time: 25.12s | Train Loss: 1.5219 | Train Acc: 46.07% | Val Loss: 1.6702 | Val Acc: 72.96% | Gap: -26.89%
+Epoch 247/300 (Original Target: 300) | LR: 0.000009 | Time: 24.67s | Train Loss: 1.4325 | Train Acc: 48.52% | Val Loss: 1.6718 | Val Acc: 73.02% | Gap: -24.50%
+Epoch 248/300 (Original Target: 300) | LR: 0.000008 | Time: 24.87s | Train Loss: 1.4712 | Train Acc: 49.97% | Val Loss: 1.6748 | Val Acc: 73.02% | Gap: -23.05%
+Epoch 249/300 (Original Target: 300) | LR: 0.000008 | Time: 24.97s | Train Loss: 1.5455 | Train Acc: 43.78% | Val Loss: 1.6684 | Val Acc: 73.34% | Gap: -29.56%
+Epoch 250/300 (Original Target: 300) | LR: 0.000008 | Time: 25.15s | Train Loss: 1.4474 | Train Acc: 48.65% | Val Loss: 1.6567 | Val Acc: 73.31% | Gap: -24.66%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_250.pth
+Epoch 251/300 (Original Target: 300) | LR: 0.000008 | Time: 25.15s | Train Loss: 1.6220 | Train Acc: 37.33% | Val Loss: 1.6767 | Val Acc: 72.90% | Gap: -35.58%
+Epoch 252/300 (Original Target: 300) | LR: 0.000007 | Time: 24.81s | Train Loss: 1.4006 | Train Acc: 54.91% | Val Loss: 1.6830 | Val Acc: 72.81% | Gap: -17.90%
+Epoch 253/300 (Original Target: 300) | LR: 0.000007 | Time: 24.58s | Train Loss: 1.4361 | Train Acc: 43.75% | Val Loss: 1.6851 | Val Acc: 72.65% | Gap: -28.90%
+Epoch 254/300 (Original Target: 300) | LR: 0.000007 | Time: 24.90s | Train Loss: 1.4335 | Train Acc: 50.08% | Val Loss: 1.6659 | Val Acc: 73.05% | Gap: -22.97%
+Epoch 255/300 (Original Target: 300) | LR: 0.000007 | Time: 25.16s | Train Loss: 1.4678 | Train Acc: 47.38% | Val Loss: 1.6764 | Val Acc: 72.64% | Gap: -25.26%
+Epoch 256/300 (Original Target: 300) | LR: 0.000006 | Time: 25.13s | Train Loss: 1.3901 | Train Acc: 54.86% | Val Loss: 1.6714 | Val Acc: 73.24% | Gap: -18.38%
+Epoch 257/300 (Original Target: 300) | LR: 0.000006 | Time: 24.85s | Train Loss: 1.5508 | Train Acc: 44.72% | Val Loss: 1.6644 | Val Acc: 73.41% | Gap: -28.69%
+Epoch 258/300 (Original Target: 300) | LR: 0.000006 | Time: 25.08s | Train Loss: 1.3984 | Train Acc: 54.85% | Val Loss: 1.6775 | Val Acc: 72.85% | Gap: -18.00%
+Epoch 259/300 (Original Target: 300) | LR: 0.000006 | Time: 25.05s | Train Loss: 1.5257 | Train Acc: 46.11% | Val Loss: 1.6696 | Val Acc: 72.88% | Gap: -26.77%
+Epoch 260/300 (Original Target: 300) | LR: 0.000005 | Time: 24.89s | Train Loss: 1.3796 | Train Acc: 58.54% | Val Loss: 1.6710 | Val Acc: 72.72% | Gap: -14.18%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_260.pth
+Epoch 261/300 (Original Target: 300) | LR: 0.000005 | Time: 24.87s | Train Loss: 1.3770 | Train Acc: 54.94% | Val Loss: 1.6693 | Val Acc: 72.58% | Gap: -17.64%
+Epoch 262/300 (Original Target: 300) | LR: 0.000005 | Time: 25.22s | Train Loss: 1.4429 | Train Acc: 53.56% | Val Loss: 1.6815 | Val Acc: 72.54% | Gap: -18.98%
+Epoch 263/300 (Original Target: 300) | LR: 0.000005 | Time: 25.01s | Train Loss: 1.3814 | Train Acc: 52.53% | Val Loss: 1.6585 | Val Acc: 73.53% | Gap: -21.00%
+Epoch 264/300 (Original Target: 300) | LR: 0.000005 | Time: 24.93s | Train Loss: 1.5355 | Train Acc: 44.93% | Val Loss: 1.6682 | Val Acc: 73.31% | Gap: -28.38%
+Epoch 265/300 (Original Target: 300) | LR: 0.000004 | Time: 24.98s | Train Loss: 1.4785 | Train Acc: 48.77% | Val Loss: 1.6672 | Val Acc: 73.22% | Gap: -24.45%
+Epoch 266/300 (Original Target: 300) | LR: 0.000004 | Time: 25.05s | Train Loss: 1.5585 | Train Acc: 40.02% | Val Loss: 1.6687 | Val Acc: 73.11% | Gap: -33.09%
+Epoch 267/300 (Original Target: 300) | LR: 0.000004 | Time: 25.09s | Train Loss: 1.5329 | Train Acc: 37.46% | Val Loss: 1.6866 | Val Acc: 72.73% | Gap: -35.27%
+Epoch 268/300 (Original Target: 300) | LR: 0.000004 | Time: 25.09s | Train Loss: 1.4471 | Train Acc: 52.31% | Val Loss: 1.6652 | Val Acc: 72.94% | Gap: -20.63%
+Epoch 269/300 (Original Target: 300) | LR: 0.000004 | Time: 25.09s | Train Loss: 1.4768 | Train Acc: 46.28% | Val Loss: 1.6657 | Val Acc: 73.28% | Gap: -27.00%
+Epoch 270/300 (Original Target: 300) | LR: 0.000004 | Time: 25.03s | Train Loss: 1.5470 | Train Acc: 41.20% | Val Loss: 1.6733 | Val Acc: 73.15% | Gap: -31.95%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_270.pth
+Epoch 271/300 (Original Target: 300) | LR: 0.000003 | Time: 25.29s | Train Loss: 1.4720 | Train Acc: 50.05% | Val Loss: 1.6839 | Val Acc: 72.81% | Gap: -22.76%
+Epoch 272/300 (Original Target: 300) | LR: 0.000003 | Time: 25.20s | Train Loss: 1.3862 | Train Acc: 59.83% | Val Loss: 1.6631 | Val Acc: 73.42% | Gap: -13.59%
+Epoch 273/300 (Original Target: 300) | LR: 0.000003 | Time: 24.61s | Train Loss: 1.5980 | Train Acc: 41.31% | Val Loss: 1.6560 | Val Acc: 73.33% | Gap: -32.02%
+Epoch 274/300 (Original Target: 300) | LR: 0.000003 | Time: 24.55s | Train Loss: 1.6795 | Train Acc: 34.80% | Val Loss: 1.6604 | Val Acc: 73.47% | Gap: -38.67%
+Epoch 275/300 (Original Target: 300) | LR: 0.000003 | Time: 24.69s | Train Loss: 1.4158 | Train Acc: 53.75% | Val Loss: 1.6685 | Val Acc: 73.02% | Gap: -19.27%
+Epoch 276/300 (Original Target: 300) | LR: 0.000003 | Time: 24.82s | Train Loss: 1.4143 | Train Acc: 57.61% | Val Loss: 1.6679 | Val Acc: 73.03% | Gap: -15.42%
+Epoch 277/300 (Original Target: 300) | LR: 0.000003 | Time: 24.64s | Train Loss: 1.3907 | Train Acc: 56.35% | Val Loss: 1.6689 | Val Acc: 73.04% | Gap: -16.69%
+Epoch 278/300 (Original Target: 300) | LR: 0.000002 | Time: 24.39s | Train Loss: 1.5272 | Train Acc: 42.59% | Val Loss: 1.6817 | Val Acc: 72.88% | Gap: -30.29%
+Epoch 279/300 (Original Target: 300) | LR: 0.000002 | Time: 24.62s | Train Loss: 1.3985 | Train Acc: 53.72% | Val Loss: 1.6684 | Val Acc: 73.09% | Gap: -19.37%
+Epoch 280/300 (Original Target: 300) | LR: 0.000002 | Time: 24.68s | Train Loss: 1.4999 | Train Acc: 51.10% | Val Loss: 1.6749 | Val Acc: 73.13% | Gap: -22.03%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_280.pth
+Epoch 281/300 (Original Target: 300) | LR: 0.000002 | Time: 24.54s | Train Loss: 1.4597 | Train Acc: 49.91% | Val Loss: 1.6773 | Val Acc: 72.77% | Gap: -22.86%
+Epoch 282/300 (Original Target: 300) | LR: 0.000002 | Time: 24.66s | Train Loss: 1.5285 | Train Acc: 51.27% | Val Loss: 1.6770 | Val Acc: 73.00% | Gap: -21.73%
+Epoch 283/300 (Original Target: 300) | LR: 0.000002 | Time: 24.61s | Train Loss: 1.5267 | Train Acc: 46.05% | Val Loss: 1.6721 | Val Acc: 73.37% | Gap: -27.32%
+Epoch 284/300 (Original Target: 300) | LR: 0.000002 | Time: 24.44s | Train Loss: 1.5224 | Train Acc: 42.55% | Val Loss: 1.6654 | Val Acc: 72.88% | Gap: -30.33%
+Epoch 285/300 (Original Target: 300) | LR: 0.000002 | Time: 24.85s | Train Loss: 1.3443 | Train Acc: 53.60% | Val Loss: 1.6688 | Val Acc: 73.06% | Gap: -19.46%
+Epoch 286/300 (Original Target: 300) | LR: 0.000002 | Time: 24.79s | Train Loss: 1.5089 | Train Acc: 48.60% | Val Loss: 1.6721 | Val Acc: 72.77% | Gap: -24.16%
+Epoch 287/300 (Original Target: 300) | LR: 0.000002 | Time: 24.61s | Train Loss: 1.5163 | Train Acc: 46.17% | Val Loss: 1.6737 | Val Acc: 72.86% | Gap: -26.69%
+Epoch 288/300 (Original Target: 300) | LR: 0.000001 | Time: 24.77s | Train Loss: 1.4079 | Train Acc: 48.62% | Val Loss: 1.6763 | Val Acc: 72.70% | Gap: -24.09%
+Epoch 289/300 (Original Target: 300) | LR: 0.000001 | Time: 24.77s | Train Loss: 1.3842 | Train Acc: 53.67% | Val Loss: 1.6779 | Val Acc: 72.96% | Gap: -19.29%
+Epoch 290/300 (Original Target: 300) | LR: 0.000001 | Time: 24.70s | Train Loss: 1.3626 | Train Acc: 56.28% | Val Loss: 1.6641 | Val Acc: 73.12% | Gap: -16.84%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_290.pth
+Epoch 291/300 (Original Target: 300) | LR: 0.000001 | Time: 24.71s | Train Loss: 1.5027 | Train Acc: 46.22% | Val Loss: 1.6743 | Val Acc: 73.46% | Gap: -27.24%
+Epoch 292/300 (Original Target: 300) | LR: 0.000001 | Time: 24.77s | Train Loss: 1.4718 | Train Acc: 46.32% | Val Loss: 1.6597 | Val Acc: 73.33% | Gap: -27.01%
+Epoch 293/300 (Original Target: 300) | LR: 0.000001 | Time: 25.09s | Train Loss: 1.5460 | Train Acc: 41.30% | Val Loss: 1.6673 | Val Acc: 73.43% | Gap: -32.13%
+Epoch 294/300 (Original Target: 300) | LR: 0.000001 | Time: 24.85s | Train Loss: 1.4492 | Train Acc: 52.50% | Val Loss: 1.6797 | Val Acc: 72.62% | Gap: -20.12%
+Epoch 295/300 (Original Target: 300) | LR: 0.000001 | Time: 24.77s | Train Loss: 1.5064 | Train Acc: 43.74% | Val Loss: 1.6866 | Val Acc: 72.89% | Gap: -29.15%
+Epoch 296/300 (Original Target: 300) | LR: 0.000001 | Time: 24.98s | Train Loss: 1.4183 | Train Acc: 51.12% | Val Loss: 1.6773 | Val Acc: 72.95% | Gap: -21.83%
+Epoch 297/300 (Original Target: 300) | LR: 0.000001 | Time: 25.00s | Train Loss: 1.3458 | Train Acc: 51.11% | Val Loss: 1.6639 | Val Acc: 73.31% | Gap: -22.20%
+Epoch 298/300 (Original Target: 300) | LR: 0.000001 | Time: 25.00s | Train Loss: 1.3997 | Train Acc: 52.53% | Val Loss: 1.6628 | Val Acc: 73.72% | Gap: -21.19%
+----> Best Val Acc Updated: 73.72% at epoch 298
+Epoch 299/300 (Original Target: 300) | LR: 0.000001 | Time: 25.01s | Train Loss: 1.5165 | Train Acc: 41.08% | Val Loss: 1.6679 | Val Acc: 73.28% | Gap: -32.20%
+Epoch 300/300 (Original Target: 300) | LR: 0.000001 | Time: 25.08s | Train Loss: 1.4841 | Train Acc: 46.26% | Val Loss: 1.6765 | Val Acc: 72.65% | Gap: -26.40%
+----> Trajectory checkpoint saved: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224/trajectory/vit_small_patch8_224_SAM_Only_epoch_300.pth
+----> Model saved to: /home/prml/StudentsWork/JungWoo/Optimizer/results/CIFAR100/saved_models/vit_small_patch8_224_SAM_Only_best.pth
+
+===== Final Test Accuracy for SAM_Only =====
+Final Test Accuracy: 78.24%
+Total Training Time: 7469.08 sec
+
+
+
+====== All Final Results =====
+
+===== AdamW_Only =====
+Final Test Accuracy: 80.77%
+Total Training Time: 4186.61 sec
+===== AdamW_then_SAM =====
+Final Test Accuracy: 79.35%
+Total Training Time: 6870.09 sec
+===== SAM_Only =====
+Final Test Accuracy: 78.24%
+Total Training Time: 7469.08 sec
