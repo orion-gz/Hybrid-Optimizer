@@ -1213,19 +1213,6 @@ class DynamicSwitcher_ver06:
         print(f"  → Gain insufficient. Keep AdamW\n")
         return False
     
-import torch
-import numpy as np
-import torch.optim as optim
-import numpy as np
-import torch.nn as nn
-from torch.amp import autocast
-from copy import deepcopy
-from torch.utils.data import DataLoader, Subset
-from torch.utils.data import DataLoader, Subset
-from torch.optim.lr_scheduler import CosineAnnealingLR
-from common.optimizer import SAM
-from collections import deque
-from dataclasses import dataclass
 
 @dataclass
 class DynamicSwitcher:

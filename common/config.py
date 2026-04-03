@@ -36,7 +36,7 @@ def get_config():
         'aug_prob': 0.5,
 
         # 모델 설정
-        # WRN_28_10, resnet18, cct_7_3x1_32_c100, vit_small_patch8_224, vit_tiny_patch16_224, deit_tiny_patch16_224, deit_small_patch16_224, efficientnetv2_s
+        # WRN_28_10, resnet18, cct_7_3x1_32_c100, vit_small_patch8_224, vit_small_patch16_224, deit_tiny_patch16_224, deit_small_patch16_224, efficientnetv2_s
         'model_name': 'vit_small_patch8_224', 
         'dropout_rate': 0.0,
         
@@ -424,7 +424,7 @@ def get_config_ver07():
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
-        'image_size': 32,
+        'image_size': 224,
  
         # 증강
         'use_randaugment': False,
@@ -436,7 +436,7 @@ def get_config_ver07():
         'aug_prob': 0.5,
  
         # 모델
-        'model_name': 'WRN_28_10',
+        'model_name': 'vit_small_patch16_224',
         'dropout_rate': 0.3,
  
         # 훈련

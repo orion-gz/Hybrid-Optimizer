@@ -1,3 +1,5 @@
+// WRN_28_10 에 대한 Sharpness-Aware Switcher 실험
+
 nohup: ignoring input
 /home/prml/StudentsWork/JungWoo/Optimizer/.venv/lib/python3.11/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)

@@ -167,6 +167,7 @@ def switch_to_sam(model, optimizer, config):
         optim.AdamW,
         rho=rho_min,         # rho_min으로 시작
         lr=restart_lr,
+        #momentum=0.9
         weight_decay=config['weight_decay']
     )
 
@@ -235,17 +236,17 @@ def run_experiment(config):
             lr=config['initial_lr'],
             weight_decay=config['weight_decay']
         )
-        scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-        # main_scheduler = CosineAnnealingLR(
-        #     optimizer,
-        #     T_max=config['epochs'] - config['warmup_epochs'],
-        #     eta_min=1e-6
-        # )
-        # scheduler = SequentialLR(
-        #     optimizer,
-        #     schedulers=[warmup_scheduler, main_scheduler],
-        #     milestones=[config['warmup_epochs']]
-        # )
+        warmup_scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
+        main_scheduler = CosineAnnealingLR(
+            optimizer,
+            T_max=config['epochs'] - config['warmup_epochs'],
+            eta_min=1e-6
+        )
+        scheduler = SequentialLR(
+            optimizer,
+            schedulers=[warmup_scheduler, main_scheduler],
+            milestones=[config['warmup_epochs']]
+        )
 
     # ── switcher 초기화 ─────────────────────────────────────────
     switcher = SharpnessAwareSwitcher(
@@ -449,7 +450,7 @@ def main():
     base_config = get_config_ver07()
     print_config(base_config)
     
-    strategies_to_run = ["AdamW_then_SAM"]
+    strategies_to_run = ["AdamW_then_SAM", "SAM_Only", "AdamW_Only"]
     all_results = {}
     
     for name in strategies_to_run:
