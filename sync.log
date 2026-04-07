@@ -679,3 +679,9 @@ hint: its remote counterpart. Integrate the remote changes (e.g.
 hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-04-07 15:13:02] Pushed.
+[2026-04-07 15:13:02] New commits on GitHub → pulling...
+error: cannot pull with rebase: You have unstaged changes.
+error: additionally, your index contains uncommitted changes.
+error: please commit or stash them.
+[2026-04-07 15:13:02] Pulled.
+[2026-04-07 15:13:16] Local changes detected → pushing...
