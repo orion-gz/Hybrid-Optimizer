@@ -6,7 +6,7 @@
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 BRANCH="main"
-INTERVAL=10       # GitHub 폴링 간격 (초)
+INTERVAL=3600     # GitHub 폴링 간격 (초)
 AUTO_PUSH=true    # 서버 변경사항 자동 push 여부 (false로 끄기 가능)
 
 echo "=============================="
