@@ -14,3 +14,6 @@ data/
 models/
 results/CIFAR100/saved_models
 results/CIFRA100/tmp
+
+# Local documents (not synced to GitHub)
+doc/
