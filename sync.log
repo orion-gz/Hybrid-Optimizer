@@ -1,0 +1,9 @@
+nohup: ignoring input
+==============================
+ HybridOptimizer Server Sync
+ Repo:      /home/prml/StudentsWork/JungWoo/Optimizer
+ Branch:    main
+ Interval:  10s
+ Auto-push: true
+==============================
+[2026-04-07 14:56:02] Local changes detected → pushing...
