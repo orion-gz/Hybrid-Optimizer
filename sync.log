@@ -13,3 +13,7 @@ nohup: ignoring input
 To github.com:orion-gz/Hybrid-Optimizer.git
    33d24fd..edd3084  main -> main
 [2026-04-07 15:15:18] Pushed.
+[2026-04-07 15:15:18] New commits on GitHub → pulling...
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-04-07 15:15:18] Pulled.
