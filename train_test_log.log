@@ -1858,3 +1858,4 @@ Epoch 231/300 [SAM] | LR: 0.000235 | rho: 0.1500 | Time: 212.08s | Train Loss: 1
 Epoch 232/300 [SAM] | LR: 0.000231 | rho: 0.1500 | Time: 212.00s | Train Loss: 1.3056 | Train Acc: 57.52% | Val Loss: 1.6339 | Val Acc: 75.77% | Gap: -18.24%
 Epoch 233/300 [SAM] | LR: 0.000227 | rho: 0.1500 | Time: 211.86s | Train Loss: 1.4452 | Train Acc: 48.17% | Val Loss: 1.6741 | Val Acc: 75.67% | Gap: -27.50%
 Epoch 234/300 [SAM] | LR: 0.000223 | rho: 0.1500 | Time: 211.96s | Train Loss: 1.3858 | Train Acc: 51.14% | Val Loss: 1.6514 | Val Acc: 75.95% | Gap: -24.81%
+Epoch 235/300 [SAM] | LR: 0.000218 | rho: 0.1500 | Time: 211.79s | Train Loss: 1.4583 | Train Acc: 43.04% | Val Loss: 1.6570 | Val Acc: 75.88% | Gap: -32.84%
