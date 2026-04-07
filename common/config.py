@@ -424,7 +424,7 @@ def get_config_ver07():
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
-        'image_size': 224,
+        'image_size': 32,
  
         # 증강
         'use_randaugment': False,
@@ -436,7 +436,7 @@ def get_config_ver07():
         'aug_prob': 0.5,
  
         # 모델
-        'model_name': 'vit_small_patch16_224',
+        'model_name': 'WRN_28_10',
         'dropout_rate': 0.3,
  
         # 훈련

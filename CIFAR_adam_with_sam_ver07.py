@@ -237,11 +237,12 @@ def run_experiment(config):
             weight_decay=config['weight_decay']
         )
         warmup_scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-        main_scheduler = CosineAnnealingLR(
-            optimizer,
-            T_max=config['epochs'] - config['warmup_epochs'],
-            eta_min=1e-6
-        )
+        main_scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1.0)
+        #CosineAnnealingLR(
+        #    optimizer,
+        #    T_max=config['epochs'] - config['warmup_epochs'],
+        #    eta_min=1e-6
+        #)
         scheduler = SequentialLR(
             optimizer,
             schedulers=[warmup_scheduler, main_scheduler],
@@ -450,8 +451,9 @@ def main():
     base_config = get_config_ver07()
     print_config(base_config)
     
-    strategies_to_run = ["AdamW_then_SAM", "SAM_Only", "AdamW_Only"]
+    strategies_to_run = ["AdamW_Only"]
     all_results = {}
+    
     
     for name in strategies_to_run:
         config = base_config.copy()
