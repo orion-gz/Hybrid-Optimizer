@@ -17,3 +17,7 @@ results/CIFRA100/tmp
 
 # Local documents (not synced to GitHub)
 doc/
+
+# Sync scripts (local only)
+scripts/
+Makefile
