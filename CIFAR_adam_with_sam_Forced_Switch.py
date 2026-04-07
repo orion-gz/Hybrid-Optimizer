@@ -450,7 +450,7 @@ def main():
     print_config(base_config)
 
     # ── 고정 비율 전환 실험 ─────────────────────────────────────
-    switch_epochs = [50, 75, 100, 150, 200]
+    switch_epochs = [225, 250, 275]
     all_results = {}
 
     for se in switch_epochs:
