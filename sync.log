@@ -324,3 +324,18 @@ error: cannot pull with rebase: You have unstaged changes.
 error: please commit or stash them.
 [2026-04-07 15:07:19] Pulled.
 [2026-04-07 15:07:34] Local changes detected → pushing...
+[main 6b0edb1] result: 2026-04-07 15:07:34
+ 1 file changed, 15 insertions(+)
+To github.com:orion-gz/Hybrid-Optimizer.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'github.com:orion-gz/Hybrid-Optimizer.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-04-07 15:07:34] Pushed.
+[2026-04-07 15:07:34] New commits on GitHub → pulling...
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-04-07 15:07:34] Pulled.
+[2026-04-07 15:07:48] Local changes detected → pushing...
