@@ -278,3 +278,19 @@ To github.com:orion-gz/Hybrid-Optimizer.git
    b342074..3208b58  main -> main
 [2026-04-07 15:06:36] Pushed.
 [2026-04-07 15:06:51] Local changes detected → pushing...
+[main d7f9e4e] result: 2026-04-07 15:06:51
+ 1 file changed, 6 insertions(+)
+To github.com:orion-gz/Hybrid-Optimizer.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:orion-gz/Hybrid-Optimizer.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-04-07 15:06:51] Pushed.
+[2026-04-07 15:06:51] New commits on GitHub → pulling...
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-04-07 15:06:51] Pulled.
+[2026-04-07 15:07:05] Local changes detected → pushing...
