@@ -89,7 +89,7 @@ def get_data_loaders(config):
     test_transforms_list.extend([transforms.ToTensor(),  transforms.Normalize(mean=mean, std=std)])
 
     train_transform = transforms.Compose(train_transforms_list)
-    test_transform  = transforms.Compose(test_transforms_list)
+    test_transform = transforms.Compose(test_transforms_list)
 
     if dataset_name == 'SVHN':
         full_train = dataset_class(root=config['data_path'], split='train', download=True, transform=train_transform)
