@@ -196,18 +196,18 @@ def get_config_ver04():
     WARMUP_EPOCHS = 10
     
     config = {
-        # 기본 설정
+        # default
         'seed': 42,
         'device': torch.device("cuda" if torch.cuda.is_available() else "cpu"),
         'num_workers': 16,
         
-        # 데이터셋 설정
+        # dataset
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
         'image_size': 224,
         
-        # 데이터 증강 설정
+        # data augmentation
         'use_randaugment': False,
         'use_autoaugment': True,
         'use_mixup': True,
@@ -216,34 +216,32 @@ def get_config_ver04():
         'cutmix_alpha': 1.0,
         'aug_prob': 0.5,
  
-        # 모델 설정
+        # model
         'model_name': 'WRN_28_10',
         'dropout_rate': 0.3,
         
-        # 훈련 설정
+        # training
         'use_amp': False,
         'epochs': EPOCHS,
         'batch_size': 256,
         
-        # AdamW 설정
+        # AdamW
         'warmup_epochs': WARMUP_EPOCHS,
         'initial_lr': 0.001,
         'weight_decay': 0.05,
  
         # SAM 설정
-        # ※ sam_lr, sam_warmup_epochs, esam_lr 제거:
-        #   전환 시 LR은 AdamW 현재값을 그대로 인계받으므로 별도 설정 불필요
-        'sam_only_lr': 1e-3,    # SAM_Only 전략 전용
-        'sam_only_rho': 0.20,   # SAM_Only 전략 전용
-        'rho': 0.20,            # [변경] 0.2 → 0.05: 수렴 단계 가중치에 맞게 perturbation 축소
+        'sam_only_lr': 1e-3,    # SAM_Only
+        'sam_only_rho': 0.20,   # SAM_Only
+        'rho': 0.20,            
  
         # DynamicSwitcher 설정
-        'min_switch_epoch': 150,     # 시뮬레이션 시작 최소 epoch (전체의 40~60% 권장)
-        'check_every': 10,           # 몇 epoch마다 시뮬레이션할지
-        'probe_ratio': 0.1,          # val set 중 시뮬레이션에 사용할 비율
-        'sim_steps': 10,             # 시뮬레이션 step 수 (loss spike 구간보다 길게)
-        'gain_threshold': 0.2,       # SAM 예측 이득(%) 이 값 이상이면 전환
-        'lr_restart_factor': 0.5,    # 전환 시 LR = initial_lr * factor (권장: 0.1~0.5)
+        'min_switch_epoch': 150,     
+        'check_every': 10,           # simulating every # epochs
+        'probe_ratio': 0.1,          # ratio of simulating val set 
+        'sim_steps': 10,             # # of simulating step 
+        'gain_threshold': 0.2,       # SAM expected gain (%) 
+        'lr_restart_factor': 0.5,    # restart LR = initial_lr * factor 
     }
     return config
 
