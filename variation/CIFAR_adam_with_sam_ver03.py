@@ -126,8 +126,7 @@ def get_model(config):
     elif config['model_name'] == 'vit_small_patch8_224':
         model = timm.create_model('vit_small_patch8_224', pretrained=True, num_classes=config['num_classes'], img_size=32)
     elif 'patch16' in config['model_name']:
-        model = timm.create_model(config['model_name'], pretrained=True, num_classes=config['num_classes'],
-                                   drop_rate=config['dropout_rate'], drop_path_rate=0.1)
+        model = timm.create_model(config['model_name'], pretrained=True, num_classes=config['num_classes'], drop_rate=config['dropout_rate'], drop_path_rate=0.1)
     elif config['model_name'] == 'efficientnetv2_s':
         model = timm.create_model('efficientnetv2_s', pretrained=True)
     else:
