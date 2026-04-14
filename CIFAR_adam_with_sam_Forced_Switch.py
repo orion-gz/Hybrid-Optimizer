@@ -50,7 +50,7 @@ def set_seed(seed):
     np.random.seed(seed)
     random.seed(seed)
 
-
+# experiment config
 def get_config_forced_switch():
     EPOCHS = 300
     WARMUP_EPOCHS = 10
@@ -80,19 +80,19 @@ def get_config_forced_switch():
         'epochs': EPOCHS,
         'batch_size': 256,
 
-        # AdamW 설정 (constant LR)
+        # AdamW (constant LR)
         'warmup_epochs': WARMUP_EPOCHS,
         'initial_lr': 0.001,
         'weight_decay': 0.05,
 
-        # SAM 설정
+        # SAM
         'rho_min': 0.02,
         'rho_max': 0.15,
         'rho_warmup_epochs': 20,
 
-        # 전환 설정
+        # Switch
         'lr_restart_factor': 0.3,       # restart_lr = 0.001 * 0.3 = 0.0003
-        'forced_switch_epoch': 100,     # main()에서 덮어씀
+        'forced_switch_epoch': 100,     
     }
     return config
 
@@ -104,10 +104,8 @@ def print_config(config):
     print("=" * 24)
 
 
-# ═══════════════════════════════════════════════════════════════════
-#  데이터 & 모델
-# ═══════════════════════════════════════════════════════════════════
 
+#  data loaders
 def get_data_loaders(config):
     DATASET_STATS = {
         'CIFAR10':  {'mean': [0.4914, 0.4822, 0.4465], 'std': [0.247, 0.243, 0.261]},
@@ -126,6 +124,7 @@ def get_data_loaders(config):
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
     ]
+    
     if config.get('use_autoaugment', False):
         train_transforms_list.append(AutoAugment(policy=AutoAugmentPolicy.CIFAR10))
     if config.get('use_randaugment', False):
