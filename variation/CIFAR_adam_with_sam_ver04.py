@@ -201,10 +201,10 @@ def run_experiment(config):
                         weight_decay=config['weight_decay'])
         scheduler = CosineAnnealingLR(optimizer.base_optimizer, T_max=config['epochs'], eta_min=1e-6)
     else:
-        optimizer        = optim.AdamW(model.parameters(), lr=config['initial_lr'], weight_decay=config['weight_decay'])
+        optimizer = optim.AdamW(model.parameters(), lr=config['initial_lr'], weight_decay=config['weight_decay'])
         warmup_scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-        main_scheduler   = CosineAnnealingLR(optimizer, T_max=config['epochs'] - config['warmup_epochs'], eta_min=1e-6)
-        scheduler        = SequentialLR(optimizer, schedulers=[warmup_scheduler, main_scheduler],
+        main_scheduler = CosineAnnealingLR(optimizer, T_max=config['epochs'] - config['warmup_epochs'], eta_min=1e-6)
+        scheduler = SequentialLR(optimizer, schedulers=[warmup_scheduler, main_scheduler],
                                          milestones=[config['warmup_epochs']])
 
     # build switcher from config
