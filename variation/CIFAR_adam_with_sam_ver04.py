@@ -59,7 +59,7 @@ def get_data_loaders(config):
         'SVHN':     torchvision.datasets.SVHN,
     }
 
-    dataset_name  = config['dataset']
+    dataset_name = config['dataset']
     if dataset_name not in DATASET_STATS:
         raise ValueError(f"Unsupported dataset: {dataset_name}")
 
