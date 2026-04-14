@@ -64,7 +64,7 @@ def get_data_loaders(config):
         raise ValueError(f"Unsupported dataset: {dataset_name}")
 
     mean = DATASET_STATS[dataset_name]['mean']
-    std  = DATASET_STATS[dataset_name]['std']
+    std = DATASET_STATS[dataset_name]['std']
     dataset_class = DATASET_CLASSES[dataset_name]
 
     train_transforms_list, test_transforms_list = [], []
