@@ -284,11 +284,11 @@ def run_experiment(config):
                              val_loader=val_loader, criterion=criterion, device=device):
                 print(f"\n----- Simulation Switch Triggered at Epoch {epoch+1}! -----")
                 history['switch_epoch'] = epoch + 1
-                switch_epoch_num        = epoch + 1
+                switch_epoch_num = epoch + 1
 
                 new_optimizer, restart_lr = switch_to_sam(model, optimizer, config)
-                optimizer    = new_optimizer
-                switched     = True
+                optimizer = new_optimizer
+                switched = True
 
                 remaining_epochs = config['epochs'] - (epoch + 1)
                 scheduler = CosineAnnealingLR(
