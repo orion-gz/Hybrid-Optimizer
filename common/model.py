@@ -4,7 +4,7 @@ import torch.nn as nn
 class WideBasicBlock(nn.Module):
     def __init__(self, in_planes, out_planes, stride, dropout_rate):
         super(WideBasicBlock, self).__init__()
-        # 기존 ResNet의 Residual block의 순서 Conv-BN-ReLU 에서 BN-ReLU-Conv로 변경
+        # BN-ReLU-Conv order instead of the original ResNet Conv-BN-ReLU
         self.bn1 = nn.BatchNorm2d(in_planes)
         self.relu1 = nn.ReLU(inplace=True)
         self.conv1 = nn.Conv2d(in_planes, out_planes, kernel_size=3, padding=1, bias=False)
