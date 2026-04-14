@@ -105,7 +105,7 @@ def print_config(config):
 
 
 
-#  data loaders
+# data loaders
 def get_data_loaders(config):
     DATASET_STATS = {
         'CIFAR10':  {'mean': [0.4914, 0.4822, 0.4465], 'std': [0.247, 0.243, 0.261]},
@@ -157,6 +157,7 @@ def get_data_loaders(config):
     return train_loader, val_loader, test_loader
 
 
+# model 
 def get_model(config):
     if config['model_name'] == 'WRN_28_10':
         model = WRN_28_10(num_classes=config['num_classes'], dropout_rate=config['dropout_rate'])
@@ -165,10 +166,7 @@ def get_model(config):
     return model.to(config['device'])
 
 
-# ═══════════════════════════════════════════════════════════════════
-#  전환 함수
-# ═══════════════════════════════════════════════════════════════════
-
+# switch helper method
 def switch_to_sam(model, optimizer, config):
     """AdamW → SAM(AdamW base) 전환. rho_min으로 시작, momentum state 이전."""
     current_lr = optimizer.param_groups[0]['lr']
@@ -219,10 +217,8 @@ def update_rho(optimizer, epoch, switch_epoch, config):
     return current_rho
 
 
-# ═══════════════════════════════════════════════════════════════════
-#  실험 실행
-# ═══════════════════════════════════════════════════════════════════
 
+# experiment
 def run_experiment(config):
     strategy_name     = config['strategy_name']
     device            = config['device']
@@ -240,14 +236,14 @@ def run_experiment(config):
     model     = get_model(config)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
-    # ── optimizer & scheduler 초기화 ────────────────────────────
+    # init optimizer & scheduler
     optimizer = optim.AdamW(
         model.parameters(),
         lr=config['initial_lr'],
         weight_decay=config['weight_decay']
     )
 
-    # AdamW phase: warmup 10ep → constant LR (cosine decay 없음)
+    # AdamW phase: warmup 10ep → constant LR (no cosine decay)
     warmup_scheduler   = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
     constant_scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: 1.0)
     scheduler = SequentialLR(
@@ -256,7 +252,7 @@ def run_experiment(config):
         milestones=[config['warmup_epochs']]
     )
 
-    # ── 학습 상태 ──────────────────────────────────────────────
+    # record experiment history
     history = {
         'train_loss': [], 'train_acc': [],
         'val_loss': [], 'val_acc': [],
@@ -276,7 +272,7 @@ def run_experiment(config):
     if forced_switch_ep is not None:
         print(f"Forced Switch Epoch: {forced_switch_ep}")
 
-    # ── 학습 루프 ───────────────────────────────────────────────
+    # training loop
     for epoch in range(config['epochs']):
 
         # rho warmup
@@ -299,7 +295,7 @@ def run_experiment(config):
         elapsed = time.time() - start_time
         total_training_time += elapsed
 
-        # 로그
+        # print logs
         phase   = "[SAM]" if switched else "[AdamW]"
         rho_str = f" | rho: {current_rho:.4f}" if current_rho is not None else ""
         print(
@@ -322,7 +318,7 @@ def run_experiment(config):
             best_model_state = deepcopy(model.state_dict())
             print(f"----> Best Val Acc Updated: {best_val_acc:.2f}% at epoch {epoch+1}")
 
-        # ── 고정 비율 전환 ─────────────────────────────────────
+        # fixed ratio switch
         if "then" in strategy_name and not switched:
             if forced_switch_ep is not None and (epoch + 1) >= forced_switch_ep:
 
@@ -342,11 +338,10 @@ def run_experiment(config):
                 )
                 print(f"    └─ Cosine scheduler restarted: T_max={remaining_epochs} epochs")
                 print(f"----- Switch Complete -----\n")
-        # ───────────────────────────────────────────────────────
 
         scheduler.step()
 
-    # ── 최종 평가 ───────────────────────────────────────────────
+    # evaluation
     model.load_state_dict(best_model_state)
     _, test_acc = evaluate(model, test_loader, criterion, device)
     history['test_acc'] = test_acc
@@ -369,10 +364,8 @@ def run_experiment(config):
     return history
 
 
-# ═══════════════════════════════════════════════════════════════════
-#  시각화 & 출력
-# ═══════════════════════════════════════════════════════════════════
 
+# visualization
 def plot_results(results):
     fig, axes = plt.subplots(1, 3, figsize=(24, 6))
     ax1, ax2, ax3 = axes
@@ -432,27 +425,22 @@ def print_results(results):
         tt = f"{h['total_training_time']:.0f}s"
         print(f"{name:<35} {str(se):>10} {ta:>10} {bv:>10} {tt:>10}")
 
-    # 기존 결과도 함께 출력
-    print(f"\n--- Reference (이전 실험) ---")
+    print(f"\n--- Reference ---")
     print(f"{'AdamW_Only (constant LR)':<35} {'—':>10} {'77.93%':>10} {'72.14%':>10} {'24451s':>10}")
     print(f"{'v7_03 sharpness@151':<35} {'151':>10} {'81.24%':>10} {'76.98%':>10} {'36044s':>10}")
     print(f"{'AdamW_Only (cosine)':<35} {'—':>10} {'81.45%':>10} {'76.89%':>10} {'24526s':>10}")
 
 
-# ═══════════════════════════════════════════════════════════════════
-#  메인
-# ═══════════════════════════════════════════════════════════════════
 
 def main():
     base_config = get_config_forced_switch()
     print_config(base_config)
 
-    # ── 고정 비율 전환 실험 ─────────────────────────────────────
+    # setting the switch point(epoch)
     switch_epochs = [225, 250, 275]
     all_results = {}
 
     for se in switch_epochs:
-        # 매 실험마다 seed 재설정 (동일 초기 조건 보장)
         set_seed(base_config['seed'])
 
         config = base_config.copy()
@@ -462,7 +450,6 @@ def main():
         history = run_experiment(config)
         all_results[f'switch@{se}'] = history
 
-    # ── 결과 출력 & 시각화 ──────────────────────────────────────
     plot_results(all_results)
     print_results(all_results)
 
