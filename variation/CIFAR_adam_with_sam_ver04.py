@@ -173,8 +173,8 @@ def update_rho(optimizer, epoch, switch_epoch, config):
     if 'rho_min' not in config or 'rho_max' not in config:
         return None
 
-    elapsed  = epoch - switch_epoch
-    warmup   = config.get('rho_warmup_epochs', 1)
+    elapsed = epoch - switch_epoch
+    warmup = config.get('rho_warmup_epochs', 1)
     progress = min(1.0, elapsed / max(warmup, 1))
     current_rho = config['rho_min'] + (config['rho_max'] - config['rho_min']) * progress
 
