@@ -144,18 +144,18 @@ def get_config_ver03():
     WARMUP_EPOCHS = 10
     
     config = {
-        # 기본 설정
+        # default experiment
         'seed': 42,
         'device': torch.device("cuda" if torch.cuda.is_available() else "cpu"),
         'num_workers': 16,
         
-        # 데이터셋 설정
+        # dataset
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
         'image_size': 224,
         
-        # 데이터 증강 설정
+        # data augmentation
         'use_randaugment': False,
         'use_autoaugment': True,
         'use_mixup': True,
@@ -164,31 +164,29 @@ def get_config_ver03():
         'cutmix_alpha': 1.0,
         'aug_prob': 0.5,
  
-        # 모델 설정
+        # model
         'model_name': 'deit_tiny_patch16_224',
         'dropout_rate': 0.0,
         
-        # 훈련 설정
+        # training
         'use_amp': False,
         'epochs': EPOCHS,
         'batch_size': 128,
         
-        # AdamW 설정
+        # AdamW 
         'warmup_epochs': WARMUP_EPOCHS,
         'initial_lr': 0.001,
         'weight_decay': 0.05,
  
         # SAM 설정
-        # ※ sam_lr, sam_warmup_epochs, esam_lr 제거:
-        #   전환 시 LR은 AdamW 현재값을 그대로 인계받으므로 별도 설정 불필요
-        'sam_only_lr': 1e-3,    # SAM_Only 전략 전용
-        'sam_only_rho': 0.20,   # SAM_Only 전략 전용
-        'rho': 0.05,            # [변경] 0.2 → 0.05: 수렴 단계 가중치에 맞게 perturbation 축소
+        'sam_only_lr': 1e-3,    # SAM_Only 
+        'sam_only_rho': 0.20,   # SAM_Only 
+        'rho': 0.05,            
  
-        # DynamicSwitcher 설정 (파라미터 3개)
-        'min_switch_epoch': 150,   # 전환 시도 최소 epoch (전체의 40~60% 권장)
-        'slope_window': 30,        # val_acc slope 측정 구간 (20~40 권장)
-        'slope_threshold': 0.01,   # %/epoch 이하면 전환 (0.005~0.02 권장)
+        # DynamicSwitcher
+        'min_switch_epoch': 150,  
+        'slope_window': 30,       
+        'slope_threshold': 0.01,  
     }
     return config
 
