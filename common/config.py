@@ -131,11 +131,11 @@ def get_config_ver02():
         'oscillation_threshold': 5,
         
         # score weights & threshold
-        'w_slope': 0.40,                    
-        'w_plateau': 0.25,                  
-        'w_gap': 0.20,                      
-        'w_grad': 0.15,                     
-        'score_threshold': 0.5,             
+        'w_slope': 0.40,                    # slope signal weights
+        'w_plateau': 0.25,                  # plateau signal weights
+        'w_gap': 0.20,                      # gap signal weights
+        'w_grad': 0.15,                     # grad norm signal weights
+        'score_threshold': 0.5,             # switch threshold
     }
     return config
 
