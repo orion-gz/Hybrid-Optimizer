@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from common.optimizer import SAM, ESAM
 from common.augmentation import rand_bbox, mixup_cutmix_data, mixup_cutmix_criterion
-from torch.amp import autocast, GradScaler # AMP 관련 모듈 import
+from torch.amp import autocast, GradScaler  # AMP modules
 
 def get_total_grad_norm(model: torch.nn.Module) -> float:
     total_norm = 0.0
