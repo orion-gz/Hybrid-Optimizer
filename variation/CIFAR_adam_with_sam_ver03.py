@@ -153,7 +153,7 @@ def switch_to_sam(model, optimizer, config, epoch):
 
     # transfer AdamW momentum/variance state
     adamw_state = optimizer.state_dict()['state']
-    param_list  = list(model.parameters())
+    param_list = list(model.parameters())
     for i, param in enumerate(param_list):
         if i in adamw_state:
             new_optimizer.base_optimizer.state[param] = {
