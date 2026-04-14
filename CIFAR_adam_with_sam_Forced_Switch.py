@@ -1,16 +1,15 @@
 """
 CIFAR_adam_with_sam_Forced_Switch.py
 
-고정 비율 전환 실험: AdamW(constant LR) → SAM(cosine decay)
-전환 시점을 [50, 75, 100, 150, 200]으로 고정하여
-최적 AdamW:SAM 비율을 탐색.
+Fixed ratio switch experiment: AdamW(constant LR) → SAM(cosine decay)
+Explore the optimal AdamW:SAM ratio by fixing the transition point to [50, 70, 100, 150, 200].
 
 설정:
-    - AdamW phase: warmup 10ep + constant LR=0.001 (cosine decay 없음)
+    - AdamW phase: warmup 10ep + constant LR=0.001 (no cosine decay)
     - SAM phase: LR restart 0.0003, cosine decay (T_max=remaining), rho warmup
     - v7_03과 동일한 조건에서 switch epoch만 변경
 
-비교 대상 (이미 확보):
+비교 대상:
     - AdamW_Only (constant LR): 77.93%
     - v7_03 (sharpness 기반, ep151 전환): 81.24%
     - AdamW_Only (cosine): 81.45%
