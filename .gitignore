@@ -15,6 +15,10 @@ models/
 results/CIFAR100/saved_models
 results/CIFRA100/tmp
 
+# Deprecated Experiments
+SVHN_adam_with_sam.py
+ImageNet_adam_with_sam.py
+
 # Local documents (not synced to GitHub)
 doc/
 
