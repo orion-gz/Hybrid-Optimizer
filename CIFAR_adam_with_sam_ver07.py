@@ -451,7 +451,7 @@ def main():
     base_config = get_config_ver07()
     print_config(base_config)
     
-    strategies_to_run = ["AdamW_Only"]
+    strategies_to_run = ["AdamW_then_SAM"]
     all_results = {}
     
     

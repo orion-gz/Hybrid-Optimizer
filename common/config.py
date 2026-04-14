@@ -463,7 +463,7 @@ def get_config_ver07():
         'check_every': 5,              # 측정이 가벼우므로 자주 가능
         'probe_ratio': 0.2,
         'sharpness_rho': 0.15,         # rho_max와 동일
-        'sharpness_threshold': 0.50,  # 첫 실험: 전환 없이 sharpness만 기록
+        'sharpness_threshold': 0.53,  # 첫 실험: 전환 없이 sharpness만 기록
         'sharpness_ema_beta': 0.9,
  
         # LR restart (전환 시)
