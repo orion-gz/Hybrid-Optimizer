@@ -1,8 +1,7 @@
 """
 CIFAR_adam_with_sam_ver02.py
 
-AdamW -> SAM experiment using DynamicSwitcher_ver02 (weighted score with
-necessary/sufficient condition separation).
+AdamW -> SAM experiment using DynamicSwitcher_ver02 (weighted score with necessary/sufficient condition separation).
 
 Key changes from ver01:
   - switch_to_sam inherits the current AdamW LR to avoid discontinuity
