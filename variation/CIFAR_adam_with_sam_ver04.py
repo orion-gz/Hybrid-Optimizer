@@ -93,10 +93,10 @@ def get_data_loaders(config):
 
     if dataset_name == 'SVHN':
         full_train = dataset_class(root=config['data_path'], split='train', download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
     else:
         full_train = dataset_class(root=config['data_path'], train=True,  download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
 
     train_size = int(0.8 * len(full_train))
     val_size   = len(full_train) - train_size
