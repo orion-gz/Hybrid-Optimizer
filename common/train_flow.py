@@ -187,7 +187,7 @@ def train_one_epoch(
     use_cutmix: bool = False,
     mixup_alpha: float = 1.0,
     gamma: float = 0.5,
-    use_amp: bool = True # AMP 사용 여부 추가
+    use_amp: bool = True 
 ):
     model.train()
     total_loss, total_grad_norm, correct, total = 0.0, 0.0, 0, 0
