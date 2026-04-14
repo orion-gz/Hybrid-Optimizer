@@ -18,7 +18,7 @@ def get_total_grad_norm(model: torch.nn.Module) -> float:
 import math
 
 def sam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, scaler):
-    # 1. First Step
+    # First Step
     with autocast('cuda', enabled=scaler is not None):
         outputs = model(inputs)
         loss = mixup_cutmix_criterion(criterion, outputs, *label_info) if mixup_applied else criterion(outputs, *label_info)
@@ -28,10 +28,9 @@ def sam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, sca
         scaler.unscale_(optimizer) 
         
         grad_norm = get_total_grad_norm(model)
-        # [핵심 방어 1] 첫 번째 패스에서 NaN/Inf 발생 시 업데이트 스킵
         if math.isnan(grad_norm) or math.isinf(grad_norm):
             optimizer.zero_grad()
-            scaler.update() # Scale Factor 감소 유도
+            scaler.update() 
             return loss, grad_norm, outputs
             
         optimizer.first_step(zero_grad=True)
@@ -40,15 +39,14 @@ def sam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, sca
         grad_norm = get_total_grad_norm(model)
         optimizer.first_step(zero_grad=True)
     
-    # 2. Second Step
+    # Second Step
     with autocast('cuda', enabled=scaler is not None):
         outputs2 = model(inputs)
         second_loss = mixup_cutmix_criterion(criterion, outputs2, *label_info) if mixup_applied else criterion(outputs2, *label_info)
     
     if scaler:
-        scaler.scale(second_loss).backward() # 언더플로우 방지를 위해 다시 스케일링
+        scaler.scale(second_loss).backward() 
         
-        # [핵심 방어 2] unscale_() 중복 호출 에러를 우회하는 '수동 unscale' 및 Inf 검사
         inv_scale = 1.0 / scaler.get_scale()
         found_inf = False
         for p in model.parameters():
@@ -58,7 +56,6 @@ def sam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, sca
                     found_inf = True
         
         if found_inf:
-            # 두 번째 패스에서 폭발 시, 가중치 붕괴를 막기 위해 old_p로 안전하게 롤백
             for group in optimizer.param_groups:
                 for p in group['params']:
                     if p in optimizer.state and 'old_p' in optimizer.state[p]:
@@ -77,7 +74,7 @@ def sam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, sca
 def esam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, gamma, scaler):
     criterion_none = nn.CrossEntropyLoss(reduction='none') 
     
-    # 1. First Step
+    # First Step
     with autocast('cuda', enabled=scaler is not None):
         outputs = model(inputs)
         if mixup_applied:
@@ -116,7 +113,7 @@ def esam_step(model, optimizer, criterion, inputs, label_info, mixup_applied, ga
     loss_increases = perturbed_losses - base_losses
     _, indices = torch.topk(loss_increases, int(gamma * inputs.size(0)))
     
-    # 2. Second Step
+    # Second Step
     final_inputs = inputs[indices]
     if mixup_applied:
         targets_a_sel, targets_b_sel = targets_a[indices], targets_b[indices]
