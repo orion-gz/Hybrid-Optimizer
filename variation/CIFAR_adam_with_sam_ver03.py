@@ -168,7 +168,7 @@ def switch_to_sam(model, optimizer, config, epoch):
 def run_experiment(config):
     """Run a single training experiment and return the history dict."""
     strategy_name = config['strategy_name']
-    device        = config['device']
+    device = config['device']
     print(f"\n===== Training Strategy: {strategy_name} =====")
 
     train_loader, val_loader, test_loader = get_data_loaders(config)
