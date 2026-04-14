@@ -201,10 +201,10 @@ def run_experiment(config):
         'test_acc': 0,
         'total_training_time': 0
     }
-    best_val_acc      = 0.0
-    best_model_state  = deepcopy(model.state_dict())
+    best_val_acc = 0.0
+    best_model_state = deepcopy(model.state_dict())
     total_training_time = 0
-    switched          = False
+    switched = False
 
     use_amp = config['use_amp']
     print(f"AMP Enabled: {use_amp}")
