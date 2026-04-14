@@ -152,16 +152,16 @@ class DynamicSwitcher:
 class DynamicSwitcher_ver02:
     def __init__(
         self,
-        # ── 필요조건 파라미터 ──────────────────────────────────────────
+        # 필요조건 파라미터
         min_switch_epoch: int = 150,
         loss_stable_window: int = 10,       # loss 안정성 판단 윈도우
         loss_stable_std_threshold: float = 0.02,  # loss std 이 이하면 안정
  
-        # ── 충분조건: 개선 속도 ────────────────────────────────────────
+        # 충분조건: 개선 속도
         slope_window: int = 30,             # 개선 속도 측정 윈도우 (epoch)
         slope_threshold: float = 0.01,      # %/epoch 이하면 "개선 둔화"
  
-        # ── 충분조건: 기존 신호 (보조) ────────────────────────────────
+        # 충분조건: 기존 신호 (보조)
         beta_ema: float = 0.9,
         history_window: int = 20,
         plateau_patience: int = 20,
@@ -170,14 +170,14 @@ class DynamicSwitcher_ver02:
         grad_norm_increase_threshold: float = 0.1,
         oscillation_threshold: int = 5,
  
-        # ── 점수 가중치 ────────────────────────────────────────────────
+        # 점수 가중치
         # 각 충분조건 신호의 기여 가중치 (합이 1이 되도록 설계)
         w_slope: float = 0.40,             # 개선 속도 둔화 (가장 직접적)
         w_plateau: float = 0.25,           # val_acc plateau
         w_gap: float = 0.20,               # generalization gap 증가
         w_grad: float = 0.15,              # grad norm 불안정
  
-        # ── 전환 트리거 임계값 ─────────────────────────────────────────
+        # 전환 트리거 임계값
         score_threshold: float = 0.5,      # 이 점수 이상이면 전환
     ):
         """
@@ -234,7 +234,7 @@ class DynamicSwitcher_ver02:
         self.patience_counter = 0
         self.best_val_acc = 0.0
  
-    # ── EMA 업데이트 ────────────────────────────────────────────────────
+    # EMA 업데이트
     def _update_ema(self, key: str, value: float):
         if key not in self.ema_values:
             self.ema_values[key] = value
@@ -244,18 +244,18 @@ class DynamicSwitcher_ver02:
                 + (1 - self.beta_ema) * value
             )
  
-    # ── 필요조건 1: epoch 최소 기준 ────────────────────────────────────
+    # 필요조건 1: epoch 최소 기준
     def _check_min_epoch(self, epoch: int) -> bool:
         return epoch >= self.min_switch_epoch
  
-    # ── 필요조건 2: train loss 안정성 ──────────────────────────────────
+    # 필요조건 2: train loss 안정성
     def _check_loss_stable(self) -> tuple[bool, float]:
         if len(self.train_loss_history) < self.loss_stable_window:
             return False, float('inf')
         loss_std = float(np.std(list(self.train_loss_history)))
         return loss_std < self.loss_stable_std_threshold, loss_std
  
-    # ── 충분조건 1: val_acc 개선 속도 (slope) ──────────────────────────
+    # 충분조건 1: val_acc 개선 속도 (slope)
     def _check_slope(self) -> tuple[float, float]:
         """
         최근 slope_window epoch 동안의 val_acc 선형 기울기를 계산.
@@ -280,13 +280,13 @@ class DynamicSwitcher_ver02:
  
         return score, slope
  
-    # ── 충분조건 2: plateau ─────────────────────────────────────────────
+    # 충분조건 2: plateau
     def _check_plateau(self) -> tuple[float, int]:
         """patience_counter를 plateau_patience로 나눈 비율을 점수로."""
         score = min(1.0, self.patience_counter / self.plateau_patience)
         return score, self.patience_counter
  
-    # ── 충분조건 3: generalization gap 증가 ────────────────────────────
+    # 충분조건 3: generalization gap 증가
     def _check_gap(self) -> tuple[float, float]:
         if len(self.ema_history) <= self.history_window:
             return 0.0, 0.0
@@ -301,7 +301,7 @@ class DynamicSwitcher_ver02:
             score = min(1.0, gap_delta / (self.gap_threshold * 2))
         return score, gap_delta
  
-    # ── 충분조건 4: grad norm 불안정 ───────────────────────────────────
+    # 충분조건 4: grad norm 불안정
     def _check_grad_norm(self) -> tuple[float, float]:
         if len(self.ema_history) <= self.history_window:
             return 0.0, 0.0
@@ -332,7 +332,7 @@ class DynamicSwitcher_ver02:
  
         return score, relative_increase
  
-    # ── 메인 step ───────────────────────────────────────────────────────
+    # 메인 step
     def step(
         self,
         epoch: int,
@@ -379,7 +379,7 @@ class DynamicSwitcher_ver02:
         else:
             self.patience_counter += 1
  
-        # ── 필요조건 평가 ─────────────────────────────────────────────
+        # 필요조건 평가
         ok_epoch = self._check_min_epoch(epoch)
         ok_stable, loss_std = self._check_loss_stable()
  
@@ -394,7 +394,7 @@ class DynamicSwitcher_ver02:
             )
             return False
  
-        # ── 충분조건 점수 계산 ────────────────────────────────────────
+        # 충분조건 점수 계산
         s_slope,   slope      = self._check_slope()
         s_plateau, p_count    = self._check_plateau()
         s_gap,     gap_delta  = self._check_gap()
@@ -500,7 +500,7 @@ class DynamicSwitcher_ver04:
         gain_threshold: float = 0.2,
         rho: float = 0.05,
         weight_decay: float = 0.05,
-        # ── LR restart 관련 ──────────────────────────────────────────
+        # LR restart 관련
         initial_lr: float = 0.001,
         lr_restart_factor: float = 0.3,
     ):
@@ -546,7 +546,7 @@ class DynamicSwitcher_ver04:
         # 전환 시 실제로 사용할 LR (시뮬레이션과 동일한 값)
         self.restart_lr = initial_lr * lr_restart_factor
  
-    # ── probe DataLoader 생성 ──────────────────────────────────────────
+    # probe DataLoader 생성
     def _make_probe_loader(self, val_loader: DataLoader) -> DataLoader:
         dataset = val_loader.dataset
         n_probe = max(1, int(len(dataset) * self.probe_ratio))
@@ -559,7 +559,7 @@ class DynamicSwitcher_ver04:
             num_workers=getattr(val_loader, 'num_workers', 0),
         )
  
-    # ── probe 정확도 측정 ─────────────────────────────────────────────
+    # probe 정확도 측정
     @torch.no_grad()
     def _probe_accuracy(
         self,
@@ -579,7 +579,7 @@ class DynamicSwitcher_ver04:
             total   += targets.size(0)
         return 100.0 * correct / total if total > 0 else 0.0
  
-    # ── SAM 시뮬레이션 (restart_lr 사용) ──────────────────────────────
+    # SAM 시뮬레이션 (restart_lr 사용)
     def _simulate_sam(
         self,
         model: nn.Module,
@@ -636,7 +636,7 @@ class DynamicSwitcher_ver04:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── AdamW 시뮬레이션 (현재 decay된 LR 유지) ───────────────────────
+    # AdamW 시뮬레이션 (현재 decay된 LR 유지)
     def _simulate_adamw(
         self,
         model: nn.Module,
@@ -682,7 +682,7 @@ class DynamicSwitcher_ver04:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── 메인 step ───────────────────────────────────────────────────────
+    # 메인 step
     def step(
         self,
         epoch: int,
@@ -692,19 +692,19 @@ class DynamicSwitcher_ver04:
         criterion: nn.Module,
         device: torch.device,
     ) -> bool:
-        # ── 필요조건: 최소 epoch ────────────────────────────────────────
+        # 필요조건: 최소 epoch
         if epoch < self.min_switch_epoch:
             print(f"[Switcher] Warming up... ({epoch + 1}/{self.min_switch_epoch})")
             return False
  
-        # ── check_every 주기 체크 ───────────────────────────────────────
+        # check_every 주기 체크
         elapsed = epoch - self.min_switch_epoch
         if elapsed > 0 and elapsed % self.check_every != 0:
             remaining = self.check_every - (elapsed % self.check_every)
             print(f"[Switcher] Skipping simulation (next check in {remaining} epoch)")
             return False
  
-        # ── 시뮬레이션 준비 ─────────────────────────────────────────────
+        # 시뮬레이션 준비
         current_lr  = optimizer.param_groups[0]['lr']
         adamw_state = deepcopy(optimizer.state_dict()['state'])
         w_saved     = deepcopy(model.state_dict())
@@ -715,19 +715,19 @@ class DynamicSwitcher_ver04:
               f"  rho={self.rho}  sim_steps={self.sim_steps}"
               f"  probe={self.probe_ratio*100:.0f}% of val")
  
-        # ── SAM 시뮬레이션 (restart_lr 사용) ────────────────────────────
+        # SAM 시뮬레이션 (restart_lr 사용)
         acc_sam = self._simulate_sam(
             model, probe_loader, criterion, device, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── AdamW 시뮬레이션 (현재 LR 유지) ─────────────────────────────
+        # AdamW 시뮬레이션 (현재 LR 유지)
         acc_adamw = self._simulate_adamw(
             model, probe_loader, criterion, device, current_lr, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── 결과 판단 ───────────────────────────────────────────────────
+        # 결과 판단
         predicted_gain = acc_sam - acc_adamw
         print(f"  SAM(restart)={acc_sam:.2f}%  AdamW(current)={acc_adamw:.2f}%"
               f"  gain={predicted_gain:+.2f}%  (threshold={self.gain_threshold:+.2f}%)")
@@ -766,10 +766,10 @@ class DynamicSwitcher_ver05:
         probe_ratio: float = 0.1,
         sim_steps: int = 10,
         gain_threshold: float = 0.2,
-        # ── 전환 후 SAM 전용 rho (ver05 핵심 변경) ────────────
+        # 전환 후 SAM 전용 rho (ver05 핵심 변경)
         switch_rho: float = 0.05,
         weight_decay: float = 0.05,
-        # ── LR restart 관련 ───────────────────────────────────
+        # LR restart 관련
         initial_lr: float = 0.001,
         lr_restart_factor: float = 0.3,
     ):
@@ -797,7 +797,7 @@ class DynamicSwitcher_ver05:
         self.lr_restart_factor = lr_restart_factor
         self.restart_lr = initial_lr * lr_restart_factor
  
-    # ── probe DataLoader 생성 ──────────────────────────────────
+    # probe DataLoader 생성
     def _make_probe_loader(self, val_loader: DataLoader) -> DataLoader:
         dataset = val_loader.dataset
         n_probe = max(1, int(len(dataset) * self.probe_ratio))
@@ -810,7 +810,7 @@ class DynamicSwitcher_ver05:
             num_workers=getattr(val_loader, 'num_workers', 0),
         )
  
-    # ── probe 정확도 측정 ──────────────────────────────────────
+    # probe 정확도 측정
     @torch.no_grad()
     def _probe_accuracy(
         self,
@@ -830,7 +830,7 @@ class DynamicSwitcher_ver05:
             total   += targets.size(0)
         return 100.0 * correct / total if total > 0 else 0.0
  
-    # ── SAM 시뮬레이션 (restart_lr + switch_rho) ──────────────
+    # SAM 시뮬레이션 (restart_lr + switch_rho)
     def _simulate_sam(
         self,
         model: nn.Module,
@@ -883,7 +883,7 @@ class DynamicSwitcher_ver05:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── AdamW 시뮬레이션 (★ ver05 핵심 변경: restart_lr 사용) ─
+    # AdamW 시뮬레이션 (★ ver05 핵심 변경: restart_lr 사용)
     def _simulate_adamw(
         self,
         model: nn.Module,
@@ -933,7 +933,7 @@ class DynamicSwitcher_ver05:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── 메인 step ──────────────────────────────────────────────
+    # 메인 step
     def step(
         self,
         epoch: int,
@@ -943,19 +943,19 @@ class DynamicSwitcher_ver05:
         criterion: nn.Module,
         device: torch.device,
     ) -> bool:
-        # ── 필요조건: 최소 epoch ─────────────────────────────
+        # 필요조건: 최소 epoch
         if epoch < self.min_switch_epoch:
             print(f"[Switcher] Warming up... ({epoch + 1}/{self.min_switch_epoch})")
             return False
  
-        # ── check_every 주기 체크 ────────────────────────────
+        # check_every 주기 체크
         elapsed = epoch - self.min_switch_epoch
         if elapsed > 0 and elapsed % self.check_every != 0:
             remaining = self.check_every - (elapsed % self.check_every)
             print(f"[Switcher] Skipping simulation (next check in {remaining} epoch)")
             return False
  
-        # ── 시뮬레이션 준비 ──────────────────────────────────
+        # 시뮬레이션 준비
         current_lr  = optimizer.param_groups[0]['lr']
         adamw_state = deepcopy(optimizer.state_dict()['state'])
         w_saved     = deepcopy(model.state_dict())
@@ -968,19 +968,19 @@ class DynamicSwitcher_ver05:
         # [ver05] 양쪽 모두 restart_lr 사용함을 명시
         print(f"  [Fair comparison] Both SAM and AdamW simulated at restart_lr={self.restart_lr:.6f}")
  
-        # ── SAM 시뮬레이션 (restart_lr + switch_rho) ─────────
+        # SAM 시뮬레이션 (restart_lr + switch_rho)
         acc_sam = self._simulate_sam(
             model, probe_loader, criterion, device, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── AdamW 시뮬레이션 (★ restart_lr 사용) ─────────────
+        # AdamW 시뮬레이션 (★ restart_lr 사용)
         acc_adamw = self._simulate_adamw(
             model, probe_loader, criterion, device, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── 결과 판단 ────────────────────────────────────────
+        # 결과 판단
         predicted_gain = acc_sam - acc_adamw
         print(f"  SAM(restart)={acc_sam:.2f}%  AdamW(restart)={acc_adamw:.2f}%"
               f"  gain={predicted_gain:+.2f}%  (threshold={self.gain_threshold:+.2f}%)")
@@ -1016,14 +1016,14 @@ class DynamicSwitcher_ver06:
         self,
         min_switch_epoch: int = 150,
         check_every: int = 10,
-        # ── 시뮬레이션 강화 (ver06 핵심 변경 1) ──────────────
+        # 시뮬레이션 강화 (ver06 핵심 변경 1)
         probe_ratio: float = 0.3,
         sim_steps: int = 20,
         gain_threshold: float = 1.0,
-        # ── rho 설정 ─────────────────────────────────────────
+        # rho 설정
         rho_max: float = 0.15,
         weight_decay: float = 0.05,
-        # ── LR restart ───────────────────────────────────────
+        # LR restart
         initial_lr: float = 0.001,
         lr_restart_factor: float = 0.3,
     ):
@@ -1050,7 +1050,7 @@ class DynamicSwitcher_ver06:
         self.lr_restart_factor = lr_restart_factor
         self.restart_lr = initial_lr * lr_restart_factor
  
-    # ── probe DataLoader ───────────────────────────────────────
+    # probe DataLoader
     def _make_probe_loader(self, val_loader: DataLoader) -> DataLoader:
         dataset = val_loader.dataset
         n_probe = max(1, int(len(dataset) * self.probe_ratio))
@@ -1079,7 +1079,7 @@ class DynamicSwitcher_ver06:
             total   += targets.size(0)
         return 100.0 * correct / total if total > 0 else 0.0
  
-    # ── SAM 시뮬레이션 (rho_max 사용) ─────────────────────────
+    # SAM 시뮬레이션 (rho_max 사용)
     def _simulate_sam(
         self, model: nn.Module, probe_loader: DataLoader,
         criterion: nn.Module, device: torch.device,
@@ -1127,7 +1127,7 @@ class DynamicSwitcher_ver06:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── AdamW 시뮬레이션 (restart_lr, 공정 비교 유지) ─────────
+    # AdamW 시뮬레이션 (restart_lr, 공정 비교 유지)
     def _simulate_adamw(
         self, model: nn.Module, probe_loader: DataLoader,
         criterion: nn.Module, device: torch.device,
@@ -1166,7 +1166,7 @@ class DynamicSwitcher_ver06:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── 메인 step ──────────────────────────────────────────────
+    # 메인 step
     def step(
         self, epoch: int, model: nn.Module, optimizer: optim.Optimizer,
         val_loader: DataLoader, criterion: nn.Module, device: torch.device,
@@ -1354,16 +1354,16 @@ class DynamicSwitcher:
 class DynamicSwitcher_ver02:
     def __init__(
         self,
-        # ── 필요조건 파라미터 ──────────────────────────────────────────
+        # 필요조건 파라미터
         min_switch_epoch: int = 150,
         loss_stable_window: int = 10,       # loss 안정성 판단 윈도우
         loss_stable_std_threshold: float = 0.02,  # loss std 이 이하면 안정
  
-        # ── 충분조건: 개선 속도 ────────────────────────────────────────
+        # 충분조건: 개선 속도
         slope_window: int = 30,             # 개선 속도 측정 윈도우 (epoch)
         slope_threshold: float = 0.01,      # %/epoch 이하면 "개선 둔화"
  
-        # ── 충분조건: 기존 신호 (보조) ────────────────────────────────
+        # 충분조건: 기존 신호 (보조)
         beta_ema: float = 0.9,
         history_window: int = 20,
         plateau_patience: int = 20,
@@ -1372,14 +1372,14 @@ class DynamicSwitcher_ver02:
         grad_norm_increase_threshold: float = 0.1,
         oscillation_threshold: int = 5,
  
-        # ── 점수 가중치 ────────────────────────────────────────────────
+        # 점수 가중치
         # 각 충분조건 신호의 기여 가중치 (합이 1이 되도록 설계)
         w_slope: float = 0.40,             # 개선 속도 둔화 (가장 직접적)
         w_plateau: float = 0.25,           # val_acc plateau
         w_gap: float = 0.20,               # generalization gap 증가
         w_grad: float = 0.15,              # grad norm 불안정
  
-        # ── 전환 트리거 임계값 ─────────────────────────────────────────
+        # 전환 트리거 임계값
         score_threshold: float = 0.5,      # 이 점수 이상이면 전환
     ):
         """
@@ -1436,7 +1436,7 @@ class DynamicSwitcher_ver02:
         self.patience_counter = 0
         self.best_val_acc = 0.0
  
-    # ── EMA 업데이트 ────────────────────────────────────────────────────
+    # EMA 업데이트
     def _update_ema(self, key: str, value: float):
         if key not in self.ema_values:
             self.ema_values[key] = value
@@ -1446,18 +1446,18 @@ class DynamicSwitcher_ver02:
                 + (1 - self.beta_ema) * value
             )
  
-    # ── 필요조건 1: epoch 최소 기준 ────────────────────────────────────
+    # 필요조건 1: epoch 최소 기준
     def _check_min_epoch(self, epoch: int) -> bool:
         return epoch >= self.min_switch_epoch
  
-    # ── 필요조건 2: train loss 안정성 ──────────────────────────────────
+    # 필요조건 2: train loss 안정성
     def _check_loss_stable(self) -> tuple[bool, float]:
         if len(self.train_loss_history) < self.loss_stable_window:
             return False, float('inf')
         loss_std = float(np.std(list(self.train_loss_history)))
         return loss_std < self.loss_stable_std_threshold, loss_std
  
-    # ── 충분조건 1: val_acc 개선 속도 (slope) ──────────────────────────
+    # 충분조건 1: val_acc 개선 속도 (slope)
     def _check_slope(self) -> tuple[float, float]:
         """
         최근 slope_window epoch 동안의 val_acc 선형 기울기를 계산.
@@ -1482,13 +1482,13 @@ class DynamicSwitcher_ver02:
  
         return score, slope
  
-    # ── 충분조건 2: plateau ─────────────────────────────────────────────
+    # 충분조건 2: plateau
     def _check_plateau(self) -> tuple[float, int]:
         """patience_counter를 plateau_patience로 나눈 비율을 점수로."""
         score = min(1.0, self.patience_counter / self.plateau_patience)
         return score, self.patience_counter
  
-    # ── 충분조건 3: generalization gap 증가 ────────────────────────────
+    # 충분조건 3: generalization gap 증가
     def _check_gap(self) -> tuple[float, float]:
         if len(self.ema_history) <= self.history_window:
             return 0.0, 0.0
@@ -1503,7 +1503,7 @@ class DynamicSwitcher_ver02:
             score = min(1.0, gap_delta / (self.gap_threshold * 2))
         return score, gap_delta
  
-    # ── 충분조건 4: grad norm 불안정 ───────────────────────────────────
+    # 충분조건 4: grad norm 불안정
     def _check_grad_norm(self) -> tuple[float, float]:
         if len(self.ema_history) <= self.history_window:
             return 0.0, 0.0
@@ -1534,7 +1534,7 @@ class DynamicSwitcher_ver02:
  
         return score, relative_increase
  
-    # ── 메인 step ───────────────────────────────────────────────────────
+    # 메인 step
     def step(
         self,
         epoch: int,
@@ -1581,7 +1581,7 @@ class DynamicSwitcher_ver02:
         else:
             self.patience_counter += 1
  
-        # ── 필요조건 평가 ─────────────────────────────────────────────
+        # 필요조건 평가
         ok_epoch = self._check_min_epoch(epoch)
         ok_stable, loss_std = self._check_loss_stable()
  
@@ -1596,7 +1596,7 @@ class DynamicSwitcher_ver02:
             )
             return False
  
-        # ── 충분조건 점수 계산 ────────────────────────────────────────
+        # 충분조건 점수 계산
         s_slope,   slope      = self._check_slope()
         s_plateau, p_count    = self._check_plateau()
         s_gap,     gap_delta  = self._check_gap()
@@ -1702,7 +1702,7 @@ class DynamicSwitcher_ver04:
         gain_threshold: float = 0.2,
         rho: float = 0.05,
         weight_decay: float = 0.05,
-        # ── LR restart 관련 ──────────────────────────────────────────
+        # LR restart 관련
         initial_lr: float = 0.001,
         lr_restart_factor: float = 0.3,
     ):
@@ -1748,7 +1748,7 @@ class DynamicSwitcher_ver04:
         # 전환 시 실제로 사용할 LR (시뮬레이션과 동일한 값)
         self.restart_lr = initial_lr * lr_restart_factor
  
-    # ── probe DataLoader 생성 ──────────────────────────────────────────
+    # probe DataLoader 생성
     def _make_probe_loader(self, val_loader: DataLoader) -> DataLoader:
         dataset = val_loader.dataset
         n_probe = max(1, int(len(dataset) * self.probe_ratio))
@@ -1761,7 +1761,7 @@ class DynamicSwitcher_ver04:
             num_workers=getattr(val_loader, 'num_workers', 0),
         )
  
-    # ── probe 정확도 측정 ─────────────────────────────────────────────
+    # probe 정확도 측정
     @torch.no_grad()
     def _probe_accuracy(
         self,
@@ -1781,7 +1781,7 @@ class DynamicSwitcher_ver04:
             total   += targets.size(0)
         return 100.0 * correct / total if total > 0 else 0.0
  
-    # ── SAM 시뮬레이션 (restart_lr 사용) ──────────────────────────────
+    # SAM 시뮬레이션 (restart_lr 사용)
     def _simulate_sam(
         self,
         model: nn.Module,
@@ -1838,7 +1838,7 @@ class DynamicSwitcher_ver04:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── AdamW 시뮬레이션 (현재 decay된 LR 유지) ───────────────────────
+    # AdamW 시뮬레이션 (현재 decay된 LR 유지)
     def _simulate_adamw(
         self,
         model: nn.Module,
@@ -1884,7 +1884,7 @@ class DynamicSwitcher_ver04:
  
         return self._probe_accuracy(model, probe_loader, criterion, device)
  
-    # ── 메인 step ───────────────────────────────────────────────────────
+    # 메인 step
     def step(
         self,
         epoch: int,
@@ -1894,19 +1894,19 @@ class DynamicSwitcher_ver04:
         criterion: nn.Module,
         device: torch.device,
     ) -> bool:
-        # ── 필요조건: 최소 epoch ────────────────────────────────────────
+        # 필요조건: 최소 epoch
         if epoch < self.min_switch_epoch:
             print(f"[Switcher] Warming up... ({epoch + 1}/{self.min_switch_epoch})")
             return False
  
-        # ── check_every 주기 체크 ───────────────────────────────────────
+        # check_every 주기 체크
         elapsed = epoch - self.min_switch_epoch
         if elapsed > 0 and elapsed % self.check_every != 0:
             remaining = self.check_every - (elapsed % self.check_every)
             print(f"[Switcher] Skipping simulation (next check in {remaining} epoch)")
             return False
  
-        # ── 시뮬레이션 준비 ─────────────────────────────────────────────
+        # 시뮬레이션 준비
         current_lr  = optimizer.param_groups[0]['lr']
         adamw_state = deepcopy(optimizer.state_dict()['state'])
         w_saved     = deepcopy(model.state_dict())
@@ -1917,19 +1917,19 @@ class DynamicSwitcher_ver04:
               f"  rho={self.rho}  sim_steps={self.sim_steps}"
               f"  probe={self.probe_ratio*100:.0f}% of val")
  
-        # ── SAM 시뮬레이션 (restart_lr 사용) ────────────────────────────
+        # SAM 시뮬레이션 (restart_lr 사용)
         acc_sam = self._simulate_sam(
             model, probe_loader, criterion, device, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── AdamW 시뮬레이션 (현재 LR 유지) ─────────────────────────────
+        # AdamW 시뮬레이션 (현재 LR 유지)
         acc_adamw = self._simulate_adamw(
             model, probe_loader, criterion, device, current_lr, adamw_state
         )
         model.load_state_dict(w_saved)
  
-        # ── 결과 판단 ───────────────────────────────────────────────────
+        # 결과 판단
         predicted_gain = acc_sam - acc_adamw
         print(f"  SAM(restart)={acc_sam:.2f}%  AdamW(current)={acc_adamw:.2f}%"
               f"  gain={predicted_gain:+.2f}%  (threshold={self.gain_threshold:+.2f}%)")

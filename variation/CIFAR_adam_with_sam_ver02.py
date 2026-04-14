@@ -289,7 +289,7 @@ def run_experiment(config):
             best_model_state = deepcopy(model.state_dict())
             print(f"----> Best Val Acc Updated: {best_val_acc:.2f}% at epoch {epoch+1}")
 
-        # ── 전환 로직 ──────────────────────────────────────────────────
+        # 전환 로직
         if "then" in strategy_name and not switched:
             if switcher.step(
                 epoch=epoch,
@@ -334,7 +334,6 @@ def run_experiment(config):
                 )
                 print(f"    └─ Cosine scheduler restarted: T_max={remaining_epochs} epochs")
                 print(f"----- Switch Complete -----\n")
-        # ───────────────────────────────────────────────────────────────
 
         scheduler.step()
 

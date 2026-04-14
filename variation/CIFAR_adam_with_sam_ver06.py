@@ -276,7 +276,7 @@ def run_experiment(config):
     print(f"AMP Enabled: {use_amp}")
     
     for epoch in range(config['epochs']):
-        # ── [ver06] rho warmup: 매 epoch 시작 시 rho 업데이트 ────
+        # [ver06] rho warmup: 매 epoch 시작 시 rho 업데이트
         if switched and switch_epoch_num is not None:
             current_rho = update_rho(optimizer, epoch, switch_epoch_num, config)
         else:
@@ -320,7 +320,7 @@ def run_experiment(config):
             best_model_state = deepcopy(model.state_dict())
             print(f"----> Best Val Acc Updated: {best_val_acc:.2f}% at epoch {epoch+1}")
 
-        # ── 전환 로직 ──────────────────────────────────────────────────
+        # 전환 로직
         if "then" in strategy_name and not switched:
             if switcher.step(
                 epoch=epoch,
@@ -365,7 +365,6 @@ def run_experiment(config):
                 )
                 print(f"    └─ Cosine scheduler restarted: T_max={remaining_epochs} epochs")
                 print(f"----- Switch Complete -----\n")
-        # ───────────────────────────────────────────────────────────────
 
         scheduler.step()
 

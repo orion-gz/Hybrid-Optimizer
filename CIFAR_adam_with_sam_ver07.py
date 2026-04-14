@@ -139,9 +139,7 @@ def get_model(config):
     return model.to(config['device'])
 
 
-# ═══════════════════════════════════════════════════════════════════
 #  전환 관련 함수
-# ═══════════════════════════════════════════════════════════════════
 
 def switch_to_sam(model, optimizer, config):
     """
@@ -203,9 +201,7 @@ def update_rho(optimizer, epoch, switch_epoch, config):
     return current_rho
 
 
-# ═══════════════════════════════════════════════════════════════════
 #  실험 실행
-# ═══════════════════════════════════════════════════════════════════
 
 def run_experiment(config):
     strategy_name = config['strategy_name']
@@ -216,7 +212,7 @@ def run_experiment(config):
     model = get_model(config)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
     
-    # ── optimizer & scheduler 초기화 ────────────────────────────
+    # optimizer & scheduler 초기화
     if strategy_name == "SAM_Only":
         optimizer = SAM(
             model.parameters(),
@@ -249,7 +245,7 @@ def run_experiment(config):
             milestones=[config['warmup_epochs']]
         )
 
-    # ── switcher 초기화 ─────────────────────────────────────────
+    # switcher 초기화
     switcher = SharpnessAwareSwitcher(
         min_switch_epoch=config['min_switch_epoch'],
         check_every=config['check_every'],
@@ -259,7 +255,7 @@ def run_experiment(config):
         sharpness_ema_beta=config['sharpness_ema_beta'],
     )
     
-    # ── 학습 상태 초기화 ────────────────────────────────────────
+    # 학습 상태 초기화
     history = {
         'train_loss': [], 'train_acc': [],
         'val_loss': [], 'val_acc': [],
@@ -277,7 +273,7 @@ def run_experiment(config):
     use_amp = config['use_amp']
     print(f"AMP Enabled: {use_amp}")
     
-    # ── 학습 루프 ───────────────────────────────────────────────
+    # 학습 루프
     for epoch in range(config['epochs']):
         
         # rho warmup: SAM 전환 후 매 epoch rho 업데이트
@@ -323,7 +319,7 @@ def run_experiment(config):
             best_model_state = deepcopy(model.state_dict())
             print(f"----> Best Val Acc Updated: {best_val_acc:.2f}% at epoch {epoch+1}")
 
-        # ── 전환 로직 (Sharpness 기반) ─────────────────────────
+        # 전환 로직 (Sharpness 기반)
         if "then" in strategy_name and not switched:
             # SharpnessAwareSwitcher: optimizer 불필요 (가중치 상태만 측정)
             if switcher.step(
@@ -367,11 +363,10 @@ def run_experiment(config):
                 )
                 print(f"    └─ Cosine scheduler restarted: T_max={remaining_epochs} epochs")
                 print(f"----- Switch Complete -----\n")
-        # ───────────────────────────────────────────────────────
 
         scheduler.step()
 
-    # ── 최종 평가 ───────────────────────────────────────────────
+    # 최종 평가
     model.load_state_dict(best_model_state)
     _, test_acc = evaluate(model, test_loader, criterion, device)
     history['test_acc'] = test_acc
@@ -394,9 +389,7 @@ def run_experiment(config):
     return history
 
 
-# ═══════════════════════════════════════════════════════════════════
 #  시각화 & 출력
-# ═══════════════════════════════════════════════════════════════════
 
 def plot_results(results):
     fig, axes = plt.subplots(1, 3, figsize=(24, 6))
