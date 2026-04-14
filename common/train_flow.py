@@ -192,7 +192,7 @@ def train_one_epoch(
     model.train()
     total_loss, total_grad_norm, correct, total = 0.0, 0.0, 0, 0
     
-    # Scaler 초기화 (AMP 사용할 때만)
+    # init scaler (when using amp)
     scaler = GradScaler() if use_amp else None
     
     for inputs, targets in dataloader:
