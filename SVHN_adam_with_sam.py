@@ -262,7 +262,6 @@ for name in strategies:
     results[name] = history
     results[name]['test_acc'] = test_acc
 
-# %%
 fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(24, 6))
 
 ax1.set_title("Loss Curves")
