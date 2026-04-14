@@ -172,7 +172,7 @@ def run_experiment(config):
     print(f"\n===== Training Strategy: {strategy_name} =====")
 
     train_loader, val_loader, test_loader = get_data_loaders(config)
-    model     = get_model(config)
+    model = get_model(config)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
     if strategy_name == "SAM_Only":
