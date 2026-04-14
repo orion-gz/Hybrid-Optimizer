@@ -1,5 +1,6 @@
 import torch
 
+# print config setting
 def print_config(config):
     max_key_len = max(len(key) for key in config.keys())
     print("=" * (max_key_len + 5))
@@ -9,24 +10,24 @@ def print_config(config):
         else:
             print(f"{key:<{max_key_len}} : {value}")        
     print("=" * (max_key_len + 5))
-    
+
 def get_config():
     EPOCHS = 300
     WARMUP_EPOCHS = 10
     
     config = {
-        # 기본 설정
+        # default experiment 
         'seed': 42,
         'device': torch.device("cuda" if torch.cuda.is_available() else "cpu"),
         'num_workers': 16,
         
-        # 데이터셋 설정
+        # dataset 
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
         'image_size': 32,
         
-        # 데이터 증강 설정
+        # data augmentation
         'use_randaugment': False, 
         'use_autoaugment': True, 
         'use_mixup': True,
@@ -35,12 +36,11 @@ def get_config():
         'cutmix_alpha': 1.0,
         'aug_prob': 0.5,
 
-        # 모델 설정
-        # WRN_28_10, resnet18, cct_7_3x1_32_c100, vit_small_patch8_224, vit_small_patch16_224, deit_tiny_patch16_224, deit_small_patch16_224, efficientnetv2_s
+        # model
         'model_name': 'vit_small_patch8_224', 
         'dropout_rate': 0.0,
         
-        # 훈련 설정
+        # training
         'use_amp': False, 
         'epochs': EPOCHS,
         'batch_size': 512,
@@ -75,18 +75,18 @@ def get_config_ver02():
     WARMUP_EPOCHS = 10
     
     config = {
-        # 기본 설정
+        # default experiment
         'seed': 42,
         'device': torch.device("cuda" if torch.cuda.is_available() else "cpu"),
         'num_workers': 16,
         
-        # 데이터셋 설정
+        # dataset
         'dataset': 'CIFAR100',
         'num_classes': 100,
         'data_path': './data/',
         'image_size': 32,
         
-        # 데이터 증강 설정
+        # data augmentation
         'use_randaugment': False,
         'use_autoaugment': True,
         'use_mixup': True,
@@ -95,49 +95,47 @@ def get_config_ver02():
         'cutmix_alpha': 1.0,
         'aug_prob': 0.5,
  
-        # 모델 설정
+        # model
         'model_name': 'WRN_28_10',
         'dropout_rate': 0.3,
         
-        # 훈련 설정
+        # training
         'use_amp': False,
         'epochs': EPOCHS,
         'batch_size': 256,
         
-        # AdamW 설정
+        # AdamW 
         'warmup_epochs': WARMUP_EPOCHS,
         'initial_lr': 0.0001,
         'weight_decay': 0.0005,
  
-        # SAM 설정
-        # ※ sam_lr, sam_warmup_epochs, esam_lr 제거:
-        #   전환 시 LR은 AdamW 현재값을 그대로 인계받으므로 별도 설정 불필요
-        'sam_only_lr': 1e-3,    # SAM_Only 전략 전용
-        'sam_only_rho': 0.20,   # SAM_Only 전략 전용
-        'rho': 0.05,            # [변경] 0.2 → 0.05: 수렴 단계 가중치에 맞게 perturbation 축소
+        # SAM
+        'sam_only_lr': 1e-3,    # SAM_Only 
+        'sam_only_rho': 0.20,   # SAM_Only 
+        'rho': 0.05,            
  
-        # DynamicSwitcher 설정
-        # ── 필요조건
-        'min_switch_epoch': 150,            # [변경] 30 → 150
-        'loss_stable_window': 10,           # [신규] loss std 계산 윈도우
-        'loss_stable_std_threshold': 0.06,  # [신규] 이 이하면 loss 안정 판단
-        # ── 충분조건: 개선 속도
-        'slope_window': 30,                 # [신규] val_acc slope 윈도우 (epoch)
-        'slope_threshold': 0.01,            # [신규] %/epoch 이하면 개선 둔화
-        # ── 충분조건: 기존 신호
+        # DynamicSwitcher 
+        'min_switch_epoch': 150,            
+        'loss_stable_window': 10,           
+        'loss_stable_std_threshold': 0.06,  
+        
+        'slope_window': 30,                 
+        'slope_threshold': 0.01,            
+        
         'beta_ema': 0.9,
         'history_window': 20,
-        'plateau_patience': 20,             # [변경] 10 → 20
-        'plateau_min_delta': 0.005,         # [변경] 0.01 → 0.005
+        'plateau_patience': 20,            
+        'plateau_min_delta': 0.005,        
         'gap_threshold': 0.02,
         'grad_norm_threshold': 0.1,
         'oscillation_threshold': 5,
-        # ── 점수 가중치 & 임계값
-        'w_slope': 0.40,                    # [신규] slope 신호 가중치
-        'w_plateau': 0.25,                  # [신규] plateau 신호 가중치
-        'w_gap': 0.20,                      # [신규] gap 신호 가중치
-        'w_grad': 0.15,                     # [신규] grad norm 신호 가중치
-        'score_threshold': 0.5,             # [신규] 이 점수 이상이면 전환
+        
+        # score weights & threshold
+        'w_slope': 0.40,                    
+        'w_plateau': 0.25,                  
+        'w_gap': 0.20,                      
+        'w_grad': 0.15,                     
+        'score_threshold': 0.5,             
     }
     return config
 
