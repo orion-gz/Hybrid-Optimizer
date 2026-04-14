@@ -254,11 +254,11 @@ def run_experiment(config):
 
         val_loss, val_acc = evaluate(model, val_loader, criterion, device)
 
-        generalization_gap  = train_acc - val_acc
-        end_time            = time.time() - start_time
+        generalization_gap = train_acc - val_acc
+        end_time = time.time() - start_time
         total_training_time += end_time
 
-        phase   = "[SAM]" if switched else "[AdamW]"
+        phase = "[SAM]" if switched else "[AdamW]"
         rho_str = f" | rho: {current_rho:.4f}" if current_rho is not None else ""
         print(
             f"Epoch {epoch+1:03d}/{config['epochs']} {phase} | "
