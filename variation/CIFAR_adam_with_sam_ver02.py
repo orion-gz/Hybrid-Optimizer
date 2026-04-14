@@ -287,8 +287,7 @@ def run_experiment(config):
                 elif strategy_name == "AdamW_then_ESAM":
                     current_lr = optimizer.param_groups[0]['lr']
                     print(f"    Inheriting LR from AdamW: {current_lr:.6f}")
-                    optimizer = ESAM(model.parameters(), optim.AdamW, rho=config['rho'],
-                                     lr=current_lr, weight_decay=config['weight_decay'], beta=0.5)
+                    optimizer = ESAM(model.parameters(), optim.AdamW, rho=config['rho'], lr=current_lr, weight_decay=config['weight_decay'], beta=0.5)
 
                 switched = True
                 remaining_epochs = config['epochs'] - (epoch + 1)
