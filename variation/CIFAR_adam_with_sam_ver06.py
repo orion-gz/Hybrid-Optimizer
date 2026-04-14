@@ -59,12 +59,12 @@ def get_data_loaders(config):
         'SVHN':     torchvision.datasets.SVHN,
     }
 
-    dataset_name  = config['dataset']
+    dataset_name = config['dataset']
     if dataset_name not in DATASET_STATS:
         raise ValueError(f"Unsupported dataset: {dataset_name}")
 
     mean = DATASET_STATS[dataset_name]['mean']
-    std  = DATASET_STATS[dataset_name]['std']
+    std = DATASET_STATS[dataset_name]['std']
     dataset_class = DATASET_CLASSES[dataset_name]
 
     train_transforms_list, test_transforms_list = [], []
@@ -89,23 +89,23 @@ def get_data_loaders(config):
     test_transforms_list.extend([transforms.ToTensor(),  transforms.Normalize(mean=mean, std=std)])
 
     train_transform = transforms.Compose(train_transforms_list)
-    test_transform  = transforms.Compose(test_transforms_list)
+    test_transform = transforms.Compose(test_transforms_list)
 
     if dataset_name == 'SVHN':
         full_train = dataset_class(root=config['data_path'], split='train', download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
     else:
         full_train = dataset_class(root=config['data_path'], train=True,  download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
 
     train_size = int(0.8 * len(full_train))
-    val_size   = len(full_train) - train_size
-    gen        = torch.Generator().manual_seed(config['seed'])
+    val_size = len(full_train) - train_size
+    gen = torch.Generator().manual_seed(config['seed'])
     train_set, val_set = random_split(full_train, [train_size, val_size], generator=gen)
 
     train_loader = DataLoader(train_set, batch_size=config['batch_size'], shuffle=True,  num_workers=config['num_workers'])
-    val_loader   = DataLoader(val_set,   batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
-    test_loader  = DataLoader(test_set,  batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
+    val_loader = DataLoader(val_set,   batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
+    test_loader = DataLoader(test_set,  batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
 
     return train_loader, val_loader, test_loader
 
@@ -141,8 +141,8 @@ def switch_to_sam(model, optimizer, config):
     AdamW optimizer state is transferred to avoid discontinuities.
     """
     restart_lr = config['initial_lr'] * config['lr_restart_factor']
-    rho_key    = 'rho_min' if 'rho_min' in config else ('switch_rho' if 'switch_rho' in config else 'rho')
-    start_rho  = config[rho_key]
+    rho_key = 'rho_min' if 'rho_min' in config else ('switch_rho' if 'switch_rho' in config else 'rho')
+    start_rho = config[rho_key]
 
     print(f"    AdamW current LR : {optimizer.param_groups[0]['lr']:.6f}")
     print(f"    SAM restart LR   : {restart_lr:.6f}")
@@ -173,8 +173,8 @@ def update_rho(optimizer, epoch, switch_epoch, config):
     if 'rho_min' not in config or 'rho_max' not in config:
         return None
 
-    elapsed  = epoch - switch_epoch
-    warmup   = config.get('rho_warmup_epochs', 1)
+    elapsed = epoch - switch_epoch
+    warmup = config.get('rho_warmup_epochs', 1)
     progress = min(1.0, elapsed / max(warmup, 1))
     current_rho = config['rho_min'] + (config['rho_max'] - config['rho_min']) * progress
 
@@ -188,11 +188,11 @@ def update_rho(optimizer, epoch, switch_epoch, config):
 def run_experiment(config):
     """Run a single training experiment and return the history dict."""
     strategy_name = config['strategy_name']
-    device        = config['device']
+    device = config['device']
     print(f"\n===== Training Strategy: {strategy_name} =====")
 
     train_loader, val_loader, test_loader = get_data_loaders(config)
-    model     = get_model(config)
+    model = get_model(config)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
     if strategy_name == "SAM_Only":
@@ -201,10 +201,10 @@ def run_experiment(config):
                         weight_decay=config['weight_decay'])
         scheduler = CosineAnnealingLR(optimizer.base_optimizer, T_max=config['epochs'], eta_min=1e-6)
     else:
-        optimizer        = optim.AdamW(model.parameters(), lr=config['initial_lr'], weight_decay=config['weight_decay'])
+        optimizer = optim.AdamW(model.parameters(), lr=config['initial_lr'], weight_decay=config['weight_decay'])
         warmup_scheduler = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-        main_scheduler   = CosineAnnealingLR(optimizer, T_max=config['epochs'] - config['warmup_epochs'], eta_min=1e-6)
-        scheduler        = SequentialLR(optimizer, schedulers=[warmup_scheduler, main_scheduler],
+        main_scheduler = CosineAnnealingLR(optimizer, T_max=config['epochs'] - config['warmup_epochs'], eta_min=1e-6)
+        scheduler = SequentialLR(optimizer, schedulers=[warmup_scheduler, main_scheduler],
                                          milestones=[config['warmup_epochs']])
 
     # build switcher from config
@@ -230,11 +230,11 @@ def run_experiment(config):
         'test_acc': 0,
         'total_training_time': 0
     }
-    best_val_acc      = 0.0
-    best_model_state  = deepcopy(model.state_dict())
+    best_val_acc = 0.0
+    best_model_state = deepcopy(model.state_dict())
     total_training_time = 0
-    switched          = False
-    switch_epoch_num  = None
+    switched = False
+    switch_epoch_num = None
 
     print(f"AMP Enabled: {config['use_amp']}")
 
@@ -255,11 +255,11 @@ def run_experiment(config):
 
         val_loss, val_acc = evaluate(model, val_loader, criterion, device)
 
-        generalization_gap  = train_acc - val_acc
-        end_time            = time.time() - start_time
+        generalization_gap = train_acc - val_acc
+        end_time = time.time() - start_time
         total_training_time += end_time
 
-        phase   = "[SAM]" if switched else "[AdamW]"
+        phase = "[SAM]" if switched else "[AdamW]"
         rho_str = f" | rho: {current_rho:.4f}" if current_rho is not None else ""
         print(
             f"Epoch {epoch+1:03d}/{config['epochs']} {phase} | "
@@ -285,11 +285,11 @@ def run_experiment(config):
                              val_loader=val_loader, criterion=criterion, device=device):
                 print(f"\n----- Simulation Switch Triggered at Epoch {epoch+1}! -----")
                 history['switch_epoch'] = epoch + 1
-                switch_epoch_num        = epoch + 1
+                switch_epoch_num = epoch + 1
 
                 new_optimizer, restart_lr = switch_to_sam(model, optimizer, config)
-                optimizer    = new_optimizer
-                switched     = True
+                optimizer = new_optimizer
+                switched = True
 
                 remaining_epochs = config['epochs'] - (epoch + 1)
                 scheduler = CosineAnnealingLR(
