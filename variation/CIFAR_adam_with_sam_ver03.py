@@ -92,23 +92,23 @@ def get_data_loaders(config):
     test_transforms_list.extend([transforms.ToTensor(), transforms.Normalize(mean=mean, std=std)])
 
     train_transform = transforms.Compose(train_transforms_list)
-    test_transform  = transforms.Compose(test_transforms_list)
+    test_transform = transforms.Compose(test_transforms_list)
 
     if dataset_name == 'SVHN':
         full_train = dataset_class(root=config['data_path'], split='train', download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], split='test',  download=True, transform=test_transform)
     else:
         full_train = dataset_class(root=config['data_path'], train=True,  download=True, transform=train_transform)
-        test_set   = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
+        test_set = dataset_class(root=config['data_path'], train=False, download=True, transform=test_transform)
 
     train_size = int(0.8 * len(full_train))
-    val_size   = len(full_train) - train_size
-    generator  = torch.Generator().manual_seed(config['seed'])
+    val_size = len(full_train) - train_size
+    generator = torch.Generator().manual_seed(config['seed'])
     train_set, val_set = random_split(full_train, [train_size, val_size], generator=generator)
 
     train_loader = DataLoader(train_set, batch_size=config['batch_size'], shuffle=True,  num_workers=config['num_workers'])
-    val_loader   = DataLoader(val_set,   batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
-    test_loader  = DataLoader(test_set,  batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
+    val_loader = DataLoader(val_set,   batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
+    test_loader = DataLoader(test_set,  batch_size=config['batch_size'], shuffle=False, num_workers=config['num_workers'])
 
     return train_loader, val_loader, test_loader
 
