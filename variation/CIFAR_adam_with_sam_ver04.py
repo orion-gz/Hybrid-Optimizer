@@ -141,8 +141,8 @@ def switch_to_sam(model, optimizer, config):
     AdamW optimizer state is transferred to avoid discontinuities.
     """
     restart_lr = config['initial_lr'] * config['lr_restart_factor']
-    rho_key    = 'rho_min' if 'rho_min' in config else ('switch_rho' if 'switch_rho' in config else 'rho')
-    start_rho  = config[rho_key]
+    rho_key = 'rho_min' if 'rho_min' in config else ('switch_rho' if 'switch_rho' in config else 'rho')
+    start_rho = config[rho_key]
 
     print(f"    AdamW current LR : {optimizer.param_groups[0]['lr']:.6f}")
     print(f"    SAM restart LR   : {restart_lr:.6f}")
