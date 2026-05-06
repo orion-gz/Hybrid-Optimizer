@@ -73,7 +73,7 @@ $$ sharpness = \mathcal{L}(\mathcal{w} + \rho \cdot \frac{g}{\|g\|}) - \mathcal{
 where $g = \nabla\mathcal{L}(\mathcal{w})$. This requires 1 forward + 1 backward + 1 forward pass on a probe set (20% of validation data), approximately 10 $\times$ cheaper than simulation-based approaches.
 
 ### Why $\lambda_{max}(H)$ Define Sharpness
-From Taylor expansion at a minimum  $\theta^*$ where  $\nabla\mathcal{L}(\theta^*) = 0$ :
+From Taylor expansion at a minimum  $\theta^*$ where  $\nabla \mathcal{L}(\theta^*) = 0$ :
 
 $$ \mathcal{L}(\theta^* + \epsilon) - \mathcal{L}(\theta^*) \approx \frac{1}{2}\epsilon^TH\epsilon $$
 
@@ -230,4 +230,5 @@ At the start of training, the large learning rate destabilizes any trajectory th
  
 The near-identical magnitudes (+3.52%p vs +3.31%p) and the absence of additive benefit when combined provide strong empirical support for the mechanistic overlap hypothesis.
  
-> [!IMPORTANT] A formal proof that cosine decay is equivalent to SAM does not exist in the literature. The argument above is a theoretical interpretation supported by (1) the Edge of Stability finding (Cohen et al., 2021), (2) the implicit bias of large learning rates toward flat minima (Li et al., 2019; Damian et al., 2023), and (3) the empirical results in this repository. It should be treated as a well-supported hypothesis, not an established theorem.
+> [!IMPORTANT] 
+> A formal proof that cosine decay is equivalent to SAM does not exist in the literature. The argument above is a theoretical interpretation supported by (1) the Edge of Stability finding (Cohen et al., 2021), (2) the implicit bias of large learning rates toward flat minima (Li et al., 2019; Damian et al., 2023), and (3) the empirical results in this repository. It should be treated as a well-supported hypothesis, not an established theorem.
