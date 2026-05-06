@@ -51,8 +51,8 @@ def set_seed(seed):
     random.seed(seed)
 
 # experiment config
-def get_config_forced_switch():
-    EPOCHS = 300
+def get_config_forced_switch(total_epochs=300):
+    EPOCHS = total_epochs
     WARMUP_EPOCHS = 10
 
     config = {
@@ -92,7 +92,7 @@ def get_config_forced_switch():
 
         # Switch
         'lr_restart_factor': 0.3,       # restart_lr = 0.001 * 0.3 = 0.0003
-        'forced_switch_epoch': 100,     
+        'forced_switch_epoch': 0,     
     }
     return config
 
@@ -168,7 +168,6 @@ def get_model(config):
 
 # switch helper method
 def switch_to_sam(model, optimizer, config):
-    """AdamW → SAM(AdamW base) 전환. rho_min으로 시작, momentum state 이전."""
     current_lr = optimizer.param_groups[0]['lr']
     restart_lr = config['initial_lr'] * config['lr_restart_factor']
     rho_min = config['rho_min']
@@ -225,7 +224,9 @@ def run_experiment(config):
     forced_switch_ep  = config.get('forced_switch_epoch', None)
 
     label = strategy_name
-    if forced_switch_ep is not None and "then" in strategy_name:
+    if forced_switch_ep == 0 and "then" not in strategy_name:
+        label = f"{strategy_name}"
+    elif forced_switch_ep is not None and "then" in strategy_name:
         label = f"{strategy_name}_switch@{forced_switch_ep}"
 
     print(f"\n{'='*60}")
@@ -245,10 +246,11 @@ def run_experiment(config):
 
     # AdamW phase: warmup 10ep → constant LR (no cosine decay)
     warmup_scheduler   = LinearLR(optimizer, start_factor=1e-10, total_iters=config['warmup_epochs'])
-    constant_scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: 1.0)
+    cosine_scheduler   = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=config['epochs']-config['warmup_epochs'], eta_min=1e-6)
+    #constant_scheduler = LambdaLR(optimizer, lr_lambda=lambda epoch: 1.0)
     scheduler = SequentialLR(
         optimizer,
-        schedulers=[warmup_scheduler, constant_scheduler],
+        schedulers=[warmup_scheduler, cosine_scheduler],
         milestones=[config['warmup_epochs']]
     )
 
@@ -433,25 +435,82 @@ def print_results(results):
 
 
 def main():
-    base_config = get_config_forced_switch()
-    print_config(base_config)
-
-    # setting the switch point(epoch)
-    switch_epochs = [225, 250, 275]
-    all_results = {}
-
-    for se in switch_epochs:
-        set_seed(base_config['seed'])
-
-        config = base_config.copy()
-        config['strategy_name'] = 'AdamW_then_SAM'
-        config['forced_switch_epoch'] = se
-
-        history = run_experiment(config)
-        all_results[f'switch@{se}'] = history
-
-    plot_results(all_results)
-    print_results(all_results)
+    experiments = [
+        (200, [100, 125, 150, 175], 150),
+        (400, [200, 275, 300, 325], 300),
+    ]
+ 
+    grand_results = {}
+ 
+    for total_epochs, switch_points, expected_peak in experiments:
+        print(f"\n{'#'*70}")
+        print(f"  EPOCH VARIATION: Total {total_epochs} epochs")
+        print(f"  Switch points: {switch_points}")
+        print(f"  Expected peak (75%): epoch {expected_peak}")
+        print(f"{'#'*70}\n")
+ 
+        base_config = get_config_forced_switch(total_epochs=total_epochs)
+        print_config(base_config)
+ 
+        epoch_results = {}
+ 
+        for se in switch_points:
+            set_seed(base_config['seed'])
+ 
+            config = base_config.copy()
+            config['strategy_name'] = 'AdamW_then_SAM'
+            config['forced_switch_epoch'] = se
+ 
+            history = run_experiment(config)
+            label = f'ep{total_epochs}_switch@{se}'
+            epoch_results[label] = history
+            grand_results[label] = history
+ 
+        print(f"\n{'='*60}")
+        print(f"  Results for Total {total_epochs} Epochs")
+        print(f"{'='*60}")
+        print(f"{'Switch':>10} {'Ratio':>8} {'Test Acc':>10} {'Best Val':>10}")
+        print(f"{'-'*42}")
+        for se in switch_points:
+            label = f'ep{total_epochs}_switch@{se}'
+            h = epoch_results[label]
+            ratio = se / total_epochs
+            peak_mark = " ← 75%" if se == expected_peak else ""
+            print(f"{se:>10} {ratio:>7.0%} {h['test_acc']:>9.2f}% {max(h['val_acc']):>9.2f}%{peak_mark}")
+ 
+        plot_results(epoch_results)
+ 
+    print(f"\n{'='*70}")
+    print(f"  GRAND COMPARISON: 75% Rule Across Epoch Budgets")
+    print(f"{'='*70}")
+    print(f"{'Total Ep':>10} {'Switch':>10} {'Ratio':>8} {'Test Acc':>10} {'75%?':>8}")
+    print(f"{'-'*50}")
+ 
+    ref_300 = [
+        (50,80.86),(75,81.17),(100,80.97),(150,81.58),
+        (200,81.93),(225,82.30),(250,81.71),(275,81.63)
+    ]
+    for se, acc in ref_300:
+        ratio = se / 300
+        peak_mark = " ← PEAK" if se == 225 else ""
+        print(f"{'300':>10} {se:>10} {ratio:>7.0%} {acc:>9.2f}%{peak_mark}")
+ 
+    print()
+    for total_epochs, switch_points, expected_peak in experiments:
+        for se in switch_points:
+            label = f'ep{total_epochs}_switch@{se}'
+            if label in grand_results:
+                h = grand_results[label]
+                ratio = se / total_epochs
+                # Find peak in this group
+                group = {s: grand_results[f'ep{total_epochs}_switch@{s}']['test_acc']
+                         for s in switch_points if f'ep{total_epochs}_switch@{s}' in grand_results}
+                best_se = max(group, key=group.get)
+                peak_mark = " ← PEAK" if se == best_se else ""
+                print(f"{total_epochs:>10} {se:>10} {ratio:>7.0%} {h['test_acc']:>9.2f}%{peak_mark}")
+        print()
+ 
+    print_results(grand_results)
 
 
 if __name__ == '__main__':
