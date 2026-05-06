@@ -15,8 +15,6 @@ Through systematic experimentation on `WRN-28-10` across **CIFAR-10** and **CIFA
 ---
 
 ## Key Results 
-- Model: `WRN-28-10`
-- Epoch: 300ep
 
 ### Cosine Decay Ablation (CIFAR-100)
 
@@ -70,16 +68,16 @@ Phase 2 - SAM (AdamW base, cosine decay)
 ### Sharpness Measurement
 We measure loss landscape sharpness throughout training as:
 
-$$ sharpness = \mathcal{L}(\mathcal{w} + \rho \cdot \frac{g}{||g||}) - \mathcal{L}(\mathcal{w}) $$
+$$ sharpness = \mathcal{L}(\mathcal{w} + \rho \cdot \frac{g}{\|g\|}) - \mathcal{L}(\mathcal{w}) $$
 
 where $g = \nabla\mathcal{L}(\mathcal{w})$. This requires 1 forward + 1 backward + 1 forward pass on a probe set (20% of validation data), approximately 10 $\times$ cheaper than simulation-based approaches.
 
 ### Why $\lambda_{max}(H)$ Define Sharpness
-From Taylor expansion at a minimum $\theta^*$ where $\nabla\mathcal{L}(\theta^*) = 0$:
+From Taylor expansion at a minimum  $\theta^*$ where  $\nabla\mathcal{L}(\theta^*) = 0$ :
 
 $$ \mathcal{L}(\theta^* + \epsilon) - \mathcal{L}(\theta^*) \approx \frac{1}{2}\epsilon^TH\epsilon $$
 
-Maximizing over $||\epsilon|| \le \rho$ yield $\frac{1}{2}\lambda_{max}(H)\rho^2$, where $\lambda_{max}(H)$ is the largest Hessian eigenvalue. The optimal perturbation direction is the corresponding eigenvector - exactly what SAM's first step approximates.
+Maximizing over $\|\epsilon\| \le \rho$ yield $\frac{1}{2}\lambda_{max}(H)\rho^2$, where $\lambda_{max}(H)$ is the largest Hessian eigenvalue. The optimal perturbation direction is the corresponding eigenvector - exactly what SAM's first step approximates.
 
 ## Version of Switcher
 The path to the final approach wetn through several failed attempts - each failure was informative.
@@ -232,4 +230,4 @@ At the start of training, the large learning rate destabilizes any trajectory th
  
 The near-identical magnitudes (+3.52%p vs +3.31%p) and the absence of additive benefit when combined provide strong empirical support for the mechanistic overlap hypothesis.
  
-> [!important] A formal proof that cosine decay is equivalent to SAM does not exist in the literature. The argument above is a theoretical interpretation supported by (1) the Edge of Stability finding (Cohen et al., 2021), (2) the implicit bias of large learning rates toward flat minima (Li et al., 2019; Damian et al., 2023), and (3) the empirical results in this repository. It should be treated as a well-supported hypothesis, not an established theorem.
+> [!IMPORTANT] A formal proof that cosine decay is equivalent to SAM does not exist in the literature. The argument above is a theoretical interpretation supported by (1) the Edge of Stability finding (Cohen et al., 2021), (2) the implicit bias of large learning rates toward flat minima (Li et al., 2019; Damian et al., 2023), and (3) the empirical results in this repository. It should be treated as a well-supported hypothesis, not an established theorem.

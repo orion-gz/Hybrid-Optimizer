@@ -390,3 +390,7 @@ Epoch 050/200 [AdamW] | LR: 0.000900 | Time: 108.86s | Train Loss: 2.0558 | Trai
 ----> Best Val Acc Updated: 64.34% at epoch 50
 Epoch 051/200 [AdamW] | LR: 0.000895 | Time: 108.98s | Train Loss: 1.9489 | Train Acc: 41.49% | Val Loss: 2.0098 | Val Acc: 64.20% | Gap: -22.71%
 Epoch 052/200 [AdamW] | LR: 0.000890 | Time: 108.71s | Train Loss: 1.9322 | Train Acc: 44.69% | Val Loss: 2.1128 | Val Acc: 61.24% | Gap: -16.55%
+Epoch 053/200 [AdamW] | LR: 0.000884 | Time: 108.53s | Train Loss: 1.8572 | Train Acc: 49.95% | Val Loss: 2.0031 | Val Acc: 65.09% | Gap: -15.14%
+----> Best Val Acc Updated: 65.09% at epoch 53
+Epoch 054/200 [AdamW] | LR: 0.000879 | Time: 108.67s | Train Loss: 1.8892 | Train Acc: 45.85% | Val Loss: 1.9809 | Val Acc: 64.99% | Gap: -19.14%
+Epoch 055/200 [AdamW] | LR: 0.000874 | Time: 108.64s | Train Loss: 1.9675 | Train Acc: 34.13% | Val Loss: 2.0013 | Val Acc: 65.00% | Gap: -30.87%
