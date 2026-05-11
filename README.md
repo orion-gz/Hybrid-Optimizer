@@ -9,7 +9,7 @@ This repository investigates **Hybrid Optimizer** strategies that combine AdamW'
 
 Through systematic experimentation on `WRN-28-10` across **CIFAR-10** and **CIFAR-100**, we discover that:
 1. **Cosine decay implicitly performs flat minima exploration**: mechanistically overlapping with SAM, which explains why SAM provides no benefits when cosine decay is already present. 
-2. **A late-phase switch point exists** where AdamW to SAM consistently outperforms AdamW + cosine alone.
+2. **SAM needs exactly the last ~75 epochs** — across 200, 300, and 400-epoch budgets on CIFAR-100, the optimal switch point is always `total_epochs − 75`, regardless of total budget.
 3. **Architecture-dependent sharpness dynamics**: determine whether SAM is beneficial or harmful 
 
 ---
@@ -39,7 +39,17 @@ Through systematic experimentation on `WRN-28-10` across **CIFAR-10** and **CIFA
 | 250 | 83% | 50 | 81.71% | 97.30% |
 | 275 | 92% | 25 | 81.63% | — |
 
-> Both datasets peak at switch@225 (75% of total epochs), forming an inverted-U curve and surpassing the cosine decay baseline.
+> Both datasets peak at switch@225, forming an inverted-U curve and surpassing cosine decay baselines.
+
+### Epoch Budget Variation (CIFAR-100, WRN-28-10)
+ 
+| Total Epochs | Peak Switch | Ratio | **SAM Epochs** | Test Acc |
+|:---:|:---:|:---:|:---:|:---:|
+| 200 | @125 | 62% | **75** | 81.11% |
+| 300 | @225 | 75% | **75** | 82.30% |
+| 400 | @325 | 81% | **75** | 81.59% |
+ 
+> The optimal ratio shifts (62% → 75% → 81%) as total epochs change, but the **SAM epoch count at peak is always 75**. The rule is not "switch at 75% of training" but **"give SAM the last 75 epochs."** CIFAR-10 does not show the same consistent pattern, suggesting this is architecture–dataset specific and requires further validation.
 
 ### Architecture-Dependent Sharpness
 | Architecture | Sharpness Start | Sharpness End | Trend | SAM Effect |
@@ -73,7 +83,7 @@ $$ sharpness = \mathcal{L}(\mathcal{w} + \rho \cdot \frac{g}{\|g\|}) - \mathcal{
 where $g = \nabla\mathcal{L}(\mathcal{w})$. This requires 1 forward + 1 backward + 1 forward pass on a probe set (20% of validation data), approximately 10 $\times$ cheaper than simulation-based approaches.
 
 ### Why $\lambda_{max}(H)$ Define Sharpness
-From Taylor expansion at a minimum  $\theta^*$ where  $\nabla \mathcal{L}(\theta^*) = 0$ :
+From Taylor expansion at a minimum  $\theta^*$ where $\nabla \mathcal{L}(\theta^*) = 0$ : 
 
 $$ \mathcal{L}(\theta^* + \epsilon) - \mathcal{L}(\theta^*) \approx \frac{1}{2}\epsilon^TH\epsilon $$
 
@@ -132,7 +142,7 @@ Label smooth: 0.1
 ## Limitations
 - Architecture: WRN-28-10 only (CNN). ViT results show SAM is harmful, but the 75% rule is not tested on other CNNs.
 - Scale: CIFAR-10/100 only. ImageNet validation is needed.
-- The 75% rule holds across CIFAR-10 and CIFAR-100 at 300 epochs, but epoch-budget variation experiments suggest the optimal ratio shifts with total epoch count — the rule may be epoch-budget-dependent.
+- The "SAM last 75 epochs" rule has not been tested on other CNNs / consistent across 200/300/400 epoch budgets on CIFAR-100, but CIFAR-10 does not show the same pattern
 - Seed variance is not reported; single-run results throughout.
 
 ---
@@ -151,7 +161,7 @@ This is exactly the objective SAM minimizes. To solve it, apply a second-order T
 $$\mathcal{L}(\theta^* + \epsilon) - \mathcal{L}(\theta^*) \approx \frac{1}{2}\epsilon^TH\epsilon$$
 
 
-**Why does the second-order term take this form?** Parameterize the perturbation path as $g(t) = \mathcal{L}(\theta + t\epsilon) and expand in t:
+**Why does the second-order term take this form?** Parameterize the perturbation path as $g(t) = \mathcal{L}(\theta + t \epsilon) and expand in t:
 
 $$ g(t) = g(0) + g'(0)t + \frac{1}{2}g''(0)t^2 + \dots $$
 
